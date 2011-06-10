@@ -79,7 +79,7 @@ class AlarmasController < ApplicationController
     @alarma = Alarma.find(params[:id])
     
     respond_to do |format|
-      if @alarma.update_attribute(param[:estado_id], 1)
+      if @alarma.update_attributes(:estado_id => 1)
         flash[:notice] = 'La alarma ha sido activada.'
         format.html { redirect_to(alarmas_url) }
         format.xml { head :ok }
@@ -95,10 +95,9 @@ class AlarmasController < ApplicationController
     # No existe destrucción (DELETE) física de data. 
     # Solo se cambia el estado de la tupla de Activa a Inactiva.
     @alarma = Alarma.find(params[:id])
-    #@alarma.destroy
     
     respond_to do |format|
-      if @alarma.update_attribute(param[:estado_id], 2)
+      if @alarma.update_attributes(:estado_id => 2)
         flash[:notice] = 'La alarma fue desactivada.'
         format.html { redirect_to(alarmas_url) }
         format.xml { head :ok }
@@ -106,10 +105,6 @@ class AlarmasController < ApplicationController
        format.html { render :action => "index" } 
        format.xml { render :xml => @alarmas }
       end
-
-    #respond_to do |format|
-    #  format.html { redirect_to(alarmas_url) }
-    #  format.xml  { head :ok }
     end
   end  
 end
