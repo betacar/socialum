@@ -1,0 +1,23 @@
+<p>
+  <b>Estado:</b>
+  <%=h @funcion.estado %>
+</p>
+
+<p>
+  <b>Nombre funcion:</b>
+  <%=h @funcion.nombre_funcion %>
+</p>
+
+<p>
+  <b>Usuario id created:</b>
+  <%=h @funcion.usuario_id_created %>
+</p>
+
+<p>
+  <b>Usuario id updated:</b>
+  <%=h @funcion.usuario_id_updated %>
+</p>
+
+
+<%= link_to 'Edit', edit_funcion_path(@funcion) %> |
+<%= link_to 'Back', funcions_path %>

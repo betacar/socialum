@@ -1,0 +1,23 @@
+<p>
+  <b>Estado:</b>
+  <%=h @silo.estado %>
+</p>
+
+<p>
+  <b>Nombre silo:</b>
+  <%=h @silo.nombre_silo %>
+</p>
+
+<p>
+  <b>Usuario id created:</b>
+  <%=h @silo.usuario_id_created %>
+</p>
+
+<p>
+  <b>Usuario id update:</b>
+  <%=h @silo.usuario_id_update %>
+</p>
+
+
+<%= link_to 'Edit', edit_silo_path(@silo) %> |
+<%= link_to 'Back', silos_path %>

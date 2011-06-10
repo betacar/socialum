@@ -1,0 +1,20 @@
+<h1>Editing alarma</h1>
+
+
+<% form_for(@alarma) do |f| %>
+  <%= current_usuario.ficha %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :nombre_alarma, 'Alarma' %><br />
+    <%= f.text_field :nombre_alarma %>
+    <%= f.text_field :estado_id, :value => 1, :hidden => true %>
+    <%= f.text_field :usuario_id_created, :value => current_usuario.ficha, :hidden => true %>
+    <%= f.text_field :usuario_id_updated, :value => current_usuario.ficha, :hidden => true %>
+  </p>
+  <p>
+    <%= f.submit 'Update', :class => "green" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @alarma %> |
+<%= link_to 'Back', alarmas_path %>

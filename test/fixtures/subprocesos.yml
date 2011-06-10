@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  estado: 
+  proceso: 
+  nombre_subproceso: MyString
+  usuario_id_created: 1
+  usuario_id_updated: 1
+
+two:
+  estado: 
+  proceso: 
+  nombre_subproceso: MyString
+  usuario_id_created: 1
+  usuario_id_updated: 1

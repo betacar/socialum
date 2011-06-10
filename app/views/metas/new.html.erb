@@ -1,0 +1,31 @@
+<h1>New meta</h1>
+
+<% form_for(@meta) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :estado %><br />
+    <%= f.text_field :estado %>
+  </p>
+  <p>
+    <%= f.label :subproceso %><br />
+    <%= f.text_field :subproceso %>
+  </p>
+  <p>
+    <%= f.label :numero_meta %><br />
+    <%= f.text_field :numero_meta %>
+  </p>
+  <p>
+    <%= f.label :usuario_id_created %><br />
+    <%= f.text_field :usuario_id_created %>
+  </p>
+  <p>
+    <%= f.label :usuario_id_updated %><br />
+    <%= f.text_field :usuario_id_updated %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', metas_path %>

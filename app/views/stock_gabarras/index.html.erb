@@ -1,0 +1,30 @@
+<h1>Listing stock_gabarras</h1>
+
+<table>
+  <tr>
+    <th>Estado</th>
+    <th>Locacion</th>
+    <th>Estatus gabarra</th>
+    <th>Cod gabarra</th>
+    <th>Usuario id created</th>
+    <th>Usuario id updated</th>
+  </tr>
+
+<% @stock_gabarras.each do |stock_gabarra| %>
+  <tr>
+    <td><%=h stock_gabarra.estado %></td>
+    <td><%=h stock_gabarra.locacion %></td>
+    <td><%=h stock_gabarra.estatus_gabarra %></td>
+    <td><%=h stock_gabarra.cod_gabarra %></td>
+    <td><%=h stock_gabarra.usuario_id_created %></td>
+    <td><%=h stock_gabarra.usuario_id_updated %></td>
+    <td><%= link_to 'Show', stock_gabarra %></td>
+    <td><%= link_to 'Edit', edit_stock_gabarra_path(stock_gabarra) %></td>
+    <td><%= link_to 'Destroy', stock_gabarra, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New stock_gabarra', new_stock_gabarra_path %>

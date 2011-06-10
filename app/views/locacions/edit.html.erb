@@ -1,0 +1,28 @@
+<h1>Editing locacion</h1>
+
+<% form_for(@locacion) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :estado %><br />
+    <%= f.text_field :estado %>
+  </p>
+  <p>
+    <%= f.label :nombre_locacion %><br />
+    <%= f.text_field :nombre_locacion %>
+  </p>
+  <p>
+    <%= f.label :usuario_id_created %><br />
+    <%= f.text_field :usuario_id_created %>
+  </p>
+  <p>
+    <%= f.label :usuario_id_updated %><br />
+    <%= f.text_field :usuario_id_updated %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @locacion %> |
+<%= link_to 'Back', locacions_path %>

@@ -1,0 +1,35 @@
+<h1>New patio</h1>
+
+<% form_for(@patio) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :estado %><br />
+    <%= f.text_field :estado %>
+  </p>
+  <p>
+    <%= f.label :nombre_patio %><br />
+    <%= f.text_field :nombre_patio %>
+  </p>
+  <p>
+    <%= f.label :cota_maxima %><br />
+    <%= f.text_field :cota_maxima %>
+  </p>
+  <p>
+    <%= f.label :capacidad_patio %><br />
+    <%= f.text_field :capacidad_patio %>
+  </p>
+  <p>
+    <%= f.label :usuario_id_created %><br />
+    <%= f.text_field :usuario_id_created %>
+  </p>
+  <p>
+    <%= f.label :usuario_id_update %><br />
+    <%= f.text_field :usuario_id_update %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', patios_path %>

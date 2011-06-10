@@ -1,0 +1,2 @@
+module TipoFallasHelper
+end

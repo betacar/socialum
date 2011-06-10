@@ -1,0 +1,26 @@
+<h1>Listing rols</h1>
+
+<table>
+  <tr>
+    <th>Estado</th>
+    <th>Nombre rol</th>
+    <th>Usuario id created</th>
+    <th>Usuario id updated</th>
+  </tr>
+
+<% @rols.each do |rol| %>
+  <tr>
+    <td><%=h rol.estado %></td>
+    <td><%=h rol.nombre_rol %></td>
+    <td><%=h rol.usuario_id_created %></td>
+    <td><%=h rol.usuario_id_updated %></td>
+    <td><%= link_to 'Show', rol %></td>
+    <td><%= link_to 'Edit', edit_rol_path(rol) %></td>
+    <td><%= link_to 'Destroy', rol, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New rol', new_rol_path %>

@@ -1,0 +1,179 @@
+  <% if usuario_signed_in? %>    
+    <h1 class="hasIcono overview">
+      Eventos
+      <ul class="options">
+        <li>Filtrar</li>
+        <li>Imprimir</li>
+      </ul>
+    </h1>
+    <article class="grid_15">
+      <div class="exito alarma">
+        <p><strong>¡Éxito!</strong> El proceso se realizó satisfactoriamente.</p>
+        <small class="derecha">Alerta emitida por Socialum - 30/05/2011 | 15:58</small>
+      </div>
+      <div class="advertencia alarma">
+        <p><strong>Advertencia:</strong> El proceso posee datos erroneos.</p>
+        <small class="derecha">Alerta emitida por Socialum - 30/05/2011 | 15:58</small>
+      </div>
+      <div class="info alarma">
+        <p><strong>Dato de información:</strong> Esta notificación puede cerrarse si hace clic en la X de la esquina.</p>
+        <small class="derecha">Alerta emitida por Socialum - 30/05/2011 | 15:58</small>
+      </div>
+      <div class="error alarma">
+        <p><strong>Error #SGE8723:</strong> Se ha presentado un error durante el procesamiento de su solicitud.</p>
+        <small class="derecha">Alerta emitida por Socialum - 30/05/2011 | 15:58</small>
+      </div>
+      <div class="exito alarma">
+        <p><strong>¡Éxito!</strong> El proceso se realizó satisfactoriamente.</p>
+      <small class="derecha">Alerta emitida por Socialum - 30/05/2011 | 15:58</small>
+      </div>
+      <div class="advertencia alarma">
+        <p><strong>Advertencia:</strong> El proceso posee datos erroneos.</p>
+        <small class="derecha">Alerta emitida por Socialum - 30/05/2011 | 15:58</small>
+      </div>
+      <div class="info alarma">
+        <p><strong>Dato de información:</strong> Esta notificación puede cerrarse si hace clic en la X de la esquina.</p>
+        <small class="derecha">Alerta emitida por Socialum - 30/05/2011 | 15:58</small>
+      </div>
+      <div class="error alarma">
+        <p><strong>Error #SGE8723:</strong> Se ha presentado un error durante el procesamiento de su solicitud.</p>
+        <small class="derecha">Alerta emitida por Socialum - 30/05/2011 | 15:58</small>
+      </div>
+      <div class="centro">
+        <input class="grey" type="submit" name="submit" value="Cargar más">
+      </div>
+    </article>
+    <aside class="grid_9">
+      <h3>Descargas del día - 00/00/0000 <small>Hasta las 00:00:00</small></h3>
+      <div class="graph_wrap"></div>
+      <h3>Descargas de la semana <small>Hasta hoy</small></h3>
+      <div class="graph_wrap"></div>
+      <h3>Gabarras en cola <small>Al día de hoy</small></h3>
+      <div class="graph_wrap"></div>
+      <h3>Dosif. de polímeros del día <small>Hasta las 00:00:00</small></h3>
+      <div class="graph_wrap"></div>
+      <h3>Dosif. de polímeros de la semana <small>Hasta hoy</small></h3>
+      <div class="graph_wrap"></div>
+    </aside>
+    <div class="clearfix"></div>
+  <% else %>
+    <h1 class="hasIcono overview">
+      Overview
+      <ul class="options">
+        <li>Filtrar</li>
+
+        <li>Imprimir</li>
+      </ul>
+    </h1>
+    <article class="grid_18">
+      <div class="grid_12 alpha graph_wrap">
+        <h2>Estados</h2>
+        <table width="100%" border="0" align="center">
+          <tr>
+            <th scope="col" width="50%">Campo</th>
+            <th scope="col">Acciones</th>
+          </tr>
+          <tr>
+          	<td>Item 1</td>
+            <td><img src="images/pencil_16.png" alt="Editar" title="Editar"> <img src="images/cancel_16.png" alt="Desactivar" title="Desactivar"></td>
+          </tr>
+          <tr>
+          	<td>Item 2</td>
+            <td><img src="images/pencil_16.png" alt="Editar" title="Editar"> <img src="images/cancel_16.png" alt="Desactivar" title="Desactivar"></td>
+          </tr>
+          <tr>
+          	<td>Item 3</td>
+            <td><img src="images/pencil_16.png" alt="Editar" title="Editar"> <img src="images/cancel_16.png" alt="Desactivar" title="Desactivar"></td>
+          </tr>
+          <tr>
+          	<td>Item 4</td>
+            <td><img src="images/pencil_16.png" alt="Editar" title="Editar"> <img src="images/cancel_16.png" alt="Desactivar" title="Desactivar"></td>
+          </tr>
+        </table>
+        <p><img src="images/add_16.png" alt="Añadir elemento" title="Añadir elemento"> Añadir elemento</p>
+      </div>
+      <div class="grid_12 omega graph_wrap">
+        <h3>bauxita descargada - temporada 2010</h3>
+      </div>
+      <div class="clearfix"></div>
+      <div class="grid_12 alpha graph_wrap">
+        <h3>Disponibilidad del mes - sep. 2010</h3>
+      </div>
+      <div class="grid_12 omega graph_wrap">
+        <h3>Gabarras en cola</h3>
+      </div>
+      <div class="clearfix"></div>
+      <div class="grid_12 alpha graph_wrap">
+        <h3>Dosificación de Polimeros (<span>grs./ton</span>) - Muelle</h3>
+      </div>
+      <div class="grid_12 omega graph_wrap">
+        <h3>Dosificación de Polimeros (<span>grs./ton</span>) - Módulo 9</h3>
+      </div>
+      <div class="clearfix"></div>
+      <div class="grid_12 alpha graph_wrap">
+        <h3>Correa "h"</h3>
+      </div>
+      <div class="grid_12 omega graph_wrap">
+        <h3>Envio Al<sub>2</sub>O<sub>2</sub> hacia Alcasa</h3>
+      </div>
+      <div class="clearfix"></div>
+      <div class="grid_8 alpha graph_wrap">
+        <h3>Altura de Al<sub>2</sub>O<sub>2</sub> en silo - Este</h3>
+      </div>
+      <div class="grid_8 omega graph_wrap">
+        <h3>Altura de Al<sub>2</sub>O<sub>2</sub> en silo - Centro</h3>
+      </div>
+      <div class="grid_8 omega graph_wrap">
+        <h3>Altura de Al<sub>2</sub>O<sub>2</sub> en silo - Oeste</h3>
+      </div>
+      <div class="clearfix"></div>
+    </article>
+    <aside class="grid_6">
+      <h2 class="up">Bauxita en patios</h2>
+      <div>
+        <h3>Indoor</h3>
+        <p class="grid_16 derecha num_destacado fuccia alpha">242.302,87</p>
+        <div class="grid_8 caption omega">
+          <p class="tons">toneladas</p>
+          <p>Disp. 16 días</p>
+        </div>
+        <div class="clearfix"></div>
+        <h3>outdoor</h3>
+        <p class="grid_16 derecha num_destacado azul alpha">113.785,93</p>
+        <div class="grid_8 caption omega">
+          <p class="tons">toneladas</p>
+          <p>Disp. 8 días</p>
+        </div>
+        <div class="clearfix"></div>
+        <h3>PA-3</h3>
+        <p class="grid_16 derecha num_destacado verde alpha">537.232,00</p>
+        <div class="grid_8 caption omega">
+          <p class="tons">toneladas</p>
+          <p>Disp. 36 días</p>
+        </div>
+        <div class="clearfix"></div>
+        <h3>PA-7</h3>
+        <p class="grid_16 derecha num_destacado dorado alpha">100.000,00</p>
+        <div class="grid_8 caption omega">
+          <p class="tons">toneladas</p>
+          <p>Disp. 7 días</p>
+        </div>
+        <div class="clearfix"></div>
+        <h3>TR72-1</h3>
+        <p class="grid_16 derecha num_destacado morado alpha">10.000,00</p>
+        <div class="grid_8 caption omega">
+          <p class="tons">toneladas</p>
+          <p>Disp. 1 día</p>
+        </div>
+        <div class="clearfix"></div>
+        <h3 class="rojo">Total</h3>
+        <p class="grid_16 derecha num_destacado rojo alpha">1.003.320,80</p>
+        <div class="grid_8 caption omega">
+          <p class="tons">toneladas</p>
+          <p>Disp. 67 días</p>
+        </div>
+        <div class="clearfix fin"></div>
+      </div>
+    </aside>
+    <div class="clearfix"></div>
+  <% end %>

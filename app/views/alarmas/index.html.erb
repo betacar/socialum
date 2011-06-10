@@ -1,0 +1,31 @@
+<h1>Listing alarmas</h1>
+
+<table>
+  <tr>
+    <th>Estado</th>
+    <th>Nombre alarma</th>
+    <th>Usuario id created</th>
+    <th>Usuario id updated</th>
+    <th colspan="2">Acciones</th>
+  </tr>
+
+<% @alarmas.each do |alarma| %>
+  <tr>
+    <td><%=h alarma.estado.desc_estado %></td>
+    <td><%=h alarma.nombre_alarma %></td>
+    <td><%=h alarma.usuario_id_created %></td>
+    <td><%=h alarma.usuario_id_updated %></td>
+    <td><%= link_to image_tag("pencil_16.png", :alt => "Editar", :title => "Editar"), :action => 'edit', :id => alarma %></td>
+    <td>
+      <%= if (alarma.estado.id == 1)
+          link_to image_tag("cancel_16.png", :alt => "Desactivar", :title => "Desactivar"), alarma, :confirm => '¿Está usted seguro que desea desactivar el registro?', :action => 'desactivar'
+        else
+          link_to image_tag("accepted_16.png", :alt => "Activar", :title => "Activar"), :confirm => '¿Está usted seguro que desea activar el registro?', :action => 'activar' 
+        end %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New alarma', new_alarma_path %>

@@ -1,0 +1,32 @@
+<h1>Editing rol_usuario</h1>
+
+<% form_for(@rol_usuario) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :estado %><br />
+    <%= f.text_field :estado %>
+  </p>
+  <p>
+    <%= f.label :usuario_id %><br />
+    <%= f.text_field :usuario_id %>
+  </p>
+  <p>
+    <%= f.label :rol %><br />
+    <%= f.text_field :rol %>
+  </p>
+  <p>
+    <%= f.label :usuario_id_created %><br />
+    <%= f.text_field :usuario_id_created %>
+  </p>
+  <p>
+    <%= f.label :usuario_id_updated %><br />
+    <%= f.text_field :usuario_id_updated %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @rol_usuario %> |
+<%= link_to 'Back', rol_usuarios_path %>

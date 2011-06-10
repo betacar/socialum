@@ -1,0 +1,19 @@
+    <article class="grid_24">
+      <h1>Nuevo estado</h1>
+      <% form_for(@estado) do |f| %>
+      <%= f.error_messages %>
+      <ul>
+        <li>
+          <label><strong>Nombre de estado:</strong></label>
+          <%= f.text_field :desc_estado %>
+        </li>
+        <li>
+          <%= f.text_field :usuario_id_created, :value => 30021061, :hidden => true %>
+          <%= f.text_field :usuario_id_updated, :value => 30021061, :hidden => true %>
+          <%= f.submit 'Crear', :class => "grey" %>
+        </li>
+        <li><%= link_to 'Regresar', estados_path %></li>
+      </ul>
+      <% end %>
+    </article>
+    <div class="clearfix"></div>

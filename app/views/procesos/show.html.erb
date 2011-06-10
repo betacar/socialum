@@ -1,0 +1,23 @@
+<p>
+  <b>Estado:</b>
+  <%=h @proceso.estado %>
+</p>
+
+<p>
+  <b>Nombre proceso:</b>
+  <%=h @proceso.nombre_proceso %>
+</p>
+
+<p>
+  <b>Usuario id created:</b>
+  <%=h @proceso.usuario_id_created %>
+</p>
+
+<p>
+  <b>Usuario id updated:</b>
+  <%=h @proceso.usuario_id_updated %>
+</p>
+
+
+<%= link_to 'Edit', edit_proceso_path(@proceso) %> |
+<%= link_to 'Back', procesos_path %>

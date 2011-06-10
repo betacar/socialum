@@ -1,0 +1,26 @@
+<h1>Listing tipo_fallas</h1>
+
+<table>
+  <tr>
+    <th>Estado</th>
+    <th>Desc tipo falla</th>
+    <th>Usuario id created</th>
+    <th>Usuario id updated</th>
+  </tr>
+
+<% @tipo_fallas.each do |tipo_falla| %>
+  <tr>
+    <td><%=h tipo_falla.estado %></td>
+    <td><%=h tipo_falla.desc_tipo_falla %></td>
+    <td><%=h tipo_falla.usuario_id_created %></td>
+    <td><%=h tipo_falla.usuario_id_updated %></td>
+    <td><%= link_to 'Show', tipo_falla %></td>
+    <td><%= link_to 'Edit', edit_tipo_falla_path(tipo_falla) %></td>
+    <td><%= link_to 'Destroy', tipo_falla, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New tipo_falla', new_tipo_falla_path %>

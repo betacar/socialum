@@ -1,0 +1,33 @@
+<p>
+  <b>Estado:</b>
+  <%=h @patio.estado %>
+</p>
+
+<p>
+  <b>Nombre patio:</b>
+  <%=h @patio.nombre_patio %>
+</p>
+
+<p>
+  <b>Cota maxima:</b>
+  <%=h @patio.cota_maxima %>
+</p>
+
+<p>
+  <b>Capacidad patio:</b>
+  <%=h @patio.capacidad_patio %>
+</p>
+
+<p>
+  <b>Usuario id created:</b>
+  <%=h @patio.usuario_id_created %>
+</p>
+
+<p>
+  <b>Usuario id update:</b>
+  <%=h @patio.usuario_id_update %>
+</p>
+
+
+<%= link_to 'Edit', edit_patio_path(@patio) %> |
+<%= link_to 'Back', patios_path %>

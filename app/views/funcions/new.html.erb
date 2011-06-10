@@ -1,0 +1,27 @@
+<h1>New funcion</h1>
+
+<% form_for(@funcion) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :estado %><br />
+    <%= f.text_field :estado %>
+  </p>
+  <p>
+    <%= f.label :nombre_funcion %><br />
+    <%= f.text_field :nombre_funcion %>
+  </p>
+  <p>
+    <%= f.label :usuario_id_created %><br />
+    <%= f.text_field :usuario_id_created %>
+  </p>
+  <p>
+    <%= f.label :usuario_id_updated %><br />
+    <%= f.text_field :usuario_id_updated %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', funcions_path %>

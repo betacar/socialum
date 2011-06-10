@@ -1,0 +1,23 @@
+<p>
+  <b>Estado:</b>
+  <%=h @tipo_equipo.estado %>
+</p>
+
+<p>
+  <b>Nombre tipo equipo:</b>
+  <%=h @tipo_equipo.nombre_tipo_equipo %>
+</p>
+
+<p>
+  <b>Usuario id created:</b>
+  <%=h @tipo_equipo.usuario_id_created %>
+</p>
+
+<p>
+  <b>Usuario id updated:</b>
+  <%=h @tipo_equipo.usuario_id_updated %>
+</p>
+
+
+<%= link_to 'Edit', edit_tipo_equipo_path(@tipo_equipo) %> |
+<%= link_to 'Back', tipo_equipos_path %>

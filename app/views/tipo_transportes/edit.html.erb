@@ -1,0 +1,28 @@
+<h1>Editing tipo_transporte</h1>
+
+<% form_for(@tipo_transporte) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :estado %><br />
+    <%= f.text_field :estado %>
+  </p>
+  <p>
+    <%= f.label :desc_tipo_transporte %><br />
+    <%= f.text_field :desc_tipo_transporte %>
+  </p>
+  <p>
+    <%= f.label :usuario_id_created %><br />
+    <%= f.text_field :usuario_id_created %>
+  </p>
+  <p>
+    <%= f.label :usuario_id_update %><br />
+    <%= f.text_field :usuario_id_update %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @tipo_transporte %> |
+<%= link_to 'Back', tipo_transportes_path %>

@@ -1,0 +1,756 @@
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing OverviewController#index (for 127.0.0.1 at 2011-06-09 15:47:22) [GET]
+  Parameters: {"action"=>"index", "controller"=>"overview"}
+Rendering template within layouts/application
+Rendering overview/index
+  [4;35;1mUsuario Load (6.1ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2011-06-09 15:47:24) [GET]
+  Parameters: {"timeout"=>"true", "action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered shared/_devise_links (14.2ms)
+Completed in 331ms (View: 265, DB: 2) | 200 OK [http://localhost/usuarios/login?timeout=true]
+  [4;35;1mSQL (0.7ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET search_path TO socialum[0m
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2011-06-09 15:47:56) [POST]
+  Parameters: {"commit"=>"Ingresar", "action"=>"create", "authenticity_token"=>"h4DrinsNJw2QXVMCaCp+ZVfFbagISTJmieCOV7Ij0Ag=", "usuario"=>{"password"=>"[FILTERED]", "login"=>"carlos.betancourt"}, "controller"=>"sessions"}
+  [4;36;1mUsuario Load (9.8ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."login" = E'carlos.betancourt') LIMIT 1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mBEGIN[0m
+  [4;36;1mUsuario Update (1.9ms)[0m   [0;1mUPDATE "usuarios" SET "updated_at" = '2011-06-09 20:17:56.958072', "sign_in_count" = 7, "current_sign_in_at" = '2011-06-09 20:17:56.874834', "last_sign_in_at" = '2011-06-09 18:15:19.842972' WHERE "id" = 30021061[0m
+  [4;35;1mSQL (6.3ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/usuario
+Completed in 318ms (DB: 21) | 302 Found [http://localhost/usuarios/login]
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing OverviewController#index (for 127.0.0.1 at 2011-06-09 15:47:57) [GET]
+  Parameters: {"action"=>"index", "controller"=>"overview"}
+Rendering template within layouts/application
+Rendering overview/index
+  [4;35;1mUsuario Load (6.0ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mEmpleado Load (5.6ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (2.2ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 381ms (View: 357, DB: 16) | 200 OK [http://localhost/usuario]
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing OverviewController#index (for 127.0.0.1 at 2011-06-10 07:44:08) [GET]
+  Parameters: {"action"=>"index", "controller"=>"overview"}
+Rendering template within layouts/application
+Rendering overview/index
+  [4;35;1mUsuario Load (82.8ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2011-06-10 07:44:09) [GET]
+  Parameters: {"timeout"=>"true", "action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered shared/_devise_links (15.5ms)
+Completed in 249ms (View: 186, DB: 2) | 200 OK [http://localhost/usuarios/login?timeout=true]
+  [4;35;1mSQL (2.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET search_path TO socialum[0m
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2011-06-10 07:44:27) [POST]
+  Parameters: {"commit"=>"Ingresar", "action"=>"create", "authenticity_token"=>"h4DrinsNJw2QXVMCaCp+ZVfFbagISTJmieCOV7Ij0Ag=", "usuario"=>{"remember_me"=>"1", "password"=>"[FILTERED]", "login"=>"carlos.betancourt"}, "controller"=>"sessions"}
+  [4;36;1mUsuario Load (8.9ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."login" = E'carlos.betancourt') LIMIT 1[0m
+
+Net::LDAP::LdapError (Server 128.1.33.44 refused connection on port 389.):
+  /home/betacar/.rvm/gems/ruby-1.8.7-p72@socialum/gems/net-ldap-0.2.2/lib/net/ldap.rb:1106:in `initialize'
+  /home/betacar/.rvm/gems/ruby-1.8.7-p72@socialum/gems/net-ldap-0.2.2/lib/net/ldap.rb:710:in `new'
+  /home/betacar/.rvm/gems/ruby-1.8.7-p72@socialum/gems/net-ldap-0.2.2/lib/net/ldap.rb:710:in `bind'
+  /home/betacar/.rvm/gems/ruby-1.8.7-p72@socialum/gems/devise_ldap_authenticatable-0.1.6/lib/devise_ldap_authenticatable/ldap_adapter.rb:23:in `valid_credentials?'
+  /home/betacar/.rvm/gems/ruby-1.8.7-p72@socialum/gems/devise_ldap_authenticatable-0.1.6/lib/devise_ldap_authenticatable/model.rb:28:in `valid_ldap_authentication?'
+  /home/betacar/.rvm/gems/ruby-1.8.7-p72@socialum/gems/devise_ldap_authenticatable-0.1.6/lib/devise_ldap_authenticatable/model.rb:45:in `try'
+  /home/betacar/.rvm/gems/ruby-1.8.7-p72@socialum/gems/devise_ldap_authenticatable-0.1.6/lib/devise_ldap_authenticatable/model.rb:45:in `authenticate_with_ldap'
+  /home/betacar/.rvm/gems/ruby-1.8.7-p72@socialum/gems/devise_ldap_authenticatable-0.1.6/lib/devise_ldap_authenticatable/strategy.rb:16:in `authenticate!'
+  warden (0.10.3) lib/warden/strategies/base.rb:53:in `_run!'
+  warden (0.10.3) lib/warden/proxy.rb:285:in `_run_strategies_for'
+  warden (0.10.3) lib/warden/proxy.rb:280:in `each'
+  warden (0.10.3) lib/warden/proxy.rb:280:in `_run_strategies_for'
+  warden (0.10.3) lib/warden/proxy.rb:258:in `_perform_authentication'
+  warden (0.10.3) lib/warden/proxy.rb:82:in `authenticate'
+  devise (1.0.11) lib/devise/controllers/helpers.rb:36:in `authenticate'
+  devise (1.0.11) app/controllers/sessions_controller.rb:19:in `create'
+  warden (0.10.3) lib/warden/manager.rb:35:in `call'
+  warden (0.10.3) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.3) lib/warden/manager.rb:34:in `call'
+  devise (1.0.11) lib/devise/rails/warden_compat.rb:43:in `call'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (294.7ms)
+Rendered rescues/_request_and_response (4.7ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (1.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET search_path TO socialum[0m
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2011-06-10 07:59:55) [POST]
+  Parameters: {"commit"=>"Ingresar", "action"=>"create", "authenticity_token"=>"h4DrinsNJw2QXVMCaCp+ZVfFbagISTJmieCOV7Ij0Ag=", "usuario"=>{"remember_me"=>"1", "password"=>"[FILTERED]", "login"=>"carlos.betancourt"}, "controller"=>"sessions"}
+  [4;36;1mUsuario Load (9.4ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."login" = E'carlos.betancourt') LIMIT 1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mBEGIN[0m
+  [4;36;1mUsuario Update (27.8ms)[0m   [0;1mUPDATE "usuarios" SET "updated_at" = '2011-06-10 12:29:56.150470', "remember_token" = E'Oo5rgLkXp3FrTH24s_bP', "remember_created_at" = '2011-06-10 12:29:56.086888' WHERE "id" = 30021061[0m
+  [4;35;1mSQL (7.9ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUsuario Update (3.4ms)[0m   [0mUPDATE "usuarios" SET "updated_at" = '2011-06-10 12:29:56.383123', "sign_in_count" = 8, "current_sign_in_at" = '2011-06-10 12:29:56.315757', "last_sign_in_at" = '2011-06-09 20:17:56.874834' WHERE "id" = 30021061[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/usuario
+Completed in 477ms (DB: 53) | 302 Found [http://localhost/usuarios/login]
+  [4;35;1mSQL (0.7ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSET search_path TO socialum[0m
+
+
+Processing OverviewController#index (for 127.0.0.1 at 2011-06-10 07:59:56) [GET]
+  Parameters: {"action"=>"index", "controller"=>"overview"}
+Rendering template within layouts/application
+Rendering overview/index
+  [4;36;1mUsuario Load (6.1ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;35;1mEmpleado Load (142.2ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;36;1mEmpleado Load (2.2ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 487ms (View: 325, DB: 153) | 200 OK [http://localhost/usuario]
+  [4;35;1mSQL (0.7ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#index (for 127.0.0.1 at 2011-06-10 08:00:25) [GET]
+  Parameters: {"action"=>"index", "controller"=>"alarmas"}
+  [4;36;1mUsuario Load (6.4ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;35;1mAlarma Load (41.8ms)[0m   [0mSELECT * FROM "alarmas" [0m
+Rendering template within layouts/application
+Rendering alarmas/index
+  [4;36;1mEstado Load (2.3ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mEmpleado Load (5.9ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (2.1ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 619ms (View: 391, DB: 61) | 200 OK [http://localhost/alarmas]
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#show (for 127.0.0.1 at 2011-06-10 08:00:36) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (6.2ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (2.2ms)[0m   [0;1mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering alarmas/show
+  [4;35;1mEstado Load (2.1ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mEmpleado Load (5.6ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (2.1ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 425ms (View: 329, DB: 20) | 200 OK [http://localhost/alarmas/2]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (3.8ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#index (for 127.0.0.1 at 2011-06-10 08:00:40) [GET]
+  Parameters: {"action"=>"index", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (6.1ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (2.2ms)[0m   [0;1mSELECT * FROM "alarmas" [0m
+Rendering template within layouts/application
+Rendering alarmas/index
+  [4;35;1mEstado Load (2.1ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mEmpleado Load (6.0ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;36;1mEmpleado Load (2.0ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 475ms (View: 317, DB: 24) | 200 OK [http://localhost/alarmas]
+  [4;35;1mSQL (0.7ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#show (for 127.0.0.1 at 2011-06-10 08:06:48) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"alarmas"}
+  [4;36;1mUsuario Load (6.2ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;35;1mAlarma Load (2.8ms)[0m   [0mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering alarmas/show
+  [4;36;1mEstado Load (3.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mEmpleado Load (5.8ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;36;1mEmpleado Load (2.8ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 403ms (View: 307, DB: 23) | 200 OK [http://localhost/alarmas/2]
+  [4;35;1mSQL (0.6ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#index (for 127.0.0.1 at 2011-06-10 08:06:52) [GET]
+  Parameters: {"action"=>"index", "controller"=>"alarmas"}
+  [4;36;1mUsuario Load (6.2ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;35;1mAlarma Load (3.8ms)[0m   [0mSELECT * FROM "alarmas" [0m
+Rendering template within layouts/application
+Rendering alarmas/index
+  [4;36;1mEstado Load (2.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mEmpleado Load (5.8ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (2.1ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 442ms (View: 300, DB: 22) | 200 OK [http://localhost/alarmas]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#show (for 127.0.0.1 at 2011-06-10 08:07:24) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (6.2ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (2.3ms)[0m   [0;1mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering alarmas/show
+  [4;35;1mEstado Load (2.1ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mEmpleado Load (5.7ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (2.8ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 469ms (View: 383, DB: 21) | 200 OK [http://localhost/alarmas/1]
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#index (for 127.0.0.1 at 2011-06-10 08:08:09) [GET]
+  Parameters: {"action"=>"index", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (6.1ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (2.1ms)[0m   [0;1mSELECT * FROM "alarmas" [0m
+Rendering template within layouts/application
+Rendering alarmas/index
+  [4;35;1mEstado Load (2.1ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mEmpleado Load (5.8ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;36;1mEmpleado Load (2.3ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 476ms (View: 330, DB: 21) | 200 OK [http://localhost/alarmas]
+  [4;35;1mSQL (0.8ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (11.1ms)[0m   [0mSET search_path TO socialum[0m
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2011-06-10 08:10:50) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"sessions"}
+  [4;36;1mUsuario Load (6.2ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mBEGIN[0m
+  [4;36;1mUsuario Update (2.8ms)[0m   [0;1mUPDATE "usuarios" SET "updated_at" = '2011-06-10 12:40:50.955339', "remember_token" = NULL, "remember_created_at" = NULL WHERE "id" = 30021061[0m
+  [4;35;1mSQL (8.8ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed in 283ms (DB: 31) | 302 Found [http://localhost/usuarios/logout]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing OverviewController#index (for 127.0.0.1 at 2011-06-10 08:10:51) [GET]
+  Parameters: {"action"=>"index", "controller"=>"overview"}
+Rendering template within layouts/application
+Rendering overview/index
+Completed in 65ms (View: 44, DB: 2) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.7ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET search_path TO socialum[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2011-06-10 08:10:58) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered shared/_devise_links (0.4ms)
+Completed in 188ms (View: 105, DB: 2) | 200 OK [http://localhost/usuarios/login]
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (3.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2011-06-10 08:15:17) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered shared/_devise_links (0.6ms)
+Completed in 118ms (View: 68, DB: 5) | 200 OK [http://localhost/usuarios/login]
+  [4;35;1mSQL (0.7ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET search_path TO socialum[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2011-06-10 08:15:45) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered shared/_devise_links (0.4ms)
+Completed in 114ms (View: 68, DB: 2) | 200 OK [http://localhost/usuarios/login]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2011-06-10 08:16:52) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered shared/_devise_links (0.4ms)
+Completed in 122ms (View: 66, DB: 2) | 200 OK [http://localhost/usuarios/login]
+  [4;35;1mSQL (0.7ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET search_path TO socialum[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2011-06-10 08:17:23) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered shared/_devise_links (0.4ms)
+Completed in 126ms (View: 73, DB: 4) | 200 OK [http://localhost/usuarios/login]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2011-06-10 08:19:19) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered shared/_devise_links (0.4ms)
+Completed in 128ms (View: 79, DB: 2) | 200 OK [http://localhost/usuarios/login]
+  [4;35;1mSQL (1.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET search_path TO socialum[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2011-06-10 08:19:51) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered shared/_devise_links (0.6ms)
+Completed in 150ms (View: 86, DB: 3) | 200 OK [http://localhost/usuarios/login]
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2011-06-10 08:20:44) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered shared/_devise_links (0.4ms)
+Completed in 263ms (View: 72, DB: 3) | 200 OK [http://localhost/usuarios/login]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2011-06-10 08:21:25) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered shared/_devise_links (25.7ms)
+Completed in 254ms (View: 214, DB: 2) | 200 OK [http://localhost/usuarios/login]
+  [4;35;1mSQL (0.7ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET search_path TO socialum[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-06-10 08:21:31) [GET]
+
+ActionController::RoutingError (No route matches "/usuarios" with {:method=>:get}):
+  warden (0.10.3) lib/warden/manager.rb:35:in `call'
+  warden (0.10.3) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.3) lib/warden/manager.rb:34:in `call'
+  devise (1.0.11) lib/devise/rails/warden_compat.rb:43:in `call'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2011-06-10 08:21:38) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered shared/_devise_links (0.6ms)
+Completed in 103ms (View: 47, DB: 2) | 200 OK [http://localhost/usuarios/login]
+  [4;35;1mSQL (0.7ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSET search_path TO socialum[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2011-06-10 08:22:27) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+
+ActionView::MissingTemplate (Missing layout layouts/layout_por_recurso.erb in view path app/views:/home/betacar/.rvm/gems/ruby-1.8.7-p72@socialum/gems/devise-1.0.11/app/views):
+  devise (1.0.11) lib/devise/controllers/internal_helpers.rb:123:in `render_with_scope'
+  devise (1.0.11) app/controllers/sessions_controller.rb:14:in `new'
+  warden (0.10.3) lib/warden/manager.rb:35:in `call'
+  warden (0.10.3) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.3) lib/warden/manager.rb:34:in `call'
+  devise (1.0.11) lib/devise/rails/warden_compat.rb:43:in `call'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing OverviewController#index (for 127.0.0.1 at 2011-06-10 08:22:37) [GET]
+  Parameters: {"action"=>"index", "controller"=>"overview"}
+
+ActionView::MissingTemplate (Missing layout layouts/layout_por_recurso.erb in view path app/views:/home/betacar/.rvm/gems/ruby-1.8.7-p72@socialum/gems/devise-1.0.11/app/views):
+  warden (0.10.3) lib/warden/manager.rb:35:in `call'
+  warden (0.10.3) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.3) lib/warden/manager.rb:34:in `call'
+  devise (1.0.11) lib/devise/rails/warden_compat.rb:43:in `call'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.7ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET search_path TO socialum[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2011-06-10 08:22:53) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/login
+Rendering sessions/new
+Rendered shared/_devise_links (0.4ms)
+Completed in 121ms (View: 70, DB: 3) | 200 OK [http://localhost/usuarios/login]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2011-06-10 08:26:03) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/login
+Rendering sessions/new
+Rendered shared/_devise_links (1.9ms)
+Completed in 121ms (View: 63, DB: 2) | 200 OK [http://localhost/usuarios/login]
+  [4;35;1mSQL (0.7ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (7.1ms)[0m   [0mSET search_path TO socialum[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2011-06-10 08:27:15) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/login
+Rendering sessions/new
+Rendered shared/_devise_links (0.6ms)
+Completed in 110ms (View: 55, DB: 9) | 200 OK [http://localhost/usuarios/login]
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2011-06-10 08:27:38) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/login
+Rendering sessions/new
+Rendered shared/_devise_links (0.6ms)
+Completed in 123ms (View: 62, DB: 2) | 200 OK [http://localhost/usuarios/login]
+  [4;35;1mSQL (0.8ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSET search_path TO socialum[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2011-06-10 08:28:01) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/login
+Rendering sessions/new
+Rendered shared/_devise_links (0.7ms)
+Completed in 164ms (View: 66, DB: 3) | 200 OK [http://localhost/usuarios/login]
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2011-06-10 08:28:54) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/login
+Rendering sessions/new
+Rendered shared/_devise_links (0.7ms)
+Completed in 297ms (View: 90, DB: 4) | 200 OK [http://localhost/usuarios/login]
+  [4;35;1mSQL (0.6ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET search_path TO socialum[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2011-06-10 08:30:41) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/login
+Rendering sessions/new
+Rendered shared/_devise_links (0.6ms)
+Completed in 137ms (View: 82, DB: 2) | 200 OK [http://localhost/usuarios/login]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2011-06-10 08:31:15) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/login
+Rendering sessions/new
+Rendered shared/_devise_links (0.5ms)
+Completed in 112ms (View: 59, DB: 2) | 200 OK [http://localhost/usuarios/login]
+  [4;35;1mSQL (0.7ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSET search_path TO socialum[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2011-06-10 08:32:16) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/login
+Rendering sessions/new
+Rendered shared/_devise_links (0.8ms)
+Completed in 139ms (View: 90, DB: 2) | 200 OK [http://localhost/usuarios/login]
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2011-06-10 08:33:17) [POST]
+  Parameters: {"commit"=>"Ingresar", "action"=>"create", "authenticity_token"=>"h4DrinsNJw2QXVMCaCp+ZVfFbagISTJmieCOV7Ij0Ag=", "usuario"=>{"remember_me"=>"1", "password"=>"[FILTERED]", "login"=>"carlos.betancourt"}, "controller"=>"sessions"}
+  [4;35;1mUsuario Load (10.1ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."login" = E'carlos.betancourt') LIMIT 1[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUsuario Update (2.1ms)[0m   [0mUPDATE "usuarios" SET "updated_at" = '2011-06-10 13:03:17.959220', "remember_token" = E'9FIUlAT9tc6YduC5-kvG', "remember_created_at" = '2011-06-10 13:03:17.660408' WHERE "id" = 30021061[0m
+  [4;36;1mSQL (6.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mBEGIN[0m
+  [4;36;1mUsuario Update (1.2ms)[0m   [0;1mUPDATE "usuarios" SET "updated_at" = '2011-06-10 13:03:18.289419', "sign_in_count" = 9, "current_sign_in_at" = '2011-06-10 13:03:18.234164', "last_sign_in_at" = '2011-06-10 12:29:56.315757' WHERE "id" = 30021061[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/usuario
+Completed in 748ms (DB: 24) | 302 Found [http://localhost/usuarios/login]
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing OverviewController#index (for 127.0.0.1 at 2011-06-10 08:33:18) [GET]
+  Parameters: {"action"=>"index", "controller"=>"overview"}
+Rendering template within layouts/application
+Rendering overview/index
+  [4;35;1mUsuario Load (6.1ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mEmpleado Load (5.9ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (2.2ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 567ms (View: 535, DB: 16) | 200 OK [http://localhost/usuario]
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2011-06-10 08:33:52) [POST]
+  Parameters: {"commit"=>"Ingresar", "action"=>"create", "authenticity_token"=>"XCHHXf96DxLIDlbPrl/HmSJT1pORggwXbZUuscYgEDU=", "usuario"=>{"remember_me"=>"1", "password"=>"[FILTERED]", "login"=>"carlos.betancourt"}, "controller"=>"sessions"}
+  [4;35;1mUsuario Load (9.5ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."login" = E'carlos.betancourt') LIMIT 1[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUsuario Update (2.1ms)[0m   [0mUPDATE "usuarios" SET "updated_at" = '2011-06-10 13:03:53.026929', "remember_token" = E'_1bopy_uc9uIWJaFaOnn', "remember_created_at" = '2011-06-10 13:03:52.981582' WHERE "id" = 30021061[0m
+  [4;36;1mSQL (6.2ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mBEGIN[0m
+  [4;36;1mUsuario Update (2.2ms)[0m   [0;1mUPDATE "usuarios" SET "updated_at" = '2011-06-10 13:03:53.087858', "sign_in_count" = 10, "current_sign_in_at" = '2011-06-10 13:03:53.042359', "last_sign_in_at" = '2011-06-10 13:03:18.234164' WHERE "id" = 30021061[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/usuario
+Completed in 209ms (DB: 24) | 302 Found [http://localhost/usuarios/login]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing OverviewController#index (for 127.0.0.1 at 2011-06-10 08:33:53) [GET]
+  Parameters: {"action"=>"index", "controller"=>"overview"}
+Rendering template within layouts/application
+Rendering overview/index
+  [4;35;1mUsuario Load (6.5ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mEmpleado Load (6.9ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (2.1ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 290ms (View: 263, DB: 18) | 200 OK [http://localhost/usuario]
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2011-06-10 08:34:57) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"sessions"}
+  [4;35;1mUsuario Load (6.2ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUsuario Update (1.7ms)[0m   [0mUPDATE "usuarios" SET "updated_at" = '2011-06-10 13:04:57.986780', "remember_token" = NULL, "remember_created_at" = NULL WHERE "id" = 30021061[0m
+  [4;36;1mSQL (3.2ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed in 154ms (DB: 14) | 302 Found [http://localhost/usuarios/logout]
+  [4;35;1mSQL (0.6ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSET search_path TO socialum[0m
+
+
+Processing OverviewController#index (for 127.0.0.1 at 2011-06-10 08:34:58) [GET]
+  Parameters: {"action"=>"index", "controller"=>"overview"}
+Rendering template within layouts/application
+Rendering overview/index
+Completed in 43ms (View: 31, DB: 2) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2011-06-10 08:35:02) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/login
+Rendering sessions/new
+Rendered shared/_devise_links (0.5ms)
+Completed in 79ms (View: 35, DB: 3) | 200 OK [http://localhost/usuarios/login]
+  [4;35;1mSQL (0.7ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSET search_path TO socialum[0m
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2011-06-10 08:35:13) [POST]
+  Parameters: {"commit"=>"Ingresar", "action"=>"create", "authenticity_token"=>"XCHHXf96DxLIDlbPrl/HmSJT1pORggwXbZUuscYgEDU=", "usuario"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "login"=>"nagives.franco"}, "controller"=>"sessions"}
+  [4;36;1mUsuario Load (9.2ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."login" = E'nagives.franco') LIMIT 1[0m
+Rendering template within layouts/login
+Rendering sessions/new
+Rendered shared/_devise_links (0.8ms)
+Completed in 148ms (View: 34, DB: 12) | 200 OK [http://localhost/usuarios/login]
+  [4;35;1mSQL (0.7ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET search_path TO socialum[0m
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2011-06-10 08:35:24) [POST]
+  Parameters: {"commit"=>"Ingresar", "action"=>"create", "authenticity_token"=>"XCHHXf96DxLIDlbPrl/HmSJT1pORggwXbZUuscYgEDU=", "usuario"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "login"=>"nagives.franco"}, "controller"=>"sessions"}
+  [4;36;1mUsuario Load (9.6ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."login" = E'nagives.franco') LIMIT 1[0m
+Rendering template within layouts/login
+Rendering sessions/new
+Rendered shared/_devise_links (0.4ms)
+Completed in 142ms (View: 32, DB: 12) | 200 OK [http://localhost/usuarios/login]
+  [4;35;1mSQL (0.7ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET search_path TO socialum[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2011-06-10 08:46:59) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/login
+Rendering sessions/new
+Rendered shared/_devise_links (0.4ms)
+Completed in 98ms (View: 52, DB: 2) | 200 OK [http://localhost/usuarios/login]
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#index (for 127.0.0.1 at 2011-06-10 09:02:19) [GET]
+  Parameters: {"action"=>"index", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (6.1ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (2.2ms)[0m   [0;1mSELECT * FROM "alarmas" [0m
+Rendering template within layouts/application
+Rendering alarmas/index
+  [4;35;1mEstado Load (2.4ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mEmpleado Load (6.7ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;36;1mEmpleado Load (7.6ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 1793ms (View: 880, DB: 27) | 200 OK [http://localhost/alarmas]
+  [4;35;1mSQL (0.9ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET search_path TO socialum[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2011-06-10 09:02:34) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/login
+Rendering sessions/new
+Rendered shared/_devise_links (0.4ms)
+Completed in 156ms (View: 102, DB: 2) | 200 OK [http://localhost/usuarios/login]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2011-06-10 09:04:49) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/login
+Rendering sessions/new
+Rendered shared/_devise_links (0.4ms)
+Completed in 278ms (View: 70, DB: 2) | 200 OK [http://localhost/usuarios/login]
+  [4;35;1mSQL (0.7ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSET search_path TO socialum[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2011-06-10 09:05:21) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/login
+Rendering sessions/new
+Rendered shared/_devise_links (0.4ms)
+Completed in 90ms (View: 48, DB: 3) | 200 OK [http://localhost/usuarios/login]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2011-06-10 09:06:53) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/login
+Rendering sessions/new
+Rendered shared/_devise_links (0.6ms)
+Completed in 108ms (View: 47, DB: 2) | 200 OK [http://localhost/usuarios/login]
+  [4;35;1mSQL (0.7ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mSET search_path TO socialum[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2011-06-10 09:08:10) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/login
+Rendering sessions/new
+Rendered shared/_devise_links (0.7ms)
+Completed in 87ms (View: 41, DB: 3) | 200 OK [http://localhost/usuarios/login]

@@ -1,0 +1,48 @@
+<p>
+  <b>Estado:</b>
+  <%=h @falla.estado %>
+</p>
+
+<p>
+  <b>Equipo:</b>
+  <%=h @falla.equipo %>
+</p>
+
+<p>
+  <b>Alarma:</b>
+  <%=h @falla.alarma %>
+</p>
+
+<p>
+  <b>Tipo falla:</b>
+  <%=h @falla.tipo_falla %>
+</p>
+
+<p>
+  <b>Fecha inicio falla:</b>
+  <%=h @falla.fecha_inicio_falla %>
+</p>
+
+<p>
+  <b>Fecha fin falla:</b>
+  <%=h @falla.fecha_fin_falla %>
+</p>
+
+<p>
+  <b>Observaciones falla:</b>
+  <%=h @falla.observaciones_falla %>
+</p>
+
+<p>
+  <b>Usuario id created:</b>
+  <%=h @falla.usuario_id_created %>
+</p>
+
+<p>
+  <b>Usuario id update:</b>
+  <%=h @falla.usuario_id_update %>
+</p>
+
+
+<%= link_to 'Edit', edit_falla_path(@falla) %> |
+<%= link_to 'Back', fallas_path %>

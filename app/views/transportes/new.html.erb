@@ -1,0 +1,43 @@
+<h1>New transporte</h1>
+
+<% form_for(@transporte) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :estado %><br />
+    <%= f.text_field :estado %>
+  </p>
+  <p>
+    <%= f.label :tipo_transporte %><br />
+    <%= f.text_field :tipo_transporte %>
+  </p>
+  <p>
+    <%= f.label :empresa %><br />
+    <%= f.text_field :empresa %>
+  </p>
+  <p>
+    <%= f.label :cod_sap_buque_transporte %><br />
+    <%= f.text_field :cod_sap_buque_transporte %>
+  </p>
+  <p>
+    <%= f.label :nombre_transporte %><br />
+    <%= f.text_field :nombre_transporte %>
+  </p>
+  <p>
+    <%= f.label :capacidad_transporte %><br />
+    <%= f.text_field :capacidad_transporte %>
+  </p>
+  <p>
+    <%= f.label :usuario_id_created %><br />
+    <%= f.text_field :usuario_id_created %>
+  </p>
+  <p>
+    <%= f.label :usuario_id_update %><br />
+    <%= f.text_field :usuario_id_update %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', transportes_path %>

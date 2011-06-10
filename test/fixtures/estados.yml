@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  desc_estado: MyString
+  usuario_id_created: 1
+  usuario_id_updated: 1
+
+two:
+  desc_estado: MyString
+  usuario_id_created: 1
+  usuario_id_updated: 1

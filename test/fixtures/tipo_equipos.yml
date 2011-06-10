@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  estado: 
+  nombre_tipo_equipo: MyString
+  usuario_id_created: 1
+  usuario_id_updated: 1
+
+two:
+  estado: 
+  nombre_tipo_equipo: MyString
+  usuario_id_created: 1
+  usuario_id_updated: 1

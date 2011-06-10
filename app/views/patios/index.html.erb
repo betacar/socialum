@@ -1,0 +1,30 @@
+<h1>Listing patios</h1>
+
+<table>
+  <tr>
+    <th>Estado</th>
+    <th>Nombre patio</th>
+    <th>Cota maxima</th>
+    <th>Capacidad patio</th>
+    <th>Usuario id created</th>
+    <th>Usuario id update</th>
+  </tr>
+
+<% @patios.each do |patio| %>
+  <tr>
+    <td><%=h patio.estado %></td>
+    <td><%=h patio.nombre_patio %></td>
+    <td><%=h patio.cota_maxima %></td>
+    <td><%=h patio.capacidad_patio %></td>
+    <td><%=h patio.usuario_id_created %></td>
+    <td><%=h patio.usuario_id_update %></td>
+    <td><%= link_to 'Show', patio %></td>
+    <td><%= link_to 'Edit', edit_patio_path(patio) %></td>
+    <td><%= link_to 'Destroy', patio, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New patio', new_patio_path %>

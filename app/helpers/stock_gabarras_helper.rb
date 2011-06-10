@@ -1,0 +1,2 @@
+module StockGabarrasHelper
+end

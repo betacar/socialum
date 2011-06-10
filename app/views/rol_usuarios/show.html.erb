@@ -1,0 +1,28 @@
+<p>
+  <b>Estado:</b>
+  <%=h @rol_usuario.estado %>
+</p>
+
+<p>
+  <b>Usuario:</b>
+  <%=h @rol_usuario.usuario_id %>
+</p>
+
+<p>
+  <b>Rol:</b>
+  <%=h @rol_usuario.rol %>
+</p>
+
+<p>
+  <b>Usuario id created:</b>
+  <%=h @rol_usuario.usuario_id_created %>
+</p>
+
+<p>
+  <b>Usuario id updated:</b>
+  <%=h @rol_usuario.usuario_id_updated %>
+</p>
+
+
+<%= link_to 'Edit', edit_rol_usuario_path(@rol_usuario) %> |
+<%= link_to 'Back', rol_usuarios_path %>

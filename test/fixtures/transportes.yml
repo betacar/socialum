@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  estado: 
+  tipo_transporte: 
+  empresa: 
+  cod_sap_buque_transporte: 1
+  nombre_transporte: MyString
+  capacidad_transporte: 9.99
+  usuario_id_created: 1
+  usuario_id_update: 
+
+two:
+  estado: 
+  tipo_transporte: 
+  empresa: 
+  cod_sap_buque_transporte: 1
+  nombre_transporte: MyString
+  capacidad_transporte: 9.99
+  usuario_id_created: 1
+  usuario_id_update: 

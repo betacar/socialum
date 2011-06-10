@@ -1,0 +1,26 @@
+<h1>Listing funcions</h1>
+
+<table>
+  <tr>
+    <th>Estado</th>
+    <th>Nombre funcion</th>
+    <th>Usuario id created</th>
+    <th>Usuario id updated</th>
+  </tr>
+
+<% @funcions.each do |funcion| %>
+  <tr>
+    <td><%=h funcion.estado %></td>
+    <td><%=h funcion.nombre_funcion %></td>
+    <td><%=h funcion.usuario_id_created %></td>
+    <td><%=h funcion.usuario_id_updated %></td>
+    <td><%= link_to 'Show', funcion %></td>
+    <td><%= link_to 'Edit', edit_funcion_path(funcion) %></td>
+    <td><%= link_to 'Destroy', funcion, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New funcion', new_funcion_path %>

@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  estado: 
+  tipo_equipo: 
+  subproceso: 
+  empresa: 
+  nombre_equipo: MyString
+  usuario_id_created: 1
+  usuario_id_update: 
+
+two:
+  estado: 
+  tipo_equipo: 
+  subproceso: 
+  empresa: 
+  nombre_equipo: MyString
+  usuario_id_created: 1
+  usuario_id_update: 
