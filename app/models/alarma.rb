@@ -5,7 +5,14 @@ class Alarma < ActiveRecord::Base
   validates_associated :estado
   attr_accessible :ficha # Accedo a la ficha del current_usuario
   
-  def before_update 
-    self.usuario_id_updated = ficha
+  # Se cambia el estado de la tupla de Inactiva a Activa.
+  def self.modificar_estado(id)
+    @alarma = self.find(id)
+       
+    if (@alarma.estado_id == 2)
+      @alarma.update_attribute(:estado_id, 1)
+    else
+      @alarma.update_attribute(:estado_id, 2)
+    end
   end
 end

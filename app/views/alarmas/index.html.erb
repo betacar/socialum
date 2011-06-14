@@ -1,23 +1,34 @@
-<h2>Alarmas</h2>
-<table width="100%" border="0" align="center">
-  <tr>
-    <th>Estado</th>
-    <th>Nombre de alarma</th>
-    <th colspan="2">Acciones</th>
-  </tr>
-<% @alarmas.each do |alarma| %>
-  <tr>
-    <td><%=h alarma.estado.desc_estado %></td>
-    <td><%=h alarma.nombre_alarma %></td>
-    <td><%= link_to image_tag("pencil_16.png", :alt => "Editar", :title => "Editar"), :action => 'edit', :id => alarma %></td>
-    <td>
-    <%= if (alarma.estado.id == 1)
-        link_to image_tag("close_16.png", :alt => "Desactivar", :title => "Desactivar"), alarma, :confirm => '¿Está usted seguro que desea desactivar el registro?', :action => 'desactivar', :id => alarma
-      else
-        link_to image_tag("accepted_16.png", :alt => "Activar", :title => "Activar"), alarma, :confirm => '¿Está usted seguro que desea activar el registro?', :action => 'activar', :id => alarma 
-      end %>
-    </td>
-  </tr>
-<% end %>
-</table>
-<p><%= link_to image_tag("add_16.png", :alt => "Añadir elemento", :title => "Añadir elemento"), :action => 'create' %></p>
+<% content_for :titulo, 'Alarmas' %>
+    <div class="wrapper grid_12">
+      <table width='100%' border='0' align='center' id="alarmas">
+        <caption>Alarmas</caption>
+        <thead>
+          <tr>
+            <th>Estado</th>
+            <th>Nombre de alarma</th>
+            <th colspan='2'>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @alarmas.each do |alarma| %>
+          <tr>
+            <td estado="<%=h alarma.estado.id %>"><%=h alarma.estado.desc_estado %></td>
+            <td alarma="<%=h alarma.id %>"><%=h alarma.nombre_alarma %></td>
+            <td><%= link_to image_tag('pencil_16.png', :alt => 'Editar', :title => 'Editar'), '#edit' %></td>
+            <td>
+            <%= if (alarma.estado.id == 1)
+              link_to image_tag('close_16.png', :alt => 'Desactivar', :title => 'Desactivar'), '#desactivar'
+            else
+              link_to image_tag('accepted_16.png', :alt => 'Activar', :title => 'Activar'), '#activar'
+            end %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+      <div class="alpha grid_12"><%= image_tag 'add_16.png', :alt => 'Añadir elemento', :title => 'Añadir elemento' %> <%= link_to 'Añadir elemento', '#new' %></div>
+      <div class="omega grid_12 derecha"><%= submit_tag 'Guardar', :title => 'Guardar', :class => "blue oculto" %></div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+    

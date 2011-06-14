@@ -4,12 +4,12 @@
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
-  layout :layout_por_recurso
+  layout :layout_por_recurso # Segun sea el tipo de recurso (devise o app), cargará un layout particular
   
   filter_parameter_logging(:password) # Previene que se muestre el valor de las contraseñas en el log de la app
-  #before_filter :authenticate_usuario! # Autentica cada usuario contra LDAP antes de ejecutar cualquier controller
-    
+
   protected
+  
   def stored_location_for (resource)
     return nil
   end

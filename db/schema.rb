@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110608145857) do
+ActiveRecord::Schema.define(:version => 20110613002923) do
 
   create_table "alarmas", :force => true do |t|
     t.integer  "estado_id",          :default => 1, :null => false
@@ -245,9 +245,9 @@ ActiveRecord::Schema.define(:version => 20110608145857) do
   end
 
   create_table "usuarios", :id => false, :force => true do |t|
-    t.integer  "id",                                 :null => false
-    t.integer  "estado_id",           :default => 1, :null => false
-    t.string   "login",                              :null => false
+    t.integer  "id",                                     :null => false
+    t.integer  "estado_id",           :default => 1,     :null => false
+    t.string   "login",                                  :null => false
     t.string   "ldap_attributes"
     t.string   "remember_token"
     t.datetime "remember_created_at"
@@ -258,6 +258,7 @@ ActiveRecord::Schema.define(:version => 20110608145857) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "admin",               :default => false
   end
 
   add_index "usuarios", ["login"], :name => "index_usuarios_on_login", :unique => true

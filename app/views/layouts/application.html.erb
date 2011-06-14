@@ -7,7 +7,7 @@
 <head>
   <meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title><%= controller.action_name %> | Socialum - CVG Bauxilum</title>
+  <title><%= (titulo = yield :titulo) ? titulo : controller.action_name %> | Socialum - CVG Bauxilum</title>
 	<meta name="description" content="Aplicación transaccional y de gestión de eventos de los procesos de arribo, descarga, apilamiento, recuperación, alimentación, almacenamiento y despacho de materia prima y producto terminado de CVG Bauxilum">
 	<meta name="author" content="Carlos Betancourt Carrero">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,9 +15,6 @@
 	<link rel="icon" href="/favicon.ico" type="image/x-icon">
 	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <%= stylesheet_link_tag "fw_grid", "style", :cache => true %>
-<% if usuario_signed_in? %>
-  <%= stylesheet_link_tag "jquery.fancybox-1.3.4", :cache => true %>
-<% end %>
   <%= javascript_include_tag "libs/modernizr-1.7.min.js", :cache => true %>
 </head>
 <body>
@@ -25,7 +22,10 @@
     <div class="container_24">
     <% if usuario_signed_in? %>
       <p class="grid_12">
-        <span class="alertas">Tiene <strong><a href="#alertas">0 alertas</a></strong> sin leer</span>  |  <span class="configuracion"><%= link_to 'Configuración', :controller => 'configuracion' %></span>
+        <span class="alertas">Tiene <strong><a href="#alertas">0 alertas</a></strong> sin leer</span>
+      <% if current_usuario.admin? %>
+        |  <span class="configuracion"><%= link_to 'Configuración', :controller => 'configuracion' %></span>
+      <% end %>
       </p>
     <% end %>
     <% if usuario_signed_in? %>
@@ -63,7 +63,7 @@
     </ul>
   </nav>
   <section id="main" role="main" class="container_24">
-    <span class="flecha primero"> </span>
+    <span class="flecha"> </span>
   <% if flash[:sucess]%>
     <div class="exito">
       <span> </span>
@@ -90,9 +90,9 @@
   <% end %>
     <%= yield %>
   </section>    
-  <%= javascript_include_tag "libs/jquery.min", "libs/jquery.fancybox-1.3.4.pack.js", "script", :cache => true %>
+  <%= javascript_include_tag 'libs/jquery.min', 'plugins', 'application', :cache => true %>
   <!--[if lt IE 7 ]>
-  <%= javascript_include_tag "libs/dd_belatedpng.js", :cache => true %>
+  <script src="javascripts/libs/dd_belatedpng.js"></script>
   <script> DD_belatedPNG.fix('img, .png_bg');</script>
   <![endif]-->
 </body>
