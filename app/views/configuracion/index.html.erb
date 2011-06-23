@@ -29,7 +29,7 @@
         $(this).closest('tr').html(editRow);
         
         // La llamada no es asíncrona para poder setear el valor en el input.
-        objAlarma = Ajax(false, null, null, false, "GET", 'alarmas/edit/' + alarma_id);
+        objAlarma = Ajax(false, null, "json", false, "GET", 'alarmas/edit/' + alarma_id);
         
         alarma_input.val(objAlarma.alarma.nombre_alarma);     
         return false;
@@ -73,8 +73,8 @@
         
         console.log(alarmas);
         
-        Ajax(true, null, alarmas, false, "POST", "alarmas/create/", "#alarmas"); 
-        alarmas = [];      
+        Ajax(true, alarmas, "json", false, "POST", "alarmas/create/", "#alarmas"); 
+        alarmas = {};      
         return false;      
       });
       
@@ -89,7 +89,7 @@
         }
         
         // Se eliminan todos los datos del objeto.
-        alarmas = [];
+        alarmas = {};
         
         // Ocultamos los botones
         $(this).hideButtons();
@@ -97,26 +97,13 @@
         return false;
       });
       
-      // TODO: Crear un metodo jQuery que haga esto solo 
+      // Modifica el estado de la alarma
       $('a[href="#estado"]').live('click', function(e) {
         e.preventDefault();
-        var estado_id = $(this).closest('td').attr('estado'),
-            desc_estado = 'Activo',
-            img = '<img src="/images/close_16.png" alt="" title="Desactivar" /\>';
-        
-        if(estado_id != 1){
-          desc_estado = 'Inactivo';
-          img = '<img src="/images/accepted_16.png" alt="" title="Activar" /\>';
-        }
-        
-        Ajax(false, null, null, false, "POST", 'alarmas/estado/' + estado_id);
-        
-        $(this).parent().parent().next('td').text(desc_estado);
-        $(this).attr('onclick')
-        $(this).children('img').attr('src', '/images/');
+        $(this).modEstado('alarmas');
       });
       
-      // * * * * * * * * * * * * * * * ESTADOS * * * * * * * * * * * * * * * //
+      /* * * * * * * * * * * * * * * ESTADOS * * * * * * * * * * * * * * * //
       // Control para editar estados
       $('a[href="#edit_estado"]').live('click', function(e) {
         e.preventDefault();
@@ -161,7 +148,7 @@
         });
         
         return false;
-      });
+      });*/
     });
   </script>
 <% end %>

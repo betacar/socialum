@@ -59,14 +59,11 @@ class AlarmasController < ApplicationController
   # Se cambia el estado de la tupla de Inactiva a Activa.
   # PUT /alarmas/estado/1
   # PUT /alarmas/estado/1.xml
-  def estado
-    @alarma = Alarma.modificar_estado(params[:id])
-    @alarmas = Alarma.all
-       
+  def estado      
     respond_to do |format|
-      flash[:success] = 'El estado de la alarma ha sido modificado.'
-      format.html { render :action => 'index' }
-      format.xml { head :ok }
+      @alarma = Alarma.modificar_estado(params[:id])
+      
+      format.json { render :json => @alarma }
     end
   end
    

@@ -16,11 +16,11 @@
             <td><%=h alarma.estado.desc_estado %></td>
             <td><%=h alarma.nombre_alarma %></td>
             <td alarma="<%=h alarma.id %>"><%= link_to image_tag('pencil_16.png', :alt => '', :title => 'Editar'), '#edit_alarma' %></td>
-            <td estado="<%=h alarma.estado.id %>">
+            <td estado="<%=h alarma.estado.id %>" id="<%=h alarma.id %>">
             <%= if (alarma.estado.id == 1)
-              link_to image_tag('close_16.png', :alt => '', :title => 'Desactivar'), '#estado', :confirm => '¿Está seguro que desea desactivar la alarma?'
+              link_to image_tag('close_16.png', :alt => '', :title => 'Desactivar'), '#estado', :confirm => '¿Está seguro que desea cambiar el estado de la alarma?'
             else
-              link_to image_tag('accepted_16.png', :alt => '', :title => 'Activar'), '#estado', :confirm => '¿Está seguro que desea desactivar la alarma?'
+              link_to image_tag('accepted_16.png', :alt => '', :title => 'Activar'), '#estado', :confirm => '¿Está seguro que desea cambiar el estado de la alarma?'
             end %>
             </td>
           </tr>

@@ -25503,3 +25503,1781 @@ Rendered estados/_create (51.1ms)
   [4;36;1mEmpleado Load (14.0ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
   [4;35;1mEmpleado Load (3.9ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
 Completed in 792ms (View: 634, DB: 54) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 09:12:39) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (10.1ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (6.8ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (7.0ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (2.8ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (96.3ms)
+Rendered estados/_index (11.1ms)
+  [4;35;1mUsuario Load (3.2ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (139.6ms)
+Rendered alarmas/_create (54.2ms)
+Rendered estados/_edit (45.2ms)
+Rendered estados/_create (42.7ms)
+  [4;36;1mEmpleado Load (13.8ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (3.5ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 906ms (View: 773, DB: 50) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 09:13:43) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (10.0ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (4.7ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (6.4ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (3.3ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (87.9ms)
+Rendered estados/_index (10.4ms)
+  [4;35;1mUsuario Load (2.9ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (138.1ms)
+Rendered alarmas/_create (54.7ms)
+Rendered estados/_edit (52.7ms)
+Rendered estados/_create (42.0ms)
+  [4;36;1mEmpleado Load (12.4ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (3.6ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 926ms (View: 781, DB: 47) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 09:14:26) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (9.7ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (4.8ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (6.9ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (12.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (83.3ms)
+Rendered estados/_index (6.7ms)
+  [4;35;1mUsuario Load (2.9ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (161.6ms)
+Rendered alarmas/_create (48.7ms)
+Rendered estados/_edit (47.6ms)
+Rendered estados/_create (92.4ms)
+  [4;36;1mEmpleado Load (12.8ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (3.6ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 1019ms (View: 871, DB: 57) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 09:14:50) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (9.4ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (4.8ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (7.0ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (3.2ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (92.8ms)
+Rendered estados/_index (12.1ms)
+  [4;35;1mUsuario Load (3.0ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (133.9ms)
+Rendered alarmas/_create (50.7ms)
+Rendered estados/_edit (40.1ms)
+Rendered estados/_create (50.5ms)
+  [4;36;1mEmpleado Load (13.1ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (4.5ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 908ms (View: 773, DB: 49) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 09:15:06) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (8.6ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (4.5ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (6.5ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (2.9ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (88.0ms)
+Rendered estados/_index (6.4ms)
+  [4;35;1mUsuario Load (3.3ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (132.8ms)
+Rendered alarmas/_create (53.6ms)
+Rendered estados/_edit (60.6ms)
+Rendered estados/_create (51.3ms)
+  [4;36;1mEmpleado Load (13.3ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (3.9ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 960ms (View: 825, DB: 47) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (2.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (3.9ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 09:15:51) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (9.6ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (4.7ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (6.3ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (3.1ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (92.6ms)
+Rendered estados/_index (7.0ms)
+  [4;35;1mUsuario Load (5.0ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (148.3ms)
+Rendered alarmas/_create (40.5ms)
+Rendered estados/_edit (52.8ms)
+Rendered estados/_create (42.5ms)
+  [4;36;1mEmpleado Load (13.2ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (5.2ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 921ms (View: 779, DB: 54) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 09:16:20) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (9.7ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (4.9ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (6.4ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (3.2ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (93.3ms)
+Rendered estados/_index (13.1ms)
+  [4;35;1mUsuario Load (4.4ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (166.9ms)
+Rendered alarmas/_create (79.0ms)
+Rendered estados/_edit (49.1ms)
+Rendered estados/_create (39.4ms)
+  [4;36;1mEmpleado Load (14.0ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (4.6ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 1039ms (View: 872, DB: 50) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (2.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 09:16:49) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (9.3ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (4.4ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (6.2ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (3.5ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (101.8ms)
+Rendered estados/_index (9.6ms)
+  [4;35;1mUsuario Load (3.7ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (128.1ms)
+Rendered alarmas/_create (59.2ms)
+Rendered estados/_edit (47.7ms)
+Rendered estados/_create (46.6ms)
+  [4;36;1mEmpleado Load (14.1ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (4.1ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 941ms (View: 792, DB: 50) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 09:17:42) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (9.6ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (4.0ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (6.9ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (7.7ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (95.8ms)
+Rendered estados/_index (9.1ms)
+  [4;35;1mUsuario Load (3.2ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (132.2ms)
+Rendered alarmas/_create (53.0ms)
+Rendered estados/_edit (41.9ms)
+Rendered estados/_create (38.4ms)
+  [4;36;1mEmpleado Load (13.3ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (4.1ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 904ms (View: 756, DB: 53) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 09:18:02) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (8.9ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (4.6ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (6.6ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (3.3ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (92.4ms)
+Rendered estados/_index (9.2ms)
+  [4;35;1mUsuario Load (3.7ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (136.4ms)
+Rendered alarmas/_create (43.0ms)
+Rendered estados/_edit (55.5ms)
+Rendered estados/_create (47.9ms)
+  [4;36;1mEmpleado Load (12.0ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (4.2ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 913ms (View: 786, DB: 47) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (3.2ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 09:21:10) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (8.8ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (4.1ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (6.0ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (2.7ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (117.8ms)
+Rendered estados/_index (11.7ms)
+  [4;35;1mUsuario Load (3.3ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (201.2ms)
+Rendered alarmas/_create (117.2ms)
+Rendered estados/_edit (111.8ms)
+Rendered estados/_create (107.2ms)
+  [4;36;1mEmpleado Load (12.4ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (4.2ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 1396ms (View: 1253, DB: 48) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 09:33:48) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (33.7ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (8.5ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (28.3ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (3.2ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (162.0ms)
+Rendered estados/_index (25.6ms)
+  [4;35;1mUsuario Load (10.9ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (276.7ms)
+Rendered alarmas/_create (103.1ms)
+Rendered estados/_edit (85.6ms)
+Rendered estados/_create (79.1ms)
+  [4;36;1mEmpleado Load (37.5ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (12.4ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 1880ms (View: 1396, DB: 138) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 09:34:28) [POST]
+  Parameters: {"action"=>"estado", "id"=>"1", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (23.1ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (5.4ms)[0m   [0;1mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 1) [0m
+  [4;35;1mSQL (0.9ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlarma Update (3.2ms)[0m   [0;1mUPDATE "alarmas" SET "updated_at" = '2011-06-23 14:04:28.659828', "estado_id" = 2 WHERE "id" = 1[0m
+  [4;35;1mSQL (12.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mAlarma Load (2.1ms)[0m   [0;1mSELECT * FROM "alarmas" [0m
+
+ActionView::MissingTemplate (Missing template alarmas/index.erb in view path app/views:/home/betacar/.rvm/gems/ruby-1.8.7-p72@socialum/gems/devise-1.0.11/app/views):
+  app/controllers/alarmas_controller.rb:68:in `estado'
+  app/controllers/alarmas_controller.rb:66:in `estado'
+  warden (0.10.3) lib/warden/manager.rb:35:in `call'
+  warden (0.10.3) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.3) lib/warden/manager.rb:34:in `call'
+  devise (1.0.11) lib/devise/rails/warden_compat.rb:43:in `call'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.7ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 09:38:32) [POST]
+  Parameters: {"action"=>"estado", "id"=>"1", "controller"=>"alarmas"}
+  [4;36;1mUsuario Load (14.6ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;35;1mAlarma Load (5.3ms)[0m   [0mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 1) [0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mAlarma Update (4.7ms)[0m   [0mUPDATE "alarmas" SET "updated_at" = '2011-06-23 14:08:32.980066', "estado_id" = 1 WHERE "id" = 1[0m
+  [4;36;1mSQL (7.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mAlarma Load (8.8ms)[0m   [0mSELECT * FROM "alarmas" [0m
+
+ActionView::MissingTemplate (Missing template alarmas/estado.erb in view path app/views:/home/betacar/.rvm/gems/ruby-1.8.7-p72@socialum/gems/devise-1.0.11/app/views):
+  app/controllers/alarmas_controller.rb:68:in `estado'
+  app/controllers/alarmas_controller.rb:63:in `estado'
+  warden (0.10.3) lib/warden/manager.rb:35:in `call'
+  warden (0.10.3) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.3) lib/warden/manager.rb:34:in `call'
+  devise (1.0.11) lib/devise/rails/warden_compat.rb:43:in `call'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing OverviewController#index (for 127.0.0.1 at 2011-06-23 09:39:54) [GET]
+  Parameters: {"action"=>"index", "controller"=>"overview"}
+Rendering template within layouts/application
+Rendering overview/index
+  [4;35;1mUsuario Load (18.2ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mSQL (2.9ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUsuario Update (4.3ms)[0m   [0mUPDATE "usuarios" SET "updated_at" = '2011-06-23 14:09:54.774405', "remember_token" = NULL, "remember_created_at" = NULL WHERE "id" = 30021061[0m
+  [4;36;1mSQL (7.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSET search_path TO socialum[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2011-06-23 09:39:55) [GET]
+  Parameters: {"timeout"=>"true", "action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/login
+Rendering sessions/new
+Rendered shared/_devise_links (0.7ms)
+Completed in 335ms (View: 75, DB: 4) | 200 OK [http://localhost/usuarios/login?timeout=true]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (2.8ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2011-06-23 09:40:01) [POST]
+  Parameters: {"commit"=>"Ingresar", "action"=>"create", "authenticity_token"=>"h4DrinsNJw2QXVMCaCp+ZVfFbagISTJmieCOV7Ij0Ag=", "usuario"=>{"remember_me"=>"1", "password"=>"[FILTERED]", "login"=>"carlos.betancourt"}, "controller"=>"sessions"}
+  [4;35;1mUsuario Load (20.4ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."login" = E'carlos.betancourt') LIMIT 1[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUsuario Update (4.8ms)[0m   [0mUPDATE "usuarios" SET "updated_at" = '2011-06-23 14:10:01.391180', "remember_token" = E'woE1t1kjTtehmYCWSrq2', "remember_created_at" = '2011-06-23 14:10:01.328558' WHERE "id" = 30021061[0m
+  [4;36;1mSQL (7.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mBEGIN[0m
+  [4;36;1mUsuario Update (2.3ms)[0m   [0;1mUPDATE "usuarios" SET "updated_at" = '2011-06-23 14:10:01.480389', "sign_in_count" = 40, "current_sign_in_at" = '2011-06-23 14:10:01.412240', "last_sign_in_at" = '2011-06-23 12:55:43.274534' WHERE "id" = 30021061[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/overview
+Completed in 317ms (DB: 43) | 302 Found [http://localhost/usuarios/login]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing OverviewController#index (for 127.0.0.1 at 2011-06-23 09:40:01) [GET]
+  Parameters: {"action"=>"index", "controller"=>"overview"}
+Rendering template within layouts/application
+Rendering overview/index
+  [4;35;1mUsuario Load (15.6ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mEmpleado Load (18.0ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (4.1ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 402ms (View: 351, DB: 41) | 200 OK [http://localhost/overview]
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 09:40:13) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (10.9ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (21.7ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (6.9ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (3.1ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (89.7ms)
+Rendered estados/_index (8.1ms)
+  [4;35;1mUsuario Load (3.9ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (136.8ms)
+Rendered alarmas/_create (50.3ms)
+Rendered estados/_edit (50.7ms)
+Rendered estados/_create (44.5ms)
+  [4;36;1mEmpleado Load (12.1ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (4.1ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 881ms (View: 586, DB: 66) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 09:40:27) [POST]
+  Parameters: {"action"=>"estado", "id"=>"1", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (16.0ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (5.3ms)[0m   [0;1mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 1) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlarma Update (2.8ms)[0m   [0;1mUPDATE "alarmas" SET "updated_at" = '2011-06-23 14:10:27.854334', "estado_id" = 2 WHERE "id" = 1[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mCOMMIT[0m
+  [4;36;1mAlarma Load (2.3ms)[0m   [0;1mSELECT * FROM "alarmas" [0m
+
+ActionView::MissingTemplate (Missing template alarmas/estado.erb in view path app/views:/home/betacar/.rvm/gems/ruby-1.8.7-p72@socialum/gems/devise-1.0.11/app/views):
+  app/controllers/alarmas_controller.rb:68:in `estado'
+  app/controllers/alarmas_controller.rb:63:in `estado'
+  warden (0.10.3) lib/warden/manager.rb:35:in `call'
+  warden (0.10.3) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.3) lib/warden/manager.rb:34:in `call'
+  devise (1.0.11) lib/devise/rails/warden_compat.rb:43:in `call'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (1.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 09:40:33) [POST]
+  Parameters: {"action"=>"estado", "id"=>"1", "controller"=>"alarmas"}
+  [4;36;1mUsuario Load (15.5ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;35;1mAlarma Load (4.6ms)[0m   [0mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 1) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mAlarma Update (2.8ms)[0m   [0mUPDATE "alarmas" SET "updated_at" = '2011-06-23 14:10:33.434127', "estado_id" = 1 WHERE "id" = 1[0m
+  [4;36;1mSQL (9.9ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mAlarma Load (2.2ms)[0m   [0mSELECT * FROM "alarmas" [0m
+
+ActionView::MissingTemplate (Missing template alarmas/estado.erb in view path app/views:/home/betacar/.rvm/gems/ruby-1.8.7-p72@socialum/gems/devise-1.0.11/app/views):
+  app/controllers/alarmas_controller.rb:68:in `estado'
+  app/controllers/alarmas_controller.rb:63:in `estado'
+  warden (0.10.3) lib/warden/manager.rb:35:in `call'
+  warden (0.10.3) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.3) lib/warden/manager.rb:34:in `call'
+  devise (1.0.11) lib/devise/rails/warden_compat.rb:43:in `call'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (5.8ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 09:47:36) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (11.5ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (4.9ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (7.1ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (3.3ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (127.8ms)
+Rendered estados/_index (19.7ms)
+  [4;35;1mUsuario Load (3.3ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (164.3ms)
+Rendered alarmas/_create (64.2ms)
+Rendered estados/_edit (50.6ms)
+Rendered estados/_create (58.2ms)
+  [4;36;1mEmpleado Load (14.0ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (4.2ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 1011ms (View: 785, DB: 57) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (5.3ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 09:47:37) [POST]
+  Parameters: {"action"=>"estado", "id"=>"1", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (15.2ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (4.5ms)[0m   [0;1mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 1) [0m
+  [4;35;1mSQL (0.9ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlarma Update (2.7ms)[0m   [0;1mUPDATE "alarmas" SET "updated_at" = '2011-06-23 14:17:37.956507', "estado_id" = 2 WHERE "id" = 1[0m
+  [4;35;1mSQL (7.9ms)[0m   [0mCOMMIT[0m
+  [4;36;1mAlarma Load (13.4ms)[0m   [0;1mSELECT * FROM "alarmas" [0m
+
+ActionView::MissingTemplate (Missing template alarmas/estado.erb in view path app/views:/home/betacar/.rvm/gems/ruby-1.8.7-p72@socialum/gems/devise-1.0.11/app/views):
+  app/controllers/alarmas_controller.rb:68:in `estado'
+  app/controllers/alarmas_controller.rb:63:in `estado'
+  warden (0.10.3) lib/warden/manager.rb:35:in `call'
+  warden (0.10.3) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.3) lib/warden/manager.rb:34:in `call'
+  devise (1.0.11) lib/devise/rails/warden_compat.rb:43:in `call'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (2.6ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 09:47:47) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;36;1mAlarma Load (9.2ms)[0m   [0;1mSELECT * FROM "alarmas" [0m
+  [4;35;1mEstado Load (4.2ms)[0m   [0mSELECT * FROM "estados" [0m
+  [4;36;1mUsuario Load (11.5ms)[0m   [0;1mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;35;1mEstado Load (2.8ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mEstado Load (2.4ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 2) [0m
+Rendered alarmas/_index (85.7ms)
+Rendered estados/_index (13.6ms)
+  [4;36;1mUsuario Load (3.4ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (143.8ms)
+Rendered alarmas/_create (53.8ms)
+Rendered estados/_edit (64.3ms)
+Rendered estados/_create (48.2ms)
+  [4;35;1mEmpleado Load (16.2ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;36;1mEmpleado Load (4.0ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 934ms (View: 630, DB: 60) | 200 OK [http://localhost/configuracion]
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 09:48:10) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;36;1mAlarma Load (9.8ms)[0m   [0;1mSELECT * FROM "alarmas" [0m
+  [4;35;1mEstado Load (4.6ms)[0m   [0mSELECT * FROM "estados" [0m
+  [4;36;1mUsuario Load (6.6ms)[0m   [0;1mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;35;1mEstado Load (3.7ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (114.6ms)
+Rendered estados/_index (10.1ms)
+  [4;36;1mUsuario Load (3.4ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (148.0ms)
+Rendered alarmas/_create (58.6ms)
+Rendered estados/_edit (60.6ms)
+Rendered estados/_create (72.5ms)
+  [4;35;1mEmpleado Load (13.3ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;36;1mEmpleado Load (4.3ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 906ms (View: 725, DB: 50) | 200 OK [http://localhost/configuracion]
+  [4;35;1mSQL (2.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (6.2ms)[0m   [0mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 09:48:45) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;36;1mAlarma Load (10.1ms)[0m   [0;1mSELECT * FROM "alarmas" [0m
+  [4;35;1mEstado Load (3.8ms)[0m   [0mSELECT * FROM "estados" [0m
+  [4;36;1mUsuario Load (7.0ms)[0m   [0;1mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;35;1mEstado Load (3.1ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (96.5ms)
+Rendered estados/_index (6.8ms)
+  [4;36;1mUsuario Load (3.3ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (124.8ms)
+Rendered alarmas/_create (56.2ms)
+Rendered estados/_edit (52.7ms)
+Rendered estados/_create (40.3ms)
+  [4;35;1mEmpleado Load (13.2ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;36;1mEmpleado Load (3.8ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 826ms (View: 682, DB: 53) | 200 OK [http://localhost/configuracion]
+  [4;35;1mSQL (1.8ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 09:49:02) [POST]
+  Parameters: {"action"=>"estado", "id"=>"1", "controller"=>"alarmas"}
+  [4;36;1mUsuario Load (15.6ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;35;1mAlarma Load (9.3ms)[0m   [0mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 1) [0m
+  [4;36;1mSQL (8.7ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mAlarma Update (5.8ms)[0m   [0mUPDATE "alarmas" SET "updated_at" = '2011-06-23 14:19:03.080383', "estado_id" = 2 WHERE "id" = 1[0m
+  [4;36;1mSQL (7.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mAlarma Load (2.1ms)[0m   [0mSELECT * FROM "alarmas" [0m
+
+ActionView::MissingTemplate (Missing template alarmas/estado.erb in view path app/views:/home/betacar/.rvm/gems/ruby-1.8.7-p72@socialum/gems/devise-1.0.11/app/views):
+  app/controllers/alarmas_controller.rb:68:in `estado'
+  app/controllers/alarmas_controller.rb:63:in `estado'
+  warden (0.10.3) lib/warden/manager.rb:35:in `call'
+  warden (0.10.3) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.3) lib/warden/manager.rb:34:in `call'
+  devise (1.0.11) lib/devise/rails/warden_compat.rb:43:in `call'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (6.4ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 09:49:55) [POST]
+  Parameters: {"action"=>"estado", "id"=>"1", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (14.8ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (5.6ms)[0m   [0;1mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 1) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlarma Update (3.2ms)[0m   [0;1mUPDATE "alarmas" SET "updated_at" = '2011-06-23 14:19:55.909241', "estado_id" = 1 WHERE "id" = 1[0m
+  [4;35;1mSQL (7.8ms)[0m   [0mCOMMIT[0m
+  [4;36;1mAlarma Load (2.2ms)[0m   [0;1mSELECT * FROM "alarmas" [0m
+
+ArgumentError (too few arguments):
+  app/controllers/alarmas_controller.rb:68:in `format'
+  app/controllers/alarmas_controller.rb:68:in `estado'
+  warden (0.10.3) lib/warden/manager.rb:35:in `call'
+  warden (0.10.3) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.3) lib/warden/manager.rb:34:in `call'
+  devise (1.0.11) lib/devise/rails/warden_compat.rb:43:in `call'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (383.8ms)
+Rendered rescues/_request_and_response (40.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 09:50:58) [POST]
+  Parameters: {"action"=>"estado", "id"=>"1", "controller"=>"alarmas"}
+  [4;36;1mUsuario Load (14.1ms)[0m   [0;1mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;35;1mAlarma Load (5.3ms)[0m   [0mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 1) [0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mAlarma Update (2.5ms)[0m   [0mUPDATE "alarmas" SET "updated_at" = '2011-06-23 14:20:58.184571', "estado_id" = 2 WHERE "id" = 1[0m
+  [4;36;1mSQL (5.3ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mAlarma Load (2.2ms)[0m   [0mSELECT * FROM "alarmas" [0m
+
+ActionView::MissingTemplate (Missing template alarmas/estado.erb in view path app/views:/home/betacar/.rvm/gems/ruby-1.8.7-p72@socialum/gems/devise-1.0.11/app/views):
+  warden (0.10.3) lib/warden/manager.rb:35:in `call'
+  warden (0.10.3) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.3) lib/warden/manager.rb:34:in `call'
+  devise (1.0.11) lib/devise/rails/warden_compat.rb:43:in `call'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 09:51:46) [POST]
+  Parameters: {"action"=>"estado", "id"=>"1", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (14.3ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (4.8ms)[0m   [0;1mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 1) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlarma Update (2.7ms)[0m   [0;1mUPDATE "alarmas" SET "updated_at" = '2011-06-23 14:21:47.105950', "estado_id" = 1 WHERE "id" = 1[0m
+  [4;35;1mSQL (8.2ms)[0m   [0mCOMMIT[0m
+
+ArgumentError (too few arguments):
+  app/controllers/alarmas_controller.rb:67:in `format'
+  app/controllers/alarmas_controller.rb:67:in `estado'
+  warden (0.10.3) lib/warden/manager.rb:35:in `call'
+  warden (0.10.3) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.3) lib/warden/manager.rb:34:in `call'
+  devise (1.0.11) lib/devise/rails/warden_compat.rb:43:in `call'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (232.0ms)
+Rendered rescues/_request_and_response (1.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 09:52:21) [POST]
+  Parameters: {"action"=>"estado", "id"=>"1", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (13.6ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (4.9ms)[0m   [0;1mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 1) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlarma Update (2.3ms)[0m   [0;1mUPDATE "alarmas" SET "updated_at" = '2011-06-23 14:22:22.244594', "estado_id" = 2 WHERE "id" = 1[0m
+  [4;35;1mSQL (8.0ms)[0m   [0mCOMMIT[0m
+Completed in 324ms (View: 9, DB: 33) | 200 OK [http://localhost/alarmas/estado/1]
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (4.4ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 09:52:30) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (10.4ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (4.7ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (6.2ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (2.9ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mEstado Load (2.2ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 2) [0m
+Rendered alarmas/_index (76.5ms)
+Rendered estados/_index (11.7ms)
+  [4;35;1mUsuario Load (3.0ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (147.2ms)
+Rendered alarmas/_create (53.5ms)
+Rendered estados/_edit (45.5ms)
+Rendered estados/_create (41.6ms)
+  [4;36;1mEmpleado Load (20.5ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (4.0ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 921ms (View: 739, DB: 60) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 09:53:21) [POST]
+  Parameters: {"action"=>"estado", "id"=>"1", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (14.8ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (5.4ms)[0m   [0;1mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 1) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlarma Update (2.7ms)[0m   [0;1mUPDATE "alarmas" SET "updated_at" = '2011-06-23 14:23:21.419166', "estado_id" = 1 WHERE "id" = 1[0m
+  [4;35;1mSQL (6.3ms)[0m   [0mCOMMIT[0m
+Completed in 178ms (View: 7, DB: 33) | 200 OK [http://localhost/alarmas/estado/1]
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (3.6ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 09:53:39) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (10.8ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (4.7ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (7.2ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (3.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (88.4ms)
+Rendered estados/_index (9.6ms)
+  [4;35;1mUsuario Load (3.3ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (304.7ms)
+Rendered alarmas/_create (50.9ms)
+Rendered estados/_edit (46.3ms)
+Rendered estados/_create (54.0ms)
+  [4;36;1mEmpleado Load (13.1ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (5.8ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 1056ms (View: 885, DB: 54) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (2.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (5.6ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 09:54:09) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (10.1ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (4.8ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (8.0ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (3.4ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (129.0ms)
+Rendered estados/_index (14.1ms)
+  [4;35;1mUsuario Load (3.5ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (160.0ms)
+Rendered alarmas/_create (70.4ms)
+Rendered estados/_edit (44.4ms)
+Rendered estados/_create (45.5ms)
+  [4;36;1mEmpleado Load (11.9ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (4.7ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 835ms (View: 655, DB: 56) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 09:55:52) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (10.2ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (4.6ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (7.1ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (3.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (92.5ms)
+Rendered estados/_index (6.5ms)
+  [4;35;1mUsuario Load (5.3ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (285.7ms)
+Rendered alarmas/_create (67.3ms)
+Rendered estados/_edit (56.8ms)
+Rendered estados/_create (45.1ms)
+  [4;36;1mEmpleado Load (13.1ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (4.5ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 953ms (View: 792, DB: 52) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 09:58:34) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (8.9ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (4.2ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (6.7ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (2.7ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (80.6ms)
+Rendered estados/_index (12.1ms)
+  [4;35;1mUsuario Load (3.4ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (168.3ms)
+Rendered alarmas/_create (70.3ms)
+Rendered estados/_edit (56.5ms)
+Rendered estados/_create (62.0ms)
+  [4;36;1mEmpleado Load (12.6ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (3.4ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 988ms (View: 844, DB: 45) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 09:59:53) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (9.9ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (4.3ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (6.5ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (3.1ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (98.8ms)
+Rendered estados/_index (12.8ms)
+  [4;35;1mUsuario Load (3.4ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (181.0ms)
+Rendered alarmas/_create (61.7ms)
+Rendered estados/_edit (58.7ms)
+Rendered estados/_create (52.5ms)
+  [4;36;1mEmpleado Load (13.9ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (5.2ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 1022ms (View: 724, DB: 50) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 10:01:25) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (9.0ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (4.2ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (6.1ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (2.9ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (123.5ms)
+Rendered estados/_index (11.6ms)
+  [4;35;1mUsuario Load (3.0ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (174.6ms)
+Rendered alarmas/_create (44.5ms)
+Rendered estados/_edit (43.3ms)
+Rendered estados/_create (39.0ms)
+  [4;36;1mEmpleado Load (14.0ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (4.4ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 852ms (View: 680, DB: 47) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 10:02:22) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (9.7ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (4.5ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (6.0ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (3.2ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (91.1ms)
+Rendered estados/_index (11.4ms)
+  [4;35;1mUsuario Load (3.3ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (132.5ms)
+Rendered alarmas/_create (83.9ms)
+Rendered estados/_edit (59.9ms)
+Rendered estados/_create (43.3ms)
+  [4;36;1mEmpleado Load (14.1ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (5.0ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 1010ms (View: 840, DB: 50) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 10:03:31) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (10.8ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (4.5ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (6.3ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (3.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (92.0ms)
+Rendered estados/_index (9.2ms)
+  [4;35;1mUsuario Load (3.3ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (137.0ms)
+Rendered alarmas/_create (60.0ms)
+Rendered estados/_edit (63.0ms)
+Rendered estados/_create (51.6ms)
+  [4;36;1mEmpleado Load (12.0ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (4.4ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 813ms (View: 672, DB: 48) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 10:03:59) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (8.8ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (4.7ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (6.1ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (2.9ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (96.0ms)
+Rendered estados/_index (9.1ms)
+  [4;35;1mUsuario Load (3.2ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (133.5ms)
+Rendered alarmas/_create (54.3ms)
+Rendered estados/_edit (44.1ms)
+Rendered estados/_create (61.1ms)
+  [4;36;1mEmpleado Load (11.8ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (4.3ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 804ms (View: 667, DB: 45) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (2.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (4.5ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 10:05:05) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (10.4ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (4.3ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (6.1ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (2.7ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (91.4ms)
+Rendered estados/_index (17.8ms)
+  [4;35;1mUsuario Load (3.3ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (148.4ms)
+Rendered alarmas/_create (61.4ms)
+Rendered estados/_edit (50.7ms)
+Rendered estados/_create (52.7ms)
+  [4;36;1mEmpleado Load (12.0ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (4.1ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 1004ms (View: 676, DB: 51) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 10:05:44) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (17.5ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (4.7ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (6.9ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (2.8ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (125.7ms)
+Rendered estados/_index (9.3ms)
+  [4;35;1mUsuario Load (3.5ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (133.8ms)
+Rendered alarmas/_create (51.4ms)
+Rendered estados/_edit (58.8ms)
+Rendered estados/_create (64.7ms)
+  [4;36;1mEmpleado Load (13.6ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (4.4ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 895ms (View: 727, DB: 57) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 10:06:15) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (9.3ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (4.7ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (6.8ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (5.2ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (100.2ms)
+Rendered estados/_index (11.3ms)
+  [4;35;1mUsuario Load (3.6ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (171.6ms)
+Rendered alarmas/_create (47.5ms)
+Rendered estados/_edit (55.6ms)
+Rendered estados/_create (58.7ms)
+  [4;36;1mEmpleado Load (13.1ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (4.0ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 972ms (View: 828, DB: 51) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 10:06:40) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (10.4ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (4.3ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (6.0ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (3.3ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (90.1ms)
+Rendered estados/_index (14.3ms)
+  [4;35;1mUsuario Load (3.2ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (314.0ms)
+Rendered alarmas/_create (52.7ms)
+Rendered estados/_edit (51.8ms)
+Rendered estados/_create (52.8ms)
+  [4;36;1mEmpleado Load (13.1ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (4.4ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 977ms (View: 830, DB: 48) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 10:07:03) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (9.5ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (4.1ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (6.5ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (2.9ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (98.4ms)
+Rendered estados/_index (16.5ms)
+  [4;35;1mUsuario Load (3.2ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (185.7ms)
+Rendered alarmas/_create (53.4ms)
+Rendered estados/_edit (43.9ms)
+Rendered estados/_create (41.4ms)
+  [4;36;1mEmpleado Load (12.6ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (4.6ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 1006ms (View: 699, DB: 47) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 10:07:30) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (10.2ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (4.4ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (7.4ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (3.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (96.0ms)
+Rendered estados/_index (12.9ms)
+  [4;35;1mUsuario Load (3.3ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (188.2ms)
+Rendered alarmas/_create (55.2ms)
+Rendered estados/_edit (47.4ms)
+Rendered estados/_create (78.6ms)
+  [4;36;1mEmpleado Load (15.1ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (4.2ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 1111ms (View: 790, DB: 51) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 10:07:53) [POST]
+  Parameters: {"action"=>"estado", "id"=>"1", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (13.6ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (5.2ms)[0m   [0;1mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 1) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlarma Update (2.3ms)[0m   [0;1mUPDATE "alarmas" SET "updated_at" = '2011-06-23 14:37:53.175385', "estado_id" = 2 WHERE "id" = 1[0m
+  [4;35;1mSQL (7.5ms)[0m   [0mCOMMIT[0m
+Completed in 198ms (View: 12, DB: 32) | 200 OK [http://localhost/alarmas/estado/1]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 10:07:58) [POST]
+  Parameters: {"action"=>"estado", "id"=>"1", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (14.8ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (5.1ms)[0m   [0;1mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 1) [0m
+  [4;35;1mSQL (0.9ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlarma Update (2.7ms)[0m   [0;1mUPDATE "alarmas" SET "updated_at" = '2011-06-23 14:37:58.752261', "estado_id" = 1 WHERE "id" = 1[0m
+  [4;35;1mSQL (2.9ms)[0m   [0mCOMMIT[0m
+Completed in 134ms (View: 5, DB: 30) | 200 OK [http://localhost/alarmas/estado/1]
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 10:08:01) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (10.6ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (4.4ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (6.8ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (2.9ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (79.3ms)
+Rendered estados/_index (10.5ms)
+  [4;35;1mUsuario Load (3.4ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (161.0ms)
+Rendered alarmas/_create (50.7ms)
+Rendered estados/_edit (58.0ms)
+Rendered estados/_create (47.1ms)
+  [4;36;1mEmpleado Load (12.1ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (4.0ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 785ms (View: 635, DB: 47) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 10:10:43) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (12.0ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (15.5ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (6.0ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (3.3ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (209.4ms)
+Rendered estados/_index (24.0ms)
+  [4;35;1mUsuario Load (3.7ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (432.7ms)
+Rendered alarmas/_create (74.3ms)
+Rendered estados/_edit (61.6ms)
+Rendered estados/_create (89.0ms)
+  [4;36;1mEmpleado Load (13.3ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (6.6ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 1780ms (View: 1617, DB: 64) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 10:14:50) [POST]
+  Parameters: {"action"=>"estado", "id"=>"1", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (18.4ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (6.0ms)[0m   [0;1mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 1) [0m
+  [4;35;1mSQL (1.5ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlarma Update (7.0ms)[0m   [0;1mUPDATE "alarmas" SET "updated_at" = '2011-06-23 14:44:50.270937', "estado_id" = 2 WHERE "id" = 1[0m
+  [4;35;1mSQL (9.5ms)[0m   [0mCOMMIT[0m
+Completed in 343ms (View: 41, DB: 46) | 200 OK [http://localhost/alarmas/estado/1]
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 10:15:02) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (12.3ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (18.7ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (6.5ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (3.2ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mEstado Load (3.1ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 2) [0m
+Rendered alarmas/_index (112.8ms)
+Rendered estados/_index (7.0ms)
+  [4;35;1mUsuario Load (20.6ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (185.7ms)
+Rendered alarmas/_create (93.8ms)
+Rendered estados/_edit (75.3ms)
+Rendered estados/_create (50.0ms)
+  [4;36;1mEmpleado Load (27.0ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (4.2ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 1039ms (View: 796, DB: 99) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 10:16:28) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (9.0ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (5.1ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (6.3ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (4.3ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (296.7ms)
+Rendered estados/_index (12.4ms)
+  [4;35;1mUsuario Load (3.0ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (198.0ms)
+Rendered alarmas/_create (67.2ms)
+Rendered estados/_edit (88.8ms)
+Rendered estados/_create (41.4ms)
+  [4;36;1mEmpleado Load (13.7ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (5.4ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 1180ms (View: 1009, DB: 50) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (3.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 10:16:46) [POST]
+  Parameters: {"action"=>"estado", "id"=>"1", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (13.6ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (4.8ms)[0m   [0;1mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 1) [0m
+  [4;35;1mSQL (5.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlarma Update (2.6ms)[0m   [0;1mUPDATE "alarmas" SET "updated_at" = '2011-06-23 14:46:46.966543', "estado_id" = 2 WHERE "id" = 1[0m
+  [4;35;1mSQL (8.5ms)[0m   [0mCOMMIT[0m
+Completed in 218ms (View: 13, DB: 40) | 200 OK [http://localhost/alarmas/estado/1]
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 10:17:13) [POST]
+  Parameters: {"action"=>"estado", "id"=>"1", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (17.8ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (6.3ms)[0m   [0;1mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 1) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlarma Update (2.7ms)[0m   [0;1mUPDATE "alarmas" SET "updated_at" = '2011-06-23 14:47:13.423371', "estado_id" = 1 WHERE "id" = 1[0m
+  [4;35;1mSQL (11.1ms)[0m   [0mCOMMIT[0m
+Completed in 187ms (View: 6, DB: 42) | 200 OK [http://localhost/alarmas/estado/1]
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 10:17:20) [POST]
+  Parameters: {"action"=>"estado", "id"=>"2", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (14.7ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (4.9ms)[0m   [0;1mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 2) [0m
+  [4;35;1mSQL (4.8ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlarma Update (10.7ms)[0m   [0;1mUPDATE "alarmas" SET "updated_at" = '2011-06-23 14:47:20.238268', "estado_id" = 2 WHERE "id" = 2[0m
+  [4;35;1mSQL (6.7ms)[0m   [0mCOMMIT[0m
+Completed in 252ms (View: 22, DB: 48) | 200 OK [http://localhost/alarmas/estado/2]
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 10:17:23) [POST]
+  Parameters: {"action"=>"estado", "id"=>"2", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (14.2ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (4.7ms)[0m   [0;1mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 2) [0m
+  [4;35;1mSQL (7.3ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlarma Update (6.1ms)[0m   [0;1mUPDATE "alarmas" SET "updated_at" = '2011-06-23 14:47:24.218820', "estado_id" = 1 WHERE "id" = 2[0m
+  [4;35;1mSQL (7.9ms)[0m   [0mCOMMIT[0m
+Completed in 373ms (View: 10, DB: 44) | 200 OK [http://localhost/alarmas/estado/2]
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (4.3ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 10:23:44) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (10.5ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (4.8ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (10.0ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (3.2ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (81.5ms)
+Rendered estados/_index (11.9ms)
+  [4;35;1mUsuario Load (4.5ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (201.0ms)
+Rendered alarmas/_create (62.6ms)
+Rendered estados/_edit (100.3ms)
+Rendered estados/_create (112.2ms)
+  [4;36;1mEmpleado Load (14.9ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (15.1ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 1464ms (View: 1263, DB: 70) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 10:24:00) [POST]
+  Parameters: {"action"=>"estado", "id"=>"1", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (14.5ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (8.4ms)[0m   [0;1mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 1) [0m
+  [4;35;1mSQL (5.7ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlarma Update (2.7ms)[0m   [0;1mUPDATE "alarmas" SET "updated_at" = '2011-06-23 14:54:00.906873', "estado_id" = 2 WHERE "id" = 1[0m
+  [4;35;1mSQL (8.5ms)[0m   [0mCOMMIT[0m
+Completed in 207ms (View: 14, DB: 43) | 200 OK [http://localhost/alarmas/estado/1]
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 10:24:06) [POST]
+  Parameters: {"action"=>"estado", "id"=>"1", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (13.1ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (5.2ms)[0m   [0;1mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 1) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlarma Update (8.3ms)[0m   [0;1mUPDATE "alarmas" SET "updated_at" = '2011-06-23 14:54:06.873638', "estado_id" = 1 WHERE "id" = 1[0m
+  [4;35;1mSQL (7.4ms)[0m   [0mCOMMIT[0m
+Completed in 220ms (View: 10, DB: 38) | 200 OK [http://localhost/alarmas/estado/1]
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 10:24:10) [POST]
+  Parameters: {"action"=>"estado", "id"=>"1", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (13.2ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (5.2ms)[0m   [0;1mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 1) [0m
+  [4;35;1mSQL (1.5ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlarma Update (2.5ms)[0m   [0;1mUPDATE "alarmas" SET "updated_at" = '2011-06-23 14:54:10.476727', "estado_id" = 2 WHERE "id" = 1[0m
+  [4;35;1mSQL (6.7ms)[0m   [0mCOMMIT[0m
+Completed in 270ms (View: 6, DB: 34) | 200 OK [http://localhost/alarmas/estado/1]
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 10:24:13) [POST]
+  Parameters: {"action"=>"estado", "id"=>"2", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (12.8ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (9.3ms)[0m   [0;1mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 2) [0m
+  [4;35;1mSQL (4.5ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlarma Update (2.5ms)[0m   [0;1mUPDATE "alarmas" SET "updated_at" = '2011-06-23 14:54:14.125870', "estado_id" = 2 WHERE "id" = 2[0m
+  [4;35;1mSQL (8.4ms)[0m   [0mCOMMIT[0m
+Completed in 216ms (View: 6, DB: 41) | 200 OK [http://localhost/alarmas/estado/2]
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 10:24:16) [POST]
+  Parameters: {"action"=>"estado", "id"=>"2", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (14.7ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (4.5ms)[0m   [0;1mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 2) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlarma Update (2.9ms)[0m   [0;1mUPDATE "alarmas" SET "updated_at" = '2011-06-23 14:54:16.669844', "estado_id" = 1 WHERE "id" = 2[0m
+  [4;35;1mSQL (15.0ms)[0m   [0mCOMMIT[0m
+Completed in 576ms (View: 6, DB: 42) | 200 OK [http://localhost/alarmas/estado/2]
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 10:24:18) [POST]
+  Parameters: {"action"=>"estado", "id"=>"2", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (15.6ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (5.0ms)[0m   [0;1mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 2) [0m
+  [4;35;1mSQL (17.6ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlarma Update (3.2ms)[0m   [0;1mUPDATE "alarmas" SET "updated_at" = '2011-06-23 14:54:19.117767', "estado_id" = 2 WHERE "id" = 2[0m
+  [4;35;1mSQL (7.6ms)[0m   [0mCOMMIT[0m
+Completed in 240ms (View: 6, DB: 52) | 200 OK [http://localhost/alarmas/estado/2]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (4.9ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 10:24:41) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (9.6ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (4.1ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (7.4ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (2.9ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mEstado Load (2.1ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 2) [0m
+Rendered alarmas/_index (133.8ms)
+Rendered estados/_index (22.0ms)
+  [4;35;1mUsuario Load (3.2ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (168.5ms)
+Rendered alarmas/_create (83.2ms)
+Rendered estados/_edit (59.3ms)
+Rendered estados/_create (71.2ms)
+  [4;36;1mEmpleado Load (11.9ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (4.2ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 1089ms (View: 840, DB: 53) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 10:24:52) [POST]
+  Parameters: {"action"=>"estado", "id"=>"2", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (15.1ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (4.7ms)[0m   [0;1mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 2) [0m
+  [4;35;1mSQL (10.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlarma Update (7.5ms)[0m   [0;1mUPDATE "alarmas" SET "updated_at" = '2011-06-23 14:54:53.122330', "estado_id" = 1 WHERE "id" = 2[0m
+  [4;35;1mSQL (8.2ms)[0m   [0mCOMMIT[0m
+Completed in 237ms (View: 6, DB: 49) | 200 OK [http://localhost/alarmas/estado/2]
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 10:24:59) [POST]
+  Parameters: {"action"=>"estado", "id"=>"2", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (15.6ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (5.0ms)[0m   [0;1mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 2) [0m
+  [4;35;1mSQL (9.9ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlarma Update (11.3ms)[0m   [0;1mUPDATE "alarmas" SET "updated_at" = '2011-06-23 14:54:59.398655', "estado_id" = 2 WHERE "id" = 2[0m
+  [4;35;1mSQL (6.3ms)[0m   [0mCOMMIT[0m
+Completed in 421ms (View: 18, DB: 53) | 200 OK [http://localhost/alarmas/estado/2]
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 10:25:26) [POST]
+  Parameters: {"action"=>"estado", "id"=>"1", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (13.8ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (13.6ms)[0m   [0;1mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 1) [0m
+  [4;35;1mSQL (10.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlarma Update (5.4ms)[0m   [0;1mUPDATE "alarmas" SET "updated_at" = '2011-06-23 14:55:26.499946', "estado_id" = 1 WHERE "id" = 1[0m
+  [4;35;1mSQL (7.9ms)[0m   [0mCOMMIT[0m
+Completed in 299ms (View: 15, DB: 54) | 200 OK [http://localhost/alarmas/estado/1]
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (5.8ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 10:25:40) [POST]
+  Parameters: {"action"=>"estado", "id"=>"1", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (13.8ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (5.5ms)[0m   [0;1mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 1) [0m
+  [4;35;1mSQL (6.8ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlarma Update (2.5ms)[0m   [0;1mUPDATE "alarmas" SET "updated_at" = '2011-06-23 14:55:41.178629', "estado_id" = 2 WHERE "id" = 1[0m
+  [4;35;1mSQL (7.3ms)[0m   [0mCOMMIT[0m
+Completed in 247ms (View: 5, DB: 44) | 200 OK [http://localhost/alarmas/estado/1]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 10:25:51) [POST]
+  Parameters: {"action"=>"estado", "id"=>"2", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (13.8ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (4.6ms)[0m   [0;1mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 2) [0m
+  [4;35;1mSQL (6.7ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlarma Update (3.7ms)[0m   [0;1mUPDATE "alarmas" SET "updated_at" = '2011-06-23 14:55:51.541830', "estado_id" = 1 WHERE "id" = 2[0m
+  [4;35;1mSQL (5.5ms)[0m   [0mCOMMIT[0m
+Completed in 153ms (View: 6, DB: 38) | 200 OK [http://localhost/alarmas/estado/2]
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 10:26:10) [POST]
+  Parameters: {"action"=>"estado", "id"=>"1", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (14.6ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (4.6ms)[0m   [0;1mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 1) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlarma Update (2.4ms)[0m   [0;1mUPDATE "alarmas" SET "updated_at" = '2011-06-23 14:56:10.817340', "estado_id" = 1 WHERE "id" = 1[0m
+  [4;35;1mSQL (7.4ms)[0m   [0mCOMMIT[0m
+Completed in 191ms (View: 6, DB: 34) | 200 OK [http://localhost/alarmas/estado/1]
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 10:26:19) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (10.7ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (4.7ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (11.0ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (4.5ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (118.1ms)
+Rendered estados/_index (23.1ms)
+  [4;35;1mUsuario Load (8.2ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (186.2ms)
+Rendered alarmas/_create (64.5ms)
+Rendered estados/_edit (75.7ms)
+Rendered estados/_create (61.7ms)
+  [4;36;1mEmpleado Load (13.4ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (4.0ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 1328ms (View: 845, DB: 60) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (4.4ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 10:27:54) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (10.8ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (4.5ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (6.4ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (2.9ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (86.7ms)
+Rendered estados/_index (18.3ms)
+  [4;35;1mUsuario Load (5.4ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (273.9ms)
+Rendered alarmas/_create (58.7ms)
+Rendered estados/_edit (57.5ms)
+Rendered estados/_create (44.0ms)
+  [4;36;1mEmpleado Load (22.2ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (9.2ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 1084ms (View: 862, DB: 68) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 10:28:10) [POST]
+  Parameters: {"action"=>"estado", "id"=>"1", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (15.0ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (5.1ms)[0m   [0;1mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 1) [0m
+  [4;35;1mSQL (2.4ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlarma Update (2.9ms)[0m   [0;1mUPDATE "alarmas" SET "updated_at" = '2011-06-23 14:58:11.153593', "estado_id" = 2 WHERE "id" = 1[0m
+  [4;35;1mSQL (8.6ms)[0m   [0mCOMMIT[0m
+Completed in 530ms (View: 6, DB: 37) | 200 OK [http://localhost/alarmas/estado/1]
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 10:28:26) [POST]
+  Parameters: {"action"=>"estado", "id"=>"2", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (14.9ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (4.9ms)[0m   [0;1mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 2) [0m
+  [4;35;1mSQL (7.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlarma Update (6.4ms)[0m   [0;1mUPDATE "alarmas" SET "updated_at" = '2011-06-23 14:58:26.686509', "estado_id" = 2 WHERE "id" = 2[0m
+  [4;35;1mSQL (21.2ms)[0m   [0mCOMMIT[0m
+Completed in 249ms (View: 16, DB: 58) | 200 OK [http://localhost/alarmas/estado/2]
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 10:28:52) [POST]
+  Parameters: {"action"=>"estado", "id"=>"1", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (14.5ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (10.5ms)[0m   [0;1mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 1) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlarma Update (4.2ms)[0m   [0;1mUPDATE "alarmas" SET "updated_at" = '2011-06-23 14:58:52.918596', "estado_id" = 1 WHERE "id" = 1[0m
+  [4;35;1mSQL (4.7ms)[0m   [0mCOMMIT[0m
+Completed in 223ms (View: 6, DB: 39) | 200 OK [http://localhost/alarmas/estado/1]
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (2.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (7.2ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing ConfiguracionController#index (for 127.0.0.1 at 2011-06-23 10:33:30) [GET]
+  Parameters: {"action"=>"index", "controller"=>"configuracion"}
+  [4;35;1mAlarma Load (9.3ms)[0m   [0mSELECT * FROM "alarmas" [0m
+  [4;36;1mEstado Load (6.5ms)[0m   [0;1mSELECT * FROM "estados" [0m
+  [4;35;1mUsuario Load (6.6ms)[0m   [0mSELECT * FROM "usuarios" [0m
+Rendering template within layouts/application
+Rendering configuracion/index
+  [4;36;1mEstado Load (3.2ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+  [4;35;1mEstado Load (2.8ms)[0m   [0mSELECT * FROM "estados" WHERE ("estados"."id" = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "estados" WHERE ("estados"."id" = 1) [0m
+Rendered alarmas/_index (117.4ms)
+Rendered estados/_index (7.3ms)
+  [4;35;1mUsuario Load (5.3ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+Rendered alarmas/_edit (421.0ms)
+Rendered alarmas/_create (64.2ms)
+Rendered estados/_edit (71.3ms)
+Rendered estados/_create (65.3ms)
+  [4;36;1mEmpleado Load (12.0ms)[0m   [0;1mSELECT * FROM "vw_personal" WHERE ("vw_personal"."numero_personal" = 30021061) [0m
+  [4;35;1mEmpleado Load (8.4ms)[0m   [0mSELECT * FROM "vw_personal" WHERE ("vw_personal".numero_personal = 30021061) LIMIT 1[0m
+Completed in 1277ms (View: 1102, DB: 65) | 200 OK [http://localhost/configuracion]
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (4.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 10:34:30) [POST]
+  Parameters: {"action"=>"estado", "id"=>"3", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (15.0ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (4.7ms)[0m   [0;1mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 3) [0m
+  [4;35;1mSQL (1.8ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlarma Update (22.0ms)[0m   [0;1mUPDATE "alarmas" SET "updated_at" = '2011-06-23 15:04:30.376371', "estado_id" = 2 WHERE "id" = 3[0m
+  [4;35;1mSQL (8.7ms)[0m   [0mCOMMIT[0m
+Completed in 255ms (View: 8, DB: 60) | 200 OK [http://localhost/alarmas/estado/3]
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 10:34:36) [POST]
+  Parameters: {"action"=>"estado", "id"=>"2", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (14.1ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (5.3ms)[0m   [0;1mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 2) [0m
+  [4;35;1mSQL (2.5ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlarma Update (2.7ms)[0m   [0;1mUPDATE "alarmas" SET "updated_at" = '2011-06-23 15:04:37.147065', "estado_id" = 1 WHERE "id" = 2[0m
+  [4;35;1mSQL (8.1ms)[0m   [0mCOMMIT[0m
+Completed in 246ms (View: 5, DB: 36) | 200 OK [http://localhost/alarmas/estado/2]
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 10:34:43) [POST]
+  Parameters: {"action"=>"estado", "id"=>"1", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (15.1ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (15.9ms)[0m   [0;1mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 1) [0m
+  [4;35;1mSQL (4.6ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlarma Update (2.5ms)[0m   [0;1mUPDATE "alarmas" SET "updated_at" = '2011-06-23 15:04:43.349622', "estado_id" = 2 WHERE "id" = 1[0m
+  [4;35;1mSQL (7.6ms)[0m   [0mCOMMIT[0m
+Completed in 225ms (View: 25, DB: 48) | 200 OK [http://localhost/alarmas/estado/1]
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 10:34:49) [POST]
+  Parameters: {"action"=>"estado", "id"=>"1", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (14.2ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (5.2ms)[0m   [0;1mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 1) [0m
+  [4;35;1mSQL (8.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlarma Update (2.4ms)[0m   [0;1mUPDATE "alarmas" SET "updated_at" = '2011-06-23 15:04:50.325021', "estado_id" = 1 WHERE "id" = 1[0m
+  [4;35;1mSQL (8.2ms)[0m   [0mCOMMIT[0m
+Completed in 392ms (View: 7, DB: 41) | 200 OK [http://localhost/alarmas/estado/1]
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSET search_path TO socialum[0m
+
+
+Processing AlarmasController#estado (for 127.0.0.1 at 2011-06-23 10:34:52) [POST]
+  Parameters: {"action"=>"estado", "id"=>"3", "controller"=>"alarmas"}
+  [4;35;1mUsuario Load (14.3ms)[0m   [0mSELECT * FROM "usuarios" WHERE ("usuarios"."id" = 30021061) LIMIT 1[0m
+  [4;36;1mAlarma Load (6.2ms)[0m   [0;1mSELECT * FROM "alarmas" WHERE ("alarmas"."id" = 3) [0m
+  [4;35;1mSQL (12.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mAlarma Update (2.7ms)[0m   [0;1mUPDATE "alarmas" SET "updated_at" = '2011-06-23 15:04:53.082669', "estado_id" = 1 WHERE "id" = 3[0m
+  [4;35;1mSQL (15.9ms)[0m   [0mCOMMIT[0m
+Completed in 210ms (View: 10, DB: 54) | 200 OK [http://localhost/alarmas/estado/3]
