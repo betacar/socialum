@@ -1,3 +1,167 @@
-  <h1>Configuración</h1>
-  <article>
-  </artice>
+<% titulo 'Panel de configuración' %>
+  <h1 class="hasIcono panel_conf">Panel de configuración</h1>
+  <article class="grid_15">
+    <div class="wrapper">
+      <%= render "alarmas/index" %>
+    </div>
+    <div class="clearfix"></div>
+  </article>
+  <aside class="grid_9">
+    <div class="wrapper">
+      <%= render "estados/index" %>
+    </div>
+  </aside>
+  <div class="clearfix"></div>
+<% content_for :jquery_scripts do %>
+  <script>
+    $(document).ready(function() {
+      // * * * * * * * * * * * * * * * ALARMAS * * * * * * * * * * * * * * * //
+      var alarmas = {};
+      
+      // Control para editar alarmas
+      $('a[href="#edit_alarma"]').live('click', function(e) {
+        e.preventDefault();
+        var alarma_id = $(this).closest('td').attr('alarma'),
+            objAlarma = null,
+            editRow = '<%= escape_javascript( render(:partial => "alarmas/edit", :object => @estados) ) %>',
+            alarma_input = $('#nombre_alarma');
+                      
+        $(this).closest('tr').html(editRow);
+        
+        // La llamada no es asíncrona para poder setear el valor en el input.
+        objAlarma = Ajax(false, null, null, false, "GET", 'alarmas/edit/' + alarma_id);
+        
+        alarma_input.val(objAlarma.alarma.nombre_alarma);     
+        return false;
+      });
+      
+      // Control para nuevas alarmas
+      $('a[href="#new_alarma"]').click(function() {        
+        $('#alarmas tbody').append('<%= escape_javascript( render(:partial => "alarmas/create", :object => @estados) ) %>');
+        
+        // Remueve, luego de hacer click en el link DELETE, 
+        // la nueva fila de la tabla.
+        $('a[href="#delete_new_alarma"]').click(function(e) {
+          e.preventDefault();
+          $(this).closest('tr').fadeOut('normal', function() {
+            $(this).remove();
+          });
+          
+          return false;
+        });
+        
+        return false;
+      });
+      
+      // Envia a través de AJAX un JSON con las nuevas alarmas
+      $('#save_new_alarmas').click(function() {
+                
+        $('.nueva_alarma').each(function() {
+          var estado_id = $(this).children('.estado').children().val(),
+              nombre_alarma = $(this).children('.data').children('input[name="nombre_alarma"]').val();
+              
+          if(nombre_alarma) {            
+            alarmas = {
+              alarma: {
+                estado_id: estado_id,
+                nombre_alarma: nombre_alarma,
+                usuario_id_created: ficha
+              }            
+            };
+          }
+        });
+        
+        console.log(alarmas);
+        
+        Ajax(true, null, alarmas, false, "POST", "alarmas/create/", "#alarmas"); 
+        alarmas = [];      
+        return false;      
+      });
+      
+      // Remueve, luego de hacer click en el link 'Cancelar', 
+      // las nuevas filas de la tabla que tengan la clase .nueva_alarma.
+      $('#cancel_new_alarmas').click(function(e) {
+        e.preventDefault();
+        if ($('.nueva_alarma').children('input[type="text"]').val() == null) {
+          $('.nueva_alarma').fadeOut('normal', function() {
+            $(this).remove();
+          });
+        }
+        
+        // Se eliminan todos los datos del objeto.
+        alarmas = [];
+        
+        // Ocultamos los botones
+        $(this).hideButtons();
+        
+        return false;
+      });
+      
+      // TODO: Crear un metodo jQuery que haga esto solo 
+      $('a[href="#estado"]').live('click', function(e) {
+        e.preventDefault();
+        var estado_id = $(this).closest('td').attr('estado'),
+            desc_estado = 'Activo',
+            img = '<img src="/images/close_16.png" alt="" title="Desactivar" /\>';
+        
+        if(estado_id != 1){
+          desc_estado = 'Inactivo';
+          img = '<img src="/images/accepted_16.png" alt="" title="Activar" /\>';
+        }
+        
+        Ajax(false, null, null, false, "POST", 'alarmas/estado/' + estado_id);
+        
+        $(this).parent().parent().next('td').text(desc_estado);
+        $(this).attr('onclick')
+        $(this).children('img').attr('src', '/images/');
+      });
+      
+      // * * * * * * * * * * * * * * * ESTADOS * * * * * * * * * * * * * * * //
+      // Control para editar estados
+      $('a[href="#edit_estado"]').live('click', function(e) {
+        e.preventDefault();
+        var estado_id = $(this).closest('td').attr('estado'),
+            objEstado = null,
+            editRow = '<%= escape_javascript( render(:partial => "estados/edit") ) %>',
+            estado_input = $('#desc_estado');
+                      
+        $(this).closest('tr').html(editRow);
+        
+        // La llamada no es asíncrona para poder setear el valor en el input.
+        objEstado = Ajax(false, null, null, "json", false, "GET", 'estados/edit/' + estado_id);
+        
+        estado_input.val(objEstado.estado.desc_estado);     
+        return false;
+      });
+      
+      // Control para nuevas estados
+      $('a[href="#new_estado"]').click(function() {        
+        $('#estados tbody').append('<%= escape_javascript( render(:partial => "estados/create") ) %>');
+        
+        // Remueve, luego de hacer click en el link DELETE, 
+        // la nueva fila de la tabla.
+        $('a[href="#delete_estado"]').click(function(e) {
+          e.preventDefault();
+          $(this).closest('tr').fadeOut('normal', function() {
+            $(this).remove();
+          });
+        });
+        
+        // Remueve, luego de hacer click en el link 'Cancelar', 
+        // las nuevas filas de la tabla que tengan la clase .nuevo_estado.
+        $('#cancel_new_estados').click(function(e) {
+          e.preventDefault();
+          if ($('.nuevo_estado').children('input[type="text"]').val() == null) {
+            $('.nuevo_estado').fadeOut('normal', function() {
+              $(this).remove();
+            });
+          }
+          
+          $(this).hideButtons();
+        });
+        
+        return false;
+      });
+    });
+  </script>
+<% end %>

@@ -1,0 +1,23 @@
+      <table width='100%' border='0' align='center' id="estados">
+        <caption>
+          <h2>Estados</h2>
+          <small>Describe los estados de los registros</small>
+        </caption>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @estados.each do |estado| %>
+          <tr>
+            <td><%=h estado.desc_estado %></td>
+            <td estado="<%=h estado.id %>"><%= link_to image_tag('pencil_16.png', :alt => '', :title => 'Editar'), '#edit_estado' %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+      <div class="alpha grid_12"><%= link_to image_tag('add_16.png', :alt => '', :title => 'Añadir estado') + 'Añadir estado', '#new_estado', :title => 'Añadir estado' %></div>
+      <div class="omega grid_12 derecha"><%= submit_tag 'Guardar', :title => 'Guardar', :id => "save_new_estados", :class => "blue oculto" %> <%= submit_tag 'Cancelar', :title => 'Cancelar', :type => 'reset', :name => 'reset', :id => "cancel_new_estados", :class => 'cancel oculto' %></div>
+      <div class="clearfix"></div>

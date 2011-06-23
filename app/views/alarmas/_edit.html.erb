@@ -1,0 +1,14 @@
+          <td>
+            <%= select @estados, :estado_id, @estados.collect {|p| [ p.desc_estado, p.id ] } %>
+          </td>
+          <td>
+            <%= text_field_tag :nombre_alarma, nil, :placeholder => 'Nombre de alarma' %>
+            <%= text_field_tag :usuario_id_created, current_usuario.ficha, :hidden => true %>
+            <%= text_field_tag :usuario_id_updated, current_usuario.ficha, :hidden => true %>
+          </td>
+          <td>
+            <%= link_to image_tag('save_16.png', :alt => 'Guardar', :title => 'Guardar'), '#save_edit_alarma' %>
+          </td>
+          <td>
+            <%= link_to image_tag('cancel_16.png', :alt => 'Cancelar', :title => 'Cancelar'), '#cancel_edit_alarma' %>
+          </td>

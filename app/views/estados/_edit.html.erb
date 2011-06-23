@@ -1,0 +1,11 @@
+          <td>
+            <%= text_field_tag :desc_estado, nil, :placeholder => 'Nombre de estado' %>
+            <%= text_field_tag :usuario_id_created, nil, :hidden => true %>
+            <%= text_field_tag :usuario_id_updated, :value => current_usuario.ficha, :hidden => true %> 
+          </td>
+          <td>
+            <%= link_to image_tag('save_16.png', :alt => 'Guardar', :title => 'Guardar'), '#save_edit_estado' %>
+          </td>
+          <td>
+            <%= link_to image_tag('cancel_16.png', :alt => 'Cancelar', :title => 'Cancelar'), '#cancel_edit_estado' %>
+          </td>
