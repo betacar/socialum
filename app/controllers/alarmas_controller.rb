@@ -15,7 +15,7 @@ class AlarmasController < ApplicationController
   end
 
   # GET /alarmas/1/edit
-  def edit
+  def show
     @alarma = Alarma.find(params[:id])
     
     respond_to do |format|

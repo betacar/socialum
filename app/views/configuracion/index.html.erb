@@ -16,7 +16,6 @@
   <script>
     $(document).ready(function() {
       // * * * * * * * * * * * * * * * ALARMAS * * * * * * * * * * * * * * * //
-      var alarmas = {};
       
       // Control para editar alarmas
       $('a[href="#edit_alarma"]').live('click', function(e) {
@@ -24,14 +23,15 @@
         var alarma_id = $(this).closest('td').attr('alarma'),
             objAlarma = null,
             editRow = '<%= escape_javascript( render(:partial => "alarmas/edit", :object => @estados) ) %>',
-            alarma_input = $('#nombre_alarma');
+            alarma_input = $('#nombre_alarma'),
+            fila = $('#alarmas tbody tr:eq(' + $(this).closest('tr').index() + ')');
                       
-        $(this).closest('tr').html(editRow);
+        $(this).closest('tr').addClass('editar_alarma').html(editRow);
         
         // La llamada no es asíncrona para poder setear el valor en el input.
-        objAlarma = Ajax(false, null, "json", false, "GET", 'alarmas/edit/' + alarma_id);
+        objAlarma = Ajax(false, null, "json", false, "GET", 'alarmas/show/' + alarma_id);
         
-        alarma_input.val(objAlarma.alarma.nombre_alarma);     
+        fila.children('td:eq(1)').children('input[name="nombre_alarma"]').val(objAlarma.alarma.nombre_alarma);
         return false;
       });
       
@@ -55,26 +55,25 @@
       
       // Envia a través de AJAX un JSON con las nuevas alarmas
       $('#save_new_alarmas').click(function() {
-                
         $('.nueva_alarma').each(function() {
           var estado_id = $(this).children('.estado').children().val(),
-              nombre_alarma = $(this).children('.data').children('input[name="nombre_alarma"]').val();
-              
+              nombre_alarma = $(this).children('.data').children('input[name="nombre_alarma"]').val(),
+              alarma = {},
+              objAux = {};
+                       
           if(nombre_alarma) {            
-            alarmas = {
+            objAux = {
               alarma: {
                 estado_id: estado_id,
                 nombre_alarma: nombre_alarma,
                 usuario_id_created: ficha
-              }            
+              }
             };
           }
+          
+          Ajax(true, objAux, "json", false, "POST", "alarmas/create/", "#alarmas");          
         });
-        
-        console.log(alarmas);
-        
-        Ajax(true, alarmas, "json", false, "POST", "alarmas/create/", "#alarmas"); 
-        alarmas = {};      
+     
         return false;      
       });
       
@@ -87,9 +86,6 @@
             $(this).remove();
           });
         }
-        
-        // Se eliminan todos los datos del objeto.
-        alarmas = {};
         
         // Ocultamos los botones
         $(this).hideButtons();
