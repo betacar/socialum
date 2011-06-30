@@ -26,11 +26,11 @@ $(document).ready(function() {
     }, 'fast');
   });
   
-  $('div a[href*="#new"], a[href^="#desactivar_"], a[href^="#activar_"]').click(function(e) {
+  $('div a[href*="#new"], a[href^="#desactivar_"], a[href^="#activar_"], a[href^="#cancel_"]').live('click', function(e) {
     e.preventDefault();
   });
 
-  // Agrega, luego de hacer click en el link NEW, 
+  // Agrega, luego de hacer click en el link NEW o EDIT, 
   // los botones de Guardar y Cancelar
   $('div a[href*="#new"]').click(function() {
     $(this).parent().next('div').children('input').fadeIn();

@@ -50,7 +50,7 @@ header{background:url("../images/sa_header_bg.jpg") repeat-x}
 		#login input[type="checkbox"]+label{width:auto;text-align:left;display:inline}
 		
 #menu{height:28px;color:#a5aeb6;font-size:.923em;margin-bottom:20px;background-color:#152f40;border-top:1px solid #394a59;border-bottom:1px solid #394a59;-moz-box-shadow:0 2px 3px #b3b3b3;-webkit-box-shadow:0 2px 3px #b3b3b3;box-shadow:0 2px 3px #b3b3b3}
-	#menu ul{list-style:none;margin-top:5px;position:relative}
+	#menu ul{list-style:none;margin-top:7px;position:relative}
 	#menu li{display:inline;margin-right:10px;padding-bottom:8px;cursor:pointer}
 	#menu a:link,#menu a:visited{color:#a5aeb6;text-decoration:none}
 	#menu a:hover{color:#dfe5e6}
@@ -161,7 +161,6 @@ header{background:url("../images/sa_header_bg.jpg") repeat-x}
 			span.incorrecto strong{color:#ff0000}
 	
 	aside p.num_destacado{font-weight:bold;font-size:1.538em}
-	  aside h2:hover{cursor:pointer;color:#590b19}
 		h2.down{padding-right:10px;background:url(../images/sa_aside_icons_collapse_down.png) right center no-repeat}
 		h2.up{padding-right:10px; background:url(../images/sa_aside_icons_collapse_up.png) right center no-repeat}
 		h2+div{color:#394a59}

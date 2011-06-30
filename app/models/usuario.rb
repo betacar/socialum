@@ -9,8 +9,7 @@ class Usuario < ActiveRecord::Base
   attr_accessible :login, :ldap_attributes, :password, :remember_me
   
   def ficha
-    operationsAD = OperationsAd.new
-    ficha = operationsAD.Atributo("initials", self.login) # Filtro los datos en AD, a través del login, para obtener el numero de personal
+    ficha = Devise::LdapAdapter.getAtributo('initials', self.login) # Filtro los datos en AD, a través del login, para obtener el numero de personal
     @ficha = 30000000 + ficha.to_s.to_i # Sumamos 30 millones a la ficha, segun estandar de numero de personal
   end
   

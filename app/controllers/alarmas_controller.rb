@@ -8,13 +8,10 @@ class AlarmasController < ApplicationController
     @alarmas = Alarma.all
     @estados = Estado.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @alarmas }
-    end
+    render :partial => 'index', :layout => false, :locals => { :alarmas => @alarmas }
   end
 
-  # GET /alarmas/1/edit
+  # GET /alarmas/1
   def show
     @alarma = Alarma.find(params[:id])
     
@@ -27,11 +24,8 @@ class AlarmasController < ApplicationController
   # POST /alarmas.xml
   def create
     respond_to do |format|
-      begin
-        
+      begin        
         @alarmas = Alarma.guardar(params[:alarma])
-    
-        flash[:success] = '<strong>¡Éxito!</strong> La(s) alarma(s) ha(n) sido creada(s).'
         format.json { render :json => @alarmas }
       rescue Exceptions::PresenciaValoresExcepcion => errores
         format.json { render :json => errores.errors, :status => 400 }
@@ -42,16 +36,12 @@ class AlarmasController < ApplicationController
   # PUT /alarmas/1
   # PUT /alarmas/1.xml
   def update
-    @alarma = Alarma.find(params[:id])
-
     respond_to do |format|
-      if @alarma.update_attributes(params[:alarma])
-        flash[:success] = 'Alarma was successfully updated.'
-        format.html { redirect_to(@alarma) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @alarma.errors, :status => :unprocessable_entity }
+      begin
+        @alarma = Alarma.actualizar(params)
+        format.json { render :json => @alarma }
+      rescue Exceptions::PresenciaValoresExcepcion => errores
+        format.json { render :json => errores.errors, :status => 400 }
       end
     end
   end
@@ -66,5 +56,4 @@ class AlarmasController < ApplicationController
       format.json { render :json => @alarma }
     end
   end
-   
 end

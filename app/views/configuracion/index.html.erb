@@ -20,19 +20,37 @@
       // Control para editar alarmas
       $('a[href="#edit_alarma"]').live('click', function(e) {
         e.preventDefault();
-        var alarma_id = $(this).closest('td').attr('alarma'),
-            objAlarma = null,
-            editRow = '<%= escape_javascript( render(:partial => "alarmas/edit", :object => @estados) ) %>',
-            alarma_input = $('#nombre_alarma'),
-            fila = $('#alarmas tbody tr:eq(' + $(this).closest('tr').index() + ')');
+        var fila = $('#alarmas tbody tr:eq(' + $(this).closest('tr').index() + ')'),
+             alarma_id = $(this).closest('td').attr('alarma'),
+             nombre_alarma = $(this).closest('tr').children('td:eq(1)').text(),
+             editRow = '<%= escape_javascript( render(:partial => "alarmas/edit", :object => @estados) ) %>';
                       
-        $(this).closest('tr').addClass('editar_alarma').html(editRow);
+        fila.addClass('editar_alarma').html(editRow);        
+        fila.find('input[name="nombre_alarma"]').val(nombre_alarma);
         
-        // La llamada no es asíncrona para poder setear el valor en el input.
-        objAlarma = Ajax(false, null, "json", false, "GET", 'alarmas/show/' + alarma_id);
-        
-        fila.children('td:eq(1)').children('input[name="nombre_alarma"]').val(objAlarma.alarma.nombre_alarma);
-        return false;
+        $('a[href="#save_edit_alarma"]').live('click', function(e) {
+          e.preventDefault();
+          var estado_id_edit = fila.find('select[name*="estado_id"]').val(),
+              nombre_alarma_edit = fila.find('input[name="nombre_alarma"]').val(),
+              alarma = {},
+              hash = {};
+          
+          if(nombre_alarma_edit) {            
+            hash = {
+              alarma: {
+                id: alarma_id,
+                estado_id: estado_id_edit,
+                nombre_alarma: nombre_alarma_edit,
+                usuario_id_updated: ficha
+              }
+            }; 
+          }        
+          
+          Ajax(true, hash, "json", false, "PUT", "alarmas/" + alarma_id, "#alarmas");
+          
+          $('#alarmas').parent().load('alarmas');
+          
+        });
       });
       
       // Control para nuevas alarmas
@@ -45,19 +63,15 @@
           e.preventDefault();
           $(this).closest('tr').fadeOut('normal', function() {
             $(this).remove();
-          });
-          
-          return false;
+          });          
         });
-        
-        return false;
       });
       
       // Envia a través de AJAX un JSON con las nuevas alarmas
-      $('#save_new_alarmas').click(function() {
+      $('#save_new_alarmas').live('click', function() {
         $('.nueva_alarma').each(function() {
-          var estado_id = $(this).children('.estado').children().val(),
-              nombre_alarma = $(this).children('.data').children('input[name="nombre_alarma"]').val(),
+          var estado_id = $(this).find('selec[name*="estado_id"]').val(),
+              nombre_alarma = $(this).find('input[name="nombre_alarma"]').val(),
               alarma = {},
               objAux = {};
                        
@@ -73,13 +87,15 @@
           
           Ajax(true, objAux, "json", false, "POST", "alarmas/create/", "#alarmas");          
         });
-     
+        
+        $('#alarmas').parent().load('alarmas');
+        
         return false;      
       });
       
       // Remueve, luego de hacer click en el link 'Cancelar', 
       // las nuevas filas de la tabla que tengan la clase .nueva_alarma.
-      $('#cancel_new_alarmas').click(function(e) {
+      $('#cancel_new_alarmas').live('click', function(e) {
         e.preventDefault();
         if ($('.nueva_alarma').children('input[type="text"]').val() == null) {
           $('.nueva_alarma').fadeOut('normal', function() {
@@ -94,7 +110,7 @@
       });
       
       // Modifica el estado de la alarma
-      $('a[href="#estado"]').live('click', function(e) {
+      $('a[href="#estado_alarma"]').live('click', function(e) {
         e.preventDefault();
         $(this).modEstado('alarmas');
       });
