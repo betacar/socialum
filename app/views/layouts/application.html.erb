@@ -22,10 +22,7 @@
     <div class="container_24">
     <% if usuario_signed_in? %>
       <p class="grid_12">
-        <span class="alertas">Tiene <strong><a href="#alertas">0 alertas</a></strong> sin leer</span>
-      <% if current_usuario.admin? %>
-        |  <span class="configuracion"><%= link_to 'Configuración', :controller => 'configuracion' %></span>
-      <% end %>
+        <span class="alertas">Tiene <strong><a href="#alertas">0 alertas</a></strong> sin leer</span>  |  <span class="configuracion"><%= link_to 'Configuración', :controller => 'configuracion' %></span>
       </p>
     <% end %>
     <% if usuario_signed_in? %>

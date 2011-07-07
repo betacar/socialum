@@ -1,0 +1,16 @@
+          <td>
+            <%= select @estados, :estado_id, @estados.collect {|p| [ p.desc_estado, p.id ] } %>
+          </td>
+          <td>
+            <%= text_field_tag :nombre_empresa, nil, :placeholder => 'Nombre de empresa' %>
+          </td>
+          <td>
+            <%= text_field_tag :pais_empresa, nil, :placeholder => 'País de origen' %>
+          </td>
+          <td>
+            <%= text_field_tag :responsable_empresa, nil, :placeholder => 'Responsable o contacto' %>
+          </td>
+          <td colspan="2">
+            <%= link_to image_tag('save_16.png', :alt => 'Guardar', :title => 'Guardar'), '#save_edit_empresa' %>
+          </td>
+

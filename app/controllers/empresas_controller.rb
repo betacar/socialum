@@ -1,85 +1,55 @@
 class EmpresasController < ApplicationController
+  before_filter :authenticate_usuario! # Autentica cada usuario contra LDAP antes de ejecutar cualquier controller
+  
   # GET /empresas
-  # GET /empresas.xml
   def index
+    @ficha  = current_usuario.ficha
     @empresas = Empresa.all
+    @estados = Estado.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @empresas }
-    end
+    render :partial => 'index', :layout => false, :locals => { :empresas => @empresas }
   end
 
   # GET /empresas/1
-  # GET /empresas/1.xml
   def show
     @empresa = Empresa.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @empresa }
+      format.json  { render :json => @empresa }
     end
-  end
-
-  # GET /empresas/new
-  # GET /empresas/new.xml
-  def new
-    @empresa = Empresa.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @empresa }
-    end
-  end
-
-  # GET /empresas/1/edit
-  def edit
-    @empresa = Empresa.find(params[:id])
   end
 
   # POST /empresas
-  # POST /empresas.xml
   def create
-    @empresa = Empresa.new(params[:empresa])
-
     respond_to do |format|
-      if @empresa.save
-        flash[:notice] = 'Empresa was successfully created.'
-        format.html { redirect_to(@empresa) }
-        format.xml  { render :xml => @empresa, :status => :created, :location => @empresa }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @empresa.errors, :status => :unprocessable_entity }
+      begin        
+        @empresa = Empresa.guardar(params[:empresa])
+        format.json { render :json => @empresas }
+      rescue Exceptions::PresenciaValoresExcepcion => errores
+        format.json { render :json => errores.errors, :status => 400 }
       end
     end
   end
 
   # PUT /empresas/1
-  # PUT /empresas/1.xml
   def update
-    @empresa = Empresa.find(params[:id])
-
     respond_to do |format|
-      if @empresa.update_attributes(params[:empresa])
-        flash[:notice] = 'Empresa was successfully updated.'
-        format.html { redirect_to(@empresa) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @empresa.errors, :status => :unprocessable_entity }
+      begin
+        @empresa = Empresa.actualizar(params)
+        format.json { render :json => @empresa }
+      rescue Exceptions::PresenciaValoresExcepcion => errores
+        format.json { render :json => errores.errors, :status => 400 }
       end
     end
   end
 
-  # DELETE /empresas/1
-  # DELETE /empresas/1.xml
-  def destroy
-    @empresa = Empresa.find(params[:id])
-    @empresa.destroy
-
+  # Se cambia el estado de la tupla de Inactiva a Activa.
+  # PUT /alarmas/estado/1
+  def estado      
     respond_to do |format|
-      format.html { redirect_to(empresas_url) }
-      format.xml  { head :ok }
+      @empresa = Empresa.modificar_estado(params[:id])
+      
+      format.json { render :json => @empresa }
     end
   end
 end

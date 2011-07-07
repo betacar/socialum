@@ -31,5 +31,27 @@ class Estado < ActiveRecord::Base
   #has_many :apilamiento
   #has_many :alimentacion
   #has_many :despachos
-  validates_presence_of :desc_estado 
+  validates_presence_of :desc_estado, :message => 'La descripción de estado no puede ser vacía'
+  
+  # Guarda nuevos estados
+  def self.guardar(params)
+    estado = Estado.new(params)
+      
+    if estado.save
+      true
+    else
+      raise Exceptions::PresenciaValoresExcepcion.new(estado.errors)
+    end
+  end
+  
+  # Actualiza estados existentes, a través del ID
+  def self.actualizar(params)
+    estado = Estado.find(params[:id])
+    
+    if estado.update_attributes(params[:estado])
+      true
+    else
+      raise Exceptions::PresenciaValoresExcepcion.new(estado.errors)
+    end    
+  end 
 end

@@ -31,7 +31,7 @@ function Ajax(asyncBol, datos, tipoData, modificado, tipo, pagina, selectorError
       errorOut += '</ul>';      
       $(selectorError).parent().prepend('<div class="error"><span> </span>' + errorOut + '</div>');
       
-      $('.error').delay(5000).fadeOut('slow', function () { $(this).remove() });
+      $('.error').delay(10000).fadeOut('slow', function () { $(this).remove() });
     }, 
     ifModified: modificado, // Será success si la respuesta ha modificado desde la última solicitud. Boolean.
     success: function(response) {
@@ -48,22 +48,38 @@ jQuery.fn.hideButtons = function() {
   return false;
 }
 
-// Modifica el estado_id de la tupla
+// Remueve una fila de una tabla
+jQuery.fn.removeFila = function() {
+  this.closest('tr').fadeOut('normal', function() {
+    $(this).remove();
+  });
+}
+
+// Remueve el conjunto de filas de una tabla, si el campo de texto está vacío
+jQuery.fn.removeNuevos = function(nuevo) {
+  if ($(nuevo).children('input[type="text"]').val() == null) {
+    $(nuevo).fadeOut('normal', function() {
+      $(this).remove();
+    });
+  }
+}
+
+// Modifica el estado de la tupla
 jQuery.fn.modEstado = function(controller) {
   var id = $(this).closest('td').attr('id'),
-      estado_id = $(this).closest('td').attr('estado'),
+      estado = $(this).closest('td').attr('estado'),
       desc_estado = 'Inactivo',
       imagen = '<img src="/images/accepted_16.png" alt="" title="Activar" /\>',
-      new_estado_id = '2';
+      new_estado_id = 2;
   
   // Ejecuto el POST con el estado_id actual para que efectue el cambio
   Ajax(true, null, "json", false, "POST", controller + '/estado/' + id);
   
   // Verifico qué estado_id tiene, y hago cambios en los elementos involucrados
-  if(estado_id != 1){
+  if(estado != 1){
     desc_estado = 'Activo';
     imagen = '<img src="/images/close_16.png" alt="" title="Desactivar" /\>';
-    new_estado_id = '1';
+    new_estado_id = 1;
   }
   
   // Imprimo los nuevos elementos en la pantalla

@@ -51,7 +51,7 @@ header{background:url("../images/sa_header_bg.jpg") repeat-x}
 		
 #menu{height:28px;color:#a5aeb6;font-size:.923em;margin-bottom:20px;background-color:#152f40;border-top:1px solid #394a59;border-bottom:1px solid #394a59;-moz-box-shadow:0 2px 3px #b3b3b3;-webkit-box-shadow:0 2px 3px #b3b3b3;box-shadow:0 2px 3px #b3b3b3}
 	#menu ul{list-style:none;margin-top:7px;position:relative}
-	#menu li{display:inline;margin-right:10px;padding-bottom:8px;cursor:pointer}
+	#menu li{display:inline;margin-right:10px;padding-bottom:6px;cursor:pointer}
 	#menu a:link,#menu a:visited{color:#a5aeb6;text-decoration:none}
 	#menu a:hover{color:#dfe5e6}
 	#menu li:hover{color:#dfe5e6;background:url("../images/sa_nav_icons_hover.png") bottom center no-repeat}
@@ -130,6 +130,13 @@ header{background:url("../images/sa_header_bg.jpg") repeat-x}
 		#main tr{text-align:center;border-bottom:1px solid #dfe5e6}
 			#main tr:nth-child(odd){background-color:#f2f2f2}
 		#main td{padding:3px;vertical-align:middle}
+		
+/* Tabs */
+  #tab{margin-bottom:20px;padding-bottom:5px;border-bottom:1px solid #a5aeb6}
+    #tab li{display:inline;margin:0 .25%;padding:5px 10px;font-size:1.1em;font-weight:bold;color:#394A59;background-color:#f2f2f2;border:1px solid #dfe5e6;border-bottom:none;-webkit-border-top-left-radius:5px;-webkit-border-top-right-radius:5px;-moz-border-radius-topleft:5px;-moz-border-radius-topright:5px;border-top-left-radius:5px;border-top-right-radius:5px;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box}
+    #tab li.selected{color:#590B19;background-color:#fff;border:1px solid #a5aeb6;border-bottom:1px solid #fff}
+    #tab li:first-child{margin-left:0}
+    #tab li:last-child{margin-right:0}
 
 /* Formularios */		
 	form ul{margin:0}
@@ -167,7 +174,7 @@ header{background:url("../images/sa_header_bg.jpg") repeat-x}
 		aside h3{margin-top:5px}
 		aside div+h3:first-child{margin-top:0}
 
-	.fuccia{color:#ac1a2f}
+	.fucsia{color:#ac1a2f}
 	.azul{color:#0e8cbf}
 	.verde{color:#0e7320}
 	.dorado{color:#807b1c}

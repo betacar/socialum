@@ -1,0 +1,36 @@
+      <table width='100%' border='0' align='center' id="empresas">
+        <caption>
+          <h2>Empresas</h2>
+          <small>Describe las empresas, clientes y proveedores, involucradas en los diferentes procesos</small>
+        </caption>
+        <thead>
+          <tr>
+            <th>Estado</th>
+            <th>Nombre de empresa</th>
+            <th>País</th>
+            <th>Responsable</th>
+            <th colspan='2'>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @empresas.each do |empresa| %>
+          <tr>
+            <td><%=h empresa.estado.desc_estado %></td>
+            <td><%=h empresa.nombre_empresa %></td>
+            <td><%=h empresa.pais_empresa %></td>
+            <td><%=h empresa.responsable_empresa %></td>
+            <td empresa="<%=h empresa.id %>"><%= link_to image_tag('pencil_16.png', :alt => '', :title => 'Editar'), '#edit_empresa' %></td>
+            <td estado="<%=h empresa.estado.id %>" id="<%=h empresa.id %>">
+            <%= if (empresa.estado.id == 1)
+              link_to image_tag('close_16.png', :alt => '', :title => 'Desactivar'), '#estado_empresa'
+            else
+              link_to image_tag('accepted_16.png', :alt => '', :title => 'Activar'), '#estado_empresa'
+            end %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+      <div class="alpha grid_12"><%= link_to image_tag('add_16.png', :alt => '', :title => 'Añadir empresa') + 'Añadir empresa', '#new_empresa', :title => 'Añadir empresa' %></div>
+      <div class="omega grid_12 derecha"><%= submit_tag 'Guardar', :title => 'Guardar', :id => "save_new_empresas", :class => "blue oculto" %> <%= submit_tag 'Cancelar', :title => 'Cancelar', :type => 'reset', :name => 'reset', :id => "cancel_new_empresas", :class => 'cancel oculto' %></div>
+      <div class="clearfix"></div>

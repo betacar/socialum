@@ -4,11 +4,17 @@
     <div class="wrapper">
       <%= render "alarmas/index" %>
     </div>
+    <div class="wrapper">
+      <%= render "empresas/index" %>
+    </div>
     <div class="clearfix"></div>
   </article>
   <aside class="grid_9">
     <div class="wrapper">
       <%= render "estados/index" %>
+    </div>
+    <div class="wrapper">
+      
     </div>
   </aside>
   <div class="clearfix"></div>
@@ -61,9 +67,7 @@
         // la nueva fila de la tabla.
         $('a[href="#delete_new_alarma"]').click(function(e) {
           e.preventDefault();
-          $(this).closest('tr').fadeOut('normal', function() {
-            $(this).remove();
-          });          
+          $(this).removeFila();          
         });
       });
       
@@ -97,11 +101,7 @@
       // las nuevas filas de la tabla que tengan la clase .nueva_alarma.
       $('#cancel_new_alarmas').live('click', function(e) {
         e.preventDefault();
-        if ($('.nueva_alarma').children('input[type="text"]').val() == null) {
-          $('.nueva_alarma').fadeOut('normal', function() {
-            $(this).remove();
-          });
-        }
+        $(this).removeNuevos('.nueva_alarma');
         
         // Ocultamos los botones
         $(this).hideButtons();
@@ -115,22 +115,149 @@
         $(this).modEstado('alarmas');
       });
       
-      /* * * * * * * * * * * * * * * ESTADOS * * * * * * * * * * * * * * * //
+      // * * * * * * * * * * * * * * * EMPRESAS * * * * * * * * * * * * * * * //
+      
+      // Control para editar empresas
+      $('a[href="#edit_empresa"]').live('click', function(e) {
+        e.preventDefault();
+        var fila = $('#empresas tbody tr:eq(' + $(this).closest('tr').index() + ')'),
+             empresa_id = $(this).closest('td').attr('empresa'),
+             nombre_empresa = $(this).closest('tr').children('td:eq(1)').text(),
+             pais_empresa = $(this).closest('tr').children('td:eq(2)').text(),
+             responsable_empresa = $(this).closest('tr').children('td:eq(3)').text(),
+             editRow = '<%= escape_javascript( render(:partial => "empresas/edit", :object => @estados) ) %>';
+                      
+        fila.addClass('editar_empresa').html(editRow);        
+        fila.find('input[name="nombre_empresa"]').val(nombre_empresa);
+        fila.find('input[name="pais_empresa"]').val(pais_empresa);
+        fila.find('input[name="responsable_empresa"]').val(responsable_empresa);
+        
+        $('a[href="#save_edit_empresa"]').live('click', function(e) {
+          e.preventDefault();
+          var estado_id_edit = fila.find('select[name*="estado_id"]').val(),
+              nombre_empresa_edit = fila.find('input[name="nombre_empresa"]').val(),
+              pais_empresa_edit = fila.find('input[name="pais_empresa"]').val(),
+              responsable_empresa_edit = fila.find('input[name="responsable_empresa"]').val(),
+              empresa = {},
+              hash = {};
+          
+          if(nombre_empresa_edit) {            
+            hash = {
+              empresa: {
+                id: empresa_id,
+                estado_id: estado_id_edit,
+                nombre_empresa: nombre_empresa_edit,
+                pais_empresa: pais_empresa_edit,
+                responsable_empresa: responsable_empresa_edit,
+                usuario_id_updated: ficha
+              }
+            }; 
+          }        
+          
+          Ajax(true, hash, "json", false, "PUT", "empresas/" + empresa_id, "#empresas");
+          
+          $('#empresas').parent().load('empresas');
+          
+        });
+      });
+      
+      // Control para nuevas empresas
+      $('a[href="#new_empresa"]').click(function() {        
+        $('#empresas tbody').append('<%= escape_javascript( render(:partial => "empresas/create", :object => @estados) ) %>');
+        
+        // Remueve, luego de hacer click en el link DELETE, 
+        // la nueva fila de la tabla.
+        $('a[href="#delete_new_empresa"]').click(function(e) {
+          e.preventDefault();
+          $(this).removeFila();           
+        });
+      });
+      
+      // Envia a través de AJAX un JSON con las nuevas empresas
+      $('#save_new_empresas').live('click', function() {
+        $('.nueva_empresa').each(function() {
+          var estado_id = $(this).find('selec[name*="estado_id"]').val(),
+              nombre_empresa = $(this).find('input[name="nombre_empresa"]').val(),
+              pais_empresa = $(this).find('input[name="pais_empresa"]').val(),
+              responsable_empresa = $(this).find('input[name="responsable_empresa"]').val(),
+              empresa = {},
+              objAux = {};
+                       
+          if(nombre_empresa) {            
+            objAux = {
+              empresa: {
+                estado_id: estado_id,
+                nombre_empresa: nombre_empresa,
+                pais_empresa: pais_empresa,
+                responsable_empresa: responsable_empresa,
+                usuario_id_created: ficha
+              }
+            };
+          }
+          
+          Ajax(true, objAux, "json", false, "POST", "empresas/create/", "#empresas");          
+        });
+        
+        $('#empresas').parent().load('empresas');
+        
+        return false;      
+      });
+      
+      // Remueve, luego de hacer click en el link 'Cancelar', 
+      // las nuevas filas de la tabla que tengan la clase .nueva_empresa.
+      $('#cancel_new_empresas').live('click', function(e) {
+        e.preventDefault();
+        if ($('.nueva_empresa').children('input[type="text"]').val() == null) {
+          $('.nueva_empresa').fadeOut('normal', function() {
+            $(this).remove();
+          });
+        }
+        
+        // Ocultamos los botones
+        $(this).hideButtons();
+        
+        return false;
+      });
+      
+      // Modifica el estado de la empresa
+      $('a[href="#estado_empresa"]').live('click', function(e) {
+        e.preventDefault();
+        $(this).modEstado('empresas');
+      });      
+      
+      // * * * * * * * * * * * * * * * ESTADOS * * * * * * * * * * * * * * * //
       // Control para editar estados
       $('a[href="#edit_estado"]').live('click', function(e) {
         e.preventDefault();
-        var estado_id = $(this).closest('td').attr('estado'),
-            objEstado = null,
-            editRow = '<%= escape_javascript( render(:partial => "estados/edit") ) %>',
-            estado_input = $('#desc_estado');
+        var fila = $('#estados tbody tr:eq(' + $(this).closest('tr').index() + ')'),
+             estado_id = $(this).parent().attr('estado'),
+             desc_estado = $(this).closest('tr').children('td:eq(0)').text(),
+             editRow = '<%= escape_javascript( render(:partial => "estados/edit") ) %>';
                       
-        $(this).closest('tr').html(editRow);
+        fila.addClass('editar_estado').html(editRow);        
+        fila.find('input[name="desc_estado"]').val(desc_estado);
         
-        // La llamada no es asíncrona para poder setear el valor en el input.
-        objEstado = Ajax(false, null, null, "json", false, "GET", 'estados/edit/' + estado_id);
-        
-        estado_input.val(objEstado.estado.desc_estado);     
-        return false;
+        $('a[href="#save_edit_estado"]').live('click', function(e) {
+          e.preventDefault();
+          var desc_estado_edit = fila.find('input[name="desc_estado"]').val(),
+              estado = {},
+              hash = {};
+          
+          if(desc_estado_edit) {            
+            hash = {
+              estado: {
+                id: estado_id,
+                desc_estado: desc_estado_edit,
+                usuario_id_updated: ficha
+              }
+            }; 
+          }        
+          
+          Ajax(true, hash, "json", false, "PUT", "estados/" + estado_id, "#estados");
+          
+          $('#estados').parent().load('estados');
+          
+        });
       });
       
       // Control para nuevas estados
@@ -139,28 +266,51 @@
         
         // Remueve, luego de hacer click en el link DELETE, 
         // la nueva fila de la tabla.
-        $('a[href="#delete_estado"]').click(function(e) {
+        $('a[href="#delete_new_estado"]').click(function(e) {
           e.preventDefault();
-          $(this).closest('tr').fadeOut('normal', function() {
-            $(this).remove();
-          });
+          $(this).removeFila();          
         });
-        
-        // Remueve, luego de hacer click en el link 'Cancelar', 
-        // las nuevas filas de la tabla que tengan la clase .nuevo_estado.
-        $('#cancel_new_estados').click(function(e) {
-          e.preventDefault();
-          if ($('.nuevo_estado').children('input[type="text"]').val() == null) {
-            $('.nuevo_estado').fadeOut('normal', function() {
-              $(this).remove();
-            });
+      });
+      
+      // Envia a través de AJAX un JSON con las nuevas estados
+      $('#save_new_estados').live('click', function() {
+        $('.nueva_estado').each(function() {
+          var desc_estado = $(this).find('input[name="desc_estado"]').val(),
+              estado = {},
+              objAux = {};
+                       
+          if(desc_estado) {            
+            objAux = {
+              estado: {
+                desc_estado: desc_estado,
+                usuario_id_created: ficha
+              }
+            };
           }
           
-          $(this).hideButtons();
+          Ajax(true, objAux, "json", false, "POST", "estados/create/", "#estados");          
         });
         
+        $('#estados').parent().load('estados');
+        
+        return false;      
+      });
+      
+      // Remueve, luego de hacer click en el link 'Cancelar', 
+      // las nuevas filas de la tabla que tengan la clase .nuevo_estado.
+      $('#cancel_new_estados').live('click', function(e) {
+        e.preventDefault();
+        if ($('.nuevo_estado').children('input[type="text"]').val() == null) {
+          $('.nuevo_estado').fadeOut('normal', function() {
+            $(this).remove();
+          });
+        }
+        
+        // Ocultamos los botones
+        $(this).hideButtons();
+        
         return false;
-      });*/
+      }); 
     });
   </script>
 <% end %>

@@ -2,7 +2,6 @@ class AlarmasController < ApplicationController
   before_filter :authenticate_usuario! # Autentica cada usuario contra LDAP antes de ejecutar cualquier controller
   
   # GET /alarmas
-  # GET /alarmas.xml
   def index
     @ficha  = current_usuario.ficha
     @alarmas = Alarma.all
@@ -21,7 +20,6 @@ class AlarmasController < ApplicationController
   end
 
   # POST /alarmas
-  # POST /alarmas.xml
   def create
     respond_to do |format|
       begin        
@@ -34,7 +32,6 @@ class AlarmasController < ApplicationController
   end
 
   # PUT /alarmas/1
-  # PUT /alarmas/1.xml
   def update
     respond_to do |format|
       begin
@@ -48,7 +45,6 @@ class AlarmasController < ApplicationController
   
   # Se cambia el estado de la tupla de Inactiva a Activa.
   # PUT /alarmas/estado/1
-  # PUT /alarmas/estado/1.xml
   def estado      
     respond_to do |format|
       @alarma = Alarma.modificar_estado(params[:id])

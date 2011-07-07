@@ -4,6 +4,6 @@ class ConfiguracionController < ApplicationController
     @alarmas = Alarma.all
     @estados = Estado.all
     @usuarios = Usuario.all
-    
+    @empresas = Empresa.all    
   end
 end
