@@ -1,6 +1,6 @@
         <tr class="nueva_alarma">
           <td class="estado">
-            <%= select @estados, :estado_id, @estados.collect {|p| [ p.desc_estado, p.id ] }, :selected => 1, :id => "estado_id" %>
+            <%= selectEstado %>
           </td>
           <td>
             <%= text_field_tag :nombre_alarma, nil, :placeholder => 'Nombre de alarma' %>

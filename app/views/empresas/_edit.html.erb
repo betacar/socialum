@@ -1,5 +1,5 @@
           <td>
-            <%= select @estados, :estado_id, @estados.collect {|p| [ p.desc_estado, p.id ] } %>
+            <% selectEstado %>
           </td>
           <td>
             <%= text_field_tag :nombre_empresa, nil, :placeholder => 'Nombre de empresa' %>

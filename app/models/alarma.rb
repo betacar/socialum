@@ -1,8 +1,6 @@
 class Alarma < ActiveRecord::Base
-  belongs_to :estado
   validates_presence_of :nombre_alarma, :message => "El nombre de la alarma no puede estar vacío"
   validates_presence_of :usuario_id_updated, :on => :update
-  validates_associated :estado
    
   # Guarda nuevas alarmas
   def self.guardar(params)
@@ -30,10 +28,10 @@ class Alarma < ActiveRecord::Base
   def self.modificar_estado(id)
     alarma = Alarma.find(id)
        
-    if (alarma.estado_id == 2)
-      alarma.update_attribute(:estado_id, 1)
+    if (!alarma.activo)
+      alarma.update_attribute(:activo, true)
     else
-      alarma.update_attribute(:estado_id, 2)
+      alarma.update_attribute(:activo, false)
     end
   end
   

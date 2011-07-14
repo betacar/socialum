@@ -1,6 +1,5 @@
 class Locacion < ActiveRecord::Base
-  set_table_name "locaciones"
-  belongs_to :estado
+  set_table_name 'locaciones'
   
   # Guarda nuevas locaciones
   def self.guardar(params)
@@ -28,10 +27,10 @@ class Locacion < ActiveRecord::Base
   def self.modificar_estado(id)
     locacion = Locacion.find(id)
        
-    if (locacion.estado_id == 2)
-      locacion.update_attribute(:estado_id, 1)
+    if (!locacion.activo)
+      locacion.update_attribute(:activo, true)
     else
-      locacion.update_attribute(:estado_id, 2)
+      locacion.update_attribute(:activo, false)
     end
   end
 end

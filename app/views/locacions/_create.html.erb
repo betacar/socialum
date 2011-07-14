@@ -1,27 +1,11 @@
-<h1>New locacion</h1>
-
-<% form_for(@locacion) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :estado %><br />
-    <%= f.text_field :estado %>
-  </p>
-  <p>
-    <%= f.label :nombre_locacion %><br />
-    <%= f.text_field :nombre_locacion %>
-  </p>
-  <p>
-    <%= f.label :usuario_id_created %><br />
-    <%= f.text_field :usuario_id_created %>
-  </p>
-  <p>
-    <%= f.label :usuario_id_updated %><br />
-    <%= f.text_field :usuario_id_updated %>
-  </p>
-  <p>
-    <%= f.submit 'Create' %>
-  </p>
-<% end %>
-
-<%= link_to 'Back', locacions_path %>
+        <tr class="nueva_locacion">
+          <td class="estado">
+            <% selectEstado %>
+          </td>
+          <td>
+            <%= text_field_tag :nombre_locacion, nil, :placeholder => 'Nombre de locacion' %>
+          </td>
+          <td colspan="2">
+            <%= link_to image_tag('cancel_16.png', :alt => 'Cancelar', :title => 'Cancelar'), '#delete_new_locacion' %>
+          </td>
+        </tr>

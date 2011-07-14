@@ -26,6 +26,10 @@ $(document).ready(function() {
     }, 'fast');
   });
   
+  $('.down, .up').click(function() {
+    $(this).toggleClass('down').toggleClass('up');
+  });
+  
   $('div a[href*="#new"], a[href^="#desactivar_"], a[href^="#activar_"], a[href^="#cancel_"]').live('click', function(e) {
     e.preventDefault();
   });
@@ -36,5 +40,4 @@ $(document).ready(function() {
     $(this).parent().next('div').children('input').fadeIn();
     return false;
   });
-  
 });

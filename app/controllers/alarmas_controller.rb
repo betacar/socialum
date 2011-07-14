@@ -5,7 +5,6 @@ class AlarmasController < ApplicationController
   def index
     @ficha  = current_usuario.ficha
     @alarmas = Alarma.all
-    @estados = Estado.all
 
     render :partial => 'index', :layout => false, :locals => { :alarmas => @alarmas }
   end

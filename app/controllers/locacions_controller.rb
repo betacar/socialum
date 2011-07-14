@@ -4,7 +4,6 @@ class LocacionsController < ApplicationController
   # GET /locacions
   def index
     @locacions = Locacion.all
-    @estados = Estado.all
 
     render :partial => 'index', :layout => false, :locals => { :locacions => @locacions }
   end

@@ -70,21 +70,21 @@ jQuery.fn.modEstado = function(controller) {
       estado = $(this).closest('td').attr('estado'),
       desc_estado = 'Inactivo',
       imagen = '<img src="/images/accepted_16.png" alt="" title="Activar" /\>',
-      new_estado_id = 2;
+      new_estado = 'false';
   
   // Ejecuto el POST con el estado_id actual para que efectue el cambio
   Ajax(true, null, "json", false, "POST", controller + '/estado/' + id);
   
   // Verifico qué estado_id tiene, y hago cambios en los elementos involucrados
-  if(estado != 1){
+  if(estado != 'true'){
     desc_estado = 'Activo';
     imagen = '<img src="/images/close_16.png" alt="" title="Desactivar" /\>';
-    new_estado_id = 1;
+    new_estado = 'true';
   }
   
   // Imprimo los nuevos elementos en la pantalla
   $(this).parent().parent().children('td:first-child').text(desc_estado);
-  $(this).closest('td').attr('estado', new_estado_id);
+  $(this).closest('td').attr('estado', new_estado);
   $(this).children('img').remove();
   $(this).append(imagen);
 }

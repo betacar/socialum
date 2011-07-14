@@ -1,8 +1,6 @@
 class Usuario < ActiveRecord::Base
   set_primary_key 'id'
   has_one :empleado, :foreign_key => :numero_personal
-  # Include default devise modules. Others available are:
-  # :http_authenticatable, :token_authenticatable, :confirmable, :lockable, :timeoutable and :activatable
   devise :ldap_authenticatable, :rememberable, :trackable, :timeoutable 
 
   # Setup accessible (or protected) attributes for your model

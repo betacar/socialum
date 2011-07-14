@@ -1,9 +1,7 @@
 class Empresa < ActiveRecord::Base
-  belongs_to :estado
-  validates_presence_of :estado_id, :pais_empresa, :responsable_empresa
+  validates_presence_of :pais_empresa, :responsable_empresa
   validates_presence_of :nombre_empresa, :message => 'El nombre de la empresa no puede estar vacío'
   validates_presence_of :usuario_id_updated, :on => :update
-  validates_associated :estado
   
   # Guarda nuevas empresa
   def self.guardar(params)
@@ -31,10 +29,10 @@ class Empresa < ActiveRecord::Base
   def self.modificar_estado(id)
     empresa = Empresa.find(id)
        
-    if (empresa.estado_id == 2)
-      empresa.update_attribute(:estado_id, 1)
+    if (!empresa.activo)
+      empresa.update_attribute(:activo, true)
     else
-      empresa.update_attribute(:estado_id, 2)
+      empresa.update_attribute(:activo, false)
     end
   end
 end

@@ -1,7 +1,5 @@
 class EstatusGabarra < ActiveRecord::Base
-  belongs_to :estado
   validates_presence_of :desc_estatus_gabarra, :message => 'La descripción del estatus no puede ser vacío'
-  validates_associated :estado
   
   # Guarda nuevos equipos
   def self.guardar(params)

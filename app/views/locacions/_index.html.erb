@@ -1,26 +1,27 @@
-<h1>Listing locacions</h1>
-
-<table>
-  <tr>
-    <th>Estado</th>
-    <th>Nombre locacion</th>
-    <th>Usuario id created</th>
-    <th>Usuario id updated</th>
-  </tr>
-
-<% @locacions.each do |locacion| %>
-  <tr>
-    <td><%=h locacion.estado %></td>
-    <td><%=h locacion.nombre_locacion %></td>
-    <td><%=h locacion.usuario_id_created %></td>
-    <td><%=h locacion.usuario_id_updated %></td>
-    <td><%= link_to 'Show', locacion %></td>
-    <td><%= link_to 'Edit', edit_locacion_path(locacion) %></td>
-    <td><%= link_to 'Destroy', locacion, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New locacion', new_locacion_path %>
+      <table width='100%' border='0' align='center' id="locaciones">
+        <caption>
+          <h2>Locaciones</h2>
+          <small>Describe las locaciones donde se pudieran ubicar las gabarras</small>
+        </caption>
+        <thead>
+          <tr>
+            <th>Estado</th>
+            <th>Nombre de locacion</th>
+            <th>País</th>
+            <th>Responsable</th>
+            <th colspan="2">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @locacions.each do |locacion| %>
+          <tr>
+            <td><% strEstado(locacion.activo) %></td>
+            <td locacion="<%=h locacion.id %>"><%=h locacion.nombre_locacion %></td>
+            <td estado="<%=h locacion.activo %>" id="<%=h locacion.id %>"><% imgEstado(locacion.activo, '#estado_empresa') %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+      <div class="alpha grid_12"><%= link_to image_tag('add_16.png', :alt => '', :title => 'Añadir locacion') + 'Añadir locacion', '#new_locacion', :title => 'Añadir locacion' %></div>
+      <div class="omega grid_12 derecha"><%= submit_tag 'Guardar', :title => 'Guardar', :id => "save_new_locacions", :class => "blue oculto" %> <%= submit_tag 'Cancelar', :title => 'Cancelar', :type => 'reset', :name => 'reset', :id => "cancel_new_locacions", :class => 'cancel oculto' %></div>
+      <div class="clearfix"></div>

@@ -5,7 +5,6 @@ class EmpresasController < ApplicationController
   def index
     @ficha  = current_usuario.ficha
     @empresas = Empresa.all
-    @estados = Estado.all
 
     render :partial => 'index', :layout => false, :locals => { :empresas => @empresas }
   end
