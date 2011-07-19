@@ -49,7 +49,6 @@
     </ul>
   </nav>
   <section id="main" role="main" class="container_24">
-    <span class="flecha"> </span>
     <h1>Arribos de material</h1>
     <article class="grid_15">
       <h2 class="underlined down margen_b_20">BAX: 039/10</h2>
@@ -81,7 +80,7 @@
           <li title="<p>Peso: <strong>1.978 tons.</strong></p><p>Al<sub>2</sub>O<sub>2</sub>: 95%</p><p>Humedad: <strong>25%</strong></p>" gabarra="ACBL-625">ACBL-625</li>
           <li title="<p>Peso: <strong>2.004 tons.</strong></p><p>Al<sub>2</sub>O<sub>2</sub>: 95%</p><p>Humedad: <strong>25%</strong></p>" gabarra="ACBL-609">ACBL-609</li>
           <li title="<p>Peso: <strong>1.978 tons.</strong></p><p>Al<sub>2</sub>O<sub>2</sub>: 95%</p><p>Humedad: <strong>25%</strong></p>" gabarra="ACBL-632">ACBL-632</li>
-          <li title="<p>Peso: <strong>1.944 tons.</strong></p><p>Al<sub>2</sub>O<sub>2</sub>: 95%</p><p>Humedad: <strong>25%</strong></p>" gabarra="ACBL-614">ACBL-614</li>
+          <li title="<p>Peso: <strong>1.944 tons.</strong></p><p>Al<sub>2</sub>O<sub>2</sub>: 95%</p><p>Humedad: <strong>25%</str	ong></p>" gabarra="ACBL-614">ACBL-614</li>
           <li title="<p>Peso: <strong>2.002 tons.</strong></p><p>Al<sub>2</sub>O<sub>2</sub>: 95%</p><p>Humedad: <strong>25%</strong></p>" gabarra="ACBL-647">ACBL-647</li>
           <li title="<p>Peso: <strong>1.970 tons.</strong></p><p>Al<sub>2</sub>O<sub>2</sub>: 95%</p><p>Humedad: <strong>25%</strong></p>" gabarra="ACBL-613">ACBL-613</li>
           <li title="<p>Peso: <strong>1.676 tons.</strong></p><p>Al<sub>2</sub>O<sub>2</sub>: 95%</p><p>Humedad: <strong>25%</strong></p>" gabarra="ACBL-035">ACBL-035</li>
@@ -262,7 +261,63 @@
       </div>
     </aside>
     <div class="clearfix"></div>
-    <!--
+    <!--form class="arribo_gabarra grid_12" dragable="true">
+      <h2 class="underlined">ACBL-213</h2>
+      <div class="grid_12 margen_b_20">
+        <label for="inicio_atraque"><strong>Inicio de atraque</strong></label>
+        <input name="fecha_inicio_atraque" type="date" placeholder="Fecha, ej. 31/12/2011" class="margen_b_10" autofocus>
+        <input name="hora_inicio_atraque" type="time" placeholder="Hora, ej. 00:00" class="margen_b_10">
+      </div>
+      <div class="grid_12 margen_b_20">
+        <label for="inicio_descarga"><strong>Inicio de descarga</strong></label>
+        <input name="fecha_inicio_descarga" type="date" placeholder="Fecha, ej. 31/12/2011" class="margen_b_10">
+        <input name="hora_inicio_descarga" type="time" placeholder="Hora, ej. 00:00" class="margen_b_10">
+      </div>
+      <div class="clearfix"></div>
+      <div class="grid_12 margen_b_20">
+        <label for="fin_descarga"><strong>Fin de descarga</strong></label>
+        <input name="fecha_fin_descarga" type="date" placeholder="Fecha, ej. 31/12/2011" class="margen_b_10">
+        <input name="hora_fin_descarga" type="time" placeholder="Hora, ej. 00:00" class="margen_b_10">
+      </div>
+      <div class="grid_12 margen_b_20">
+        <label for="fin_atraque"><strong>Fin de atraque</strong></label>
+        <input name="fecha_fin_atraque" type="date" placeholder="Fecha, ej. 31/12/2011" class="margen_b_10">
+        <input name="hora_fin_atraque" type="time" placeholder="Hora, ej. 00:00" class="margen_b_10">
+      </div>
+      <div class="clearfix"></div>
+      <div class="derecha wrapper">
+        <input type="submit" class="blue pequenio" value="Enviar" /> 
+      </div>
+      <h3 class="pequenio underlined down margen_b_20">Observaciones y acaecimientos</h3>
+      <div class="margen_b_20  prefix_1">
+        <p class="margen_b_10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tellus tellus, auctor eu laoreet at, rutrum et purus. Integer id tortor non libero volutpat tempus. </p>
+        <small><span class="rojo">21:30 - 21:32</span>  |  Carlos Enrique Betancourt Carrero</small>
+        <hr />
+        <p class="margen_b_10">Aliquam dapibus lacinia justo non vulputate. Donec ante neque, egestas bibendum lobortis sodales, aliquet non justo. Praesent tincidunt sagittis magna, quis pretium risus fermentum ut. Nulla tincidunt dictum interdum. Nulla id velit et eros placerat convallis.</p>
+        <small><span class="rojo">22:45 - 23:07</span>  |  Carlos Enrique Betancourt Carrero</small>
+        <hr />
+        <p class="margen_b_10">In sollicitudin justo eu odio pellentesque facilisis. Pellentesque metus quam, eleifend quis iaculis nec, luctus vel arcu. Vivamus non purus eros, ac consectetur magna. Etiam facilisis libero a ante porta consectetur.</p>
+        <small><span class="rojo">00:08 - 00:26</span>  |  Carlos Enrique Betancourt Carrero</small>
+      </div>
+      <h4 class="down margen_b_10">Reportar acaecimiento</h4>
+      <div>
+        <form class="acaecimiento">
+          <div class="grid_12 margen_b_20">
+            <label for="inicio_acaecimiento"><strong>Hora de inicio de acaecimiento</strong></label>
+            <input name="inicio_acaecimiento" type="time" placeholder="Hora, ej. 00:00" class="margen_b_10">
+          </div>
+          <div class="grid_12 margen_b_20">
+            <label for="fin_acaecimiento"><strong>Hora de fin de acaecimiento</strong></label>
+            <input name="fin_acaecimiento" type="time" placeholder="Hora, ej. 00:00" class="margen_b_10">
+          </div>
+          <div class="clearfix"></div>
+          <label for="observacion_acaecimiento"><strong>Observaciones</strong></label>
+          <textarea name="observacion_acaecimiento" cols="" rows="" class="margen_b_10"></textarea>
+          <input type="submit" class="green pequenio" value="Enviar" />
+        </form>
+      </div>
+    </form-->
+    <hr class="container_24" />
     <div class="exito">
       <span> </span>
       <p><strong>¡Éxito!</strong> El proceso se realizó satisfactoriamente.</p>
@@ -414,7 +469,7 @@
               <li>
                 <input class="green" type="submit" name="submit" value="Ingresar">
                 <input class="blue" type="submit" name="submit" value="Ingresar">
-                <input class="grey" type="submit" name="submit" value="Ingresar">
+                <input type="submit" name="submit" value="Ingresar">
                 <input class="cancel" type="reset" name="reset" value="Cancelar">
               </li>
             </ul>
@@ -511,7 +566,7 @@
                 <small class="derecha">Alerta emitida por Socialum - 30/05/2011 | 15:58</small>
           </div>
             <div class="centro">
-              <input class="grey" type="submit" name="submit" value="Cargar más">
+              <input type="submit" name="submit" value="Cargar más">
             </div>
         </article>
         <aside class="grid_9">
@@ -527,7 +582,6 @@
           <div class="wrapper"></div>
         </aside>
         <div class="clearfix"></div>
-        -->
   </section>
   <script src="javascripts/libs/jquery.min.js"></script>
   <script src="javascripts/libs/jquery.tipsy.js"></script>
