@@ -232,7 +232,9 @@
       <h2>Arribos de buques</h2>
       <div class="margen_b_30">
         <h3 class="pequenio down margen_b_20">Alexandros Theo</h3>
+        <div></div>
         <h3 class="pequenio down margen_b_20">Pico el Toro</h3>
+        <div></div>
         <h3 class="pequenio down margen_b_20">Tintomara</h3>
         <div class="margen_b_20">
           <div class="grid_9 centro">
@@ -258,10 +260,11 @@
           </div>
         </div>
         <h3 class="pequenio down margen_b_20">Clipper Titan</h3>
+        <div></div>
       </div>
     </aside>
     <div class="clearfix"></div>
-    <!--form class="arribo_gabarra grid_12" dragable="true">
+    <!--form class="arribo_gabarra grid_10">
       <h2 class="underlined">ACBL-213</h2>
       <div class="grid_12 margen_b_20">
         <label for="inicio_atraque"><strong>Inicio de atraque</strong></label>
@@ -303,11 +306,11 @@
       <div>
         <form class="acaecimiento">
           <div class="grid_12 margen_b_20">
-            <label for="inicio_acaecimiento"><strong>Hora de inicio de acaecimiento</strong></label>
+            <label for="inicio_acaecimiento"><strong>Inicio de acaecimiento</strong></label>
             <input name="inicio_acaecimiento" type="time" placeholder="Hora, ej. 00:00" class="margen_b_10">
           </div>
           <div class="grid_12 margen_b_20">
-            <label for="fin_acaecimiento"><strong>Hora de fin de acaecimiento</strong></label>
+            <label for="fin_acaecimiento"><strong>Fin de acaecimiento</strong></label>
             <input name="fin_acaecimiento" type="time" placeholder="Hora, ej. 00:00" class="margen_b_10">
           </div>
           <div class="clearfix"></div>
@@ -317,7 +320,107 @@
         </form>
       </div>
     </form-->
-    <hr class="container_24" />
+    <div class="arribo_gabarra grid_10">
+      <h2 class="underlined">Tintomara</h2>
+      <form>
+        <div class="grid_12 margen_b_20">
+          <label for="inicio_atraque"><strong>Inicio de atraque</strong></label>
+          <input name="fecha_inicio_atraque" type="date" placeholder="Fecha, ej. 31/12/2011" class="margen_b_10" autofocus>
+          <input name="hora_inicio_atraque" type="time" placeholder="Hora, ej. 00:00" class="margen_b_10">
+        </div>
+        <div class="grid_12 margen_b_20">
+          <label for="inicio_descarga"><strong>Inicio de descarga</strong></label>
+          <input name="fecha_inicio_descarga" type="date" placeholder="Fecha, ej. 31/12/2011" class="margen_b_10">
+          <input name="hora_inicio_descarga" type="time" placeholder="Hora, ej. 00:00" class="margen_b_10">
+        </div>
+        <div class="clearfix"></div>
+        <div class="grid_12 margen_b_20">
+          <label for="fin_descarga"><strong>Fin de descarga</strong></label>
+          <input name="fecha_fin_descarga" type="date" placeholder="Fecha, ej. 31/12/2011" class="margen_b_10">
+          <input name="hora_fin_descarga" type="time" placeholder="Hora, ej. 00:00" class="margen_b_10">
+        </div>
+        <div class="grid_12 margen_b_20">
+          <label for="fin_atraque"><strong>Fin de atraque</strong></label>
+          <input name="fecha_fin_atraque" type="date" placeholder="Fecha, ej. 31/12/2011" class="margen_b_10">
+          <input name="hora_fin_atraque" type="time" placeholder="Hora, ej. 00:00" class="margen_b_10">
+        </div>
+        <div class="clearfix"></div>
+        <div class="derecha wrapper">
+          <input type="submit" class="blue pequenio" value="Enviar" /> 
+        </div>
+      </form>
+      <h3 class="pequenio underlined down margen_b_20">Gabarras de descarga</h3>
+      <div class="margen_b_20  prefix_1">
+        <div class="margen_b_20">
+          <p class="margen_b_10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tellus tellus, auctor eu laoreet at, rutrum et purus. Integer id tortor non libero volutpat tempus. </p>
+          <small><span class="rojo">21:30 - 21:32</span>  |  Carlos Enrique Betancourt Carrero</small>
+          <hr />
+          <p class="margen_b_10">Aliquam dapibus lacinia justo non vulputate. Donec ante neque, egestas bibendum lobortis sodales, aliquet non justo. Praesent tincidunt sagittis magna, quis pretium risus fermentum ut. Nulla tincidunt dictum interdum. Nulla id velit et eros placerat convallis.</p>
+          <small><span class="rojo">22:45 - 23:07</span>  |  Carlos Enrique Betancourt Carrero</small>
+          <hr />
+          <p class="margen_b_10">In sollicitudin justo eu odio pellentesque facilisis. Pellentesque metus quam, eleifend quis iaculis nec, luctus vel arcu. Vivamus non purus eros, ac consectetur magna. Etiam facilisis libero a ante porta consectetur.</p>
+          <small><span class="rojo">00:08 - 00:26</span>  |  Carlos Enrique Betancourt Carrero</small>
+        </div>
+        <h4 class="down margen_b_20">Reportar gabarra</h4>
+        <div class="margen_b_20">
+          <form class="acaecimiento">
+            <div class="grid_12 margen_b_20">
+              <label for="cod_gabarra"><strong>Gabarra</strong></label>
+              <select name="cod_gabarra"> 
+                <option value="ACBL-201">ACBL-201</option>
+                <option value="ACBL-202">ACBL-202</option>
+                <option value="ACBL-203">ACBL-203</option>
+              </select>
+            </div>
+            <div class="grid_12 margen_b_20">
+              <label for="tonelaje"><strong>Tonelaje</strong></label>
+              <input name="tonelaje" type="number" pattern="\d{0,1}.?\d{3}(,\d{0,2})?" placeholder="00.000,00" class="margen_b_10">
+            </div>
+            <div class="clearfix"></div>
+            <div class="grid_12 margen_b_20">
+              <label for="tonelaje"><strong>Tonelaje</strong></label>
+              <input name="hora_fin_atraque" type="time" placeholder="Hora, ej. 00:00" class="margen_b_10">
+            </div>
+            <div class="grid_12 margen_b_20">
+              <label for="tonelaje"><strong>Tonelaje</strong></label>
+              <input name="hora_fin_atraque" type="time" placeholder="Hora, ej. 00:00" class="margen_b_10">
+            </div>
+            <input type="submit" class="clearfix green pequenio" value="Enviar" />
+          </form>
+        </div>
+      </div>
+      <h3 class="pequenio underlined down margen_b_20">Observaciones y acaecimientos</h3>
+      <div class="prefix_1">
+        <div class="margen_b_20">
+          <p class="margen_b_10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tellus tellus, auctor eu laoreet at, rutrum et purus. Integer id tortor non libero volutpat tempus. </p>
+          <small><span class="rojo">21:30 - 21:32</span>  |  Carlos Enrique Betancourt Carrero</small>
+          <hr />
+          <p class="margen_b_10">Aliquam dapibus lacinia justo non vulputate. Donec ante neque, egestas bibendum lobortis sodales, aliquet non justo. Praesent tincidunt sagittis magna, quis pretium risus fermentum ut. Nulla tincidunt dictum interdum. Nulla id velit et eros placerat convallis.</p>
+          <small><span class="rojo">22:45 - 23:07</span>  |  Carlos Enrique Betancourt Carrero</small>
+          <hr />
+          <p class="margen_b_10">In sollicitudin justo eu odio pellentesque facilisis. Pellentesque metus quam, eleifend quis iaculis nec, luctus vel arcu. Vivamus non purus eros, ac consectetur magna. Etiam facilisis libero a ante porta consectetur.</p>
+          <small><span class="rojo">00:08 - 00:26</span>  |  Carlos Enrique Betancourt Carrero</small>
+        </div>
+        <h4 class="down margen_b_10">Reportar acaecimiento</h4>
+        <div>
+          <form class="acaecimiento">
+            <div class="grid_12 margen_b_20">
+              <label for="inicio_acaecimiento"><strong>Inicio de acaecimiento</strong></label>
+              <input name="inicio_acaecimiento" type="time" placeholder="Hora, ej. 00:00" class="margen_b_10">
+            </div>
+            <div class="grid_12 margen_b_20">
+              <label for="fin_acaecimiento"><strong>Fin de acaecimiento</strong></label>
+              <input name="fin_acaecimiento" type="time" placeholder="Hora, ej. 00:00" class="margen_b_10">
+            </div>
+            <div class="clearfix"></div>
+            <label for="observacion_acaecimiento"><strong>Observaciones</strong></label>
+            <textarea name="observacion_acaecimiento" cols="" rows="" class="margen_b_10"></textarea>
+            <input type="submit" class="green pequenio" value="Enviar" />
+          </form>
+        </div>
+      </div>
+    </div>
+    <!--hr class="container_24" />
     <div class="exito">
       <span> </span>
       <p><strong>¡Éxito!</strong> El proceso se realizó satisfactoriamente.</p>
@@ -581,7 +684,7 @@
           <h3 class="pequenio">Dosif. de polímeros de la semana <small>Hasta hoy</small></h3>
           <div class="wrapper"></div>
         </aside>
-        <div class="clearfix"></div>
+        <div class="clearfix"></div-->
   </section>
   <script src="javascripts/libs/jquery.min.js"></script>
   <script src="javascripts/libs/jquery.tipsy.js"></script>
