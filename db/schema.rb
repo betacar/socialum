@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110708191351) do
+ActiveRecord::Schema.define(:version => 20110726190617) do
 
   create_table "alarmas", :force => true do |t|
     t.string   "nombre_alarma",                        :null => false
@@ -18,6 +18,72 @@ ActiveRecord::Schema.define(:version => 20110708191351) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "activo",             :default => true, :null => false
+  end
+
+  create_table "arribos_bauxita", :force => true do |t|
+    t.boolean  "activo"
+    t.integer  "transporte_id"
+    t.datetime "eta_arribo_bauxita"
+    t.integer  "num_zarpe_arribo_bauxita"
+    t.integer  "ano_zarpe_arribo_bauxita"
+    t.datetime "fecha_hora_arribo_bauxita"
+    t.decimal  "tonelaje_arribo_bauxita"
+    t.string   "capitan_arribo_bauxita"
+    t.integer  "usuario_id_created"
+    t.integer  "usuario_id_updated"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "arribos_buques", :force => true do |t|
+    t.boolean  "activo"
+    t.integer  "tipo_materia_id"
+    t.datetime "eta_arribo_buque"
+    t.string   "capitan_arribo_buque"
+    t.string   "origen_arribo_buque"
+    t.decimal  "tonelaje_arribo_buque"
+    t.string   "proveedor_arribo_buque"
+    t.datetime "fecha_hora_arribo_buque"
+    t.integer  "usuario_id_created"
+    t.integer  "usuario_id_updated"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "descargas_bauxita", :force => true do |t|
+    t.boolean  "activo"
+    t.integer  "arribo_id"
+    t.string   "arribo_type"
+    t.integer  "equipo_id"
+    t.string   "cod_gabarra_descarga_bauxita"
+    t.decimal  "tonelaje_descarga_bauxita"
+    t.datetime "atraque_descarga_bauxita"
+    t.datetime "inicio_descarga_bauxita"
+    t.datetime "fin_descarga_bauxita"
+    t.datetime "desatraque_descarga_bauxita"
+    t.integer  "usuario_id_created"
+    t.integer  "usuario_id_updated"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "descargas_otros", :force => true do |t|
+    t.integer  "arribo_buque_id"
+    t.datetime "atraque_descarga_otro"
+    t.datetime "inicio_descarga_otro"
+    t.datetime "fin_descarga_otro"
+    t.datetime "desatraque_descarga_otro"
+    t.decimal  "tonelaje_descarga_otro"
+    t.decimal  "tiempo_permitido_descarga_otro"
+    t.decimal  "tiempo_utilizado_descarga_otro"
+    t.decimal  "rata_permitida_descarga_otro"
+    t.decimal  "rata_utilizada_descarga_otro"
+    t.decimal  "pago_demora_descarga_otro"
+    t.decimal  "pago_despacho_descarga_otro"
+    t.integer  "usuario_id_created"
+    t.integer  "usuario_id_updated"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "empresas", :force => true do |t|

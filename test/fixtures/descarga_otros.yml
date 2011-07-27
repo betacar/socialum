@@ -1,0 +1,35 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  activo: 
+  arribo_buque: 
+  atraque_descarga_otro: 2011-07-26 14:13:21
+  inicio_descarga_otro: 2011-07-26 14:13:21
+  fin_descarga_otro: 2011-07-26 14:13:21
+  desatraque_descarga_otro: 2011-07-26 14:13:21
+  tonelaje_descarga_otro: 9.99
+  tiempo_permitido_descarga_otro: 9.99
+  tiempo_utilizado_descarga_otro: 9.99
+  rata_permitida_descarga_otro: 9.99
+  rata_utilizada_descarga_otro: 9.99
+  pago_demora_descarga_otro: 9.99
+  pago_despacho_descarga_otro: 9.99
+  usuario_id_created: 1
+  usuario_id_updated: 1
+
+two:
+  activo: 
+  arribo_buque: 
+  atraque_descarga_otro: 2011-07-26 14:13:21
+  inicio_descarga_otro: 2011-07-26 14:13:21
+  fin_descarga_otro: 2011-07-26 14:13:21
+  desatraque_descarga_otro: 2011-07-26 14:13:21
+  tonelaje_descarga_otro: 9.99
+  tiempo_permitido_descarga_otro: 9.99
+  tiempo_utilizado_descarga_otro: 9.99
+  rata_permitida_descarga_otro: 9.99
+  rata_utilizada_descarga_otro: 9.99
+  pago_demora_descarga_otro: 9.99
+  pago_despacho_descarga_otro: 9.99
+  usuario_id_created: 1
+  usuario_id_updated: 1

@@ -1,0 +1,29 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  activo: false
+  importada: MyString
+  arribo: 
+  equipo: 
+  cod_gabarra_descarga_bauxita: MyString
+  tonelaje_descarga_bauxita: 9.99
+  atraque_descarga_bauxita: 2011-07-26 14:07:55
+  inicio_descarga_bauxita: 2011-07-26 14:07:55
+  fin_descarga_bauxita: 2011-07-26 14:07:55
+  desatraque_descarga_bauxita: 2011-07-26 14:07:55
+  usuario_id_created: 1
+  usuario_id_updated: 1
+
+two:
+  activo: false
+  importada: MyString
+  arribo: 
+  equipo: 
+  cod_gabarra_descarga_bauxita: MyString
+  tonelaje_descarga_bauxita: 9.99
+  atraque_descarga_bauxita: 2011-07-26 14:07:55
+  inicio_descarga_bauxita: 2011-07-26 14:07:55
+  fin_descarga_bauxita: 2011-07-26 14:07:55
+  desatraque_descarga_bauxita: 2011-07-26 14:07:55
+  usuario_id_created: 1
+  usuario_id_updated: 1

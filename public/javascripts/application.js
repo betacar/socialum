@@ -33,6 +33,10 @@ $(document).ready(function() {
   $('div a[href*="#new"], a[href^="#desactivar_"], a[href^="#activar_"], a[href^="#cancel_"]').live('click', function(e) {
     e.preventDefault();
   });
+  
+  $('.cerrar').click(function() {
+    $(this).parent().fadeOut();
+  });
 
   // Agrega, luego de hacer click en el link NEW o EDIT, 
   // los botones de Guardar y Cancelar
