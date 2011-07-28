@@ -1,8 +1,9 @@
-class Empleado < ActiveRecord::Base
-  set_table_name 'vw_personal'
-  set_primary_key 'numero_personal'
-  has_one :usuario, :foreign_key => :id
-    
+class Bax < ActiveRecord::Base
+  set_table_name 'vw_zarpes_bax'
+  set_primary_key 'id'
+  has_many :BaxGabarras
+  has_many :Ensayos
+  
   # Se define como de solo lectura por ser una vista de BD
   protected
     def after_initialize

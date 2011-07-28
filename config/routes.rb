@@ -22,6 +22,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :rol_usuarios
   map.resources :funcions
   map.resources :rols
+  map.resources :arribos
   map.devise_for :usuarios, :path_names => { :sign_in => 'login', :sign_out => 'logout' }
   map.usuario_root '/overview', :controller => 'overview'
 

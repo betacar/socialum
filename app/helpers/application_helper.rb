@@ -26,4 +26,8 @@ module ApplicationHelper
     select_tag 'activo', '<option value="true">Activo</option><option value="false">Inactivo</option>'
   end
   
+  def normalizar(frase)
+    frase.titleize
+  end
+  
 end

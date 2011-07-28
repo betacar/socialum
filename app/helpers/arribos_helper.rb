@@ -1,0 +1,2 @@
+module ArribosHelper
+end

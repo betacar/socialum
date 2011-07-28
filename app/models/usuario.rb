@@ -22,7 +22,7 @@ class Usuario < ActiveRecord::Base
       @empleado = Empleado.find(self.ficha)
       
       # Obtenemos los nombres y apellidos del empleado, los llevamos a minuscula y luego 'titulizamos' el nombre completo
-      @nombres = (empleado.nombres + ' ' + empleado.apellidos).downcase.titleize
+      @nombres = (empleado.nombres + ' ' + empleado.apellidos).titleize
     else
       self.ficha
     end

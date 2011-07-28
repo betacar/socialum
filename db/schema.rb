@@ -21,14 +21,13 @@ ActiveRecord::Schema.define(:version => 20110726190617) do
   end
 
   create_table "arribos_bauxita", :force => true do |t|
-    t.boolean  "activo"
+    t.boolean  "activo",                    :default => true
+    t.string   "bax_id"
     t.integer  "transporte_id"
     t.datetime "eta_arribo_bauxita"
-    t.integer  "num_zarpe_arribo_bauxita"
-    t.integer  "ano_zarpe_arribo_bauxita"
-    t.datetime "fecha_hora_arribo_bauxita"
-    t.decimal  "tonelaje_arribo_bauxita"
     t.string   "capitan_arribo_bauxita"
+    t.decimal  "tonelaje_arribo_bauxita"
+    t.datetime "fecha_hora_arribo_bauxita"
     t.integer  "usuario_id_created"
     t.integer  "usuario_id_updated"
     t.datetime "created_at"
