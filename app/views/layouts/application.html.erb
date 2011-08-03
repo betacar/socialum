@@ -50,16 +50,8 @@
   </header>
   <nav id="menu">
     <ul class="container_24">
-    <% if current_page?(:controller => 'overview') %>
-      <li class="activo" title="Reporte overview"><span class="overview">Overview</span></li>
-    <% else %>
-      <li title="Reporte overview"><span class="overview"><%= link_to 'Overview', :controller => 'overview' %></span></li>
-    <% end %>
-    <% if current_page?(:controller => 'arribos') %>
-      <li class="activo" title="Arribos y descargas de materia"><span class="arribos">Arribos y descargas</span></li>
-    <% else %>
-      <li title="Arribos y descargas de materia"><span class="arribos"><%= link_to 'Arribos y descargas', :controller => 'arribos' %></span></li>
-    <% end %>
+      <li <%= activo('overview') %> title="Reporte overview"><span class="overview"><%= link_to 'Overview', :controller => 'overview' %></span></li>
+      <li <%= activo('arribos') %> title="Arribos y descargas de materia"><span class="arribos"><%= link_to 'Arribos y descargas', :controller => 'arribos' %></span></li>
       <!--li title="Apilamiento de bauxita en patios"><span class="apilado">Apilamiento</span></li>
       <li title="Alimentación de bauxita a planta"><span class="alimentado">Alimentación</span></li>
       <li title="Almacenamiento de alúmina en silo"><span class="almacenado">Almacenamiento</span></li>

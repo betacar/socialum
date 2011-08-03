@@ -49,4 +49,13 @@ module ApplicationHelper
     end
   end
   
+  # Determina si un elemento del menú está activo o no, basado en el nombre del controller
+  def activo(controller)
+    if current_page?(:controller => controller)
+      'class="activo"'
+    else
+      nil
+    end 
+  end
+  
 end
