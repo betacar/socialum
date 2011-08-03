@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110726190617) do
+ActiveRecord::Schema.define(:version => 20110802133432) do
 
   create_table "alarmas", :force => true do |t|
     t.string   "nombre_alarma",                        :null => false
@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(:version => 20110726190617) do
     t.boolean  "activo",                    :default => true
     t.string   "bax_id"
     t.integer  "transporte_id"
-    t.datetime "eta_arribo_bauxita"
     t.string   "capitan_arribo_bauxita"
     t.decimal  "tonelaje_arribo_bauxita"
     t.datetime "fecha_hora_arribo_bauxita"
@@ -32,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20110726190617) do
     t.integer  "usuario_id_updated"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "descargado",                :default => false
   end
 
   create_table "arribos_buques", :force => true do |t|

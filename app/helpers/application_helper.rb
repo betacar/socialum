@@ -27,7 +27,26 @@ module ApplicationHelper
   end
   
   def normalizar(frase)
-    frase.titleize
+    if frase.nil?
+      frase = "Vacío"
+    else
+      frase.titleize
+    end
+  end
+  
+  # Transforma de formato 123456,7 a 123.456,7
+  # Utilizado mayormente para formatear los tonelajes
+  def delimitar(num)
+    number_with_precision(num, :precision => 2, :delimiter => ".", :separator => ",")
+  end
+  
+  # Llevar a formato fecha-hora
+  def getFechaHora(fecha)
+    if fecha.nil?
+      fecha = "No disponible"
+    else
+      fecha.to_datetime.to_s(:fechahora)
+    end
   end
   
 end

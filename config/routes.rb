@@ -67,4 +67,22 @@ ActionController::Routing::Routes.draw do |map|
   # consider removing or commenting them out if you're using named routes and resources.
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
+  
+  map.connect 'arribos/:action/:num_zarpe/:ano_zarpe',
+              :controller => 'arribos',
+              :num_zarpe => /\d{3}/,
+              :ano_zarpe => /\d{4}/
+  
+  map.connect 'arribos/:action/:num_zarpe/:ano_zarpe/:gabarra_id', 
+              :controller => 'arribos',
+              :num_zarpe => /\d{3}/,
+              :ano_zarpe => /\d{4}/,
+              :gabarra_id => /(\w{2,5})-(\d{3,4}|\w{4})/
+              
+  map.connect 'arribos/:action/:num_zarpe/:ano_zarpe/:gabarra_id.:format', 
+              :controller => 'arribos',
+              :num_zarpe => /\d{3}/,
+              :ano_zarpe => /\d{4}/,
+              :gabarra_id => /(\w{2,5})-(\d{3,4}|\w{4})/
+              
 end

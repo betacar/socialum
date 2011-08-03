@@ -27,7 +27,7 @@
     <% end %>
     <% if usuario_signed_in? %>
       <p class="grid_12 derecha">
-        <span class="persona" id="ficha" ficha="<%= current_usuario.ficha %>"><%= current_usuario.datos %></small></span>  |  <span class="ayuda"><a href="#help">Ayuda</a></span>  |  <span class="logout"><%= link_to('Salir', destroy_usuario_session_path) %></span>
+        <span class="persona" id="ficha" data-ficha="<%= current_usuario.ficha %>"><%= current_usuario.datos %></small></span>  |  <span class="ayuda"><a href="#help">Ayuda</a></span>  |  <span class="logout"><%= link_to('Salir', destroy_usuario_session_path) %></span>
       <% else %>
       <p class="grid_24 derecha">
         <span class="persona"><%= link_to('Login', new_usuario_session_path)  %></span>
@@ -51,24 +51,23 @@
   <nav id="menu">
     <ul class="container_24">
     <% if current_page?(:controller => 'overview') %>
-      <li class="activo" title="Reporte overview"><span class="overview"><%= link_to 'Overview', :controller => 'overview' %></span></li>
+      <li class="activo" title="Reporte overview"><span class="overview">Overview</span></li>
     <% else %>
       <li title="Reporte overview"><span class="overview"><%= link_to 'Overview', :controller => 'overview' %></span></li>
     <% end %>
     <% if current_page?(:controller => 'arribos') %>
       <li class="activo" title="Arribos y descargas de materia"><span class="arribos">Arribos y descargas</span></li>
     <% else %>
-    <li title="Arribos y descargas de materia"><span class="arribos">Arribos y descargas</span></li>
+      <li title="Arribos y descargas de materia"><span class="arribos"><%= link_to 'Arribos y descargas', :controller => 'arribos' %></span></li>
     <% end %>
-      <li title="Apilamiento de bauxita en patios"><span class="apilado">Apilamiento</span></li>
+      <!--li title="Apilamiento de bauxita en patios"><span class="apilado">Apilamiento</span></li>
       <li title="Alimentación de bauxita a planta"><span class="alimentado">Alimentación</span></li>
       <li title="Almacenamiento de alúmina en silo"><span class="almacenado">Almacenamiento</span></li>
-      <li title="Despacho de alúmina a clientes"><span class="despacho">Despacho</span></li>
+      <li title="Despacho de alúmina a clientes"><span class="despacho">Despacho</span></li-->
       <li title="Resportes de novedades y fallas"><span class="novedades">Novedades</span></li>
     </ul>
   </nav>
   <section id="main" role="main" class="container_24">
-    <span class="flecha"> </span>
   <% if flash[:success]%>
     <div class="exito">
       <span> </span>
@@ -95,7 +94,7 @@
   <% end %>
     <%= yield %>
   </section>    
-  <%= javascript_include_tag 'libs/jquery.min', 'plugins', 'application', :cache => true %>
+  <%= javascript_include_tag 'libs/jquery.min', 'libs/jquery.tipsy', 'plugins', 'application', :cache => true %>
   <%= yield :jquery_scripts, :cache => false %>
   <!--[if lt IE 7 ]>
   <script src="javascripts/libs/dd_belatedpng.js"></script>
