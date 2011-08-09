@@ -17,16 +17,8 @@ $(document).ready(function() {
     fixFlash: false,
     size: 960
   };
-
-  // Capturador de evento clic para
-  // ocultar las notificaciones
-  $('div.exito span, div.advertencia span, div.info span, div.error span').click(function() {
-    $(this).parent().animate({
-      opacity: 'toggle'
-    }, 'fast');
-  });
   
-  $('.down, .up').click(function() {
+  $('.down, .up').live('click', function() {
     $(this).toggleClass('down').toggleClass('up');
   });
   
@@ -34,14 +26,23 @@ $(document).ready(function() {
     e.preventDefault();
   });
   
-  $('.cerrar').click(function() {
+  // Capturador de evento clic para
+  // ocultar las notificaciones
+  $('.cerrar').live('click', function() {
     $(this).parent().fadeOut();
   });
 
   // Agrega, luego de hacer click en el link NEW o EDIT, 
   // los botones de Guardar y Cancelar
-  $('div a[href*="#new"]').click(function() {
+  $('div a[href*="#new"]').live('click', function() {
     $(this).parent().next('div').children('input').fadeIn();
     return false;
+  });
+  
+  $('#tab li').click(function() {
+    var clase = 'selected',
+        seleccionado = $(this).parent().children(seleccionado);
+    seleccionado.removeClass(clase);
+    $(this).addClass(clase);
   });
 });

@@ -22,10 +22,4 @@ class ArribosController < ApplicationController
       end
     end
   end
-  
-  # GET /arribos/descargar/001/2006/ABC-123/
-  # GET /arribos/descargar/001/2006/ABC-123.html
-  def descargar
-    
-  end
 end

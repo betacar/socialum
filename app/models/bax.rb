@@ -6,7 +6,7 @@ class Bax < ActiveRecord::Base
   belongs_to :Remolcador, :foreign_key => :remolcador_id
   belongs_to :EmpresaTransporte, :foreign_key => :empresa_transporte_id
   has_one :ArriboBauxita
-  attr_accessor :gabarras, :analisis, :remolcador, :empresa_transportista, :capitan, :reportado, :eta_arribo # Atributos virtuales
+  attr_accessor :gabarras, :remolcador, :empresa_transportista, :capitan, :reportado, :eta_arribo # Atributos virtuales
   
   # Obtiene los trenes de gabarras que zarparon de Pijigüaos, 
   # junto a las gabarras y los ensayos de laboratorio asociados

@@ -1,66 +1,48 @@
 <% titulo 'Arribos de material' %>
-  <h1>Arribos de material</h1>
   <article class="grid_15">
+		<h1>Arribos de bauxita nacional</h1>
   <% @baxes.each do |bax| %>
-    <h2 class="underlined down margen_b_20">BAX: <%=h bax.id %></h2>
-    <div class="prefix_1 margen_b_30">
-      <div class="info oculto">
-        <span> </span>
-        <p></p>
-      </div>
-      <div class="grid_13 alpha margen_b_10">
-        <small>Motoempujador:</small>
-        <p class="destacado margen_b_10"><%=h bax.remolcador %></p>
-        <small>Empresa:</small>
-        <p class="destacado margen_b_10"><%=h bax.empresa_transportista %></p>
-        <small>Capitán:</small>
-        <p class="destacado margen_b_10"><%=h bax.capitan %></p>
-      </div>
-      <div class="grid_11 omega margen_b_10">
-        <small>Fecha y hora de zarpe:</small>
-        <time datetime="<%=h bax.fecha_hora_zarpe %>" class="destacado margen_b_10"><%=h getFechaHora(bax.fecha_hora_zarpe) %></time>
-        <small>Fecha y hora estimada de llegada:</small>
-        <time datetime="<%=h bax.eta_arribo %>" class="destacado margen_b_10"><%=h getFechaHora(bax.eta_arribo) %></time>
-        <small>Peso:</small>
-        <p class="destacado margen_b_10 rojo"><%=h delimitar(bax.carga_transportar) %> tons.</p>
-        <div class="derecha">
-          <%= reportado(bax.reportado, bax.id) %>
+    <div class="margen_b_30">
+      <h2 class="underlined down margen_b_20">BAX: <%=h bax.id %></h2>
+      <div class="prefix_1 margen_b_30">
+        <div class="info oculto">
+          <span> </span>
+          <p></p>
         </div>
+        <div class="grid_13 alpha margen_b_10">
+          <small class="tons">Motoempujador:</small>
+          <p class="destacado margen_b_10"><%=h bax.remolcador %></p>
+          <small class="tons">Empresa:</small>
+          <p class="destacado margen_b_10"><%=h bax.empresa_transportista %></p>
+          <small class="tons">Capitán:</small>
+          <p class="destacado margen_b_10"><%=h bax.capitan %></p>
+        </div>
+        <div class="grid_11 omega margen_b_10">
+          <small class="tons">zarpe el jobal:</small>
+          <time datetime="<%=h bax.fecha_hora_zarpe %>" class="destacado margen_b_10"><%=h getFechaHora(bax.fecha_hora_zarpe) %></time>
+          <small class="tons">eta arribo a matanzas (m-201):</small>
+          <time datetime="<%=h bax.eta_arribo %>" class="destacado margen_b_10"><%=h getFechaHora(bax.eta_arribo) %></time>
+          <small class="tons">Peso:</small>
+          <p class="destacado margen_b_10 rojo"><%=h delimitar(bax.carga_transportar) %> tons.</p>
+          <div class="derecha">
+            <%= reportado(bax.reportado, bax.id) %>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <h3 class="down">Gabarras (<%=h bax.cant_gabarras %>)</h3>
+        <ul class="margen_b_30 gabarras" data-bax="<%=h bax.id %>">
+        <% bax.gabarras.each do |gabarra| %>
+          <li title="Peso: <strong><%=h delimitar(gabarra.tone_transportada) %> tons.</strong>" data-gabarra="<%=h gabarra.gabarra_id %>"><%=h gabarra.gabarra_id %></li>
+        <% end %>
+        </ul>
       </div>
-      <div class="clearfix"></div>
-      <h3 class="pequenio down">Gabarras (<%=h bax.cant_gabarras %>)</h3>
-      <ul class="margen_b_30 gabarras" data-bax="<%=h bax.id %>">
-      <% bax.gabarras.each do |gabarra| %>
-        <li title="<p>Peso: <strong><%=h delimitar(gabarra.tone_transportada) %> tons.</strong></p>" data-gabarra="<%=h gabarra.gabarra_id %>">
-          <%=h gabarra.gabarra_id %>
-        </li>
-      <% end %>
-      </ul>
     </div>
   <% end %>
   </article>
   <aside class="grid_9">
+		<h1>Arribos de buques</h1>
   </aside>
   <div class="clearfix"></div>
 <% content_for :jquery_scripts do %>
-  <script>
-    $(document).ready(function() {
-      $('.gabarras li').tipsy({gravity:'nw',fade:true,html:true,opacity:.9});
-      $('.gabarras li').click(function() {
-        alert('Haz cliqueado en la gabarra ' + $(this).data('gabarra'));
-        return false;
-      });
-      
-      $('.reportar_arribo').live('click', function() {
-        var bax = $(this).data('bax');
-        $(this).removeClass('reportar_arribo');
-        $(this).attr('disabled', 'disabled');
-        $(this).attr('value', 'Arribo reportado');
-        
-        Ajax(true, null, "json", false, "POST", 'arribos/reportar/' + bax);
-
-        return false;
-      });
-    });
-  </script>
+  <%= javascript_include_tag 'libs/jquery.tipsy', 'libs/jquery.ui.min', 'arribos', :cache => true %>
 <% end %>

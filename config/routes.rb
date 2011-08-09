@@ -23,6 +23,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :funcions
   map.resources :rols
   map.resources :arribos
+  map.resources :descargar
   map.devise_for :usuarios, :path_names => { :sign_in => 'login', :sign_out => 'logout' }
   map.usuario_root '/overview', :controller => 'overview'
 
@@ -68,21 +69,28 @@ ActionController::Routing::Routes.draw do |map|
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
   
-  map.connect 'arribos/:action/:num_zarpe/:ano_zarpe',
+  map.connect 'arribos/:action/:num_zarpe/:anio_zarpe',
               :controller => 'arribos',
               :num_zarpe => /\d{3}/,
-              :ano_zarpe => /\d{4}/
+              :anio_zarpe => /\d{4}/
   
-  map.connect 'arribos/:action/:num_zarpe/:ano_zarpe/:gabarra_id', 
-              :controller => 'arribos',
+  map.connect 'descargar/:action/:num_zarpe/:anio_zarpe/:gabarra_id', 
+              :controller => 'descargar',
+              :action => 'gabarra',
               :num_zarpe => /\d{3}/,
-              :ano_zarpe => /\d{4}/,
+              :anio_zarpe => /\d{4}/,
+              :gabarra_id => /(\w{2,5})-(\d{3,4}|\w{4})/
+  
+  map.connect 'descargar/:action/:num_zarpe/:anio_zarpe/:gabarra_id', 
+              :controller => 'descargar',
+              :num_zarpe => /\d{3}/,
+              :anio_zarpe => /\d{4}/,
               :gabarra_id => /(\w{2,5})-(\d{3,4}|\w{4})/
               
-  map.connect 'arribos/:action/:num_zarpe/:ano_zarpe/:gabarra_id.:format', 
-              :controller => 'arribos',
+  map.connect 'descargar/:action/:num_zarpe/:anio_zarpe/:gabarra_id.:format', 
+              :controller => 'descargar',
               :num_zarpe => /\d{3}/,
-              :ano_zarpe => /\d{4}/,
+              :anio_zarpe => /\d{4}/,
               :gabarra_id => /(\w{2,5})-(\d{3,4}|\w{4})/
               
 end

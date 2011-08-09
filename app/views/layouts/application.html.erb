@@ -13,11 +13,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="shortcut icon" href="/favicon.ico" />
 	<link rel="icon" href="/favicon.ico" type="image/x-icon" />
-	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <%= stylesheet_link_tag "fw_grid", "style", :cache => true %>
+  <%= stylesheet_link_tag :all, :cache => true %>
   <%= javascript_include_tag "libs/modernizr-1.7.min.js", :cache => true %>
 </head>
 <body>
+  <div class="container_24 dialogo"></div>
   <section id="top_bar">
     <div class="container_24">
     <% if usuario_signed_in? %>
@@ -50,13 +50,34 @@
   </header>
   <nav id="menu">
     <ul class="container_24">
-      <li <%= activo('overview') %> title="Reporte overview"><span class="overview"><%= link_to 'Overview', :controller => 'overview' %></span></li>
-      <li <%= activo('arribos') %> title="Arribos y descargas de materia"><span class="arribos"><%= link_to 'Arribos y descargas', :controller => 'arribos' %></span></li>
-      <!--li title="Apilamiento de bauxita en patios"><span class="apilado">Apilamiento</span></li>
-      <li title="Alimentación de bauxita a planta"><span class="alimentado">Alimentación</span></li>
-      <li title="Almacenamiento de alúmina en silo"><span class="almacenado">Almacenamiento</span></li>
-      <li title="Despacho de alúmina a clientes"><span class="despacho">Despacho</span></li-->
-      <li title="Resportes de novedades y fallas"><span class="novedades">Novedades</span></li>
+      <li <%= activo('overview') %> title="Reporte overview">
+        <span class="overview"><%= link_to 'Overview', :controller => 'overview' %></span>
+        <span class="flecha"> </span>
+      </li>
+      <li <%= activo('arribos') %> title="Arribos y descargas de materia">
+        <span class="arribos"><%= link_to 'Arribos y descargas', :controller => 'arribos' %></span>
+        <span class="flecha"> </span>
+      </li>
+      <!--li title="Apilamiento de bauxita en patios">
+        <span class="apilado">Apilamiento</span>
+        <span class="flecha"> </span>
+      </li>
+      <li title="Alimentación de bauxita a planta">
+        <span class="alimentado">Alimentación</span>
+        <span class="flecha"> </span>
+      </li>
+      <li title="Almacenamiento de alúmina en silo">
+        <span class="almacenado">Almacenamiento</span>
+        <span class="flecha"> </span>
+      </li>
+      <li title="Despacho de alúmina a clientes">
+        <span class="despacho">Despacho</span>
+        <span class="flecha"> </span>
+      </li-->
+      <li title="Resportes de novedades y fallas">
+        <span class="novedades">Novedades</span>
+        <span class="flecha"> </span>
+      </li>
     </ul>
   </nav>
   <section id="main" role="main" class="container_24">
@@ -86,7 +107,7 @@
   <% end %>
     <%= yield %>
   </section>    
-  <%= javascript_include_tag 'libs/jquery.min', 'libs/jquery.tipsy', 'plugins', 'application', :cache => true %>
+  <%= javascript_include_tag 'libs/jquery.min', 'plugins', 'application', :cache => true %>
   <%= yield :jquery_scripts, :cache => false %>
   <!--[if lt IE 7 ]>
   <script src="javascripts/libs/dd_belatedpng.js"></script>

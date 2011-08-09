@@ -58,4 +58,8 @@ module ApplicationHelper
     end 
   end
   
+  # Devuelve el numero en formato porcentual
+  def porcentual(num)
+    number_to_percentage(num, :precision => '1', :separator => ',')
+  end
 end
