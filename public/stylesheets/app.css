@@ -33,14 +33,30 @@ h1.arribo{background:url("../images/ship_24.png") left top no-repeat}
 	
 /* Grid de gabarras */
 	.gabarras{font-weight:bold;margin-left:0;margin-top:10px;padding-bottom:10px;border-bottom:1px solid #dfe5e6}
-	.gabarras li{width:68px;height:13px;padding:55px 5px 5px;margin:0 10px 10px 0;list-style:none;display:inline-block;text-align:center;font-size:.85em;line-height:1em;text-shadow:0px 1px 0px #fff;cursor:pointer;border:1px solid #d9d9d9;background:-webkit-gradient(linear,left top,left bottom,from(#fefefe),to(#e5e5e5));background:-moz-linear-gradient(top,#fefefe,#e5e5e5);background:-o-linear-gradient(rgb(254,254,254), rgb(229,229,229));filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fefefe',endColorstr='#e5e5e5');-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;box-shadow:0 1px 1px #ccc}
-			.gabarras li:hover{color:#590b19;text-decoration:none;border:1px solid #e5e5e5;background:-webkit-gradient(linear,left top,left bottom,from(#fff),to(#f2f2f2));background:-moz-linear-gradient(top,#fff,#f2f2f2);background:-o-linear-gradient(rgb(255,255,255), rgb(242,242,242));filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff',endColorstr='#f2f2f2')}
-			.gabarras li:active{text-shadow:0px -1px 0px #fff;box-shadow:inset 0 0 10px #666;background:-webkit-gradient(linear,left top,left bottom,from(#fff),to(#ccc));background:-moz-linear-gradient(top,#fff,#ccc);background:-moz-linear-gradient(rgb(255,255,255), rgb(204,204,204));filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff',endColorstr='#ccc')}
+	.gabarras li{width:68px;height:68px;padding:5px;margin:0 10px 10px 0;list-style:none;display:inline-block;text-align:center;font-size:.85em;line-height:1em;border:1px solid #d9d9d9;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box}
+	.gabarras .deshabilitada{background:#f2f2f2;color:#666;box-shadow:none;text-shadow:none;cursor:default}
+	.gabarras li:not(.deshabilitada){text-shadow:0px 1px 0px #fff;cursor:pointer;background:-webkit-gradient(linear,left top,left bottom,from(#fefefe),to(#e5e5e5));background:-moz-linear-gradient(top,#fefefe,#e5e5e5);background:-o-linear-gradient(rgb(254,254,254), rgb(229,229,229));filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fefefe',endColorstr='#e5e5e5');box-shadow:0 1px 1px #ccc}
+			.gabarras li:hover:not(.deshabilitada){color:#590b19;text-decoration:none;border:1px solid #e5e5e5;background:-webkit-gradient(linear,left top,left bottom,from(#fff),to(#f2f2f2));background:-moz-linear-gradient(top,#fff,#f2f2f2);background:-o-linear-gradient(rgb(255,255,255), rgb(242,242,242));filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff',endColorstr='#f2f2f2')}
+			.gabarras li:active:not(.deshabilitada){text-shadow:0px -1px 0px #fff;box-shadow:inset 0 0 10px #666;background:-webkit-gradient(linear,left top,left bottom,from(#fff),to(#ccc));background:-moz-linear-gradient(top,#fff,#ccc);background:-moz-linear-gradient(rgb(255,255,255), rgb(204,204,204));filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff',endColorstr='#ccc')}
+			.gabarras li img{margin:6px 0 12px;}
 
-.dialogo{position:absolute;z-index:2000;height:auto;top:35%;left:50%;margin-left:-202px;margin-top:auto;display:none}
+.dialogo{position:absolute;height:auto;top:35%;left:35%;margin-left:-202px;margin-top:-136px}
+.overlay{z-index:1500;top:0;left:0;width:100%;background-color:rgba(0,0,0,.4)}
+
+.leyenda{margin:-10px 0 10px;padding:10px 1%;background-color:#f2f2f2;border-bottom:1px solid #dfe5e6;-webkit-border-top-left-radius:5px;-webkit-border-top-right-radius:5px;-moz-border-radius-topleft:5px;-moz-border-radius-topright:5px;border-top-left-radius:5px;border-top-right-radius:5px;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box}
+	.leyenda li{margin-right:10px;padding-left:20px}
+	.leyenda li:last-child{margin-right:0}
+
+	.leyenda li.navegando{background:url("../images/steering_wheel_16.png") left center no-repeat}
+	.leyenda li.esperando{background:url("../images/clock_red_16.png") left center no-repeat}
+	.leyenda li.atracada{background:url("../images/anchor_16.png") left center no-repeat}
+	.leyenda li.descargando{background:url("../images/arrow_rotate_clockwise_16.png") left center no-repeat}
+	.leyenda li.vacia{background:url("../images/tick_16.png") left center no-repeat}
+	.leyenda li.destracada{background:url("../images/flag_finish_16.png") left center no-repeat}
 		
 /* Descarga de gabarras */  
-  .widget_descarga{background-color:#fff;padding:10px;border:7px solid rgb(57, 74, 89);border:7px solid rgba(57, 74, 89, .75);position:relative;box-shadow:0 0 7px #000;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box}
+  .widget_descarga{background-color:#fff;padding:10px;border:7px solid rgb(89, 11, 25);border:7px solid rgba(89, 11, 25, .75);position:relative;z-index:2000;box-shadow:0 0 7px #000;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;z-index:2000}
     .widget_descarga h2{cursor:pointer;padding-bottom:5px}
     .widget_descarga h2:active{cursor:move}
-    .widget_descarga .cerrar{width:16px;height:16px;padding:5px;position:absolute;z-index:1300;background:#fff url("../images/close_16.png") center no-repeat;cursor:pointer;-moz-border-radius:16px;-webkit-border-radius:16px;border-radius:16px;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;-moz-box-shadow:1px 1px 2px #b3b3b3;-webkit-box-shadow:1px 1px 2px #b3b3b3;box-shadow:1px 1px 2px #b3b3b3;border:1px solid #8996A0;top:-16px;right:-16px}
+    .widget_descarga .cerrar{width:16px;height:16px;padding:5px;position:absolute;background:#fff url("../images/close_16.png") center no-repeat;cursor:pointer;-moz-border-radius:16px;-webkit-border-radius:16px;border-radius:16px;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;-moz-box-shadow:1px 1px 2px #b3b3b3;-webkit-box-shadow:1px 1px 2px #b3b3b3;box-shadow:1px 1px 2px #b3b3b3;border:1px solid #8996A0;top:-16px;right:-16px}
+    .widget_descarga>img{margin:0 175px}

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110802133432) do
+ActiveRecord::Schema.define(:version => 20110811153704) do
 
   create_table "alarmas", :force => true do |t|
     t.string   "nombre_alarma",                        :null => false
@@ -21,17 +21,17 @@ ActiveRecord::Schema.define(:version => 20110802133432) do
   end
 
   create_table "arribos_bauxita", :force => true do |t|
-    t.boolean  "activo",                    :default => true
+    t.boolean  "activo",                                                  :default => true
     t.string   "bax_id"
     t.integer  "transporte_id"
     t.string   "capitan_arribo_bauxita"
-    t.decimal  "tonelaje_arribo_bauxita"
+    t.decimal  "tonelaje_arribo_bauxita",   :precision => 8, :scale => 2
     t.datetime "fecha_hora_arribo_bauxita"
     t.integer  "usuario_id_created"
     t.integer  "usuario_id_updated"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "descargado",                :default => false
+    t.boolean  "descargado",                                              :default => false
   end
 
   create_table "arribos_buques", :force => true do |t|
@@ -50,11 +50,11 @@ ActiveRecord::Schema.define(:version => 20110802133432) do
   end
 
   create_table "descargas_bauxita", :force => true do |t|
-    t.boolean  "activo"
+    t.boolean  "activo",                      :default => true, :null => false
     t.integer  "arribo_id"
     t.string   "arribo_type"
     t.integer  "equipo_id"
-    t.string   "cod_gabarra_descarga_bauxita"
+    t.string   "gabarra_id"
     t.decimal  "tonelaje_descarga_bauxita"
     t.datetime "atraque_descarga_bauxita"
     t.datetime "inicio_descarga_bauxita"
@@ -99,9 +99,9 @@ ActiveRecord::Schema.define(:version => 20110802133432) do
   create_table "equipos", :force => true do |t|
     t.integer  "tipo_equipo_id",                       :null => false
     t.integer  "subproceso_id"
-    t.integer  "empresa_id",                           :null => false
+    t.integer  "empresa_id"
     t.string   "nombre_equipo",                        :null => false
-    t.integer  "usuario_id_created",                   :null => false
+    t.integer  "usuario_id_created"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "activo",             :default => true, :null => false
@@ -114,7 +114,7 @@ ActiveRecord::Schema.define(:version => 20110802133432) do
 
   create_table "estatus_gabarras", :force => true do |t|
     t.string   "desc_estatus_gabarra",                   :null => false
-    t.integer  "usuario_id_created",                     :null => false
+    t.integer  "usuario_id_created"
     t.integer  "usuario_id_updated"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -151,7 +151,7 @@ ActiveRecord::Schema.define(:version => 20110802133432) do
 
   create_table "locaciones", :force => true do |t|
     t.string   "nombre_locacion",                      :null => false
-    t.integer  "usuario_id_created",                   :null => false
+    t.integer  "usuario_id_created"
     t.integer  "usuario_id_updated"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -172,7 +172,7 @@ ActiveRecord::Schema.define(:version => 20110802133432) do
     t.string   "nombre_patio",                         :null => false
     t.decimal  "cota_maxima"
     t.decimal  "capacidad_patio"
-    t.integer  "usuario_id_created",                   :null => false
+    t.integer  "usuario_id_created"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "activo",             :default => true, :null => false
@@ -189,8 +189,8 @@ ActiveRecord::Schema.define(:version => 20110802133432) do
 
   create_table "puntos_tolvas", :force => true do |t|
     t.string   "desc_punto_tolva",                     :null => false
-    t.decimal  "minimo_punto_tolva",                   :null => false
-    t.integer  "usuario_id_created",                   :null => false
+    t.decimal  "minimo_punto_tolva"
+    t.integer  "usuario_id_created"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "activo",             :default => true, :null => false
@@ -216,22 +216,23 @@ ActiveRecord::Schema.define(:version => 20110802133432) do
 
   create_table "silos", :force => true do |t|
     t.string   "nombre_silo",                          :null => false
-    t.integer  "usuario_id_created",                   :null => false
+    t.integer  "usuario_id_created"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "activo",             :default => true, :null => false
   end
 
   create_table "stock_gabarras", :force => true do |t|
-    t.integer  "locacion_id",                          :null => false
-    t.integer  "estatus_gabarra_id",                   :null => false
-    t.string   "cod_gabarra",                          :null => false
-    t.integer  "usuario_id_created",                   :null => false
+    t.integer  "locacion_id",                             :null => false
+    t.integer  "estatus_gabarra_id",                      :null => false
+    t.string   "empresa_transporte_id"
+    t.string   "gabarra_id",                              :null => false
+    t.integer  "usuario_id_created",                      :null => false
     t.integer  "usuario_id_updated"
+    t.datetime "fecha_hora_stock"
+    t.boolean  "activo",                :default => true, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "fecha_hora_stock"
-    t.boolean  "activo",             :default => true, :null => false
   end
 
   create_table "subprocesos", :force => true do |t|
@@ -253,12 +254,12 @@ ActiveRecord::Schema.define(:version => 20110802133432) do
   end
 
   create_table "tipos_equipos", :force => true do |t|
+    t.boolean  "activo",             :default => true, :null => false
     t.string   "nombre_tipo_equipo",                   :null => false
-    t.integer  "usuario_id_created",                   :null => false
+    t.integer  "usuario_id_created"
     t.integer  "usuario_id_updated"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "activo",             :default => true, :null => false
   end
 
   create_table "tipos_fallas", :force => true do |t|
@@ -272,16 +273,72 @@ ActiveRecord::Schema.define(:version => 20110802133432) do
 
   create_table "tipos_materiales", :force => true do |t|
     t.string   "desc_tipo_materia",                    :null => false
-    t.integer  "usuario_id_created",                   :null => false
+    t.integer  "usuario_id_created"
     t.integer  "usuario_id_updated"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "activo",             :default => true, :null => false
   end
 
+  create_table "tmp_descargas", :id => false, :force => true do |t|
+    t.text     "turno"
+    t.datetime "fecha"
+    t.text     "num_gabarra"
+    t.text     "bax"
+    t.datetime "dia_hr_atraque"
+    t.datetime "dia_hr_inicio"
+    t.datetime "dia_hr_fin"
+    t.float    "su16_1_2_acbl"
+    t.float    "su16_1_2_term"
+    t.float    "orinoco_acbl"
+    t.float    "orinoco_term"
+    t.float    " GMS_Num_1_ACBL"
+    t.float    " GMS_Num_1_TERM"
+    t.float    "gms_num_2_acbl"
+    t.float    "gms_num_2_term"
+    t.float    "otros_acbl"
+    t.float    "otros_term"
+    t.string   "numgabarra",      :limit => 100
+    t.string   "numg",            :limit => 100
+    t.string   "gabarra",         :limit => 100
+    t.string   "zarpe",           :limit => 100
+    t.string   "remolcador",      :limit => 100
+  end
+
+  create_table "tmp_stock", :id => false, :force => true do |t|
+    t.datetime "fecha"
+    t.float    "stock_gab_matanzas_acbl_carg"
+    t.float    "stock_gab_matanzas_acbl_vacias"
+    t.float    "stock_gab_matanzas_acbl_proc"
+    t.float    "stock_gab_matanzas_acbl_rep"
+    t.float    "stock_gab_matanzas_ermaca_carg"
+    t.float    "stock_gab_matanzas_ermaca_vacias"
+    t.float    "stock_gab_matanzas_ermaca_proc"
+    t.float    "stock_gab_matanzas_ermaca_rep"
+    t.float    "stock_gab_jobal_acbl_carg"
+    t.float    "stock_gab_jobal_acbl_vacias"
+    t.float    "stock_gab_jobal_acbl_proc"
+    t.float    "stock_gab_jobal_acbl_rep"
+    t.float    "stock_gab_jobal_termaca_carg"
+    t.float    "stock_gab_jobal_termaca_vacias"
+    t.float    "stock_gab_jobal_termaca_proc"
+    t.float    "stock_gab_jobal_termaca_rep"
+    t.float    "stock_gab_otros_acbl_carg"
+    t.float    "stock_gab_otros_acbl_vacias"
+    t.float    "stock_gab_otros_acbl_proc"
+    t.float    "stock_gab_otros_acbl_rep"
+    t.float    "stock_gab_otros_termaca_carg"
+    t.float    "stock_gab_otros_termaca_vacias"
+    t.float    "stock_gab_otros_termaca_proc"
+    t.float    "stock_gab_otros_termaca_rep"
+    t.float    "item"
+    t.float    "rio_arriba"
+    t.float    "rio_abajo"
+  end
+
   create_table "tolvas", :force => true do |t|
     t.string   "desc_tolva",                           :null => false
-    t.integer  "usuario_id_created",                   :null => false
+    t.integer  "usuario_id_created"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "activo",             :default => true, :null => false

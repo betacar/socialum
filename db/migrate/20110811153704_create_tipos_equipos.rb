@@ -1,9 +1,9 @@
-class CreateTipoEquipos < ActiveRecord::Migration
+class CreateTiposEquipos < ActiveRecord::Migration
   def self.up
     create_table :tipos_equipos do |t|
-      t.references :estado, :null => false, :default => 1
+      t.boolean :activo, :default => true, :null => false
       t.string :nombre_tipo_equipo, :null => false
-      t.integer :usuario_id_created, :null => false
+      t.integer :usuario_id_created
       t.integer :usuario_id_updated
 
       t.timestamps

@@ -39,15 +39,21 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: socialum_test
+  database: tests
   pool: 5
-  username: socialum
-  password: admlogic
+  username: admlogic
+  password: logico
+  host: localhost
+  port: 5432
+  schema_search_path: socialum
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: socialum
+  database: aplicaciones
   pool: 5
-  username: socialum
-  password: admlogic
+  username: admlogic
+  password: logico
+  host: localhost
+  port: 5432
+  schema_search_path: socialum_prd

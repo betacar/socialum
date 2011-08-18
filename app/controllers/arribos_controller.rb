@@ -22,4 +22,17 @@ class ArribosController < ApplicationController
       end
     end
   end
+
+  def gabarra
+    respond_to do |format|
+      begin
+        @gabarra = BaxGabarra.gabarra(params)
+        
+        format.html { render :partial => 'gabarra', :layout => false, :locals => { :gabarra => @gabarra } }
+        format.json { render :json => @gabarra }
+      rescue Exceptions::PresenciaValoresExcepcion => errores
+        format.json { render :json => errores.errors, :status => 400 }
+      end 
+    end
+  end
 end

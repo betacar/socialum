@@ -29,7 +29,7 @@ $(document).ready(function() {
   // Capturador de evento clic para
   // ocultar las notificaciones
   $('.cerrar').live('click', function() {
-    $(this).parent().fadeOut();
+    $(this).cierra(true);
   });
 
   // Agrega, luego de hacer click en el link NEW o EDIT, 

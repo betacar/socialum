@@ -1,11 +1,11 @@
 class CreateDescargaBauxitas < ActiveRecord::Migration
   def self.up
     create_table :descargas_bauxita do |t|
-      t.boolean :activo
+      t.boolean :activo, :default => true, :null => false
       t.string :importada
       t.references :arribo, :polymorphic => true
       t.references :equipo
-      t.string :cod_gabarra_descarga_bauxita
+      t.string :gabarra_id
       t.decimal :tonelaje_descarga_bauxita
       t.datetime :atraque_descarga_bauxita
       t.datetime :inicio_descarga_bauxita

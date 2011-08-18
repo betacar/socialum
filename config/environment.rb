@@ -15,17 +15,17 @@ Rails::Initializer.run do |config|
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
 
   # Specify gems that this application depends on and have them installed with rake gems:install
-  # config.gem "bj"
-  # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
-  # config.gem "sqlite3-ruby", :lib => "sqlite3"
-  # config.gem "aws-s3", :lib => "aws/s3"
+  # config.gem 'bj'
+  # config.gem 'hpricot', :version => '0.6', :source => 'http://code.whytheluckystiff.net'
+  # config.gem 'sqlite3-ruby', :lib => 'sqlite3'
+  # config.gem 'aws-s3', :lib => 'aws/s3'
   config.gem 'warden'
   config.gem 'devise'
   config.gem 'devise_ldap_authenticatable'
   config.gem 'will_paginate'
   
   #config.to_prepare do
-  #  Devise::SessionsController.layout "login"
+  #  Devise::SessionsController.layout 'login'
   #end
 
   # Only load the plugins named here, in the order given (default is alphabetical).
@@ -40,7 +40,7 @@ Rails::Initializer.run do |config|
   # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
   
   # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
-  # Run "rake -D time" for a list of tasks for finding time zone names.
+  # Run 'rake -D time' for a list of tasks for finding time zone names.
   config.time_zone = 'Caracas'
 
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
@@ -48,5 +48,7 @@ Rails::Initializer.run do |config|
   config.i18n.default_locale = :es
 end
 
-Time::DATE_FORMATS[:fechahora] = "%d/%b./%Y - %I:%M%p"
-Time::DATE_FORMATS[:fecha] = "%d/%m/%Y"
+Time::DATE_FORMATS[:fechahora] = '%d/%b./%Y - %I:%M%p'
+Time::DATE_FORMATS[:fechahoramil] = '%d/%b./%Y - %H:%M'
+Time::DATE_FORMATS[:fecha] = '%d/%m/%Y'
+Time::DATE_FORMATS[:bd] = '%Y-%m-%d %H:%M:%S'

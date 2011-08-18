@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
 <!--[if IE 7 ]> <html lang="en" class="no-js ie7"> <![endif]-->
 <!--[if IE 8 ]> <html lang="en" class="no-js ie8"> <![endif]-->
@@ -22,12 +22,12 @@
     <div class="container_24">
     <% if usuario_signed_in? %>
       <p class="grid_12">
-        <span class="alertas">Tiene <strong><a href="#alertas">0 alertas</a></strong> sin leer</span>  |  <span class="configuracion"><%= link_to 'Configuración', :controller => 'configuracion' %></span>
+        <span class="ayuda"><a href="#help">Ayuda</a></span>  |  <span class="configuracion"><%= link_to 'Configuración', :controller => 'configuracion' %></span>
       </p>
     <% end %>
     <% if usuario_signed_in? %>
       <p class="grid_12 derecha">
-        <span class="persona" id="ficha" data-ficha="<%= current_usuario.ficha %>"><%= current_usuario.datos %></small></span>  |  <span class="ayuda"><a href="#help">Ayuda</a></span>  |  <span class="logout"><%= link_to('Salir', destroy_usuario_session_path) %></span>
+        <span class="persona" id="ficha" data-ficha="<%= current_usuario.ficha %>"><%= current_usuario.datos %></small></span>  |  <span class="logout"><%= link_to('Salir', destroy_usuario_session_path) %></span>
       <% else %>
       <p class="grid_24 derecha">
         <span class="persona"><%= link_to('Login', new_usuario_session_path)  %></span>
@@ -83,25 +83,25 @@
   <section id="main" role="main" class="container_24">
   <% if flash[:success]%>
     <div class="exito">
-      <span> </span>
+      <span class="cerrar"> </span>
       <p><%= flash[:success]%></p>
     </div>
   <% end %>
   <% if flash[:warning]%>
     <div class="advertencia">
-      <span> </span>
+      <span class="cerrar"> </span>
       <p><%= flash[:warning]%></p>
     </div>
   <% end %>
   <% if flash[:error]%>
     <div class="error">
-      <span> </span>
+      <span class="cerrar"> </span>
       <p><%= flash[:error]%></p>
     </div>
   <% end %>
   <% if flash[:notice]%>
     <div class="info">
-      <span> </span>
+      <span class="cerrar"> </span>
       <p><%= flash[:notice]%></p>
     </div>
   <% end %>

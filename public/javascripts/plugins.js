@@ -7,7 +7,16 @@ window.log = function(){
 (function(b){function c(){}for(var d = "assert,count,debug,dir,dirxml,error,exception,group,groupCollapsed,groupEnd,info,log,markTimeline,profile,profileEnd,time,timeEnd,trace,warn".split(","),a;a=d.pop();)b[a]=b[a]||c})(window.console = window.console||{});
 
 // Almacena la ficha del usuario actual
-var ficha = $('#ficha').data('ficha');
+var ficha = $('#ficha').data('ficha'),
+    item = $('#menu li:not(.activo)');
+
+// Permite hacer que un elemento "li" del menu redirija a su href hijo, sin tener que hacer click sobre "a"
+item.click(function() {
+  var link = $(this).find('a').attr('href');
+  if (link) window.location = link;
+  
+  return false;
+}); 
 
 // Ejecuta AJAX calls de diferentes tipos.
 function Ajax(asyncBol, datos, tipoData, modificado, tipo, pagina, selectorError) {
@@ -29,7 +38,7 @@ function Ajax(asyncBol, datos, tipoData, modificado, tipo, pagina, selectorError
       }
       
       errorOut += '</ul>';      
-      $(selectorError).parent().prepend('<div class="error"><span> </span>' + errorOut + '</div>');
+      $(selectorError).parent().prepend('<div class="error"><span class="cerrar"> </span>' + errorOut + '</div>');
       
       $('.error').delay(10000).fadeOut('slow', function () { $(this).remove() });
     }, 
@@ -88,6 +97,17 @@ jQuery.fn.modEstado = function(controller) {
   $(this).children('img').remove();
   $(this).append(imagen);
 }
+
+// Oculta y elimina del DOM el elemento padre del boton
+jQuery.fn.cierra = function(elimina) {
+  this.parent().fadeOut(function() {
+    if (elimina) {
+      $(this).remove();
+    }
+  });
+
+  this.die('click');
+};
 
 // Serializa un string a JSON
 jQuery.fn.serializeJSON = function() {

@@ -41,17 +41,21 @@ module ApplicationHelper
   end
   
   # Llevar a formato fecha-hora
-  def getFechaHora(fecha)
+  def getFechaHora(fecha, mil = false)
     if fecha.nil?
       fecha = "No disponible"
     else
-      fecha.to_datetime.to_s(:fechahora)
+      if mil
+        fecha.to_datetime.to_s(:fechahoramil)
+      else
+        fecha.to_datetime.to_s(:fechahora)
+      end
     end
   end
   
   # Determina si un elemento del menú está activo o no, basado en el nombre del controller
   def activo(controller)
-    if current_page?(:controller => controller)
+    if params[:controller] == controller
       'class="activo"'
     else
       nil
@@ -61,5 +65,5 @@ module ApplicationHelper
   # Devuelve el numero en formato porcentual
   def porcentual(num)
     number_to_percentage(num, :precision => '1', :separator => ',')
-  end
+  end 
 end

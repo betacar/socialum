@@ -8,11 +8,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :fallas
   map.resources :transportes
   map.resources :tipo_transportes
-  map.resources :equipos
-  map.resources :tipo_equipos
   map.resources :subprocesos
   map.resources :procesos
   map.resources :empresas
+  map.resources :equipos
   map.resources :tipo_fallas
   map.resources :alarmas
   map.resources :stock_gabarras
@@ -74,9 +73,8 @@ ActionController::Routing::Routes.draw do |map|
               :num_zarpe => /\d{3}/,
               :anio_zarpe => /\d{4}/
   
-  map.connect 'descargar/:action/:num_zarpe/:anio_zarpe/:gabarra_id', 
-              :controller => 'descargar',
-              :action => 'gabarra',
+  map.connect 'arribos/:action/:num_zarpe/:anio_zarpe/:gabarra_id', 
+              :controller => 'arribos',
               :num_zarpe => /\d{3}/,
               :anio_zarpe => /\d{4}/,
               :gabarra_id => /(\w{2,5})-(\d{3,4}|\w{4})/
