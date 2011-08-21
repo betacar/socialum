@@ -20,7 +20,7 @@ module ArribosHelper
   end
 
   def habilitada(img_src)
-    if img_src == 'flag_finish.png'
+    if img_src == 'flag_finish.png' || img_src == 'steering_wheel.png'
       'class="deshabilitada"'
     else
       nil

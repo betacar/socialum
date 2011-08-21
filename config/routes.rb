@@ -1,30 +1,39 @@
 ActionController::Routing::Routes.draw do |map|
   map.root :controller => 'overview'
-  map.resources :metas
-  map.resources :patios
-  map.resources :punto_tolvas
-  map.resources :tolvas
-  map.resources :silos
-  map.resources :fallas
+  
+  map.resources :silos 
+
   map.resources :transportes
+
   map.resources :tipo_transportes
+
   map.resources :subprocesos
+
   map.resources :procesos
+
   map.resources :empresas
+
   map.resources :equipos
-  map.resources :tipo_fallas
+
   map.resources :alarmas
+
   map.resources :stock_gabarras
+
   map.resources :estatus_gabarras
+
   map.resources :locacions
+
   map.resources :tipo_materias
-  map.resources :rol_usuarios
-  map.resources :funcions
-  map.resources :rols
+
   map.resources :arribos
+
   map.resources :descargar
-  map.devise_for :usuarios, :path_names => { :sign_in => 'login', :sign_out => 'logout' }
-  map.usuario_root '/overview', :controller => 'overview'
+
+  map.devise_for :users
+
+  map.devise_for :users, :path_names => { :sign_in => 'login', :sign_out => 'logout' }
+  
+  map.user_root '/overview', :controller => 'overview'
 
   # The priority is based upon order of creation: first created -> highest priority.
 

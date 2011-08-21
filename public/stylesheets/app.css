@@ -31,6 +31,8 @@ h1.arribo{background:url("../images/ship_24.png") left top no-repeat}
 	#menu .fallas{background:url("../images/sa_nav_icons_fallas.png") left center no-repeat}
 	#menu li.activo .fallas{background:url("../images/sa_nav_icons_fallas_sel.png") left center no-repeat}
 	
+/*.timeline div:nth-child(odd){background-color:#f2f2f2}
+
 /* Grid de gabarras */
 	.gabarras{font-weight:bold;margin-left:0;margin-top:10px;padding-bottom:10px;border-bottom:1px solid #dfe5e6}
 	.gabarras li{width:68px;height:68px;padding:5px;margin:0 10px 10px 0;list-style:none;display:inline-block;text-align:center;font-size:.85em;line-height:1em;border:1px solid #d9d9d9;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box}

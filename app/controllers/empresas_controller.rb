@@ -1,9 +1,9 @@
 class EmpresasController < ApplicationController
-  before_filter :authenticate_usuario! # Autentica cada usuario contra LDAP antes de ejecutar cualquier controller
+  before_filter :authenticate_user! # Autentica cada usuario contra LDAP antes de ejecutar cualquier controller
   
   # GET /empresas
   def index
-    @ficha  = current_usuario.ficha
+    @ficha  = current_user.ficha
     @empresas = Empresa.all
 
     render :partial => 'index', :layout => false, :locals => { :empresas => @empresas }

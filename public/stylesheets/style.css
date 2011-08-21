@@ -6,11 +6,11 @@
 */
 body{background:url("../images/sa_body_bg.jpg");overflow-x:hidden}
 h1,h2,h3,h4,h5,h6 {font-weight:normal}
-h1{font-size:2em;line-height:1;color:#590b19;padding:0 0 9px 0;margin-top:10px;margin-bottom:20px;border-bottom:1px solid #dfe5e6}
-h2{font-size:1.5em;color:#394a59;margin-bottom:10px}
-h3{font-size:1.2em;line-height:1;text-transform:uppercase;color:#1a2732;padding-bottom:5px;margin-bottom:5px;border-bottom:1px solid #a5aeb6}
-h4{font-size:1em;line-height:1.25;margin-bottom:1.25em;}
-h5{font-size:1em;font-weight:bold;margin-bottom:1.5em;}
+h1{font-size:2.308em;line-height:1;color:#590b19;padding:0 0 9px 0;margin-top:10px;margin-bottom:20px;border-bottom:1px solid #dfe5e6}
+h2{font-size:1.846em;color:#394a59;margin-bottom:10px}
+h3{font-size:1.385em;line-height:1;text-transform:uppercase;color:#1a2732;padding-bottom:5px;margin-bottom:5px;border-bottom:1px solid #a5aeb6}
+h4{font-size:1.231em;line-height:1.25;margin-bottom:1.25em;}
+h5{font-size:1.077em;font-weight:bold;margin-bottom:1.5em;}
 h6{font-size:1em;font-weight:bold;}
 dl{margin-bottom:20px}
 dl dt{font-weight:bold}
@@ -24,7 +24,10 @@ h1.login{background:url("../images/lock_24.png") left top no-repeat;color:#152f4
 h1.panel_conf{background:url("../images/tools_24.png") left top no-repeat}
 h2.underlined{border-bottom:1px solid #8996A0}
 h2.underlined:hover{border-bottom:1px solid #590b19}
-h3 span{text-transform:lowercase}		
+h3 span{text-transform:lowercase}	
+
+h1 small,h2 small,h3 small,h4 small,h5 small{color:#8996a0}	
+h1 small{font-size:.6em}
 
 .destacado{font-weight:bold;font-size:1.475em}  
 .pequenio{font-size:.9em}
@@ -124,7 +127,7 @@ header{background:url("../images/sa_header_bg.jpg") repeat-x}
 	div.info span{background:url("../images/sa_alerta_info_close.jpg") top center no-repeat}
 	div.error span{background:url("../images/sa_alerta_error_close.jpg") top center no-repeat}
 	
-		h1 ul.options{font-size:.55em;color:#8996a0;list-style:none;position:absolute;right:10px;top:10px}
+		h1 ul.options{font-size:.45em;color:#8996a0;list-style:none;position:absolute;right:10px;top:10px}
 		ul.options li{display:inline;margin-right:10px;padding-left:20px}
 		ul.options li:last-child{margin-right:0}
 		ul.options li.filtro{background:url("../images/filter_16.png") left center no-repeat}
@@ -132,9 +135,8 @@ header{background:url("../images/sa_header_bg.jpg") repeat-x}
 		
 /* Tabs */
   #tab{margin-bottom:20px;padding-bottom:5px;border-bottom:1px solid #a5aeb6;margin:0 1% 20px;}
-    #tab li{display:inline;margin:0 .25%;padding:5px 10px;font-size:1.1em;font-weight:bold;color:#394A59;background-color:#f2f2f2;border:1px solid #dfe5e6;border-bottom:none;-webkit-border-top-left-radius:5px;-webkit-border-top-right-radius:5px;-moz-border-radius-topleft:5px;-moz-border-radius-topright:5px;border-top-left-radius:5px;border-top-right-radius:5px;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;box-shadow:0 -2px 2px rgba(0,0,0,.2) inset;cursor:pointer}
-    #tab li.selected{color:#590B19;background-color:#fff;border:1px solid #a5aeb6;border-bottom:1px solid #fff;box-shadow:none;cursor:default}
-    #tab li:not(.selected){margin-bottom:-1px}
+    #tab li{display:inline;margin:0 .25%;padding:5px 10px 6px;font-size:1.1em;font-weight:bold;color:#394A59;background-color:#f2f2f2;border:1px solid #dfe5e6;border-bottom:none;-webkit-border-top-left-radius:5px;-webkit-border-top-right-radius:5px;-moz-border-radius-topleft:5px;-moz-border-radius-topright:5px;border-top-left-radius:5px;border-top-right-radius:5px;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;box-shadow:0 -2px 2px rgba(0,0,0,.2) inset;cursor:pointer}
+    #tab li.selected{font-size:1.2em;color:#590B19;background-color:#fff;border:1px solid #a5aeb6;border-bottom:1px solid #fff;box-shadow:none;cursor:default}
     #tab li:first-child{margin-left:0}
     #tab li:last-child{margin-right:0}
 

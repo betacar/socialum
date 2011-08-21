@@ -2,7 +2,7 @@
 # four configuration values can also be set straight in your models.
 Devise.setup do |config|
   # Configure the e-mail address which will be shown in DeviseMailer.
-  config.mailer_sender = "caupzo@bauxilum.com.ve"
+  config.mailer_sender = 'caupzo@bauxilum.com.ve'
   config.authentication_keys = [ :login ]
   config.ldap_host = '128.1.33.44'
   config.ldap_port = 389
@@ -11,13 +11,13 @@ Devise.setup do |config|
   config.ldap_create_user = true
   config.ldap_domain = 'bauxilum.com.ve'
   
-  # Configure the content type of DeviseMailer mails (defaults to text/html")
-  # config.mailer_content_type = "text/plain"
+  # Configure the content type of DeviseMailer mails (defaults to text/html')
+  # config.mailer_content_type = 'text/plain'
 
   # ==> Configuration for :authenticatable
   # Invoke `rake secret` and use the printed value to setup a pepper to generate
   # the encrypted password. By default no pepper is used.
-  # config.pepper = "rake secret output"
+  # config.pepper = 'rake secret output'
 
   # Configure how many times you want the password is reencrypted. Default is 10.
   # config.stretches = 10
@@ -36,7 +36,7 @@ Devise.setup do |config|
   # session. If you need permissions, you should implement that in a before filter.
 
   # The realm used in Http Basic Authentication
-  # config.http_authentication_realm = "Application"
+  # config.http_authentication_realm = 'Application'
 
   # ==> Configuration for :confirmable
   # The time you want give to your user to confirm his account. During this time
@@ -50,7 +50,7 @@ Devise.setup do |config|
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this
   # time the user will be asked for credentials again.
-  config.timeout_in = 8.hours
+  config.timeout_in = 16.hours
 
   # ==> Configuration for :lockable
   # Number of authentication tries before locking an account.
@@ -75,14 +75,14 @@ Devise.setup do |config|
   # require 'devise/orm/mongo_mapper'
   # config.orm = :mongo_mapper
 
-  # Turn scoped views on. Before rendering "sessions/new", it will first check for
-  # "sessions/users/new". It's turned off by default because it's slower if you
+  # Turn scoped views on. Before rendering 'sessions/new', it will first check for
+  # 'sessions/users/new'. It's turned off by default because it's slower if you
   # are using only default views.
   # config.scoped_views = true
 
   # By default, devise detects the role accessed based on the url. So whenever
-  # accessing "/users/sign_in", it knows you are accessing an User. This makes
-  # routes as "/sign_in" not possible, unless you tell Devise to use the default
+  # accessing '/users/sign_in', it knows you are accessing an User. This makes
+  # routes as '/sign_in' not possible, unless you tell Devise to use the default
   # scope, setting true below.
   # config.use_default_scope = true
 

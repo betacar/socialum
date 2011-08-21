@@ -1,9 +1,8 @@
 class AlarmasController < ApplicationController
-  before_filter :authenticate_usuario! # Autentica cada usuario contra LDAP antes de ejecutar cualquier controller
+  before_filter :authenticate_user! # Autentica cada usuario contra LDAP antes de ejecutar cualquier controller
   
   # GET /alarmas
   def index
-    @ficha  = current_usuario.ficha
     @alarmas = Alarma.all
 
     render :partial => 'index', :layout => false, :locals => { :alarmas => @alarmas }

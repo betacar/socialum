@@ -1,4 +1,4 @@
-  <% if usuario_signed_in? %>
+  <% if user_signed_in? %>
     <% titulo 'Eventos' %>    
     <h1 class="hasIcono eventos">
       Eventos
@@ -8,40 +8,35 @@
       </ul>
     </h1>
     <article class="grid_15">
-      <div class="exito alarma">
-        <p><strong>¡Éxito!</strong> El proceso se realizó satisfactoriamente.</p>
-        <small class="derecha">Alerta emitida por Socialum - 30/05/2011 | 15:58</small>
+      <div class="timeline">
+        <div class="margen_b_30">
+          <p class="margen_b_10">You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out. Now, I don't know exactly when we turned on each other, but I know that seven of us survived the slide... and only five made it out. Now we took an oath, that I'm breaking now. We said we'd say it was the snow that killed the other two, but it wasn't. Nature is lethal but it doesn't hold a candle to man.</p>
+          <p class="pequenio derecha">Alerta emitida por Socialum - 30/May./2011 | 15:58</p>
+          <hr />
+        </div>
+        <div class="margen_t_30 margen_b_30">
+          <p class="margen_b_10">My money's in that office, right? If she start giving me some bullshit about it ain't there, and we got to go someplace else and get it, I'm gonna shoot you in the head then and there. Then I'm gonna shoot that bitch in the kneecaps, find out where my goddamn money is. She gonna tell me too. Hey, look at me when I'm talking to you, motherfucker. You listen: we go in there, and that nigga Winston or anybody else is in there, you the first motherfucker to get shot. You understand?</p>
+          <p class="pequenio derecha">Alerta emitida por Socialum - 30/May./2011 | 15:58</p>
+          <hr />
+        </div>
+        <div class="margen_t_30 margen_b_30">
+          <p class="margen_b_10">Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun in American crime. Like they're actually proud of that shit. </p>
+          <p class="pequenio derecha">Alerta emitida por Socialum - 30/May./2011 | 15:58</p>
+          <hr />
+        </div>
+        <div class="margen_t_30 margen_b_30">
+          <p class="margen_b_10">Normally, both your asses would be dead as fucking fried chicken, but you happen to pull this shit while I'm in a transitional period so I don't wanna kill you, I wanna help you. But I can't give you this case, it don't belong to me. Besides, I've already been through too much shit this morning over this case to hand it over to your dumb ass.</p>
+          <p class="pequenio derecha">Alerta emitida por Socialum - 30/May./2011 | 15:58</p>
+          <hr />
+        </div>
+        <div class="margen_t_30 margen_b_30">
+          <p class="margen_b_10">The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee.</p>
+          <p class="pequenio derecha">Alerta emitida por Socialum - 30/May./2011 | 15:58</p>
+          <hr />
+        </div>
       </div>
-      <div class="advertencia alarma">
-        <p><strong>Advertencia:</strong> El proceso posee datos erroneos.</p>
-        <small class="derecha">Alerta emitida por Socialum - 30/05/2011 | 15:58</small>
-      </div>
-      <div class="info alarma">
-        <p><strong>Dato de información:</strong> Esta notificación puede cerrarse si hace clic en la X de la esquina.</p>
-        <small class="derecha">Alerta emitida por Socialum - 30/05/2011 | 15:58</small>
-      </div>
-      <div class="error alarma">
-        <p><strong>Error #SGE8723:</strong> Se ha presentado un error durante el procesamiento de su solicitud.</p>
-        <small class="derecha">Alerta emitida por Socialum - 30/05/2011 | 15:58</small>
-      </div>
-      <div class="exito alarma">
-        <p><strong>¡Éxito!</strong> El proceso se realizó satisfactoriamente.</p>
-      <small class="derecha">Alerta emitida por Socialum - 30/05/2011 | 15:58</small>
-      </div>
-      <div class="advertencia alarma">
-        <p><strong>Advertencia:</strong> El proceso posee datos erroneos.</p>
-        <small class="derecha">Alerta emitida por Socialum - 30/05/2011 | 15:58</small>
-      </div>
-      <div class="info alarma">
-        <p><strong>Dato de información:</strong> Esta notificación puede cerrarse si hace clic en la X de la esquina.</p>
-        <small class="derecha">Alerta emitida por Socialum - 30/05/2011 | 15:58</small>
-      </div>
-      <div class="error alarma">
-        <p><strong>Error #SGE8723:</strong> Se ha presentado un error durante el procesamiento de su solicitud.</p>
-        <small class="derecha">Alerta emitida por Socialum - 30/05/2011 | 15:58</small>
-      </div>
-      <div class="centro">
-        <input class="grey" type="submit" name="submit" value="Cargar más">
+      <div class="centro margen_b_20 margen_t_20">
+        <input type="button" name="submit" value="Cargar más">
       </div>
     </article>
     <aside class="grid_9">
@@ -61,6 +56,7 @@
     <% titulo 'Overview' %>
     <h1 class="hasIcono overview">
       Overview
+      <small>Al día de hoy (<%= getFechaHora(Date.today) %>)</small>
       <ul class="options">
         <li class="filtro">Filtrar</li>
         <li class="imprimir">Imprimir</li>

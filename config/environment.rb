@@ -23,6 +23,8 @@ Rails::Initializer.run do |config|
   config.gem 'devise'
   config.gem 'devise_ldap_authenticatable'
   config.gem 'will_paginate'
+  config.gem 'userstamp'
+  config.gem 'rubyvis'
   
   #config.to_prepare do
   #  Devise::SessionsController.layout 'login'

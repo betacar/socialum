@@ -20,17 +20,17 @@
   <div class="container_24 dialogo"></div>
   <section id="top_bar">
     <div class="container_24">
-    <% if usuario_signed_in? %>
+    <% if user_signed_in? %>
       <p class="grid_12">
         <span class="ayuda"><a href="#help">Ayuda</a></span>  |  <span class="configuracion"><%= link_to 'Configuración', :controller => 'configuracion' %></span>
       </p>
     <% end %>
-    <% if usuario_signed_in? %>
+    <% if user_signed_in? %>
       <p class="grid_12 derecha">
-        <span class="persona" id="ficha" data-ficha="<%= current_usuario.ficha %>"><%= current_usuario.datos %></small></span>  |  <span class="logout"><%= link_to('Salir', destroy_usuario_session_path) %></span>
+        <span class="persona" id="ficha" data-ficha="<%= current_user.ficha %>"><%= current_user.datos %></small></span>  |  <span class="logout"><%= link_to('Salir', destroy_user_session_path) %></span>
       <% else %>
       <p class="grid_24 derecha">
-        <span class="persona"><%= link_to('Login', new_usuario_session_path)  %></span>
+        <span class="persona"><%= link_to('Login', new_user_session_path)  %></span>
       <% end %>
       </p>
       <div class="clearfix"></div>
