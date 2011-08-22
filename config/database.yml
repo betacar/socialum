@@ -16,6 +16,7 @@ development:
   username: admlogic
   password: logico
   host: 128.1.33.61
+  #host: localhost
   port: 5432
 
   # Connect on a TCP socket. Omitted by default since the client uses a

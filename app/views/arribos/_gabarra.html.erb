@@ -73,14 +73,11 @@
       </form>
       <h3 class="pequenio underlined down margen_b_20 oculto">Observaciones y acaecimientos</h3>
       <div class="margen_b_20  prefix_1 oculto">
-        <div class="acaecimientos">
-          <p class="margen_b_10">No existe acaecimientos reportados.</p>
-          <!--small><span class="rojo">21:30 - 21:32</span>  |  Carlos Enrique Betancourt Carrero</small-->
-          <hr />
+        <div class="eventos">
         </div>
         <h4 class="down margen_b_10">Reportar acaecimiento</h4>
         <div>
-          <form class="acaecimiento">
+          <form class="evento">
             <div class="grid_12 margen_b_20 alpha">
               <%= label_tag 'inicio_acaecimiento', '<strong>Inicio de acaecimiento</strong>' %>
               <%= text_field_tag :fecha_inicio_acaecimiento, nil, :type => 'date', :size => 7, :placeholder => 'dd/mm/aaaa', :pattern => '^((0[1-9]|[12]\d)/(0[1-9]|1[012])|30/(0[13-9]|1[012])|31/(0[13578]|1[02]))/(19|20)\d\d$', :autofocus => true %>

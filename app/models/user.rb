@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   set_table_name 'usuarios'
   has_one :empleado, :foreign_key => :id
   devise :ldap_authenticatable, :rememberable, :trackable, :timeoutable 
+  model_stamper
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :login, :ldap_attributes, :password, :remember_me

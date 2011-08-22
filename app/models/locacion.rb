@@ -1,5 +1,6 @@
 class Locacion < ActiveRecord::Base
   set_table_name 'locaciones'
+  stampable
   
   # Guarda nuevas locaciones
   def self.guardar(params)

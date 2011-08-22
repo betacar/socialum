@@ -3,6 +3,7 @@ class ArriboBauxita < ActiveRecord::Base
   belongs_to :remolcador
   has_many :DescargaBauxitas, :as => :arribo
   has_one :bax
+  stampable
   
   # Se dispara al reportar el arribo de un BAX. 
   # Copia los datos del BAX de Pijigüaos a Matanzas

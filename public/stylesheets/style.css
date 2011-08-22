@@ -165,6 +165,8 @@ header{background:url("../images/sa_header_bg.jpg") repeat-x}
 	
 	input[disabled="disabled"][type="submit"],input[disabled="disabled"][type="reset"],input[disabled="disabled"][type="button"],button[disabled="disabled"]{background:#f2f2f2;border-color:#d9d9d9;color:#444;box-shadow:none;text-shadow:none;cursor:default}
 	  input[disabled="disabled"][type="submit"]:active,input[disabled="disabled"][type="reset"]:active,input[disabled="disabled"][type="button"]:active,button[disabled="disabled"]:active{box-shadow:none}
+
+	  input[disabled="disabled"][type="submit"].hold,input[disabled="disabled"][type="reset"].hold,input[disabled="disabled"][type="button"].hold,button[disabled="disabled"].hold{background:#f2f2f2 url("../images/loading_20.gif") 3px center no-repeat;padding-left:35px}
 			
 		input+span{font-size:0.769em;margin-left:20px;padding:3px 6px 3px 25px;position:relative;top:-2px;-webkit-border-radius:2px;-moz-border-radius:2px;border-radius:2px}
 		input+span img{position:absolute;left:-10px;top:3px;z-index:100}

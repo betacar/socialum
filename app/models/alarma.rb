@@ -1,6 +1,7 @@
 class Alarma < ActiveRecord::Base
   validates_presence_of :nombre_alarma, :message => "El nombre de la alarma no puede estar vacío"
   validates_presence_of :usuario_id_updated, :on => :update
+  stampable
    
   # Guarda nuevas alarmas
   def self.guardar(params)

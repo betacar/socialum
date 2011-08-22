@@ -1,5 +1,6 @@
 class EstatusGabarra < ActiveRecord::Base
   validates_presence_of :desc_estatus_gabarra, :message => 'La descripción del estatus no puede ser vacío'
+  stampable
   
   # Guarda nuevos equipos
   def self.guardar(params)

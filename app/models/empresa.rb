@@ -2,6 +2,7 @@ class Empresa < ActiveRecord::Base
   validates_presence_of :pais_empresa, :responsable_empresa
   validates_presence_of :nombre_empresa, :message => 'El nombre de la empresa no puede estar vacío'
   validates_presence_of :usuario_id_updated, :on => :update
+  stampable
   
   # Guarda nuevas empresa
   def self.guardar(params)

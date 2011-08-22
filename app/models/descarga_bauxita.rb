@@ -4,9 +4,9 @@ class DescargaBauxita < ActiveRecord::Base
   belongs_to :equipo
   has_one :BaxGabarra
   has_many :Novedads, :as => :proceso
-  validates_associated :tipo_novedad
   validates_presence_of :atraque_descarga_bauxita, :message => 'La fecha y hora de atraque no pueden ser vacías'
   #validates_presence_of :inicio_descarga_bauxita, :fin_descarga_bauxita, :desatraque_descarga_bauxita, :on => :update, :message => 'El campo no puede ser vacío'
+  stampable
   
   # Reporta el atraque de una gabarra para descargar
   def self.gabarra(params)
@@ -35,10 +35,10 @@ class DescargaBauxita < ActiveRecord::Base
           descarga = self.find(atracada.id)        
 
           # Los campos se actualizaran si y solo si no son nulos.
-          descarga.update_attribute(:atraque_descarga_bauxita, DateTime.strptime(params[:atraque_descarga_bauxita], '%d/%m/%Y %H:%M').to_datetime.to_s(:db)) unless params[:atraque_descarga_bauxita].empty?
-          descarga.update_attribute(:inicio_descarga_bauxita, DateTime.strptime(params[:inicio_descarga_bauxita], '%d/%m/%Y %H:%M').to_datetime.to_s(:db)) unless params[:inicio_descarga_bauxita].empty?
-          descarga.update_attribute(:fin_descarga_bauxita, DateTime.strptime(params[:fin_descarga_bauxita], '%d/%m/%Y %H:%M').to_datetime.to_s(:db)) unless params[:fin_descarga_bauxita].empty?
-          descarga.update_attribute(:desatraque_descarga_bauxita, DateTime.strptime(params[:desatraque_descarga_bauxita], '%d/%m/%Y %H:%M').to_datetime.to_s(:db)) unless params[:desatraque_descarga_bauxita].empty?
+          descarga.update_attribute(:atraque_descarga_bauxita, DateTime.strptime(params[:atraque_descarga_bauxita], '%d/%m/%Y %H:%M').to_datetime.to_s(:db)) unless params[:atraque_descarga_bauxita].nil? || params[:atraque_descarga_bauxita] == 'null'
+          descarga.update_attribute(:inicio_descarga_bauxita, DateTime.strptime(params[:inicio_descarga_bauxita], '%d/%m/%Y %H:%M').to_datetime.to_s(:db)) unless params[:inicio_descarga_bauxita].nil? || params[:inicio_descarga_bauxita] == 'null'
+          descarga.update_attribute(:fin_descarga_bauxita, DateTime.strptime(params[:fin_descarga_bauxita], '%d/%m/%Y %H:%M').to_datetime.to_s(:db)) unless params[:fin_descarga_bauxita].nil? || params[:fin_descarga_bauxita] == 'null'
+          descarga.update_attribute(:desatraque_descarga_bauxita, DateTime.strptime(params[:desatraque_descarga_bauxita], '%d/%m/%Y %H:%M').to_datetime.to_s(:db)) unless params[:desatraque_descarga_bauxita].nil? || params[:desatraque_descarga_bauxita] == 'null'
 
           #descarga.save
 

@@ -1,5 +1,5 @@
 class ArribosController < ApplicationController
-  before_filter :authenticate_usuario! # Autentica cada usuario contra LDAP antes de ejecutar cualquier controller
+  before_filter :authenticate_user! # Autentica cada usuario contra LDAP antes de ejecutar cualquier controller
   
   #GET /arribos
   def index
