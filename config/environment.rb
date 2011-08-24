@@ -24,8 +24,7 @@ Rails::Initializer.run do |config|
   config.gem 'devise_ldap_authenticatable'
   config.gem 'will_paginate'
   config.gem 'userstamp'
-  config.gem 'rubyvis'
-  
+
   #config.to_prepare do
   #  Devise::SessionsController.layout 'login'
   #end
@@ -40,7 +39,7 @@ Rails::Initializer.run do |config|
 
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
-  
+
   # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
   # Run 'rake -D time' for a list of tasks for finding time zone names.
   config.time_zone = 'Caracas'
@@ -54,3 +53,4 @@ Time::DATE_FORMATS[:fechahora] = '%d/%b./%Y - %I:%M%p'
 Time::DATE_FORMATS[:fechahoramil] = '%d/%b./%Y - %H:%M'
 Time::DATE_FORMATS[:fecha] = '%d/%m/%Y'
 Time::DATE_FORMATS[:bd] = '%Y-%m-%d %H:%M:%S'
+
