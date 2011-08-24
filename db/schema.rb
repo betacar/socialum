@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(:version => 20110824182835) do
     t.integer  "updater_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "eta_buque"
+    t.boolean  "descargado",              :default => false, :null => false
   end
 
   create_table "descargas_bauxita", :force => true do |t|

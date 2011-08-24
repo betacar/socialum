@@ -21,9 +21,9 @@ class Bax < ActiveRecord::Base
       baxes[i].eta_arribo = (bax.fecha_hora_zarpe.to_datetime + bax.Remolcador.tiempo_mina_planta.to_i.hours).to_s
 
       case bax.EmpresaTransporte.nombre_emp
-        when "ACBL DE VENEZUELA"
+        when 'ACBL DE VENEZUELA'
           baxes[i].empresa_transportista = 'ACBL de Venezuela'
-        when "TERMINALES MARACAIBO CA"
+        when 'TERMINALES MARACAIBO CA'
           baxes[i].empresa_transportista = 'TM Servicios Marítimos'
         else 
           baxes[i].empresa_transportista = bax.EmpresaTransporte.nombre_emp.titleize
