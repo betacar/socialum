@@ -56,7 +56,7 @@
     <% titulo 'Overview' %>
     <h1 class="hasIcono overview">
       Overview
-      <small>Al día de hoy (<%= getFechaHora(Date.today) %>)</small>
+      <small>Al día de hoy (<%= Date.today.to_s(:fecha) %>)</small>
       <ul class="options">
         <li class="filtro">Filtrar</li>
         <li class="imprimir">Imprimir</li>

@@ -42,50 +42,62 @@
       <form>
         <div class="grid_12 margen_b_10">
           <%= label_tag 'atraque', '<strong>Atraque</strong>' %>
-          <%= text_field_tag :fecha_atraque, nil, :class => 'margen_b_10', :type => 'date', :size => 7, :placeholder => 'dd/mm/aaaa', :pattern => '^((0[1-9]|[12]\d)/(0[1-9]|1[012])|30/(0[13-9]|1[012])|31/(0[13578]|1[02]))/(19|20)\d\d$', :autofocus => true %>
-          <%= text_field_tag :hora_atraque, nil, :class => 'margen_b_10', :type => 'time', :size => 3, :placeholder => 'hh:mm', :pattern => '^([01]\d|2[0-3]|[0-9])(:[0-5]\d)$' %>
+          <%= text_field_tag :fecha_atraque, gabarra.atraque_fecha, { :disabled => campo_habilitado(gabarra.atraque_fecha), :class => 'margen_b_10', :type => 'date', :size => 7, :placeholder => 'dd/mm/aaaa', :pattern => '(([1-9]|0[1-9]|[12]\d)/([1-9]|0[1-9]|1[012])|30/(0[13-9]|1[012])|31/(0[13578]|1[02]))/(19|20)\d\d', :autofocus => true } %>
+          <%= text_field_tag :hora_atraque, gabarra.atraque_hora, { :disabled => campo_habilitado(gabarra.atraque_hora), :class => 'margen_b_10', :type => 'time', :size => 3, :placeholder => 'hh:mm', :pattern => '^([01]\d|2[0-3]|[0-9])(:[0-5]\d)$' } %>
         </div>
         <div class="grid_12 margen_b_10">
           <%= label_tag 'equipo_id', '<strong>Equipo de descarga</strong>' %>
-          <%= select_tag 'equipo_id', options_from_collection_for_select(@gabarra.equipos, 'id', 'nombre_equipo') %>
+          <%= select_tag 'equipo_id', options_from_collection_for_select(@gabarra.equipos, 'id', 'nombre_equipo', gabarra.equipo_id), :disabled => campo_habilitado(gabarra.equipo_id) %>
         </div>
         <div class="clearfix"></div>
         <div class="grid_12 margen_b_10">
           <%= label_tag 'inicio_descarga', '<strong>Inicio de descarga</strong>' %>
-          <%= text_field_tag :fecha_inicio_descarga, nil, :disabled => 'disabled', :class => 'margen_b_10', :type => 'date', :size => 7, :placeholder => 'dd/mm/aaaa', :pattern => '^((0[1-9]|[12]\d)/(0[1-9]|1[012])|30/(0[13-9]|1[012])|31/(0[13578]|1[02]))/(19|20)\d\d$' %>
-          <%= text_field_tag :hora_inicio_descarga, nil, :disabled => 'disabled', :class => 'margen_b_10', :type => 'time', :size => 3, :placeholder => 'hh:mm', :pattern => '^([01]\d|2[0-3]|[0-9])(:[0-5]\d)$' %>
+          <%= text_field_tag :fecha_inicio_descarga, gabarra.inicio_fecha, { :disabled => campo_habilitado(gabarra.inicio_fecha), :class => 'margen_b_10', :type => 'date', :size => 7, :placeholder => 'dd/mm/aaaa', :pattern => '(([1-9]|0[1-9]|[12]\d)/([1-9]|0[1-9]|1[012])|30/(0[13-9]|1[012])|31/(0[13578]|1[02]))/(19|20)\d\d' } %>
+          <%= text_field_tag :hora_inicio_descarga, gabarra.inicio_hora, { :disabled => campo_habilitado(gabarra.inicio_hora), :class => 'margen_b_10', :type => 'time', :size => 3, :placeholder => 'hh:mm', :pattern => '^([01]\d|2[0-3]|[0-9])(:[0-5]\d)$' } %>
         </div>
         <div class="grid_12 margen_b_10">
           <%= label_tag 'fin_descarga', '<strong>Fin de descarga</strong>' %>
-          <%= text_field_tag :fecha_fin_descarga, nil, :disabled => 'disabled', :class => 'margen_b_10', :type => 'date', :size => 7, :placeholder => 'dd/mm/aaaa', :pattern => '^((0[1-9]|[12]\d)/(0[1-9]|1[012])|30/(0[13-9]|1[012])|31/(0[13578]|1[02]))/(19|20)\d\d$' %>
-          <%= text_field_tag :hora_fin_descarga, nil, :disabled => 'disabled', :class => 'margen_b_10', :type => 'time', :size => 3, :placeholder => 'hh:mm', :pattern => '^([01]\d|2[0-3]|[0-9])(:[0-5]\d)$' %>
+          <%= text_field_tag :fecha_fin_descarga, gabarra.fin_fecha, { :disabled => campo_habilitado(gabarra.fin_fecha), :class => 'margen_b_10', :type => 'date', :size => 7, :placeholder => 'dd/mm/aaaa', :pattern => '(([1-9]|0[1-9]|[12]\d)/([1-9]|0[1-9]|1[012])|30/(0[13-9]|1[012])|31/(0[13578]|1[02]))/(19|20)\d\d' } %>
+          <%= text_field_tag :hora_fin_descarga, gabarra.fin_hora, { :disabled => campo_habilitado(gabarra.fin_hora), :class => 'margen_b_10', :type => 'time', :size => 3, :placeholder => 'hh:mm', :pattern => '^([01]\d|2[0-3]|[0-9])(:[0-5]\d)$' } %>
         </div>
         <div class="clearfix"></div>
         <div class="grid_12 margen_b_10">
           <%= label_tag 'desatraque', '<strong>Desatraque</strong>' %>
-          <%= text_field_tag :fecha_desatraque, nil, :disabled => 'disabled', :class => 'margen_b_10', :type => 'date', :size => 7, :placeholder => 'dd/mm/aaaa', :pattern => '^((0[1-9]|[12]\d)/(0[1-9]|1[012])|30/(0[13-9]|1[012])|31/(0[13578]|1[02]))/(19|20)\d\d$' %>
-          <%= text_field_tag :hora_desatraque, nil, :disabled => 'disabled', :class => 'margen_b_10', :type => 'time', :size => 3, :placeholder => 'hh:mm', :pattern => '^([01]\d|2[0-3]|[0-9])(:[0-5]\d)$' %>
+          <%= text_field_tag :fecha_desatraque, gabarra.desatraque_fecha, { :disabled => campo_habilitado(gabarra.desatraque_fecha), :class => 'margen_b_10', :type => 'date', :size => 7, :placeholder => 'dd/mm/aaaa', :pattern => '(([1-9]|0[1-9]|[12]\d)/([1-9]|0[1-9]|1[012])|30/(0[13-9]|1[012])|31/(0[13578]|1[02]))/(19|20)\d\d' } %>
+          <%= text_field_tag :hora_desatraque, gabarra.desatraque_hora, { :disabled => campo_habilitado(gabarra.desatraque_hora), :class => 'margen_b_10', :type => 'time', :size => 3, :placeholder => 'hh:mm', :pattern => '^([01]\d|2[0-3]|[0-9])(:[0-5]\d)$' } %>
         </div>
         <div class="grid_12 margen_b_10 margen_t_20">
-          <%= submit_tag 'Enviar atraque', :name => 'submit_campo', :id => 'submit_campo', :class => 'green pequenio', 'data-bax' => @gabarra.bax_id, 'data-gabarra' => @gabarra.gabarra_id, 'data-status' => 'atraque' %> 
+          <%= status_submit(gabarra.atraque_fecha, gabarra.inicio_fecha, gabarra.fin_fecha) %> 
         </div>
         <div class="clearfix"></div>
       </form>
+    <% unless gabarra.atraque_fecha.nil? %>
+      <h3 class="pequenio underlined down margen_b_20">Observaciones y acaecimientos</h3>
+      <div class="margen_b_20  prefix_1">
+    <% else %>
       <h3 class="pequenio underlined down margen_b_20 oculto">Observaciones y acaecimientos</h3>
       <div class="margen_b_20  prefix_1 oculto">
-        <div class="eventos">
+    <% end %>
+        <div class="historial_eventos">
+      <% unless gabarra.novedades.nil? %>
+        <% gabarra.novedades.each do |novedad| %>
+          <p class="margen_b_10"><%=h novedad.desc_novedad %></p>
+          <small><span class="rojo"><%=h novedad.inicio_novedad.to_s(:dia_mes) %> - <%=h novedad.fin_novedad.to_s(:dia_mes) %></span>  |  <%=h novedad.creator_id %></small>
+          <hr />
+        <% end %>
+      <% end %>
         </div>
         <h4 class="down margen_b_10">Reportar acaecimiento</h4>
         <div>
-          <form class="evento">
+          <form class="evento" data-descarga-id="<%=h gabarra.descarga_id %>">
             <div class="grid_12 margen_b_20 alpha">
               <%= label_tag 'inicio_acaecimiento', '<strong>Inicio de acaecimiento</strong>' %>
-              <%= text_field_tag :fecha_inicio_acaecimiento, nil, :type => 'date', :size => 7, :placeholder => 'dd/mm/aaaa', :pattern => '^((0[1-9]|[12]\d)/(0[1-9]|1[012])|30/(0[13-9]|1[012])|31/(0[13578]|1[02]))/(19|20)\d\d$', :autofocus => true %>
+              <%= text_field_tag :fecha_inicio_acaecimiento, nil, :type => 'date', :size => 7, :placeholder => 'dd/mm/aaaa', :pattern => '(([1-9]|0[1-9]|[12]\d)/([1-9]|0[1-9]|1[012])|30/(0[13-9]|1[012])|31/(0[13578]|1[02]))/(19|20)\d\d', :autofocus => true %>
               <%= text_field_tag :hora_inicio_acaecimiento, nil, :type => 'time', :size => 3, :placeholder => 'hh:mm', :pattern => '^([01]\d|2[0-3]|[0-9])(:[0-5]\d)$' %>
             </div>
             <div class="grid_12 margen_b_20 omega">
               <%= label_tag 'fin_acaecimiento', '<strong>Fin de acaecimiento</strong>' %>
-              <%= text_field_tag :fecha_fin_acaecimiento, nil, :type => 'date', :size => 7, :placeholder => 'dd/mm/aaaa', :pattern => '^((0[1-9]|[12]\d)/(0[1-9]|1[012])|30/(0[13-9]|1[012])|31/(0[13578]|1[02]))/(19|20)\d\d$' %>
+              <%= text_field_tag :fecha_fin_acaecimiento, nil, :type => 'date', :size => 7, :placeholder => 'dd/mm/aaaa', :pattern => '(([1-9]|0[1-9]|[12]\d)/([1-9]|0[1-9]|1[012])|30/(0[13-9]|1[012])|31/(0[13578]|1[02]))/(19|20)\d\d' %>
               <%= text_field_tag :hora_fin_acaecimiento, nil, :type => 'time', :size => 3, :placeholder => 'hh:mm', :pattern => '^([01]\d|2[0-3]|[0-9])(:[0-5]\d)$' %>
             </div>
             <div class="clearfix"></div>

@@ -3,4 +3,5 @@ class Novedad < ActiveRecord::Base
   belongs_to :proceso, :polymorphic => true
   belongs_to :tipo_novedad
   stampable
+  attr_accessor :login, :inicio_evento, :fin_evento
 end

@@ -14,7 +14,9 @@ $(document).ready(function() {
           fin_descarga: 'Enviar fin de descarga',
           desatraque: 'Enviar desatraque',
           submit: 'Enviar',
-          stop: 'Gabarra procesada'
+          stop: 'Gabarra procesada',
+          reportar: 'Reportar arribo',
+          reportado: 'Arribo reportado'
         },
         img: {
           en_espera: '/images/clock_red.png',
@@ -32,17 +34,25 @@ $(document).ready(function() {
     var bax = $(this).data('bax'),
         esteban = $(this),
         id = '#bax_' + bax.split('/')[0] + '_' + bax.split('/')[1];
+    
+    $(esteban).attr('disabled', 'disabled');
+    $(esteban).addClass('hold');
+    $(esteban).val(status.label.hold);
         
     $.post('arribos/reportar/' + bax, null, function(){
       $(esteban, id).removeClass('reportar_arribo');
-      $(esteban, id).attr('disabled', 'disabled');
-      $(esteban, id).attr('value', 'Arribo reportado');
+      $(esteban, id).attr('value', status.label.reportado);
 
       $('ul.gabarras li', id).each(function() {
         $(this).removeAttr('class');
         $(this).children('img').attr('src', status.img.en_espera);
       });
+    }).error(function(error) {
+      $(esteban, id).removeAttr('disabled');
+      $(esteban, id).val(status.label.reportar);
     });
+
+    $(esteban).removeClass('hold');
 
     return false;
   });
@@ -57,13 +67,12 @@ $(document).ready(function() {
         widget_id = bax[0] + '_' + bax[1] + '_' + gabarra[0] + '_' + gabarra[1],
         url_arribo = 'arribos/gabarra/' + bax_id + '/' + gabarra_id,
         url_descarga = 'descargar/gabarra/' + bax_id + '/' + gabarra_id,
-        url_evento = 'descargar/evento/' + $('form.evento', '#' + widget_id).attr('data-id'),
         descarga = {},
         evento = {};
 
     $('#dialogo').append(
       $('<div class="widget_descarga grid_10" id="' + widget_id + '"><img src="/images/loading_32.gif" alt="Cargando" title="Cargando" width="32" height="32" /></div>').load(url_arribo, function() {
-        $('#' + widget_id).draggable();
+        $('h2', '#' + widget_id).parent('div').draggable();
 
         $('input[name="submit_campo"]', this).live('click', function() {
 
@@ -94,11 +103,7 @@ $(document).ready(function() {
               break;
           }
 
-          console.log(descarga);
-
           $.post(url_descarga, descarga, function(data) {
-
-            console.log(data);
 
             $('input[name="submit_campo"]', '#' + widget_id).removeAttr('disabled');
             $('input[name="submit_campo"]', '#' + widget_id).removeClass('hold');
@@ -107,7 +112,7 @@ $(document).ready(function() {
 
               case status.boton.atraque:
                 $('input[name="fecha_inicio_descarga"], input[name="hora_inicio_descarga"]', '#' + widget_id).removeAttr('disabled');
-                $('form.evento', '#' + widget_id).attr('data-id', data.descarga_bauxita.id);
+                $('form.evento', '#' + widget_id).data('descarga-id', data.descarga_bauxita.id);
                 $('h3, h3+div', '#' + widget_id).fadeIn();
                 $('input[name="submit_campo"]', '#' + widget_id).data('status', status.boton.inicio_descarga);
                 $('input[name="submit_campo"]', '#' + widget_id).val(status.label.inicio_descarga);
@@ -187,17 +192,27 @@ $(document).ready(function() {
         }); // Enviar fechas y horas
 
         $('form.evento input[name="submit_acaecimiento"]', this).live('click', function() {
+          var url_evento = 'descargar/evento/' + $('form.evento', '#' + widget_id).data('descarga-id');
+
+          $('input[name="submit_acaecimiento"}', 'form.evento').attr('disabled', 'disabled');
+          $('input[name="submit_acaecimiento"}', 'form.evento').addClass('hold');
+          $('input[name="submit_acaecimiento"}', 'form.evento').val(status.label.hold);
 
           evento = {
             inicio_novedad: $('input[name="fecha_inicio_acaecimiento"]', '#' + widget_id).val() + ' ' + $('input[name="hora_inicio_acaecimiento"]', '#' + widget_id).val(),
             fin_novedad: $('input[name="fecha_fin_acaecimiento"]', '#' + widget_id).val() + ' ' + $('input[name="hora_fin_acaecimiento"]', '#' + widget_id).val(),
-            desc_novedad: $('input[name="observacion_acaecimiento"]', '#' + widget_id).val()
+            desc_novedad: $('textarea[name="observacion_acaecimiento"]', '#' + widget_id).val()
           };
 
           $.post(url_evento, evento, function(data) {
-            console.log(data);
-            //$('.eventos', '#' + widget_id).append('<p class="margen_b_10">' + data.novedad.desc_novedad + '</p><span class="rojo">' + data.novedad.inicio_novedad + ' - ' + data.novedad.fin_novedad + '</span>  |  ' + data.novedad.usuario_id_created + '</small><hr />');
+
+            $('input[name="fecha_inicio_acaecimiento"], input[name="hora_inicio_acaecimiento"], input[name="fecha_fin_acaecimiento"], input[name="hora_fin_acaecimiento"], textarea[name="observacion_acaecimiento"]', '#' + widget_id).val('');
+            $('.historial_eventos', '#' + widget_id).append('<p class="margen_b_10">' + data.descipcion + '</p><small><span class="rojo">' + data.inicio + ' - ' + data.fin + '</span>  |  ' + data.login + '</small><hr />');
           });
+
+          $('input[name="submit_acaecimiento"]', '#' + widget_id).removeAttr('disabled');
+          $('input[name="submit_acaecimiento"]', '#' + widget_id).removeClass('hold');
+          $('input[name="submit_acaecimiento"]', '#' + widget_id).val(status.label.submit);
 
           return false;
         }); // Enviar novedades

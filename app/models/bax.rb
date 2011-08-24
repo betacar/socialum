@@ -39,7 +39,7 @@ class Bax < ActiveRecord::Base
           descarga = DescargaBauxita.find_by_arribo_id_and_gabarra_id(tren.ArriboBauxita.id, gabarra.gabarra_id)
 
           # Si, el código adyacente es un desastre. Pero funciona.
-          if !descarga.nil? # A menos que la descarga no exista
+          if !descarga.nil? 
             if !descarga.desatraque_descarga_bauxita.nil? # La gabarra ya ha sido desatracada 
               baxes[i].gabarras[x].status_img = 'flag_finish.png'
             else
@@ -51,14 +51,14 @@ class Bax < ActiveRecord::Base
                 else
                   if !descarga.atraque_descarga_bauxita.nil? # La gabarra ya ha sido atracada 
                     baxes[i].gabarras[x].status_img = 'anchor.png'
-                  else
+                  else # La gabarra está a la espera para atracar
                     baxes[i].gabarras[x].status_img = 'clock_red.png'
                   end
                 end
               end
             end
           else
-            baxes[i].gabarras[x].status_img = 'clock_red.png'
+            baxes[i].gabarras[x].status_img = 'clock_red.png' # La gabarra está a la espera para atracar
           end
 
           x = x.next
@@ -68,7 +68,7 @@ class Bax < ActiveRecord::Base
         baxes[i].reportado = false
         x = 0
 
-        baxes[i].gabarras.each do |gabarra|
+        baxes[i].gabarras.each do |gabarra| # El BAX aún no ha sido reportado como que arribó a Matanzas
           baxes[i].gabarras[x].status_img = 'steering_wheel.png'
           x = x.next
         end
