@@ -75,6 +75,7 @@ DEPENDENCIES
   columnize (~> 0.3.1)
   devise (~> 1.0.11)
   devise_ldap_authenticatable (~> 0.1.6)
+  highline (~> 1.6.2)
   httpclient (~> 2.1.1)
   jasperserver-client (~> 1.0.0)
   linecache (~> 0.43)
