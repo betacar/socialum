@@ -26,4 +26,32 @@ module ArribosHelper
       nil
     end 
   end
+
+  def campo_habilitado(field)
+    if field.nil?
+      false
+    else
+      true
+    end
+  end
+
+  def status_submit(atraque, inicio, fin)
+    boton = Hash.new
+
+    if !fin.nil?
+      boton = { :texto => 'Enviar desatraque', :status => 'desatraque' }
+    else
+      if !inicio.nil?
+        boton = { :texto => 'Enviar fin de descarga', :status => 'fin_descarga' }
+      else
+        if !atraque.nil?
+          boton = { :texto => 'Enviar inicio de descarga', :status => 'inicio_descarga' }
+        else
+          boton = { :texto => 'Enviar atraque', :status => 'atraque' }
+        end
+      end
+    end
+
+    submit_tag boton[:texto], :name => 'submit_campo', :id => 'submit_campo', :class => 'green pequenio', 'data-bax' => @gabarra.bax_id, 'data-gabarra' => @gabarra.gabarra_id, 'data-status' => boton[:status]
+  end
 end

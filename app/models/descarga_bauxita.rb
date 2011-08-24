@@ -5,7 +5,6 @@ class DescargaBauxita < ActiveRecord::Base
   has_one :BaxGabarra
   has_many :Novedads, :as => :proceso
   validates_presence_of :atraque_descarga_bauxita, :message => 'La fecha y hora de atraque no pueden ser vacías'
-  #validates_presence_of :inicio_descarga_bauxita, :fin_descarga_bauxita, :desatraque_descarga_bauxita, :on => :update, :message => 'El campo no puede ser vacío'
   stampable
   
   # Reporta el atraque de una gabarra para descargar
@@ -27,7 +26,9 @@ class DescargaBauxita < ActiveRecord::Base
           descarga.gabarra_id = gabarra_id
           descarga.tonelaje_descarga_bauxita = BaxGabarra.find_by_bax_id_and_gabarra_id(arribo.bax_id, gabarra_id).tone_transportada
           descarga.atraque_descarga_bauxita = DateTime.strptime(params[:atraque_descarga_bauxita], '%d/%m/%Y %H:%M').to_datetime.to_s(:db)
-
+          descarga.inicio_descarga_bauxita = DateTime.strptime(params[:inicio_descarga_bauxita], '%d/%m/%Y %H:%M').to_datetime.to_s(:db) unless params[:inicio_descarga_bauxita].nil? || params[:inicio_descarga_bauxita] == 'null'
+          descarga.fin_descarga_bauxita = DateTime.strptime(params[:fin_descarga_bauxita], '%d/%m/%Y %H:%M').to_datetime.to_s(:db) unless params[:fin_descarga_bauxita].nil? || params[:fin_descarga_bauxita] == 'null'
+          descarga.desatraque_descarga_bauxita = DateTime.strptime(params[:desatraque_descarga_bauxita], '%d/%m/%Y %H:%M').to_datetime.to_s(:db) unless params[:desatraque_descarga_bauxita].nil? || params[:desatraque_descarga_bauxita] == 'null'
           descarga.save
 
           return descarga
@@ -39,11 +40,14 @@ class DescargaBauxita < ActiveRecord::Base
           descarga.update_attribute(:inicio_descarga_bauxita, DateTime.strptime(params[:inicio_descarga_bauxita], '%d/%m/%Y %H:%M').to_datetime.to_s(:db)) unless params[:inicio_descarga_bauxita].nil? || params[:inicio_descarga_bauxita] == 'null'
           descarga.update_attribute(:fin_descarga_bauxita, DateTime.strptime(params[:fin_descarga_bauxita], '%d/%m/%Y %H:%M').to_datetime.to_s(:db)) unless params[:fin_descarga_bauxita].nil? || params[:fin_descarga_bauxita] == 'null'
           descarga.update_attribute(:desatraque_descarga_bauxita, DateTime.strptime(params[:desatraque_descarga_bauxita], '%d/%m/%Y %H:%M').to_datetime.to_s(:db)) unless params[:desatraque_descarga_bauxita].nil? || params[:desatraque_descarga_bauxita] == 'null'
-
-          #descarga.save
+          descarga.save
 
           return descarga
         end
+        
+        # Verifico si el BAX ha sido totalmente descargado
+        ArriboBauxita.bax_descargado(descarga.arribo_id) unless params[:fin_descarga_bauxita].nil? || params[:fin_descarga_bauxita] == 'null'
+
       end
     else
       raise Exceptions::PresenciaValoresExcepcion.new('No es posible encontrar el BAX sin los parámetros de número y año de zarpe')
@@ -51,7 +55,7 @@ class DescargaBauxita < ActiveRecord::Base
   end
 
   def self.novedad(params)
-    if !params[:id]
+    if !params[:id].empty?
       descarga = self.find(params[:id])
 
       if descarga.nil?
@@ -63,12 +67,28 @@ class DescargaBauxita < ActiveRecord::Base
         novedad.inicio_novedad = DateTime.strptime(params[:inicio_novedad], '%d/%m/%Y %H:%M').to_datetime.to_s(:db) unless params[:inicio_novedad].empty?
         novedad.fin_novedad = DateTime.strptime(params[:fin_novedad], '%d/%m/%Y %H:%M').to_datetime.to_s(:db) unless params[:fin_novedad].empty?
         novedad.desc_novedad = params[:desc_novedad]
-        #novedad.save
+        novedad.save
 
-        novedad
+        evento = self.data_novedad(novedad.creator_id, novedad.inicio_novedad, novedad.fin_novedad, novedad.desc_novedad)
       end
     else
       raise Exceptions::PresenciaValoresExcepcion.new('No es posible encontrar la descarga sin el parámetro ID')
     end
   end
+
+  private
+    def self.data_novedad(creator, inicio, fin, desc)
+      evento = Hash.new
+      evento[:login] = Empleado.find(creator)
+      evento[:login] = (evento[:login].nombres + ' ' + evento[:login].apellidos).titleize
+      evento[:inicio] = inicio.to_s(:dia_mes)
+      evento[:fin] = fin.to_s(:dia_mes)
+      evento[:descipcion] = desc
+
+      evento
+    end
+
+    def self.bax_descargado(arribo_id)
+      # bax_gabarras = BaxGabarra.find
+    end
 end

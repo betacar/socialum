@@ -1,3 +1,5 @@
+require 'rubyvis'
+
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
   
@@ -65,5 +67,5 @@ module ApplicationHelper
   # Devuelve el numero en formato porcentual
   def porcentual(num)
     number_to_percentage(num, :precision => '1', :separator => ',')
-  end 
+  end
 end

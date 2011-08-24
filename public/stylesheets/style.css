@@ -140,6 +140,10 @@ header{background:url("../images/sa_header_bg.jpg") repeat-x}
     #tab li:first-child{margin-left:0}
     #tab li:last-child{margin-right:0}
 
+/* Barra de progreso */
+progress{height:20px;width:100%;margin:20px 0;background-color:#f2f2f2;box-shadow:inset 0 1px 3px #ccc;-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;border:1px solid #b2b2b2}
+	progress::-webkit-progress-bar-value,progress::-moz-progress-bar{background-color:green}
+
 /* Formularios */		
 	form ul{margin:0}
 	form li{list-style:none;margin-bottom:20px;margin-left:0}

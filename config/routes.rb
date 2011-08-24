@@ -90,12 +90,14 @@ ActionController::Routing::Routes.draw do |map|
   
   map.connect 'descargar/:action/:num_zarpe/:anio_zarpe/:gabarra_id', 
               :controller => 'descargar',
+              :action => 'gabarra',
               :num_zarpe => /\d{3}/,
               :anio_zarpe => /\d{4}/,
               :gabarra_id => /(\w{2,5})-(\d{3,4}|\w{4})/
               
   map.connect 'descargar/:action/:num_zarpe/:anio_zarpe/:gabarra_id.:format', 
               :controller => 'descargar',
+              :action => 'gabarra',
               :num_zarpe => /\d{3}/,
               :anio_zarpe => /\d{4}/,
               :gabarra_id => /(\w{2,5})-(\d{3,4}|\w{4})/

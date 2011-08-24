@@ -61,3 +61,5 @@ h1.arribo{background:url("../images/ship_24.png") left top no-repeat}
     .widget_descarga h2:active{cursor:move}
     .widget_descarga .cerrar{width:16px;height:16px;padding:5px;position:absolute;background:#fff url("../images/close_16.png") center no-repeat;cursor:pointer;-moz-border-radius:16px;-webkit-border-radius:16px;border-radius:16px;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;-moz-box-shadow:1px 1px 2px #b3b3b3;-webkit-box-shadow:1px 1px 2px #b3b3b3;box-shadow:1px 1px 2px #b3b3b3;border:1px solid #8996A0;top:-16px;right:-16px}
     .widget_descarga>img{margin:0 175px}
+
+.historial_eventos{max-height:250px;margin-bottom:20px;overflow-y:auto}

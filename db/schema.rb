@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110821211920) do
+ActiveRecord::Schema.define(:version => 20110824124556) do
 
   create_table "alarmas", :force => true do |t|
     t.string   "nombre_alarma",                   :null => false
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(:version => 20110821211920) do
   end
 
   create_table "buques", :force => true do |t|
-    t.boolean  "activo",                  :default => true, :null => false
+    t.boolean  "activo",                  :default => true,  :null => false
     t.integer  "tipo_material_id"
     t.string   "origen_buque"
     t.string   "proveedor_material"
@@ -61,6 +61,8 @@ ActiveRecord::Schema.define(:version => 20110821211920) do
     t.integer  "updater_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "eta_buque"
+    t.boolean  "descargado",              :default => false, :null => false
   end
 
   create_table "descargas_bauxita", :force => true do |t|

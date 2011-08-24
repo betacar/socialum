@@ -18,14 +18,14 @@ class User < ActiveRecord::Base
     self.id = self.ficha # Asigno el numero de personal como ID de usuario
   end
   
-  def datos
-    if (self.ficha != nil)
-      @empleado = Empleado.find(self.ficha)
-      
-      # Obtenemos los nombres y apellidos del empleado, los llevamos a minuscula y luego 'titulizamos' el nombre completo
-      @nombres = (empleado.nombres + ' ' + empleado.apellidos).titleize
-    else
-      self.ficha
+  def datos(id = nil)
+    if id.nil?
+      id = self.ficha
     end
+
+    empleado = Empleado.find(id)
+    
+    # Obtenemos los nombres y apellidos del empleado, los llevamos a minuscula y luego 'titulizamos' el nombre completo
+    nombres = (empleado.nombres + ' ' + empleado.apellidos).titleize
   end
 end
