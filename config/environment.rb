@@ -52,5 +52,6 @@ end
 Time::DATE_FORMATS[:fechahora] = '%d/%b./%Y - %I:%M%p'
 Time::DATE_FORMATS[:fechahoramil] = '%d/%b./%Y - %H:%M'
 Time::DATE_FORMATS[:fecha] = '%d/%m/%Y'
-Time::DATE_FORMATS[:bd] = '%Y-%m-%d %H:%M:%S'
+Time::DATE_FORMATS[:dia_mes] = '%d/%b. %H:%M'
+Time::DATE_FORMATS[:hora] = '%H:%M'
 
