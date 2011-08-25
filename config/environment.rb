@@ -22,6 +22,7 @@ Rails::Initializer.run do |config|
   config.gem 'warden'
   config.gem 'devise'
   config.gem 'devise_ldap_authenticatable'
+  config.gem "cancan"
   config.gem 'will_paginate'
   config.gem 'userstamp'
 
