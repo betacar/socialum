@@ -1,6 +1,7 @@
 class DescargarController < ApplicationController
   before_filter :authenticate_user! # Autentica cada usuario contra LDAP antes de ejecutar cualquier controller
-  
+  load_and_authorize_resource  :class => "DescargaBauxita"
+
   # POST /descargar/gabarra/001/2006/ABC-123/
   # POST /descargar/gabarra/001/2006/ABC-123.html
   def gabarra
@@ -39,3 +40,4 @@ class DescargarController < ApplicationController
     end
   end
 end
+

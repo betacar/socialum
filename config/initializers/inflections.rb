@@ -1,6 +1,6 @@
 # Be sure to restart your server when you modify this file.
 
-# Add new inflection rules using the following format 
+# Add new inflection rules using the following format
 # (all these examples are active by default):
 # ActiveSupport::Inflector.inflections do |inflect|
 #   inflect.plural /^(ox)$/i, '\1en'
@@ -12,7 +12,6 @@
 ActiveSupport::Inflector.inflections do |inflect|
     #inflect.plural /^(ox)$/i, '\1en'
     #inflect.singular /^(ox)en/i, '\1'
-    #inflect.irregular 'person', 'people'
     #inflect.uncountable %w( fish sheep )
     inflect.plural /([taeiou])([A-Z]|_|\$)/, '\1s\2'
     inflect.plural /([rlnd])([A-Z]|_|$)/, '\1es\2'
@@ -23,4 +22,6 @@ ActiveSupport::Inflector.inflections do |inflect|
     inflect.singular /ises([A-Z]|_|$)/, '\1is'
     inflect.singular /ices([A-Z]|_|$)/, '\1iz'
     inflect.plural /([aeiou])([A-Z]|_|$)/, '\1s\2'
+    inflect.irregular 'user', 'users'
 end
+

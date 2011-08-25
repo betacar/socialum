@@ -18,3 +18,4 @@ class DeviseCreateUsuarios < ActiveRecord::Migration
     drop_table :usuarios
   end
 end
+
