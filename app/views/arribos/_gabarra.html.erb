@@ -67,7 +67,7 @@
           <%= text_field_tag :hora_desatraque, gabarra.desatraque_hora, { :disabled => campo_habilitado(gabarra.desatraque_hora), :class => 'margen_b_10', :type => 'time', :size => 3, :placeholder => 'hh:mm', :pattern => '^([01]\d|2[0-3]|[0-9])(:[0-5]\d)$' } %>
         </div>
         <div class="grid_12 margen_b_10 margen_t_20">
-          <%= status_submit(gabarra.atraque_fecha, gabarra.inicio_fecha, gabarra.fin_fecha) %> 
+          <%= status_submit(gabarra.atraque_fecha, gabarra.inicio_fecha, gabarra.fin_fecha) %>
         </div>
         <div class="clearfix"></div>
       </form>
@@ -80,9 +80,9 @@
     <% end %>
         <div class="historial_eventos">
       <% unless gabarra.novedades.nil? %>
-        <% gabarra.novedades.each do |novedad| %>
-          <p class="margen_b_10"><%=h novedad.desc_novedad %></p>
-          <small><span class="rojo"><%=h novedad.inicio_novedad.to_s(:dia_mes) %> - <%=h novedad.fin_novedad.to_s(:dia_mes) %></span>  |  <%=h novedad.creator_id %></small>
+        <% gabarra.novedades.each do |novedad| datos=novedad.datos %>
+          <p class="margen_b_10"><%=h datos[:descipcion] %></p>
+          <small><span class="rojo"><%=h datos[:inicio] %> - <%=h datos[:fin] %></span>  |  <%=h datos[:login] %></small>
           <hr />
         <% end %>
       <% end %>
@@ -103,7 +103,8 @@
             <div class="clearfix"></div>
             <%= label_tag 'observacion_acaecimiento', '<strong>Descripción</strong>' %>
             <%= text_area_tag 'observacion_acaecimiento', nil, :rows => nil, :cols => nil, :class => 'margen_b_10', :placeholder => 'Descripción del evento' %>
-            <%= submit_tag 'Enviar', :name => 'submit_acaecimiento', :id => 'submit_acaecimiento', :class => 'green pequenio', 'data-bax' => @gabarra.bax_id, 'data-gabarra' => @gabarra.gabarra_id %> 
+            <%= submit_tag 'Enviar', :name => 'submit_acaecimiento', :id => 'submit_acaecimiento', :class => 'green pequenio', 'data-bax' => @gabarra.bax_id, 'data-gabarra' => @gabarra.gabarra_id %>
           </form>
         </div>
       </div>
+
