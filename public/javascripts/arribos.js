@@ -25,7 +25,9 @@ $(document).ready(function() {
           vacia: '/images/tick.png',
           desatraque: '/images/flag_finish.png'
         }
-      };
+      },
+      buque_id = 0,
+      formato = 'd/M/yyyy H:mm';
   
   $('#dialogo').height($(window).height());
   $('#dialogo').width($(window).width());
@@ -76,27 +78,91 @@ $(document).ready(function() {
 
         $('input[name="submit_campo"]', this).live('click', function() {
 
+          var arribo = $('input[name="fecha_atraque"]', '#' + widget_id).parent().data('arribo'),
+              atraque = $('input[name="fecha_atraque"]', '#' + widget_id).val() + ' ' + $('input[name="hora_atraque"]', '#' + widget_id).val(),
+              inicio_descarga = $('input[name="fecha_inicio_descarga"]', '#' + widget_id).val() + ' ' + $('input[name="hora_inicio_descarga"]', '#' + widget_id).val(),
+              fin_descarga = $('input[name="fecha_fin_descarga"]', '#' + widget_id).val() + ' ' + $('input[name="hora_fin_descarga"]', '#' + widget_id).val(),
+              desatraque = $('input[name="fecha_desatraque"]', '#' + widget_id).val() + ' ' + $('input[name="hora_desatraque"]', '#' + widget_id).val(),
+              date = '';
+          
+          // Transformo la fecha de arribo en un objeto fecha
+          date = arribo.split('-');
+          date[2] = date[2].split(' ');
+          date[2][1] = date[2][1].split(':');
+          date = new Date(date[0], date[1], date[2][0], date[2][1][0], date[2][1][1], date[2][1][2]);
+
           $(this).attr('disabled', 'disabled');
           $(this).addClass('hold');
           $(this).val(status.label.hold);
 
           descarga = {
             equipo_id: $('select[name="equipo_id"]', '#' + widget_id).val(),
-            atraque_descarga_bauxita: $('input[name="fecha_atraque"]', '#' + widget_id).val() + ' ' + $('input[name="hora_atraque"]', '#' + widget_id).val(),
-            inicio_descarga_bauxita: $('input[name="fecha_inicio_descarga"]', '#' + widget_id).val() + ' ' + $('input[name="hora_inicio_descarga"]', '#' + widget_id).val(),
-            fin_descarga_bauxita: $('input[name="fecha_fin_descarga"]', '#' + widget_id).val() + ' ' + $('input[name="hora_fin_descarga"]', '#' + widget_id).val(),
-            desatraque_descarga_bauxita: $('input[name="fecha_desatraque"]', '#' + widget_id).val() + ' ' + $('input[name="hora_desatraque"]', '#' + widget_id).val()
+            atraque_descarga_bauxita: atraque,
+            inicio_descarga_bauxita: inicio_descarga,
+            fin_descarga_bauxita: fin_descarga,
+            desatraque_descarga_bauxita: desatraque
           }
 
           switch($(this).data('status')) {
             case status.boton.atraque:
-              descarga.inicio_descarga_bauxita = descarga.fin_descarga_bauxita = descarga.desatraque_descarga_bauxita = null;
+              if (atraque == null || !isDate(atraque, formato)) {
+                alert('La fecha y/u hora de atraque no puede ser vacío o no cumple el formato requerido (dd/mm/aaaa). La hora debe estar formato militar (24H).');
+                $('input[name="submit_campo"]', '#' + widget_id).removeAttr('disabled');
+                $('input[name="submit_campo"]', '#' + widget_id).removeClass('hold');
+                $(this).val(status.label.atraque);
+                return false;
+              } else if (compareDates(atraque, formato, arribo, 'yyyy-MM-dd HH:mm:ss') != 1) {
+                alert('La fecha y/u hora de atraque no puede ser menor a la fecha de arribo del buque (' + formatDate(date, 'dd/MM/yyyy HH:mm') + ').');
+                $('input[name="submit_campo"]', '#' + widget_id).removeAttr('disabled');
+                $('input[name="submit_campo"]', '#' + widget_id).removeClass('hold');
+                $(this).val(status.label.atraque);
+                return false;
+              } else descarga.inicio_descarga_bauxita = descarga.fin_descarga_bauxita = descarga.desatraque_descarga_bauxita = null;
               break;
-            case status.boton.inicio_descarga:
-              descarga.fin_descarga_bauxita = descarga.desatraque_descarga_bauxita = null;
+            case status.boton.inicio_descarga:              
+              if (inicio_descarga == null || !isDate(inicio_descarga, formato)) {
+                alert('La fecha y/u hora de inicio de descarga no puede ser vacío o no cumple el formato requerido (dd/mm/aaaa). La hora debe estar formato militar (24H).');
+                $('input[name="submit_campo"]', '#' + widget_id).removeAttr('disabled');
+                $('input[name="submit_campo"]', '#' + widget_id).removeClass('hold');
+                $(this).val(status.label.inicio_descarga);
+                return false;
+              } else if (compareDates(inicio_descarga, formato, atraque, formato) != 1) {
+                alert('La fecha y/u hora de inicio de descarga no puede ser menor a la fecha de atraque (' + atraque + ').');
+                $('input[name="submit_campo"]', '#' + widget_id).removeAttr('disabled');
+                $('input[name="submit_campo"]', '#' + widget_id).removeClass('hold');
+                $(this).val(status.label.inicio_descarga);
+                return false;
+              } else descarga.fin_descarga_bauxita = descarga.desatraque_descarga_bauxita = null;
               break;
-            case status.boton.fin_descarga:
-              descarga.desatraque_descarga_bauxita = null;
+            case status.boton.fin_descarga:              
+              if (fin_descarga == null || !isDate(fin_descarga, formato)) {
+                alert('La fecha y/u hora de fin de descarga no puede ser vacío o no cumple el formato requerido (dd/mm/aaaa). La hora debe estar formato militar (24H).');
+                $('input[name="submit_campo"]', '#' + widget_id).removeAttr('disabled');
+                $('input[name="submit_campo"]', '#' + widget_id).removeClass('hold');
+                $(this).val(status.label.fin_descarga);
+                return false;
+              } else if (compareDates(fin_descarga, formato, inicio_descarga, formato) != 1) {
+                alert('La fecha y/u hora de fin de descarga no puede ser menor a la fecha de inicio de descarga (' + inicio_descarga + ').');
+                $('input[name="submit_campo"]', '#' + widget_id).removeAttr('disabled');
+                $('input[name="submit_campo"]', '#' + widget_id).removeClass('hold');
+                $(this).val(status.label.fin_descarga);
+                return false;
+              } else descarga.desatraque_descarga_bauxita = null;
+              break;
+            case status.boton.desatraque:
+              if (desatraque == null || !isDate(desatraque, formato)) {
+                alert('La fecha y/u hora de fin de descarga no puede ser vacío o no cumple el formato requerido (dd/mm/aaaa). La hora debe estar formato militar (24H).');
+                $('input[name="submit_campo"]', '#' + widget_id).removeAttr('disabled');
+                $('input[name="submit_campo"]', '#' + widget_id).removeClass('hold');
+                $(this).val(status.label.desatraque);
+                return false;
+              } else if (compareDates(desatraque, formato, fin_descarga, formato) != 1) {
+                alert('La fecha y/u hora de fin de descarga no puede ser menor a la fecha de inicio de descarga (' + fin_descarga + ').');
+                $('input[name="submit_campo"]', '#' + widget_id).removeAttr('disabled');
+                $('input[name="submit_campo"]', '#' + widget_id).removeClass('hold');
+                $(this).val(status.label.desatraque);
+                return false;
+              }
               break;
             default:
               console.log('Estatus antes del $.post: ' + $(this).data('status'));
@@ -219,6 +285,68 @@ $(document).ready(function() {
         
       return false;
     }));
+
+    return false;
+  });
+
+  /* ------------------------------ BUQUES ------------------------------ */
+  // Edición o desactivación de buques
+  $('.edit, .destroy').click(function() {
+    var boton = $(this);
+    buque_id = boton.data('buque-id');
+
+    if ($(this).hasClass('edit')) {
+      window.location = '/buques/' + buque_id + '/edit';
+    } else {
+      if (confirm('¿Realmente desea cambiar el estado del buque?')) {
+          boton.attr('disabled', 'disabled');
+          boton.addClass('hold');
+          boton.val(status.label.hold);
+          boton.removeClass('cancel blue');
+
+        $.get('/buques/destroy/' + buque_id, null, function(data){
+          console.log(data);
+          boton.removeAttr('disabled');
+          boton.removeClass('hold');
+          if (!data.buque.activo){
+            boton.val('Activar buque');
+            boton.addClass('blue');
+          } else {
+            boton.val('Desactivar buque');
+            boton.addClass('cancel');
+          }
+        }, 'json');
+      }
+    }
+
+    return false;
+  });
+
+  // Adición de buque
+  $('.add_buque').click(function(){
+    window.location = '/buques/new';
+  });
+
+  // Reporte de arribo de buque
+  $('.reportar_arribo_buque').click(function(){
+    var boton = $(this),
+        selector_id = $(this).parent().parent().attr('id');
+    buque_id = boton.data('buque-id');
+
+    boton.attr('disabled', 'disabled');
+    boton.addClass('hold');
+    boton.val(status.label.hold);
+
+    $.get('/buques/reportar/' + buque_id, null, function(data){
+      boton.fadeOut();
+      $('.descargar_buque', '#' + selector_id).delay(300).fadeIn();
+    }, 'json');
+
+    return false;
+  });
+
+  $('.descargar_buque').click(function(){
+    
 
     return false;
   });

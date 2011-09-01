@@ -40,7 +40,7 @@
         <hr />
       </div>
       <form>
-        <div class="grid_12 margen_b_10">
+        <div class="grid_12 margen_b_10" data-arribo="<%=h @gabarra.arribo %>">
           <%= label_tag 'atraque', '<strong>Atraque</strong>' %>
           <%= text_field_tag :fecha_atraque, gabarra.atraque_fecha, { :disabled => campo_habilitado(gabarra.atraque_fecha), :class => 'margen_b_10', :type => 'date', :size => 7, :placeholder => 'dd/mm/aaaa', :pattern => '(([1-9]|0[1-9]|[12]\d)/([1-9]|0[1-9]|1[012])|30/(0[13-9]|1[012])|31/(0[13578]|1[02]))/(19|20)\d\d', :autofocus => true } %>
           <%= text_field_tag :hora_atraque, gabarra.atraque_hora, { :disabled => campo_habilitado(gabarra.atraque_hora), :class => 'margen_b_10', :type => 'time', :size => 3, :placeholder => 'hh:mm', :pattern => '^([01]\d|2[0-3]|[0-9])(:[0-5]\d)$' } %>

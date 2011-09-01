@@ -2,11 +2,12 @@ class BaxGabarra < ActiveRecord::Base
   set_table_name 'vw_zarpes_gabarras'
   belongs_to :bax
   has_one :DescargaBauxita
-  attr_accessor :analisis, :equipos, :status_img, :descarga_id, :atraque_fecha, :atraque_hora, :inicio_fecha, :inicio_hora, :fin_fecha, :fin_hora, :desatraque_fecha, :desatraque_hora, :equipo_id, :novedades # Atributos virtuales para almacenar los analisis de laboratorio y los equipos de descarga
+  attr_accessor :analisis, :equipos, :status_img, :descarga_id, :atraque_fecha, :atraque_hora, :inicio_fecha, :inicio_hora, :fin_fecha, :fin_hora, :desatraque_fecha, :desatraque_hora, :equipo_id, :novedades, :arribo # Atributos virtuales para almacenar los analisis de laboratorio y los equipos de descarga
   
   # Retorna los datos relativos a una gabarra de un BAX, para ser descargada
   def self.gabarra(params)
     gabarra = self.find_by_bax_id_and_gabarra_id(params[:num_zarpe] + '/' + params[:anio_zarpe], params[:gabarra_id])
+    gabarra.arribo = ArriboBauxita.find_by_bax_id(params[:num_zarpe] + '/' + params[:anio_zarpe]).fecha_hora_arribo_bauxita.to_s(:db)
     
     if gabarra.nil?
       raise Exceptions::PresenciaValoresExcepcion.new('La gabarra ' + params[:gabarra_id] + ' no está asociada al BAX ' + params[:num_zarpe] + '/' + params[:anio_zarpe])

@@ -15,7 +15,7 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="stylesheet" href="stylesheets/fw_grid.css" />
   <link rel="stylesheet" href="stylesheets/style.css" />
-  <link rel="stylesheet" href="stylesheets/app.css" />
+  <link rel="stylesheet" href="stylesheets/socialum.css" />
   <script src="javascripts/libs/modernizr-1.7.min.js"></script>
 </head>
 <body>
@@ -150,44 +150,64 @@
       <h1>Arribos de buques</h1>
       <div class="margen_b_30">
         <h2 class="down margen_b_20 underlined">Tintomara</h2>
-        <div class="margen_b_20">
-          <div class="grid_9 centro">
-            <p class="destacado fucsia centro">000.000,00</p>
-            <p class="caption tons centro">toneladas</p>
+        <div class="margen_b_30">
+          <div class="margen_b_10 grid_12 alpha">
+            <p class="caption tons">Tonelaje</p>
+            <p class="destacado rojo">000.000,00</p>
           </div>
-          <div class="grid_15 grande margen_b_10">
-            <p>Bauxita</p>
-            <p>Cementos Argos</p>
+          <div class="grid_12 omega">
+            <p class="caption tons">Tipo de material</p>
+            <p class="destacado">Bauxita</p>
           </div>
           <div class="clearfix"></div>
-          <div class="grid_9 margen_b_10 centro">
-            <p class="caption tons">Origen</p>
-            <p>EGIPTO</p>
-          </div>
-          <div class="grid_15">
+          <div class="margen_b_10 grid_12 alpha">
             <p class="caption tons">ETA</p>
-            <p>19/Sep./2010 - 00:00pm</p>
+            <p class="destacado">19/Sep./2011</p>
+          </div>
+          <div class="grid_12 omega">
+            <p class="caption tons">Proveedor</p>
+            <p class="destacado">Cemento argos</p>
           </div>
           <div class="clearfix"></div>
-          <div class="derecha margen_b_20">
-            <input type="button" class="blue reportar_arribo_buque pequenio" value="Reportar arribo" data-buque="11" />
-            <input type="button" class="green pequenio" value="Descargar" data-buque="11" /> 
+          <div class="grid_12 alpha">
+            <p class="caption tons">Origen</p>
+            <p class="destacado">Egipto</p>
           </div>
+          <div class="grid_12 omega derecha padding_t_10">
+            <input type="button" class="blue reportar_arribo_buque pequenio" value="Reportar arribo" data-buque="11" />
+            <input type="button" class="green pequenio oculto" value="Descargar" data-buque="11" /> 
+          </div>
+          <div class="clearfix"></div>
         </div>
       </div>
     </aside>
     <div class="clearfix"></div>      
-    <div class="widget_descarga grid_10" data-buque="Tintomara" data-tonelaje="00000,00" data-toneladas-descargas="0">
+    <div class="widget_descarga grid_10">
       <span class="cerrar"> </span>
+      <div class="error oculto">
+        <p></p>
+      </div>
+      <div class="exito oculto">
+        <p></p>
+      </div>
       <h2 class="underlined margen_b_20 down">Tintomara: <span class="rojo">00.000,00 tons.</span></h2>
       <div class="margen_b_20">
         <div class="margen_b_10 grid_12 alpha">
+          <p class="caption tons">Tonelaje</p>
+          <p class="destacado rojo">000.000,00</p>
+        </div>
+        <div class="grid_12 omega">
           <p class="caption tons">Tipo de material</p>
           <p class="destacado">Bauxita</p>
         </div>
-        <div class="margen_b_10 grid_12 omega">
+        <div class="clearfix"></div>
+        <div class="margen_b_10 grid_12 alpha">
+          <p class="caption tons">ETA</p>
+          <p class="destacado">19/Sep./2011</p>
+        </div>
+        <div class="grid_12 omega">
           <p class="caption tons">Proveedor</p>
-          <p class="destacado">Cementos Argos</p>
+          <p class="destacado">Cemento argos</p>
         </div>
         <div class="clearfix"></div>
         <div class="grid_12 alpha">
@@ -195,8 +215,6 @@
           <p class="destacado">Egipto</p>
         </div>
         <div class="grid_12 omega">
-          <p class="caption tons">ETA</p>
-          <p class="destacado">19/Sep./2011</p>
         </div>
         <div class="clearfix"></div>
         <hr />
@@ -204,7 +222,7 @@
       <form>
         <div class="grid_12 margen_b_10">
           <label for="reportar_atraque"><strong>Atraque</strong></label>
-          <input type="button" class="reportar_atraque pequenio" name="reportar_atraque" value="Reportar atraque" data-buque="11" />
+          <input type="button" class="blue reportar_atraque pequenio" name="reportar_atraque" value="Reportar atraque" data-buque="11" />
         </div>
         <div class="grid_12 margen_b_10">
           <label for="inicio_descarga"><strong>Inicio de descarga</strong></label>
@@ -222,7 +240,7 @@
           <input name="fecha_fin_atraque" type="date" size="8" placeholder="31/12/2011" class="margen_b_10">
           <input name="hora_fin_atraque" type="time" size="4" placeholder="00:00" class="margen_b_10">
         </div>
-        <div class="derecha margen_b_20 clearfix">
+        <div class="derecha wrapper clearfix">
           <input type="submit" class="green pequenio" value="Enviar" /> 
         </div>
       </form>
