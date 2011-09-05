@@ -49,8 +49,8 @@ Rails::Initializer.run do |config|
   config.i18n.default_locale = :es
 end
 
-Time::DATE_FORMATS[:fechahora] = '%d/%b./%Y - %I:%M%p'
-Time::DATE_FORMATS[:fechahoramil] = '%d/%b./%Y - %H:%M'
+Time::DATE_FORMATS[:fechahora] = '%d/%b./%Y ~ %I:%M%p'
+Time::DATE_FORMATS[:fechahoramil] = '%d/%b./%Y ~ %H:%M'
 Time::DATE_FORMATS[:fecha] = '%d/%m/%Y'
 Time::DATE_FORMATS[:dia_mes] = '%d/%b. %H:%M'
 Time::DATE_FORMATS[:hora] = '%H:%M'

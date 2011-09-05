@@ -45,10 +45,11 @@ module ApplicationHelper
     if fecha.nil?
       fecha = "No disponible"
     else
+      l fecha.to_datetime
       if mil
-        fecha.to_datetime.to_s(:fechahoramil)
+        l fecha.to_datetime, :format => :fecha_hora_mil
       else
-        fecha.to_datetime.to_s(:fechahora)
+        l fecha.to_datetime, :format => :fecha_hora
       end
     end
   end
