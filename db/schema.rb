@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110824124556) do
+ActiveRecord::Schema.define(:version => 20110824182835) do
 
   create_table "alarmas", :force => true do |t|
     t.string   "nombre_alarma",                   :null => false
@@ -34,35 +34,24 @@ ActiveRecord::Schema.define(:version => 20110824124556) do
     t.boolean  "descargado",                                              :default => false
   end
 
-  create_table "arribos_buques", :force => true do |t|
-    t.boolean  "activo"
-    t.integer  "tipo_materia_id"
-    t.datetime "eta_arribo_buque"
-    t.string   "capitan_arribo_buque"
-    t.string   "origen_arribo_buque"
-    t.decimal  "tonelaje_arribo_buque"
-    t.string   "proveedor_arribo_buque"
-    t.datetime "fecha_hora_arribo_buque"
-    t.integer  "creator_id"
-    t.integer  "updater_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "buques", :force => true do |t|
-    t.boolean  "activo",                  :default => true,  :null => false
-    t.integer  "tipo_material_id"
+    t.boolean  "activo",              :default => true,  :null => false
+    t.integer  "tipo_materia_id",                        :null => false
+    t.string   "nombre_buque",                           :null => false
     t.string   "origen_buque"
-    t.string   "proveedor_material"
-    t.decimal  "cantidad_material_buque"
+    t.string   "proveedor_buque"
+    t.string   "condicion_buque"
+    t.string   "capitan_buque"
+    t.decimal  "tonelaje_buque"
     t.datetime "fecha_zarpe_buque"
+    t.datetime "eta_mtz_buque"
+    t.datetime "fecha_arribo_buque"
     t.text     "observaciones_buque"
+    t.boolean  "descargado_buque",    :default => false, :null => false
     t.integer  "creator_id"
     t.integer  "updater_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "eta_buque"
-    t.boolean  "descargado",              :default => false, :null => false
   end
 
   create_table "descargas_bauxita", :force => true do |t|
@@ -83,7 +72,8 @@ ActiveRecord::Schema.define(:version => 20110824124556) do
   end
 
   create_table "descargas_otros", :force => true do |t|
-    t.integer  "arribo_buque_id"
+    t.integer  "buque_id"
+    t.integer  "gabarra_id"
     t.datetime "atraque_descarga_otro"
     t.datetime "inicio_descarga_otro"
     t.datetime "fin_descarga_otro"
@@ -163,6 +153,17 @@ ActiveRecord::Schema.define(:version => 20110824124556) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "activo",         :default => true, :null => false
+  end
+
+  create_table "roles", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "roles_users", :id => false, :force => true do |t|
+    t.integer "rol_id"
+    t.integer "user_id"
   end
 
   create_table "stock_gabarras", :force => true do |t|
@@ -294,8 +295,9 @@ ActiveRecord::Schema.define(:version => 20110824124556) do
   end
 
   create_table "usuarios", :id => false, :force => true do |t|
-    t.integer  "id",                                    :null => false
-    t.string   "login",                                 :null => false
+    t.integer  "id",                                 :null => false
+    t.integer  "estado_id",           :default => 1, :null => false
+    t.string   "login",                              :null => false
     t.string   "ldap_attributes"
     t.string   "remember_token"
     t.datetime "remember_created_at"
@@ -306,7 +308,6 @@ ActiveRecord::Schema.define(:version => 20110824124556) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "activo",              :default => true, :null => false
   end
 
   add_index "usuarios", ["login"], :name => "index_usuarios_on_login", :unique => true

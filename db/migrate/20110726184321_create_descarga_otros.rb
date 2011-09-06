@@ -2,7 +2,8 @@ class CreateDescargaOtros < ActiveRecord::Migration
   def self.up
     create_table :descargas_otros do |t|
       t.boleean :activo
-      t.references :arribo_buque
+      t.references :buque
+      t.references :gabarra
       t.datetime :atraque_descarga_otro
       t.datetime :inicio_descarga_otro
       t.datetime :fin_descarga_otro
@@ -14,9 +15,8 @@ class CreateDescargaOtros < ActiveRecord::Migration
       t.decimal :rata_utilizada_descarga_otro
       t.decimal :pago_demora_descarga_otro
       t.decimal :pago_despacho_descarga_otro
-      t.integer :usuario_id_created
-      t.integer :usuario_id_updated
 
+      t.userstamps
       t.timestamps
     end
   end
