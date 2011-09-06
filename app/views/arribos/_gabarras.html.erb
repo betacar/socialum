@@ -1,0 +1,6 @@
+        <% @gabarras.each do |gabarra| %>
+          <li title="<p>Peso: <strong><%=h delimitar(gabarra.tone_transportada) %> tons.</strong></p><p>Al<sub>2</sub>O<sub>2</sub>: <strong><%=h porcentual(gabarra.al2o3) %>%</strong></p><p>Humedad: <strong><%=h porcentual(gabarra.humedad) %>%</strong></p>" data-gabarra="<%=h gabarra.gabarra_id %>" id="<%= id(gabarra.bax_id, gabarra.gabarra_id) %>" <%= habilitada(gabarra.status_img) %>>
+            <%= image_tag gabarra.status_img, :alt => nil %>
+            <p><%=h gabarra.gabarra_id %></p>
+          </li>
+        <% end %>

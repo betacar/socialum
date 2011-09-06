@@ -181,7 +181,7 @@ progress{height:20px;width:100%;margin:20px 0;background-color:#f2f2f2;box-shado
 
 		aside h3{margin-top:5px}
 		aside div+h3:first-child{margin-top:0}
-		aside .destacado{font-size:1.538em}
+		aside .destacado{font-size:1.375em}
 		
 /* Tablas */	
 	table{margin-bottom:10px;-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box}

@@ -9,32 +9,32 @@
       <div class="margen_b_20">
         <div class="grid_5 alpha margen_b_10">
           <p class="caption tons">Humedad</p>
-          <p class="destacado"><%=h porcentual(@gabarra.analisis.humedad) %>%</p>
+          <p class="destacado"><%=h porcentual(@gabarra.humedad) %>%</p>
         </div>
         <div class="grid_5 alpha margen_b_10">
           <p class="caption tons">Al<sub>2</sub>O<sub>2</sub></p>
-          <p class="destacado"><%=h porcentual(@gabarra.analisis.al2o3) %>%</p>
+          <p class="destacado"><%=h porcentual(@gabarra.al2o3) %>%</p>
         </div>
         <div class="grid_5 alpha margen_b_10">
           <p class="caption tons">Fe<sub>2</sub>O<sub>3</sub></p>
-          <p class="destacado"><%=h porcentual(@gabarra.analisis.fe2o3) %>%</p>
+          <p class="destacado"><%=h porcentual(@gabarra.fe2o3) %>%</p>
         </div>
         <div class="grid_5 alpha margen_b_10">
           <p class="caption tons">S. reactivo</p>
-          <p class="destacado"><%=h porcentual(@gabarra.analisis.sio2r) %>%</p>
+          <p class="destacado"><%=h porcentual(@gabarra.sio2r) %>%</p>
         </div>
         <div class="grid_5 alpha margen_b_10">
           <p class="caption tons">S. quarzo</p>
-          <p class="destacado"><%=h porcentual(@gabarra.analisis.sio2q) %>%</p>
+          <p class="destacado"><%=h porcentual(@gabarra.sio2q) %>%</p>
         </div>
         <div class="clearfix"></div>
         <div class="grid_12 alpha">
           <p class="caption tons">Procedencia del mineral</p>
-          <p class="destacado"><%=h @gabarra.analisis.tipo_carga %></p>
+          <p class="destacado"><%=h @gabarra.tipo_carga %></p>
         </div>
         <div class="grid_12 omega">
           <p class="caption tons">Tipo de muestreo</p>
-          <p class="destacado"><%=h @gabarra.analisis.muestreo %></p>
+          <p class="destacado"><%=h @gabarra.muestreo %></p>
         </div>
         <div class="clearfix"></div>
         <hr />
@@ -42,8 +42,8 @@
       <form>
         <div class="grid_12 margen_b_10" data-arribo="<%=h @gabarra.arribo %>">
           <%= label_tag 'atraque', '<strong>Atraque</strong>' %>
-          <%= text_field_tag :fecha_atraque, gabarra.atraque_fecha, { :disabled => campo_habilitado(gabarra.atraque_fecha), :class => 'margen_b_10', :type => 'date', :size => 7, :placeholder => 'dd/mm/aaaa', :pattern => '(([1-9]|0[1-9]|[12]\d)/([1-9]|0[1-9]|1[012])|30/(0[13-9]|1[012])|31/(0[13578]|1[02]))/(19|20)\d\d', :autofocus => true } %>
-          <%= text_field_tag :hora_atraque, gabarra.atraque_hora, { :disabled => campo_habilitado(gabarra.atraque_hora), :class => 'margen_b_10', :type => 'time', :size => 3, :placeholder => 'hh:mm', :pattern => '^([01]\d|2[0-3]|[0-9])(:[0-5]\d)$' } %>
+          <%= text_field_tag :fecha_atraque, @gabarra.atraque_fecha, { :disabled => campo_habilitado(gabarra.atraque_fecha), :class => 'margen_b_10', :type => 'date', :size => 7, :placeholder => 'dd/mm/aaaa', :pattern => '(([1-9]|0[1-9]|[12]\d)/([1-9]|0[1-9]|1[012])|30/(0[13-9]|1[012])|31/(0[13578]|1[02]))/(19|20)\d\d', :autofocus => true } %>
+          <%= text_field_tag :hora_atraque, @gabarra.atraque_hora, { :disabled => campo_habilitado(gabarra.atraque_hora), :class => 'margen_b_10', :type => 'time', :size => 3, :placeholder => 'hh:mm', :pattern => '^([01]\d|2[0-3]|[0-9])(:[0-5]\d)$' } %>
         </div>
         <div class="grid_12 margen_b_10">
           <%= label_tag 'equipo_id', '<strong>Equipo de descarga</strong>' %>
@@ -52,58 +52,40 @@
         <div class="clearfix"></div>
         <div class="grid_12 margen_b_10">
           <%= label_tag 'inicio_descarga', '<strong>Inicio de descarga</strong>' %>
-          <%= text_field_tag :fecha_inicio_descarga, gabarra.inicio_fecha, { :disabled => campo_habilitado(gabarra.inicio_fecha), :class => 'margen_b_10', :type => 'date', :size => 7, :placeholder => 'dd/mm/aaaa', :pattern => '(([1-9]|0[1-9]|[12]\d)/([1-9]|0[1-9]|1[012])|30/(0[13-9]|1[012])|31/(0[13578]|1[02]))/(19|20)\d\d' } %>
-          <%= text_field_tag :hora_inicio_descarga, gabarra.inicio_hora, { :disabled => campo_habilitado(gabarra.inicio_hora), :class => 'margen_b_10', :type => 'time', :size => 3, :placeholder => 'hh:mm', :pattern => '^([01]\d|2[0-3]|[0-9])(:[0-5]\d)$' } %>
+          <%= text_field_tag :fecha_inicio_descarga, @gabarra.inicio_fecha, { :disabled => campo_habilitado(gabarra.inicio_fecha), :class => 'margen_b_10', :type => 'date', :size => 7, :placeholder => 'dd/mm/aaaa', :pattern => '(([1-9]|0[1-9]|[12]\d)/([1-9]|0[1-9]|1[012])|30/(0[13-9]|1[012])|31/(0[13578]|1[02]))/(19|20)\d\d' } %>
+          <%= text_field_tag :hora_inicio_descarga, @gabarra.inicio_hora, { :disabled => campo_habilitado(gabarra.inicio_hora), :class => 'margen_b_10', :type => 'time', :size => 3, :placeholder => 'hh:mm', :pattern => '^([01]\d|2[0-3]|[0-9])(:[0-5]\d)$' } %>
         </div>
         <div class="grid_12 margen_b_10">
           <%= label_tag 'fin_descarga', '<strong>Fin de descarga</strong>' %>
-          <%= text_field_tag :fecha_fin_descarga, gabarra.fin_fecha, { :disabled => campo_habilitado(gabarra.fin_fecha), :class => 'margen_b_10', :type => 'date', :size => 7, :placeholder => 'dd/mm/aaaa', :pattern => '(([1-9]|0[1-9]|[12]\d)/([1-9]|0[1-9]|1[012])|30/(0[13-9]|1[012])|31/(0[13578]|1[02]))/(19|20)\d\d' } %>
-          <%= text_field_tag :hora_fin_descarga, gabarra.fin_hora, { :disabled => campo_habilitado(gabarra.fin_hora), :class => 'margen_b_10', :type => 'time', :size => 3, :placeholder => 'hh:mm', :pattern => '^([01]\d|2[0-3]|[0-9])(:[0-5]\d)$' } %>
+          <%= text_field_tag :fecha_fin_descarga, @gabarra.fin_fecha, { :disabled => campo_habilitado(gabarra.fin_fecha), :class => 'margen_b_10', :type => 'date', :size => 7, :placeholder => 'dd/mm/aaaa', :pattern => '(([1-9]|0[1-9]|[12]\d)/([1-9]|0[1-9]|1[012])|30/(0[13-9]|1[012])|31/(0[13578]|1[02]))/(19|20)\d\d' } %>
+          <%= text_field_tag :hora_fin_descarga, @gabarra.fin_hora, { :disabled => campo_habilitado(gabarra.fin_hora), :class => 'margen_b_10', :type => 'time', :size => 3, :placeholder => 'hh:mm', :pattern => '^([01]\d|2[0-3]|[0-9])(:[0-5]\d)$' } %>
         </div>
         <div class="clearfix"></div>
         <div class="grid_12 margen_b_10">
           <%= label_tag 'desatraque', '<strong>Desatraque</strong>' %>
-          <%= text_field_tag :fecha_desatraque, gabarra.desatraque_fecha, { :disabled => campo_habilitado(gabarra.desatraque_fecha), :class => 'margen_b_10', :type => 'date', :size => 7, :placeholder => 'dd/mm/aaaa', :pattern => '(([1-9]|0[1-9]|[12]\d)/([1-9]|0[1-9]|1[012])|30/(0[13-9]|1[012])|31/(0[13578]|1[02]))/(19|20)\d\d' } %>
-          <%= text_field_tag :hora_desatraque, gabarra.desatraque_hora, { :disabled => campo_habilitado(gabarra.desatraque_hora), :class => 'margen_b_10', :type => 'time', :size => 3, :placeholder => 'hh:mm', :pattern => '^([01]\d|2[0-3]|[0-9])(:[0-5]\d)$' } %>
+          <%= text_field_tag :fecha_desatraque, @gabarra.desatraque_fecha, { :disabled => campo_habilitado(gabarra.desatraque_fecha), :class => 'margen_b_10', :type => 'date', :size => 7, :placeholder => 'dd/mm/aaaa', :pattern => '(([1-9]|0[1-9]|[12]\d)/([1-9]|0[1-9]|1[012])|30/(0[13-9]|1[012])|31/(0[13578]|1[02]))/(19|20)\d\d' } %>
+          <%= text_field_tag :hora_desatraque, @gabarra.desatraque_hora, { :disabled => campo_habilitado(gabarra.desatraque_hora), :class => 'margen_b_10', :type => 'time', :size => 3, :placeholder => 'hh:mm', :pattern => '^([01]\d|2[0-3]|[0-9])(:[0-5]\d)$' } %>
         </div>
         <div class="grid_12 margen_b_10 margen_t_20">
-          <%= status_submit(gabarra.atraque_fecha, gabarra.inicio_fecha, gabarra.fin_fecha) %> 
+          <%= status_submit(@gabarra.atraque_fecha, @gabarra.inicio_fecha, @gabarra.fin_fecha) %> 
         </div>
         <div class="clearfix"></div>
       </form>
-    <% unless gabarra.atraque_fecha.nil? %>
+    <% unless @gabarra.atraque_fecha.nil? %>
       <h3 class="pequenio underlined down margen_b_20">Observaciones y acaecimientos</h3>
       <div class="margen_b_20  prefix_1">
     <% else %>
       <h3 class="pequenio underlined down margen_b_20 oculto">Observaciones y acaecimientos</h3>
       <div class="margen_b_20  prefix_1 oculto">
     <% end %>
-        <div class="historial_eventos">
-      <% unless gabarra.novedades.nil? %>
-        <% gabarra.novedades.each do |novedad| %>
+        <div class="historial_eventos" data-descarga-id="<%=h gabarra.descarga_id %>">
+      <% unless @gabarra.novedades.nil? %>
+        <% @gabarra.novedades.each do |novedad| %>
           <p class="margen_b_10"><%=h novedad.desc_novedad %></p>
-          <small><span class="rojo"><%=h novedad.inicio_novedad.to_s(:dia_mes) %> - <%=h novedad.fin_novedad.to_s(:dia_mes) %></span>  |  <%=h novedad.creator_id %></small>
+          <small><span class="rojo"><%=h l novedad.inicio_novedad, :format => :dia_mes %> - <%=h l novedad.fin_novedad, :format => :dia_mes %></span>  |  <%=h novedad.creator_id %></small>
           <hr />
         <% end %>
       <% end %>
         </div>
-        <h4 class="down margen_b_10">Reportar acaecimiento</h4>
-        <div>
-          <form class="evento" data-descarga-id="<%=h gabarra.descarga_id %>">
-            <div class="grid_12 margen_b_20 alpha">
-              <%= label_tag 'inicio_acaecimiento', '<strong>Inicio de acaecimiento</strong>' %>
-              <%= text_field_tag :fecha_inicio_acaecimiento, nil, :type => 'date', :size => 7, :placeholder => 'dd/mm/aaaa', :pattern => '(([1-9]|0[1-9]|[12]\d)/([1-9]|0[1-9]|1[012])|30/(0[13-9]|1[012])|31/(0[13578]|1[02]))/(19|20)\d\d', :autofocus => true %>
-              <%= text_field_tag :hora_inicio_acaecimiento, nil, :type => 'time', :size => 3, :placeholder => 'hh:mm', :pattern => '^([01]\d|2[0-3]|[0-9])(:[0-5]\d)$' %>
-            </div>
-            <div class="grid_12 margen_b_20 omega">
-              <%= label_tag 'fin_acaecimiento', '<strong>Fin de acaecimiento</strong>' %>
-              <%= text_field_tag :fecha_fin_acaecimiento, nil, :type => 'date', :size => 7, :placeholder => 'dd/mm/aaaa', :pattern => '(([1-9]|0[1-9]|[12]\d)/([1-9]|0[1-9]|1[012])|30/(0[13-9]|1[012])|31/(0[13578]|1[02]))/(19|20)\d\d' %>
-              <%= text_field_tag :hora_fin_acaecimiento, nil, :type => 'time', :size => 3, :placeholder => 'hh:mm', :pattern => '^([01]\d|2[0-3]|[0-9])(:[0-5]\d)$' %>
-            </div>
-            <div class="clearfix"></div>
-            <%= label_tag 'observacion_acaecimiento', '<strong>Descripción</strong>' %>
-            <%= text_area_tag 'observacion_acaecimiento', nil, :rows => nil, :cols => nil, :class => 'margen_b_10', :placeholder => 'Descripción del evento' %>
-            <%= submit_tag 'Enviar', :name => 'submit_acaecimiento', :id => 'submit_acaecimiento', :class => 'green pequenio', 'data-bax' => @gabarra.bax_id, 'data-gabarra' => @gabarra.gabarra_id %> 
-          </form>
-        </div>
+        <%= render "novedades/new_acaecimiento" %>
       </div>

@@ -35,7 +35,8 @@ $(document).ready(function() {
   $('.reportar_arribo').click(function() {
     var bax = $(this).data('bax'),
         esteban = $(this),
-        id = '#bax_' + bax.split('/')[0] + '_' + bax.split('/')[1];
+        id = '#bax_' + bax.split('/')[0] + '_' + bax.split('/')[1],
+        fecha_arribo = new Date();
     
     $(esteban).attr('disabled', 'disabled');
     $(esteban).addClass('hold');
@@ -44,6 +45,12 @@ $(document).ready(function() {
     $.post('arribos/reportar/' + bax, null, function(){
       $(esteban, id).removeClass('reportar_arribo');
       $(esteban, id).attr('value', status.label.reportado);
+
+      $('small.eta_bax_title', id).text('arribo matanzas (m-201):');
+      $('small.eta_bax_title', id).removeClass('eta_bax_title');
+      $('time.eta_bax_date', id).attr('datetime', formatDate(fecha_arribo, 'yyyy-MM-dd HH:mm:ss -0430'));
+      $('time.eta_bax_date', id).text(formatDate(fecha_arribo, 'dd/NNN./yyyy ~ HH:mm'));
+      $('time.eta_bax_date', id).removeClass('eta_bax_date');
 
       $('ul.gabarras li', id).each(function() {
         $(this).removeAttr('class');
@@ -58,8 +65,13 @@ $(document).ready(function() {
 
     return false;
   });
-  
-  $('.gabarras li').tipsy({gravity:'nw',fade:true,html:true,opacity:.9});
+
+  $('h3.down').click(function() {
+    var url = '/arribos/gabarras/' + $(this).next().data('bax');
+    $(this).next('ul.gabarras').load(url, function() {
+      $('.gabarras li').tipsy({gravity:'nw',fade:true,html:true,opacity:.9});
+    });
+  });
 
   $('.gabarras li:not(.deshabilitada)').live('click', function() {
     var bax_id = $(this).parent('.gabarras').data("bax"),
@@ -73,7 +85,7 @@ $(document).ready(function() {
         evento = {};
 
     $('#dialogo').append(
-      $('<div class="widget_descarga grid_10" id="' + widget_id + '"><img src="/images/loading_32.gif" alt="Cargando" title="Cargando" width="32" height="32" /></div>').load(url_arribo, function() {
+      $('<div class="widget_descarga" id="' + widget_id + '"><img src="/images/loading_32.gif" alt="Cargando" title="Cargando" width="32" height="32" /></div>').load(url_arribo, function() {
         $('h2', '#' + widget_id).parent('div').draggable();
 
         $('input[name="submit_campo"]', this).live('click', function() {
@@ -86,10 +98,12 @@ $(document).ready(function() {
               date = '';
           
           // Transformo la fecha de arribo en un objeto fecha
-          date = arribo.split('-');
-          date[2] = date[2].split(' ');
-          date[2][1] = date[2][1].split(':');
-          date = new Date(date[0], date[1], date[2][0], date[2][1][0], date[2][1][1], date[2][1][2]);
+          date = arribo.split('-'); // Separo el string en forma de array
+          date.pop(); // Elimino el último elemento del array (0430)
+          date[2] = date[2].trim(); // Elimino los espacios en blanco al rededor del 3 elemento
+          date[2] = date[2].split(' '); // Separo el tercer elemento, formando otro array
+          date[2][1] = date[2][1].split(':'); // Separo el segundo elemento del tercer elemento del array padre, formando otro array
+          date = new Date(date[0], date[1] - 1, date[2][0], date[2][1][0], date[2][1][1], date[2][1][2]); // Armo el objeto fecha con los datos de año, mes, día, hora, minutos y segundos
 
           $(this).attr('disabled', 'disabled');
           $(this).addClass('hold');
@@ -112,7 +126,7 @@ $(document).ready(function() {
                 $(this).val(status.label.atraque);
                 return false;
               } else if (compareDates(atraque, formato, arribo, 'yyyy-MM-dd HH:mm:ss') != 1) {
-                alert('La fecha y/u hora de atraque no puede ser menor a la fecha de arribo del buque (' + formatDate(date, 'dd/MM/yyyy HH:mm') + ').');
+                alert('La fecha y/u hora de atraque no puede ser menor a la fecha de arribo del BAX (' + formatDate(date, 'dd/MM/yyyy HH:mm') + ').');
                 $('input[name="submit_campo"]', '#' + widget_id).removeAttr('disabled');
                 $('input[name="submit_campo"]', '#' + widget_id).removeClass('hold');
                 $(this).val(status.label.atraque);
@@ -178,7 +192,7 @@ $(document).ready(function() {
 
               case status.boton.atraque:
                 $('input[name="fecha_inicio_descarga"], input[name="hora_inicio_descarga"]', '#' + widget_id).removeAttr('disabled');
-                $('form.evento', '#' + widget_id).data('descarga-id', data.descarga_bauxita.id);
+                $('.historial_eventos', '#' + widget_id).data('descarga-id', data.descarga_bauxita.id);
                 $('h3, h3+div', '#' + widget_id).fadeIn();
                 $('input[name="submit_campo"]', '#' + widget_id).data('status', status.boton.inicio_descarga);
                 $('input[name="submit_campo"]', '#' + widget_id).val(status.label.inicio_descarga);
@@ -258,7 +272,7 @@ $(document).ready(function() {
         }); // Enviar fechas y horas
 
         $('form.evento input[name="submit_acaecimiento"]', this).live('click', function() {
-          var url_evento = 'descargar/evento/' + $('form.evento', '#' + widget_id).data('descarga-id');
+          var url_evento = 'descargar/evento/' + $('.historial_eventos', '#' + widget_id).data('descarga-id');
 
           $('input[name="submit_acaecimiento"}', 'form.evento').attr('disabled', 'disabled');
           $('input[name="submit_acaecimiento"}', 'form.evento').addClass('hold');
@@ -328,18 +342,27 @@ $(document).ready(function() {
   });
 
   // Reporte de arribo de buque
-  $('.reportar_arribo_buque').click(function(){
+  $('.reportar_arribo_buque').click(function() {
     var boton = $(this),
-        selector_id = $(this).parent().parent().attr('id');
-    buque_id = boton.data('buque-id');
+        selector_id = $(this).parent().parent().attr('id'),
+        buque_id = boton.data('buque-id'),
+        id = '#buque_' + boton.data('buque-id'),
+        fecha_arribo = new Date();
 
     boton.attr('disabled', 'disabled');
     boton.addClass('hold');
     boton.val(status.label.hold);
 
     $.get('/buques/reportar/' + buque_id, null, function(data){
-      boton.fadeOut();
+      boton.fadeOut().remove();
       $('.descargar_buque', '#' + selector_id).delay(300).fadeIn();
+
+      $('small.eta_buque_title', id).text('arribo matanzas (m-201):');
+      $('small.eta_buque_title', id).removeClass('eta_bax_title');
+      $('time.eta_buque_date', id).attr('datetime', formatDate(fecha_arribo, 'yyyy-MM-dd HH:mm:ss -0430'));
+      $('time.eta_buque_date', id).text(formatDate(fecha_arribo, 'dd/NNN./yyyy ~ HH:mm'));
+      $('time.eta_buque_date', id).removeClass('eta_bax_date');
+
     }, 'json');
 
     return false;

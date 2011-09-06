@@ -56,7 +56,7 @@ h1.arribo{background:url("../images/ship_24.png") left top no-repeat}
 	.leyenda li.destracada{background:url("../images/flag_finish_16.png") left center no-repeat}
 		
 /* Descarga de gabarras */  
-  .widget_descarga{background-color:#fff;padding:10px;border:7px solid rgb(89, 11, 25);border:7px solid rgba(89, 11, 25, .75);position:relative;z-index:2000;box-shadow:0 0 7px #000;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;z-index:2000}
+  .widget_descarga{width:390px;background-color:#fff;padding:10px;border:7px solid rgb(89, 11, 25);border:7px solid rgba(89, 11, 25, .75);position:fixed;z-index:2000;box-shadow:0 0 7px #000;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;z-index:2000}
     .widget_descarga h2{cursor:pointer;padding-bottom:5px}
     .widget_descarga h2:active{cursor:move}
     .widget_descarga .cerrar{width:16px;height:16px;padding:5px;position:absolute;background:#fff url("../images/close_16.png") center no-repeat;cursor:pointer;-moz-border-radius:16px;-webkit-border-radius:16px;border-radius:16px;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;-moz-box-shadow:1px 1px 2px #b3b3b3;-webkit-box-shadow:1px 1px 2px #b3b3b3;box-shadow:1px 1px 2px #b3b3b3;border:1px solid #8996A0;top:-16px;right:-16px}

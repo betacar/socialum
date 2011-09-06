@@ -1,8 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.root :controller => 'overview'
   
-  map.resources :silos 
-
   map.resources :transportes
 
   map.resources :tipo_transportes
@@ -11,7 +9,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :procesos
 
-  map.resources :empresas
+  map.resources :buques
 
   map.resources :equipos
 
@@ -28,6 +26,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :arribos
 
   map.resources :descargar
+
+  map.resources :novedades
 
   map.devise_for :users
 
@@ -84,6 +84,12 @@ ActionController::Routing::Routes.draw do |map|
   
   map.connect 'arribos/:action/:num_zarpe/:anio_zarpe/:gabarra_id', 
               :controller => 'arribos',
+              :num_zarpe => /\d{3}/,
+              :anio_zarpe => /\d{4}/,
+              :gabarra_id => /(\w{2,5})-(\d{3,4}|\w{4})/
+  
+  map.connect 'arribos/:action/:num_zarpe/:anio_zarpe/:gabarra_id', 
+              :controller => 'gabarras',
               :num_zarpe => /\d{3}/,
               :anio_zarpe => /\d{4}/,
               :gabarra_id => /(\w{2,5})-(\d{3,4}|\w{4})/

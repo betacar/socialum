@@ -248,7 +248,7 @@ function formatDate(date, format) {
     var c = "";
     var token = "";
     var y = date.getYear() + "";
-    var M = date.getMonth();
+    var M = date.getMonth() + 1;
     var d = date.getDate();
     var E = date.getDay();
     var H = date.getHours();

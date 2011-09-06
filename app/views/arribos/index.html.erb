@@ -1,6 +1,6 @@
 <% titulo 'Arribos de material' %>
   <ul class="lista_lineal leyenda derecha">
-    <li><strong>Leyenda:</strong></li>
+    <li><strong>Estado de gabarras:</strong></li>
     <li class="navegando">Navegando</li>
     <li class="esperando">En espera para atracar</li>
     <li class="atracada">Atracada</li>
@@ -8,16 +8,12 @@
     <li class="vacia">Vacía</li>
     <li class="destracada">Desatracada</li>
   </ul>
-  <article class="grid_15">
+  <article class="grid_14">
 		<h1>Bauxita nacional</h1>
   <% @baxes.each do |bax| %>
     <div class="margen_b_30" id="<%= id(bax.id) %>">
       <h2 class="underlined down margen_b_20">BAX: <%=h bax.id %></h2>
       <div class="prefix_1 margen_b_30">
-        <div class="info oculto">
-          <span> </span>
-          <p></p>
-        </div>
         <div class="grid_13 alpha margen_b_10">
           <small class="tons">Motoempujador:</small>
           <p class="destacado margen_b_10"><%=h bax.remolcador %></p>
@@ -29,8 +25,13 @@
         <div class="grid_11 omega margen_b_10">
           <small class="tons">zarpe el jobal:</small>
           <time datetime="<%=h bax.fecha_hora_zarpe %>" class="destacado margen_b_10"><%=h getFechaHora(bax.fecha_hora_zarpe, true) %></time>
-          <small class="tons">eta matanzas (m-201):</small>
-          <time datetime="<%=h bax.eta_arribo %>" class="destacado margen_b_10"><%=h getFechaHora(bax.eta_arribo, true) %></time>
+        <% if bax.reportado == true %>
+          <small class="tons">arribo matanzas (m-201):</small>
+          <time datetime="<%=h bax.fecha_arribo %>" class="destacado margen_b_10"><%=h getFechaHora(bax.fecha_arribo, true) %></time>
+        <% else %>
+          <small class="tons eta_bax_title">eta matanzas (m-201):</small>
+          <time datetime="<%=h bax.eta_arribo %>" class="destacado margen_b_10 eta_bax_date"><%=h getFechaHora(bax.eta_arribo, true) %></time>
+        <% end %>
           <small class="tons">Peso:</small>
           <p class="destacado margen_b_10 rojo"><%=h delimitar(bax.carga_transportar) %> tons.</p>
           <div class="derecha">
@@ -38,22 +39,75 @@
           </div>
         </div>
         <div class="clearfix"></div>
-        <!--progress id="progress_<%= id(bax.id) %>" value="0" max="<%=h bax.carga_transportar %>"></progress-->
-        <h3 class="up">Gabarras (<%=h bax.cant_gabarras %>)</h3>
+        <h3 class="down">Gabarras (<%=h bax.cant_gabarras %>)</h3>
         <ul class="margen_b_30 gabarras" data-bax="<%=h bax.id %>">
-        <% bax.gabarras.each do |gabarra| %>
-          <li title="Peso: <strong><%=h delimitar(gabarra.tone_transportada) %> tons.</strong>" data-gabarra="<%=h gabarra.gabarra_id %>" id="<%= id(bax.id, gabarra.gabarra_id) %>" <%= habilitada(gabarra.status_img) %>>
-            <%= image_tag gabarra.status_img, :alt => nil %>
-            <p><%=h gabarra.gabarra_id %></p>
-          </li>
-        <% end %>
+          <div class="centro">
+            <%= image_tag "loading_32.gif", :alt => "Cargando, por favor espere...", :title => "Cargando, por favor espere..." %>
+            <p>Cargando, por favor espere...</p>
+          </div>
         </ul>
       </div>
     </div>
   <% end %>
   </article>
-  <aside class="grid_9">
+  <aside class="grid_10">
 		<h1>Buques</h1>
+    <% @buques.each do |buque| %>
+    <div class="margen_b_30">
+      <h2 class="down margen_b_20 underlined"><%=h buque.nombre_buque %></h2>
+      <div class="margen_b_30" id="buque_<%=h buque.id %>">
+        <div class="margen_b_10 grid_12 alpha">
+          <small class="caption tons">Tonelaje:</small>
+          <p class="destacado rojo"><%=h delimitar(buque.tonelaje_buque) %></p>
+        </div>
+        <div class="grid_12 omega">
+          <small class="caption tons">Tipo de material:</small>
+          <p class="destacado"><%=h buque.tipo_materia.desc_tipo_materia %></p>
+        </div>
+        <div class="clearfix"></div>
+        <div class="margen_b_10 grid_12 alpha">
+        <% if buque.fecha_arribo_buque.nil? %>
+          <small class="caption tons eta_buque_title">ETA matanzas (M-201):</small>
+          <time datetime="<%=h buque.eta_mtz_buque %>" class="destacado eta_buque_date"><%=h getFechaHora(buque.eta_mtz_buque, true) %></time>
+        <% else %>
+          <small class="caption tons">arribo matanzas (m-201):</small>
+          <time datetime="<%=h buque.fecha_arribo_buque %>" class="destacado"><%=h getFechaHora(buque.fecha_arribo_buque, true) %></time>
+        <% end %>
+        </div>
+        <div class="grid_12 omega">
+          <small class="caption tons">Proveedor:</small>
+          <p class="destacado"><%=h buque.proveedor_buque %></p>
+        </div>
+        <div class="clearfix"></div>
+        <div class="grid_12 margen_b_20 alpha">
+          <small class="caption tons">Origen:</small>
+          <p class="destacado"><%=h buque.origen_buque %></p>
+        </div>
+        <div class="grid_12 omega derecha padding_t_10">
+        <% if buque.fecha_arribo_buque.nil? %>
+          <input type="button" class="blue reportar_arribo_buque pequenio" value="Reportar arribo" data-buque-id="<%=h buque.id %>" />
+          <input type="button" class="green descargar_buque pequenio oculto" value="Descargar buque" data-buque-id="<%=h buque.id %>" />
+        <% else %>
+          <input type="button" class="green descargar_buque pequenio" value="Descargar buque" data-buque-id="<%=h buque.id %>" />
+        <% end %>           
+        </div>
+        <div class="clearfix"></div>
+        <div class="grid_12 alpha centro">
+          <input type="button" class="green pequenio edit" value="Editar buque" data-buque-id="<%=h buque.id %>" />
+        </div>
+        <div class="grid_12 omega centro">
+        <% if buque.activo? %>
+          <input type="button" class="cancel pequenio destroy" value="Desactivar buque" data-buque-id="<%=h buque.id %>" />
+        <% else %>
+          <input type="button" class="blue pequenio destroy" value="Activar buque" data-buque-id="<%=h buque.id %>" />
+        <% end %>
+        </div>
+        <div class="clearfix"></div>
+        <hr />
+      </div>
+    </div>
+    <% end %>
+    <%= submit_tag 'Añadir buque', :title => 'Añadir buque', :type => 'button', :class => 'pequenio add_buque' %>
   </aside>
   <div class="clearfix"></div>
 <% content_for :jquery_scripts do %>
