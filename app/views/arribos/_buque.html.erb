@@ -1,0 +1,122 @@
+      <span class="cerrar"> </span>
+      <div class="error oculto">
+        <p></p>
+      </div>
+      <div class="exito oculto">
+        <p></p>
+      </div>
+      <h2 class="underlined margen_b_20 down"><%=h @buque.nombre_buque %>: <span class="rojo"><%=h delimitar(@buque.tonelaje_buque) %> tons.</span></h2>
+      <div class="margen_b_20">
+        <div class="margen_b_10 grid_12 alpha">
+          <p class="caption tons">Capitán</p>
+          <p class="destacado"><%=h @buque.capitan_buque %></p>
+        </div>
+        <div class="grid_12 omega">
+          <p class="caption tons">Tipo de material</p>
+          <p class="destacado"><%=h @buque.tipo_materia.desc_tipo_materia %></p>
+        </div>
+        <div class="clearfix"></div>
+        <div class="margen_b_10 grid_12 alpha">
+          <p class="caption tons">Proveedor</p>
+          <p class="destacado"><%=h @buque.proveedor_buque %></p>
+        </div>
+        <div class="grid_12 omega">
+          <p class="caption tons">Origen</p>
+          <p class="destacado"><%=h @buque.origen_buque %></p>
+        </div>
+        <div class="clearfix"></div>
+        <hr />
+      </div>
+      <form>
+        <div class="grid_12 margen_b_10">
+          <%= label_tag 'atraque', '<strong>Atraque</strong>' %>
+          <input type="button" class="blue reportar_atraque pequenio" name="reportar_atraque" value="Reportar atraque" data-buque="11" />
+          <%= text_field_tag :fecha_atraque, @buque.atraque_fecha, { :disabled => campo_habilitado(buque.atraque_fecha), :class => 'margen_b_10', :type => 'date', :size => 7, :placeholder => 'dd/mm/aaaa', :pattern => '(([1-9]|0[1-9]|[12]\d)/([1-9]|0[1-9]|1[012])|30/(0[13-9]|1[012])|31/(0[13578]|1[02]))/(19|20)\d\d', :autofocus => true } %>
+          <%= text_field_tag :hora_atraque, @buque.atraque_hora, { :disabled => campo_habilitado(buque.atraque_hora), :class => 'margen_b_10', :type => 'time', :size => 3, :placeholder => 'hh:mm', :pattern => '^([01]\d|2[0-3]|[0-9])(:[0-5]\d)$' } %>
+        </div>
+        <div class="grid_12 margen_b_10">
+          <%= label_tag 'inicio_descarga', '<strong>Inicio de descarga</strong>' %>
+          <%= text_field_tag :fecha_inicio_descarga, @buque.inicio_fecha, { :disabled => campo_habilitado(buque.inicio_fecha), :class => 'margen_b_10', :type => 'date', :size => 7, :placeholder => 'dd/mm/aaaa', :pattern => '(([1-9]|0[1-9]|[12]\d)/([1-9]|0[1-9]|1[012])|30/(0[13-9]|1[012])|31/(0[13578]|1[02]))/(19|20)\d\d' } %>
+          <%= text_field_tag :hora_inicio_descarga, @buque.inicio_hora, { :disabled => campo_habilitado(buque.inicio_hora), :class => 'margen_b_10', :type => 'time', :size => 3, :placeholder => 'hh:mm', :pattern => '^([01]\d|2[0-3]|[0-9])(:[0-5]\d)$' } %>
+        </div>
+        <div class="clearfix"></div>
+        <div class="grid_12 margen_b_10">
+          <%= label_tag 'fin_descarga', '<strong>Fin de descarga</strong>' %>
+          <%= text_field_tag :fecha_fin_descarga, @buque.fin_fecha, { :disabled => campo_habilitado(buque.fin_fecha), :class => 'margen_b_10', :type => 'date', :size => 7, :placeholder => 'dd/mm/aaaa', :pattern => '(([1-9]|0[1-9]|[12]\d)/([1-9]|0[1-9]|1[012])|30/(0[13-9]|1[012])|31/(0[13578]|1[02]))/(19|20)\d\d' } %>
+          <%= text_field_tag :hora_fin_descarga, @buque.fin_hora, { :disabled => campo_habilitado(buque.fin_hora), :class => 'margen_b_10', :type => 'time', :size => 3, :placeholder => 'hh:mm', :pattern => '^([01]\d|2[0-3]|[0-9])(:[0-5]\d)$' } %>
+        </div>
+        <div class="grid_12 margen_b_10">
+          <%= label_tag 'desatraque', '<strong>Desatraque</strong>' %>
+          <%= text_field_tag :fecha_desatraque, @buque.desatraque_fecha, { :disabled => campo_habilitado(buque.desatraque_fecha), :class => 'margen_b_10', :type => 'date', :size => 7, :placeholder => 'dd/mm/aaaa', :pattern => '(([1-9]|0[1-9]|[12]\d)/([1-9]|0[1-9]|1[012])|30/(0[13-9]|1[012])|31/(0[13578]|1[02]))/(19|20)\d\d' } %>
+          <%= text_field_tag :hora_desatraque, @buque.desatraque_hora, { :disabled => campo_habilitado(buque.desatraque_hora), :class => 'margen_b_10', :type => 'time', :size => 3, :placeholder => 'hh:mm', :pattern => '^([01]\d|2[0-3]|[0-9])(:[0-5]\d)$' } %>
+        </div>
+        <div class="derecha wrapper clearfix">
+          <%= status_submit(@buque.atraque_fecha, @buque.inicio_fecha, @buque.fin_fecha) %> 
+        </div>
+      </form>
+      <h3 class="pequenio underlined down margen_b_20">Descarga de gabarras</h3>
+      <div class="margen_b_20  prefix_1">
+        <div class="margen_b_10 grid_12 alpha">
+          <p class="caption tons">Gabarra</p>
+          <p class="destacado">ACBL-213</p>
+        </div>
+        <div class="margen_b_10 grid_12 omega">
+          <p class="caption tons">Tonelaje</p>
+          <p class="rojo destacado">1.731,00 tons.</p>
+        </div>
+        <div class="clearfix"></div>
+        <div class="grid_12 alpha">
+          <p class="caption tons">Atraque y desatraque</p>
+          <p class="destacado">02/Ago. 00:00 - 02/Ago. 00:00</p>
+        </div>
+        <div class="grid_12 omega">
+          <p class="caption tons">Operaciones de descarga</p>
+          <p class="destacado">02/Ago. 00:00 - 02/Ago. 00:00</p>
+        </div>
+        <div class="clearfix"></div>
+        <hr />
+        <h4 class="down margen_b_20">Reportar gabarra</h4>
+        <div class="margen_b_20">
+          <form class="acaecimiento">
+            <div class="grid_12 margen_b_10">
+              <label for="cod_gabarra"><strong>Gabarra</strong></label>
+              <select name="cod_gabarra"> 
+                <option value="ACBL-201">ACBL-201</option>
+                <option value="ACBL-202">ACBL-202</option>
+                <option value="ACBL-203">ACBL-203</option>
+              </select>
+            </div>
+            <div class="grid_12 margen_b_10">
+              <label for="tonelaje"><strong>Tonelaje</strong></label>
+              <input name="tonelaje" type="number" size="18" pattern="(^(([1-2]{1})).)?(\d{1}\d{1}\d{1})$" placeholder="0.000,00" class="margen_b_10">
+            </div>
+            <div class="clearfix"></div>
+            <div class="grid_6 margen_b_10">
+              <label for="tonelaje">Atraque de gabarra</strong></label>
+              <input name="hora_atraque_gabarra" type="time" size="4" pattern="^(([0-2]{1}[0-3]{1})|([0-1]{1}\d{1})|(\d{1})):(([0-5]{1}\d{1}))$" placeholder="00:00" class="margen_b_10">
+            </div>
+            <div class="grid_6 margen_b_10">
+              <label for="tonelaje">Inicio de descarga</label>
+              <input name="hora_inicio_gabarra" type="time" size="4" pattern="^(([0-2]{1}[0-3]{1})|([0-1]{1}\d{1})|(\d{1})):(([0-5]{1}\d{1}))$" placeholder="00:00" class="margen_b_10">
+            </div>
+            <div class="grid_6 margen_b_10">
+              <label for="tonelaje">Fin de descarga</label>
+              <input name="hora_fin_gabarra" type="time" size="4" pattern="^(([0-2]{1}[0-3]{1})|([0-1]{1}\d{1})|(\d{1})):(([0-5]{1}\d{1}))$" placeholder="00:00" class="margen_b_10">
+            </div>
+            <div class="grid_6 margen_b_10">
+              <label for="tonelaje">Desastraque de gabarra</label>
+              <input name="hora_atraque_gabarra" type="time" size="4" pattern="^(([0-2]{1}[0-3]{1})|([0-1]{1}\d{1})|(\d{1})):(([0-5]{1}\d{1}))$" placeholder="00:00" class="margen_b_10">
+            </div>
+            <input type="submit" class="clearfix green pequenio" value="Enviar" />
+          </form>
+        </div>
+      </div>
+      <h3 class="pequenio underlined down margen_b_20 oculto">Observaciones y acaecimientos</h3>
+      <div class="margen_b_20  prefix_1 oculto">
+        <div class="historial_eventos" data-descarga-id="">
+          <p class="margen_b_10">Novedad</p>
+          <small><span class="rojo">  - </span>  |  </small>
+          <hr />
+        </div>
+        <%= render "novedades/new_acaecimiento" %>
+      </div>
