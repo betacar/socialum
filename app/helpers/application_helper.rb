@@ -6,6 +6,10 @@ module ApplicationHelper
     content_for(:titulo) { title }
   end
 
+  def main_clases(clases)
+    content_for(:main_clases) { clases }
+  end
+
   def strEstado(estado)
     if estado
       'Activo'
@@ -43,7 +47,7 @@ module ApplicationHelper
   # Llevar a formato fecha-hora
   def getFechaHora(fecha, mil = false)
     if fecha.nil?
-      fecha = "No disponible"
+      fecha = ''
     else
       l fecha.to_datetime
       if mil

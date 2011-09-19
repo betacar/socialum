@@ -58,29 +58,14 @@
         <span class="arribos"><%= link_to 'Arribos y descargas', :controller => 'arribos' %></span>
         <span class="flecha"> </span>
       </li>
-      <!--li title="Apilamiento de bauxita en patios">
-        <span class="apilado">Apilamiento</span>
-        <span class="flecha"> </span>
-      </li>
-      <li title="Alimentación de bauxita a planta">
-        <span class="alimentado">Alimentación</span>
-        <span class="flecha"> </span>
-      </li>
-      <li title="Almacenamiento de alúmina en silo">
-        <span class="almacenado">Almacenamiento</span>
-        <span class="flecha"> </span>
-      </li>
-      <li title="Despacho de alúmina a clientes">
-        <span class="despacho">Despacho</span>
-        <span class="flecha"> </span>
-      </li-->
       <li title="Resportes de novedades y fallas">
         <span class="novedades">Novedades</span>
         <span class="flecha"> </span>
       </li>
     </ul>
   </nav>
-  <section id="main" role="main" class="container_24">
+  <%= yield :tabulador, :cache => true %>
+  <section id="main" role="main" class="container_24 <%= yield(:main_clases) || nil %>">
   <% if flash[:success]%>
     <div class="exito">
       <span class="cerrar"> </span>

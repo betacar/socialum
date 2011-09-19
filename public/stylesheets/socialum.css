@@ -31,7 +31,7 @@ h1.arribo{background:url("../images/ship_24.png") left top no-repeat}
 	#menu .fallas{background:url("../images/sa_nav_icons_fallas.png") left center no-repeat}
 	#menu li.activo .fallas{background:url("../images/sa_nav_icons_fallas_sel.png") left center no-repeat}
 	
-/*.timeline div:nth-child(odd){background-color:#f2f2f2}
+#main.arribo{padding-top:20px;border-top:0 none;-moz-border-radius:0 0 5px 5px;-webkit-border-radius:0 0 5px 5px;border-radius:0 0 5px 5px}
 
 /* Grid de gabarras */
 	.gabarras{font-weight:bold;margin-left:0;margin-top:10px;padding-bottom:10px;border-bottom:1px solid #dfe5e6}
@@ -44,16 +44,8 @@ h1.arribo{background:url("../images/ship_24.png") left top no-repeat}
 
 #dialogo{position:fixed;height:auto;top:35%;left:35%;margin:0;padding:0}
 
-.leyenda{margin:-10px 0 10px;padding:10px 1%;background-color:#f2f2f2;border-bottom:1px solid #dfe5e6;-webkit-border-top-left-radius:5px;-webkit-border-top-right-radius:5px;-moz-border-radius-topleft:5px;-moz-border-radius-topright:5px;border-top-left-radius:5px;border-top-right-radius:5px;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box}
-	.leyenda li{margin-right:10px;padding-left:20px}
-	.leyenda li:last-child{margin-right:0}
-
-	.leyenda li.navegando{background:url("../images/steering_wheel_16.png") left center no-repeat}
-	.leyenda li.esperando{background:url("../images/clock_red_16.png") left center no-repeat}
-	.leyenda li.atracada{background:url("../images/anchor_16.png") left center no-repeat}
-	.leyenda li.descargando{background:url("../images/arrow_rotate_clockwise_16.png") left center no-repeat}
-	.leyenda li.vacia{background:url("../images/tick_16.png") left center no-repeat}
-	.leyenda li.destracada{background:url("../images/flag_finish_16.png") left center no-repeat}
+#tab.arribos{padding-top:9px;margin-bottom:-1px;position:relative;z-index:100;}
+	#tab.arribos li:first-child{margin-left:-1px}
 		
 /* Descarga de gabarras */  
   .widget_descarga{width:390px;background-color:#fff;padding:10px;border:7px solid rgb(89, 11, 25);border:7px solid rgba(89, 11, 25, .75);position:fixed;z-index:2000;box-shadow:0 0 7px #000;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;z-index:2000}
@@ -63,3 +55,5 @@ h1.arribo{background:url("../images/ship_24.png") left top no-repeat}
     .widget_descarga>img{margin:0 175px}
 
 .historial_eventos{max-height:250px;margin-bottom:20px;overflow-y:auto}
+
+.descarga_buque_gabarra .lista_lineal li:not(:first-child){margin-left:15px}
