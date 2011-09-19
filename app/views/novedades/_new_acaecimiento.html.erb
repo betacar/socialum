@@ -14,6 +14,10 @@
             <div class="clearfix"></div>
             <%= label_tag 'observacion_acaecimiento', '<strong>Descripción</strong>' %>
             <%= text_area_tag 'observacion_acaecimiento', nil, :rows => nil, :cols => nil, :class => 'margen_b_10', :placeholder => 'Descripción del evento' %>
-            <%= submit_tag 'Enviar', :name => 'submit_acaecimiento', :id => 'submit_acaecimiento', :class => 'green pequenio', 'data-bax' => @gabarra.bax_id, 'data-gabarra' => @gabarra.gabarra_id %> 
+          <% if embarque.class.name == 'BaxGabarra' %>
+            <%= submit_tag 'Enviar', :name => 'submit_acaecimiento', :id => 'submit_acaecimiento', :class => 'green pequenio', 'data-bax' => embarque.bax_id, 'data-gabarra' => embarque.gabarra_id %>
+          <% elsif embarque.class.name == 'Buque' %>
+            <%= submit_tag 'Enviar', :name => 'submit_acaecimiento', :id => 'submit_acaecimiento', :class => 'green pequenio', 'data-buque-id' => embarque.id %>
+          <% end %>
           </form>
         </div>

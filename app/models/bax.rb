@@ -9,7 +9,6 @@ class Bax < ActiveRecord::Base
   attr_accessor :remolcador, :empresa_transportista, :capitan, :reportado, :eta_arribo, :fecha_arribo # Atributos virtuales
   
   # Obtiene los trenes de gabarras que zarparon de Pijigüaos, 
-  # junto a las gabarras y los ensayos de laboratorio asociados
   def self.trenes
     baxes = self.all
     i = 0

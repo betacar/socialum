@@ -1,4 +1,6 @@
 class BuquesController < ApplicationController
+  before_filter :authenticate_user! # Autentica cada usuario contra LDAP antes de ejecutar cualquier controller
+  load_and_authorize_resource
   
   # GET /buques/new
   # GET /buques/new.json
@@ -33,7 +35,7 @@ class BuquesController < ApplicationController
   end
 
   def update 
-    @buque = Buque.actualizar(params)
+    @buque = Buque.guardar(params)
 
     respond_to do |format|
       if @buque
@@ -73,11 +75,9 @@ class BuquesController < ApplicationController
   end
 
   def descargar
-    # @buque = Buque.find(params[:id])
+    # @buque = Buque.info(params[:id])
 
     # respond_to do |format|
-    #   if @buque
-    #     if @buque.id == 1
     #     format.json { render :json => @buque }
     #   else
     #     format.json { render :json => @buque.errors, :status => :unprocessable_entity }

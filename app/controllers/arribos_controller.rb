@@ -5,7 +5,6 @@ class ArribosController < ApplicationController
   def index
     @baxes = Bax.trenes
     @buques = Buque.all(:conditions => {:activo => true, :descargado_buque => false}, :order => 'eta_mtz_buque')
-    # @buques = Buque.all(:order => 'eta_mtz_buque') # Para agregarlo cuando cuente con los abilitys de CanCan
     
     respond_to do |format|
       format.html
@@ -52,7 +51,7 @@ class ArribosController < ApplicationController
   end
 
   def buque
-    @buque = Buque.find(params[:id])
+    @buque = Buque.info(params[:id])
 
     respond_to do |format|
       if @buque

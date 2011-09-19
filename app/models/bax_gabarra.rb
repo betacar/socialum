@@ -98,7 +98,7 @@ class BaxGabarra < ActiveRecord::Base
         gabarra.equipo_id = descarga.equipo_id ? descarga.equipo_id : nil
 
         # Extraigo las novedades
-        gabarra.novedades = gabarra.atraque_fecha ? Novedad.find_all_by_proceso_id_and_proceso_type(descarga.id, 'DescargaBauxita') : nil
+        gabarra.novedades = gabarra.atraque_fecha ? Novedad.find_all_by_proceso_id_and_proceso_type(descarga.id, DescargaBauxita.name) : nil
       end
       
       # Traigo las grúas de descarga

@@ -8,39 +8,39 @@
       <h2 class="underlined margen_b_20 down"><%=h @gabarra.gabarra_id %>: <span class="rojo"><%=h delimitar(@gabarra.tone_transportada) %> tons.</span></h2>
       <div class="margen_b_20">
         <div class="grid_5 alpha margen_b_10">
-          <p class="caption tons">Humedad</p>
+          <small class="tons">Humedad</small>
           <p class="destacado"><%=h porcentual(@gabarra.humedad) %>%</p>
         </div>
         <div class="grid_5 alpha margen_b_10">
-          <p class="caption tons">Al<sub>2</sub>O<sub>2</sub></p>
+          <small class="tons">Al<sub>2</sub>O<sub>2</sub></small>
           <p class="destacado"><%=h porcentual(@gabarra.al2o3) %>%</p>
         </div>
         <div class="grid_5 alpha margen_b_10">
-          <p class="caption tons">Fe<sub>2</sub>O<sub>3</sub></p>
+          <small class="tons">Fe<sub>2</sub>O<sub>3</sub></small>
           <p class="destacado"><%=h porcentual(@gabarra.fe2o3) %>%</p>
         </div>
         <div class="grid_5 alpha margen_b_10">
-          <p class="caption tons">S. reactivo</p>
+          <small class="tons">S. reactivo</small>
           <p class="destacado"><%=h porcentual(@gabarra.sio2r) %>%</p>
         </div>
         <div class="grid_5 alpha margen_b_10">
-          <p class="caption tons">S. quarzo</p>
+          <small class="tons">S. quarzo</small>
           <p class="destacado"><%=h porcentual(@gabarra.sio2q) %>%</p>
         </div>
         <div class="clearfix"></div>
         <div class="grid_12 alpha">
-          <p class="caption tons">Procedencia del mineral</p>
+          <small class="tons">Procedencia del mineral</small>
           <p class="destacado"><%=h @gabarra.tipo_carga %></p>
         </div>
         <div class="grid_12 omega">
-          <p class="caption tons">Tipo de muestreo</p>
+          <small class="tons">Tipo de muestreo</small>
           <p class="destacado"><%=h @gabarra.muestreo %></p>
         </div>
         <div class="clearfix"></div>
         <hr />
       </div>
       <form>
-        <div class="grid_12 margen_b_10" data-arribo="<%=h @gabarra.arribo %>">
+        <div class="grid_12 margen_b_10">
           <%= label_tag 'atraque', '<strong>Atraque</strong>' %>
           <%= text_field_tag :fecha_atraque, @gabarra.atraque_fecha, { :disabled => campo_habilitado(gabarra.atraque_fecha), :class => 'margen_b_10', :type => 'date', :size => 7, :placeholder => 'dd/mm/aaaa', :pattern => '(([1-9]|0[1-9]|[12]\d)/([1-9]|0[1-9]|1[012])|30/(0[13-9]|1[012])|31/(0[13578]|1[02]))/(19|20)\d\d', :autofocus => true } %>
           <%= text_field_tag :hora_atraque, @gabarra.atraque_hora, { :disabled => campo_habilitado(gabarra.atraque_hora), :class => 'margen_b_10', :type => 'time', :size => 3, :placeholder => 'hh:mm', :pattern => '^([01]\d|2[0-3]|[0-9])(:[0-5]\d)$' } %>
@@ -87,5 +87,5 @@
         <% end %>
       <% end %>
         </div>
-        <%= render "novedades/new_acaecimiento" %>
+        <%= render :partial => "novedades/new_acaecimiento", :locals => { :embarque => @gabarra } %>
       </div>
