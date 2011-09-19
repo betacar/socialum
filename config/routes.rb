@@ -76,36 +76,49 @@ ActionController::Routing::Routes.draw do |map|
   # consider removing or commenting them out if you're using named routes and resources.
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
-  
+
+  # Ruta para reportar arribos de Bax
   map.connect 'arribos/:action/:num_zarpe/:anio_zarpe',
               :controller => 'arribos',
+              :action => 'reportar',
+              :num_zarpe => /\d{3}/,
+              :anio_zarpe => /\d{4}/
+
+  # Ruta para cargar en el view las gabarras del BAX
+  map.connect 'arribos/:action/:num_zarpe/:anio_zarpe',
+              :controller => 'arribos',
+              :action => 'gabarras',
               :num_zarpe => /\d{3}/,
               :anio_zarpe => /\d{4}/
   
+  # Ruta para dialogos de descarga de gabarra de un Bax
   map.connect 'arribos/:action/:num_zarpe/:anio_zarpe/:gabarra_id', 
               :controller => 'arribos',
+              :action => 'gabarra',
               :num_zarpe => /\d{3}/,
               :anio_zarpe => /\d{4}/,
               :gabarra_id => /(\w{2,5})-(\d{3,4}|\w{4})/
   
-  map.connect 'arribos/:action/:num_zarpe/:anio_zarpe/:gabarra_id', 
-              :controller => 'gabarras',
-              :num_zarpe => /\d{3}/,
-              :anio_zarpe => /\d{4}/,
-              :gabarra_id => /(\w{2,5})-(\d{3,4}|\w{4})/
-  
+  # Ruta para subir los valores de descarga de gabarras de un Bax  
   map.connect 'descargar/:action/:num_zarpe/:anio_zarpe/:gabarra_id', 
               :controller => 'descargar',
               :action => 'gabarra',
               :num_zarpe => /\d{3}/,
               :anio_zarpe => /\d{4}/,
               :gabarra_id => /(\w{2,5})-(\d{3,4}|\w{4})/
-              
+  
+  # Ruta para subir los valores de descarga de gabarras de un Bax, con formato
   map.connect 'descargar/:action/:num_zarpe/:anio_zarpe/:gabarra_id.:format', 
               :controller => 'descargar',
               :action => 'gabarra',
               :num_zarpe => /\d{3}/,
               :anio_zarpe => /\d{4}/,
               :gabarra_id => /(\w{2,5})-(\d{3,4}|\w{4})/
-              
+  
+  # Ruta para subir los valores de descarga de un buque
+  map.connect 'descargar/:action/:tipo_materia_id/:buque_id',
+              :controller => 'descargar',
+              :action => 'buque',
+              :tipo_materia_id => /\d{1,}/,
+              :buque_id => /\d{1,}/
 end
