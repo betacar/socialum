@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110824182835) do
+ActiveRecord::Schema.define(:version => 20110907180628) do
 
   create_table "alarmas", :force => true do |t|
     t.string   "nombre_alarma",                   :null => false
@@ -35,9 +35,9 @@ ActiveRecord::Schema.define(:version => 20110824182835) do
   end
 
   create_table "buques", :force => true do |t|
-    t.boolean  "activo",              :default => true,  :null => false
-    t.integer  "tipo_materia_id",                        :null => false
-    t.string   "nombre_buque",                           :null => false
+    t.boolean  "activo",                      :default => true,  :null => false
+    t.integer  "tipo_materia_id",                                :null => false
+    t.string   "nombre_buque",                                   :null => false
     t.string   "origen_buque"
     t.string   "proveedor_buque"
     t.string   "condicion_buque"
@@ -46,8 +46,18 @@ ActiveRecord::Schema.define(:version => 20110824182835) do
     t.datetime "fecha_zarpe_buque"
     t.datetime "eta_mtz_buque"
     t.datetime "fecha_arribo_buque"
+    t.datetime "fecha_atraque_buque"
+    t.datetime "fecha_inicio_descarga_buque"
+    t.datetime "fecha_fin_descarga_buque"
+    t.datetime "fecha_desatraque_buque"
+    t.decimal  "tiempo_permitido_buque"
+    t.decimal  "tiempo_utilizado_buque"
+    t.decimal  "rata_permitida_buque"
+    t.decimal  "rata_utilizada_buque"
+    t.decimal  "pago_demora_buque"
+    t.decimal  "pago_despacho_buque"
     t.text     "observaciones_buque"
-    t.boolean  "descargado_buque",    :default => false, :null => false
+    t.boolean  "descargado_buque",            :default => false, :null => false
     t.integer  "creator_id"
     t.integer  "updater_id"
     t.datetime "created_at"
@@ -65,26 +75,6 @@ ActiveRecord::Schema.define(:version => 20110824182835) do
     t.datetime "inicio_descarga_bauxita"
     t.datetime "fin_descarga_bauxita"
     t.datetime "desatraque_descarga_bauxita"
-    t.integer  "creator_id"
-    t.integer  "updater_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "descargas_otros", :force => true do |t|
-    t.integer  "buque_id"
-    t.integer  "gabarra_id"
-    t.datetime "atraque_descarga_otro"
-    t.datetime "inicio_descarga_otro"
-    t.datetime "fin_descarga_otro"
-    t.datetime "desatraque_descarga_otro"
-    t.decimal  "tonelaje_descarga_otro"
-    t.decimal  "tiempo_permitido_descarga_otro"
-    t.decimal  "tiempo_utilizado_descarga_otro"
-    t.decimal  "rata_permitida_descarga_otro"
-    t.decimal  "rata_utilizada_descarga_otro"
-    t.decimal  "pago_demora_descarga_otro"
-    t.decimal  "pago_despacho_descarga_otro"
     t.integer  "creator_id"
     t.integer  "updater_id"
     t.datetime "created_at"
