@@ -22,7 +22,7 @@
     <div class="container_24">
     <% if user_signed_in? %>
       <p class="grid_12">
-        <span class="ayuda"><a href="#help">Ayuda</a></span>  |  <span class="configuracion"><%= link_to 'Configuración', :controller => 'configuracion' %></span>
+        <span class="ayuda"><a href="#help">Ayuda</a></span><% if can? :manage, User %>  |  <span class="configuracion"><%= link_to 'Configuración', :controller => 'configuracion' %></span><% end %>
       </p>
     <% end %>
     <% if user_signed_in? %>
