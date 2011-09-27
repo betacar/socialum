@@ -8,12 +8,8 @@ $(document).ready(function() {
           submit: 'subir'
         },
         label: { // Como etiqueta para el submit
+          send: 'Enviar',
           hold: 'Por favor espere',
-          atraque: 'Enviar atraque',
-          inicio_descarga: 'Enviar inicio de descarga',
-          fin_descarga: 'Enviar fin de descarga',
-          desatraque: 'Enviar desatraque',
-          submit: 'Enviar',
           stop: 'Gabarra procesada',
           reportar: 'Reportar arribo',
           reportado: 'Arribo reportado'
@@ -27,7 +23,8 @@ $(document).ready(function() {
         }
       },
       buque_id = 0,
-      formato = 'd/M/yyyy H:mm'; // Formato default para fechas, para usar con la librería de fechas.
+      formato_datetime = 'd/M/yyyy H:mm', // Formato default para fechas, para usar con la librería de fechas.
+      formato_date = 'd/m/yyyy';
   
   // Control de tabulador de bauxita y buques
   $('.remolcadores, .importaciones').click(function(){
@@ -52,9 +49,9 @@ $(document).ready(function() {
         id = '#bax_' + bax.split('/')[0] + '_' + bax.split('/')[1], // Armo el selector del BAX
         fecha_arribo = new Date();
     
-    $(esteban).attr('disabled', 'disabled');
-    $(esteban).addClass('hold');
-    $(esteban).val(status.label.hold);
+    esteban.attr('disabled', 'disabled');
+    esteban.addClass('hold');
+    esteban.val(status.label.hold);
         
     $.post('arribos/reportar/' + bax, null, function(){
       $(esteban, id).removeClass('reportar_arribo');
@@ -75,7 +72,7 @@ $(document).ready(function() {
       $(esteban, id).val(status.label.reportar);
     });
 
-    $(esteban).removeClass('hold');
+    esteban.removeClass('hold');
 
     return false;
   });
@@ -98,153 +95,111 @@ $(document).ready(function() {
         url_descarga = 'descargar/gabarra/' + bax_id + '/' + gabarra_id,
         descarga = {},
         evento = {};
+    var arribo = $('time.fecha_arribo', '#bax_' + bax[0] + '_' + bax[1]).attr('datetime');
 
     $('#dialogo').append(
       $('<div class="widget_descarga" id="' + widget_id + '"><div class="centro"><img src="/images/loading_32.gif" alt="Cargando" title="Cargando" width="32" height="32" /><p>Cargando, por favor espere...</p></div></div>').load(url_arribo, function() {
-        $('h2', '#' + widget_id).parent('div').draggable();
+        
+        var date = '',
+            patron = /(\d{4})-(\d{2})-(\d{2})\s(\d{2}):(\d{2}):(\d{2})\s-\d{4}/g; // Expresion regular para matchear la fecha en formato datetime
+        
+        $('h2', this).parent('div').draggable();
+
+        // Transformo la fecha de arribo en un objeto fecha
+        date = patron.exec(arribo); // Separo el string en forma de array, según el patron
+        date.shift(); // Elimino el primer elemento del array (string de arribo)
+        date = new Date(date[0], date[1] - 1, date[2], date[3], date[4], date[5]); // Armo el objeto fecha con los datos de año, mes, día, hora, minutos y segundos
+
+        // Control para 'observar' los cambios en los campos de fecha y hora de atraque, inicio de descarga, fin de descarga y desatraque
+        $('input[name="fecha_atraque"], input[name="hora_atraque"], input[name="fecha_inicio_descarga"], input[name="hora_inicio_descarga"], input[name="fecha_fin_descarga"], input[name="hora_fin_descarga"], input[name="fecha_desatraque"], input[name="hora_desatraque"]', this).change(function() {
+          var campo = $(this);
+
+          if(campo.is('[name^="fecha_"]')) { // Si el valor del atributo name del campo comienza por fecha, entonces es fecha.
+            if (campo.val() == null || !isDate(campo.val(), formato_date)) {
+              campo.addClass('hasError'); // Imprimimos el error en la ventana de descarga
+              error_dialogo_descarga('La fecha no puede ser vacía o no cumple el formato requerido (dd/mm/aaaa).', widget_id);
+            } else if (campo.is('[name="fecha_atraque"]')) { // Si es atraque
+              validar_campo_fecha(campo,  formatDate(date, 'dd/MM/yyyy'), 'La fecha de atraque no puede ser menor a la fecha de arribo del BAX (' + formatDate(date, 'dd/MM/yyyy') + ').', widget_id);
+            } else if (campo.is('[name="fecha_inicio_descarga"]')) { // Si inicio de descarga
+              validar_campo_fecha(campo,  $('input[name="fecha_atraque"]', '#' + widget_id).val(), 'La fecha de inicio de descarga no puede ser menor a la fecha de atraque (' + $('input[name="fecha_atraque"]', '#' + widget_id).val() + ').', widget_id);
+            } else if (campo.is('[name="fecha_fin_descarga"]')) { // Si es fin de descarga
+              validar_campo_fecha(campo,  $('input[name="fecha_inicio_descarga"]', '#' + widget_id).val(), 'La fecha de fin de descarga no puede ser menor a la fecha de inicio de descarga (' + $('input[name="fecha_inicio_descarga"]', '#' + widget_id).val() + ').', widget_id);
+            } else if (campo.is('[name="fecha_desatraque"]')) { // Si es desatraque
+              validar_campo_fecha(campo, $('input[name="fecha_fin_descarga"]', '#' + widget_id).val(), 'La fecha de desatraque de gabarra no puede ser menor a la fecha de fin de descarga (' + $('input[name="fecha_fin_descarga"]', '#' + widget_id).val() + ').', widget_id);
+            }
+          } else if (campo.is('[name^="hora_"]')) { // Sino, es hora
+            // Las validaciones de hora se hacen uniendo la fecha y la hora. 
+            // No es posible validar una hora sin fecha.
+            if (!isDate(campo.val(), 'H:mm')) {
+              campo.addClass('hasError');
+              error_dialogo_descarga('La hora no puede ser vacía o no cumple el formato militar requerido (HH:MM).', widget_id);
+            } else if (campo.is('[name="hora_atraque"]')) { // Si es hora de atraque
+              validar_campo_hora(campo, formatDate(date, 'dd/MM/yyyy HH:mm'), 'La hora de atraque no puede ser menor o igual a la hora de arribo del BAX (' + formatDate(date, 'HH:mm') + ').', widget_id, false); 
+            } else if (campo.is('[name="hora_inicio_descarga"]')) { // Si es inicio de descarga
+              validar_campo_hora(campo, $('input[name="fecha_atraque"]', '#' + widget_id).val() + ' ' + $('input[name="hora_atraque"]', '#' + widget_id).val(), 'La hora de inicio de descarga no puede ser menor o igual a la hora de atraque (' + $('input[name="fecha_atraque"]', '#' + widget_id).val() + ' ' + $('input[name="hora_atraque"]', '#' + widget_id).val() + ').', widget_id, status.boton.inicio_descarga); 
+            } else if (campo.is('[name="hora_fin_descarga"]')) { // Si es fin de descarga
+              validar_campo_hora(campo, $('input[name="fecha_inicio_descarga"]', '#' + widget_id).val() + ' ' + $('input[name="hora_inicio_descarga"]', '#' + widget_id).val(), 'La hora de fin de descarga no puede ser menor o igual a la hora de inicio de descarga (' + $('input[name="fecha_inicio_descarga"]', '#' + widget_id).val() + ' ' + $('input[name="hora_inicio_descarga"]', '#' + widget_id).val() + ').', widget_id, status.boton.fin_descarga); 
+            } else if (campo.is('[name="hora_desatraque"]')) { // Si es desatraque
+              validar_campo_hora(campo, $('input[name="fecha_fin_descarga"]', '#' + widget_id).val() + ' ' + $('input[name="hora_fin_descarga"]', '#' + widget_id).val(), 'La hora de fin de descarga no puede ser menor o igual a la hora de inicio de descarga (' + $('input[name="fecha_fin_descarga"]', '#' + widget_id).val() + ' ' + $('input[name="hora_fin_descarga"]', '#' + widget_id).val() + ').', widget_id, status.boton.desatraque); 
+            }
+          }
+        });
 
         $('input[name="submit_campo"]', this).live('click', function() {
-
-          var arribo = $('time.fecha_arribo', '#bax_' + bax[0] + '_' + bax[1]).attr('datetime'),
-              atraque = $('input[name="fecha_atraque"]', '#' + widget_id).val() + ' ' + $('input[name="hora_atraque"]', '#' + widget_id).val(),
-              inicio_descarga = $('input[name="fecha_inicio_descarga"]', '#' + widget_id).val() + ' ' + $('input[name="hora_inicio_descarga"]', '#' + widget_id).val(),
-              fin_descarga = $('input[name="fecha_fin_descarga"]', '#' + widget_id).val() + ' ' + $('input[name="hora_fin_descarga"]', '#' + widget_id).val(),
-              desatraque = $('input[name="fecha_desatraque"]', '#' + widget_id).val() + ' ' + $('input[name="hora_desatraque"]', '#' + widget_id).val(),
-              date = '',
-              patron = /(\d{4})-(\d{2})-(\d{2})\s(\d{2}):(\d{2}):(\d{2})\s-\d{4}/g, // Expresion regular para matchear la fecha en formato timedate
-              este = $(this); // Selector 
-          
-          // Transformo la fecha de arribo en un objeto fecha
-          date = patron.exec(arribo); // Separo el string en forma de array, según el patron
-          date.shift(); // Elimino el primer elemento del array (string de arribo)
-          date = new Date(date[0], date[1] - 1, date[2], date[3], date[4], date[5]); // Armo el objeto fecha con los datos de año, mes, día, hora, minutos y segundos
-
-          // Deshabilito el boton, para evitar más clicks
-          $(este).attr('disabled', 'disabled');
-          $(este).addClass('hold');
-          $(este).val(status.label.hold);
+          var este = $(this); // Selector 
 
           descarga = {
             equipo_id: $('select[name="equipo_id"]', '#' + widget_id).val(),
-            atraque: atraque,
-            inicio_descarga: inicio_descarga,
-            fin_descarga: fin_descarga,
-            desatraque: desatraque
+            atraque: $('input[name="fecha_atraque"]', '#' + widget_id).val() + ' ' + $('input[name="hora_atraque"]', '#' + widget_id).val(),
+            inicio_descarga: $('input[name="fecha_inicio_descarga"]', '#' + widget_id).val() + ' ' + $('input[name="hora_inicio_descarga"]', '#' + widget_id).val(),
+            fin_descarga: $('input[name="fecha_fin_descarga"]', '#' + widget_id).val() + ' ' + $('input[name="hora_fin_descarga"]', '#' + widget_id).val(),
+            desatraque: $('input[name="fecha_desatraque"]', '#' + widget_id).val() + ' ' + $('input[name="hora_desatraque"]', '#' + widget_id).val()
           }
-
-          // Dependiendo del status del boton, comparo fechas de atraque vs. arribo, inicio de descarga vs. atraque, fin de descarga vs. inicio de descarga, desatraque vs. fin de descarga.
-          // compareDates: Compara fechas. | formatDate: da formato a un objeto fecha.
-          // Si es mayor, retorna 1. Si es menor, retorna 0. Si es -1, hay un error en el formato de fechas.
-          // En todos los casos se valida que el formato de fecha sea valido.
-          // Según sea el caso, hay valores que se establecen en blanco para montar el stock de gabarras.
-          switch($(this).data('status')) {
-            case status.boton.atraque:
-              if (atraque == null || !isDate(atraque, formato)) {
-                alert('La fecha y/u hora de atraque no puede ser vacío o no cumple el formato requerido (dd/mm/aaaa). La hora debe estar formato militar (24H).');
-                $(este, '#' + widget_id).removeAttr('disabled');
-                $(este, '#' + widget_id).removeClass('hold');
-                $(este).val(status.label.atraque);
-                return false;
-              } else if (compareDates(atraque, formato, arribo, 'yyyy-MM-dd HH:mm:ss -0430') != 1) {
-                alert('La fecha y/u hora de atraque no puede ser menor a la fecha de arribo del BAX (' + formatDate(date, 'dd/MM/yyyy HH:mm') + ').');
-                $(este, '#' + widget_id).removeAttr('disabled');
-                $(este, '#' + widget_id).removeClass('hold');
-                $(este).val(status.label.atraque);
-                return false;
-              } else descarga.inicio_descarga = descarga.fin_descarga = descarga.desatraque = null;
-              break;
-            case status.boton.inicio_descarga:              
-              if (inicio_descarga == null || !isDate(inicio_descarga, formato)) {
-                alert('La fecha y/u hora de inicio de descarga no puede ser vacío o no cumple el formato requerido (dd/mm/aaaa). La hora debe estar formato militar (24H).');
-                $(este, '#' + widget_id).removeAttr('disabled');
-                $(este, '#' + widget_id).removeClass('hold');
-                $(este).val(status.label.inicio_descarga);
-                return false;
-              } else if (compareDates(inicio_descarga, formato, atraque, formato) != 1) {
-                alert('La fecha y/u hora de inicio de descarga no puede ser menor a la fecha de atraque (' + atraque + ').');
-                $(este, '#' + widget_id).removeAttr('disabled');
-                $(este, '#' + widget_id).removeClass('hold');
-                $(este).val(status.label.inicio_descarga);
-                return false;
-              } else descarga.fin_descarga = descarga.desatraque = null;
-              break;
-            case status.boton.fin_descarga:              
-              if (fin_descarga == null || !isDate(fin_descarga, formato)) {
-                alert('La fecha y/u hora de fin de descarga no puede ser vacío o no cumple el formato requerido (dd/mm/aaaa). La hora debe estar formato militar (24H).');
-                $(este, '#' + widget_id).removeAttr('disabled');
-                $(este, '#' + widget_id).removeClass('hold');
-                $(este).val(status.label.fin_descarga);
-                return false;
-              } else if (compareDates(fin_descarga, formato, inicio_descarga, formato) != 1) {
-                alert('La fecha y/u hora de fin de descarga no puede ser menor a la fecha de inicio de descarga (' + inicio_descarga + ').');
-                $(este, '#' + widget_id).removeAttr('disabled');
-                $(este, '#' + widget_id).removeClass('hold');
-                $(este).val(status.label.fin_descarga);
-                return false;
-              } else descarga.desatraque = null;
-              break;
-            case status.boton.desatraque:
-              if (desatraque == null || !isDate(desatraque, formato)) {
-                alert('La fecha y/u hora de fin de descarga no puede ser vacío o no cumple el formato requerido (dd/mm/aaaa). La hora debe estar formato militar (24H).');
-                $(este, '#' + widget_id).removeAttr('disabled');
-                $(este, '#' + widget_id).removeClass('hold');
-                $(este).val(status.label.desatraque);
-                return false;
-              } else if (compareDates(desatraque, formato, fin_descarga, formato) != 1) {
-                alert('La fecha y/u hora de fin de descarga no puede ser menor a la fecha de inicio de descarga (' + fin_descarga + ').');
-                $(este, '#' + widget_id).removeAttr('disabled');
-                $(este, '#' + widget_id).removeClass('hold');
-                $(este).val(status.label.desatraque);
-                return false;
-              }
-              break;
-            default:
-              console.log('Estatus antes del $.post: ' + $(this).data('status'));
-              break;
-          }
+          
+          // Deshabilito el boton, para evitar más clicks
+          este.attr('disabled', 'disabled');
+          este.addClass('hold');
+          este.val(status.label.hold);
 
           $.post(url_descarga, descarga, function(data) {
 
-            $(este, '#' + widget_id).removeAttr('disabled');
-            $(este, '#' + widget_id).removeClass('hold');
+            $('h3, h3+div', '#' + widget_id).fadeIn();
+
+            if (!$('.historial_eventos', '#' + widget_id).data('descarga-id')) $('.historial_eventos', '#' + widget_id).data('descarga-id', data.descarga_bauxita.id);
 
             switch($(este, '#' + widget_id).data('status')) {
 
               case status.boton.atraque:
-                $('input[name="fecha_inicio_descarga"], input[name="hora_inicio_descarga"]', '#' + widget_id).removeAttr('disabled');
-                $('.historial_eventos', '#' + widget_id).data('descarga-id', data.descarga_bauxita.id);
                 $('h3, h3+div', '#' + widget_id).fadeIn();
                 $(este, '#' + widget_id).data('status', status.boton.inicio_descarga);
-                $(este, '#' + widget_id).val(status.label.inicio_descarga);
                 $('#gabarra_' + widget_id).children('img').attr('src', status.img.atraque);
                 break;
               case status.boton.inicio_descarga:
-                $('input[name="fecha_fin_descarga"], input[name="hora_fin_descarga"]', '#' + widget_id).removeAttr('disabled');
                 $(este, '#' + widget_id).data('status', status.boton.fin_descarga);
-                $(este, '#' + widget_id).val(status.label.fin_descarga);
                 $('#gabarra_' + widget_id).children('img').attr('src', status.img.descarga);
                 break;
               case status.boton.fin_descarga:
-                $('input[name="fecha_desatraque"], input[name="hora_desatraque"]', '#' + widget_id).removeAttr('disabled');
                 $(este, '#' + widget_id).data('status', status.boton.desatraque);
-                $(este, '#' + widget_id).val(status.label.desatraque);
                 $('#gabarra_' + widget_id).children('img').attr('src', status.img.vacia);
                 break;
               case status.boton.desatraque:
-                $('input[name="fecha_desatraque"], input[name="hora_desatraque"]', '#' + widget_id).removeAttr('disabled');
                 $('#gabarra_' + widget_id).children('img').attr('src', status.img.desatraque);
                 $('#gabarra_' + widget_id).addClass('deshabilitada');
                 $('#gabarra_' + widget_id).die('click');
-                $(este, '#' + widget_id).data('status', status.boton.submit);
-                $(este, '#' + widget_id).val(status.label.submit);
-                break;
-              case status.boton.submit:
-                $(este, '#' + widget_id).val(status.label.stop);
-                $('input[name="fecha_atraque"], input[name="hora_atraque"], select[name="equipo_id"], input[name="fecha_inicio_descarga"], input[name="hora_inicio_descarga"], input[name="fecha_fin_descarga"], input[name="hora_fin_descarga"], input[name="fecha_desatraque"], input[name="hora_desatraque"], input[name="submit_campo"]', '#' + widget_id).attr('disabled', 'disabled');
                 break;
               default:
                 console.log('¡Epa! No debería caer acá. Este es el estatus: ' + $(this).data('status'));
                 break;
+            }
+
+            if (data.descarga_bauxita.desatraque_descarga_bauxita) {
+              $('input[name^="fecha_"], input[name^="hora_"], input[name="submit_campo"]', '#' + widget_id).attr('disabled', 'disabled');
+              $(este, '#' + widget_id).val(status.label.stop);
+              $(este, '#' + widget_id).removeClass('hold');
+            } else {
+              $(este, '#' + widget_id).val(status.label.send);
+              $(este, '#' + widget_id).removeAttr('disabled');
+              $(este, '#' + widget_id).removeClass('hold');
             }
 
             $('.exito', '#' + widget_id).children('p').text('Se han cargado los datos correctamente.');
@@ -253,10 +208,12 @@ $(document).ready(function() {
               $('.exito', '#' + widget_id).fadeIn();
               $('.exito', '#' + widget_id).delay(7000).fadeOut();
             }
+
           }).error(function(error) {
 
-            $(este, '#' + widget_id).removeAttr('disabled');
-            $(este, '#' + widget_id).removeClass('hold');
+          $(este, '#' + widget_id).val(status.label.send);
+          $(este, '#' + widget_id).removeAttr('disabled');
+          $(este, '#' + widget_id).removeClass('hold');
 
             switch($(este, '#' + widget_id).data('status')) {
 
@@ -279,13 +236,10 @@ $(document).ready(function() {
                 console.log('¡Epa! No debería caer acá. Este es el estatus: ' + $(this).data('status'));
                 break;
             }
-
-            $('.error', '#' + widget_id).children('p').text(error.responseText);
-
-            if ($('.error', '#' + widget_id).hasClass('oculto')) {
-              $('.error', '#' + widget_id).fadeIn();
-              $('.error', '#' + widget_id).delay(10000).fadeOut();
-            }
+            
+            // Imprimimos el error en la ventana de descarga
+            error_dialogo_descarga(error.responseText, widget_id);
+            
           });
 
           return false;
@@ -399,3 +353,60 @@ $(document).ready(function() {
     return false;
   });
 });
+
+function error_dialogo_descarga(string, widget_id) {
+  $('.error', '#' + widget_id).children('p').text(string);
+
+  if ($('.error', '#' + widget_id).hasClass('oculto')) {
+    $('.error', '#' + widget_id).fadeIn();
+    $('.error', '#' + widget_id).delay(10000).fadeOut();
+  }
+
+  return false;
+}
+
+function validar_campo_fecha(field, previous, string_error, widget_id) {
+  if (compareDates(previous, 'd/m/yyyy', field.val(), 'd/m/yyyy') == 1) {
+    field.addClass('hasError');
+    error_dialogo_descarga(string_error, widget_id);
+
+    if ($('input.hasError', '#' + widget_id).size()) {
+      $('input[name="submit_campo"]', '#' + widget_id).attr('disabled', 'disabled');
+    }
+  } else {
+    if (field.hasClass('hasError')) field.removeClass('hasError');
+
+    if (!$('.error', '#' + widget_id).hasClass('oculto')) $('.error', '#' + widget_id).fadeOut();
+
+    if (!$('input.hasError', '#' + widget_id).size()) {
+      console.log('No hay errores');
+      $('input[name="submit_campo"]', '#' + widget_id).removeAttr('disabled');
+    }
+  }
+  return false;
+}
+
+function validar_campo_hora(field, previous, string_error, widget_id, status) {
+  status = typeof status !== 'undefined' ? status : null;
+  var date = $('input[name="' + field.attr('name').replace('hora_', 'fecha_') + '"]', '#' + widget_id).val();
+
+  if (compareDates(date + ' ' + field.val(), 'd/m/yyyy H:mm', previous, 'd/m/yyyy H:mm') != 1) {
+    field.addClass('hasError');
+    error_dialogo_descarga(string_error, widget_id);
+
+    if ($('input.hasError', '#' + widget_id).size()) {
+      console.log('Hay errores');
+      $('input[name="submit_campo"]', '#' + widget_id).attr('disabled', 'disabled');
+    }
+  } else {
+    if (field.hasClass('hasError')) field.removeClass('hasError');
+    if (!$('.error', '#' + widget_id).hasClass('oculto')) $('.error', '#' + widget_id).fadeOut();
+    if (status) $('input[name="submit_campo"]', '#' + widget_id).data('status', status); // Seteo un nuevo status al boton.
+
+    if (!$('input.hasError', '#' + widget_id).size()) {
+      console.log('No hay errores');
+      $('input[name="submit_campo"]', '#' + widget_id).removeAttr('disabled');
+    }
+  }
+  return false;
+}

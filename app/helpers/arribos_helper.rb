@@ -37,6 +37,10 @@ module ArribosHelper
     end
   end
 
+  def tiempo_permitido(field)
+    (field - (field % 1)).to_i.to_s + ':' + ((field % 1) * 60).to_i.to_s
+  end
+
   def status_gabarra(img)
     case img
       when 'flag_finish.png'
@@ -73,9 +77,9 @@ module ArribosHelper
       end
     end
     if buque
-      submit_tag boton[:texto], :name => 'submit_campo', :id => nil, :class => 'green pequenio', 'data-buque' => @buque.id, 'data-status' => boton[:status]
+      submit_tag 'Enviar', :name => 'submit_campo', :id => nil, :class => 'green', 'data-buque' => @buque.id, 'data-status' => boton[:status]
     else
-      submit_tag boton[:texto], :name => 'submit_campo', :id => nil, :class => 'green pequenio', 'data-bax' => @gabarra.bax_id, 'data-gabarra' => @gabarra.gabarra_id, 'data-status' => boton[:status]
+      submit_tag 'Enviar', :name => 'submit_campo', :id => nil, :class => 'green', 'data-bax' => @gabarra.bax_id, 'data-gabarra' => @gabarra.gabarra_id, 'data-status' => boton[:status]
     end
   end
 end

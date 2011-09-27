@@ -33,7 +33,7 @@
           <p class="destacado margen_b_10 rojo"><%=h delimitar(bax.carga_transportar) %> tons.</p>
         </div>
         <div class="grid_8 omega margen_b_10">
-          <small class="tons">Material descargado+:</small>
+          <small class="tons">Tonelaje descargado:</small>
         </div>
         <div class="clearfix"></div>
       <% if can? :manage, ArriboBauxita %>
@@ -84,7 +84,7 @@
           <small class="tons">Condición:</small>
           <p class="destacado margen_b_10"><%=h buque.condicion_buque %></p>
           <small class="tons">Tiempo permitido:</small>
-          <p class="destacado"><%=h (buque.tiempo_permitido_buque - (buque.tiempo_permitido_buque % 1)).to_i.to_s + ':' + ((buque.tiempo_permitido_buque % 1) * 60).to_i.to_s %> hora(s)</p>
+          <p class="destacado"><%=h tiempo_permitido(buque.tiempo_permitido_buque) %> hora(s)</p>
         </div> 
         <div class="clearfix"></div>
         <div class="grid_8 margen_b_10 alpha">

@@ -66,7 +66,7 @@
           <%= text_field_tag :fecha_desatraque, @gabarra.desatraque_fecha, { :disabled => campo_habilitado(gabarra.desatraque_fecha), :class => 'margen_b_10', :type => 'date', :size => 7, :placeholder => 'dd/mm/aaaa', :pattern => '(([1-9]|0[1-9]|[12]\d)/([1-9]|0[1-9]|1[012])|30/(0[13-9]|1[012])|31/(0[13578]|1[02]))/(19|20)\d\d' } %>
           <%= text_field_tag :hora_desatraque, @gabarra.desatraque_hora, { :disabled => campo_habilitado(gabarra.desatraque_hora), :class => 'margen_b_10', :type => 'time', :size => 3, :placeholder => 'hh:mm', :pattern => '^([01]\d|2[0-3]|[0-9])(:[0-5]\d)$' } %>
         </div>
-        <div class="grid_12 margen_b_10 margen_t_20">
+        <div class="grid_12 margen_b_10 margen_t_20 derecha">
           <%= status_submit(@gabarra.atraque_fecha, @gabarra.inicio_fecha, @gabarra.fin_fecha) %> 
         </div>
         <div class="clearfix"></div>

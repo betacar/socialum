@@ -44,22 +44,22 @@ class DescargaBauxita < ActiveRecord::Base
       end
 
       descarga.atraque_descarga_bauxita = DateTime.strptime(atraque, '%d/%m/%Y %H:%M').to_datetime.to_s(:db)
-      descarga.inicio_descarga_bauxita = DateTime.strptime(inicio_descarga, '%d/%m/%Y %H:%M').to_datetime.to_s(:db) unless inicio_descarga.nil? || inicio_descarga == 'null'
-      descarga.fin_descarga_bauxita = DateTime.strptime(fin_descarga, '%d/%m/%Y %H:%M').to_datetime.to_s(:db) unless fin_descarga.nil? || fin_descarga == 'null'
-      descarga.desatraque_descarga_bauxita = DateTime.strptime(desatraque, '%d/%m/%Y %H:%M').to_datetime.to_s(:db) unless desatraque.nil? || desatraque == 'null'
+      descarga.inicio_descarga_bauxita = DateTime.strptime(inicio_descarga, '%d/%m/%Y %H:%M').to_datetime.to_s(:db) unless inicio_descarga.nil? || inicio_descarga.empty? || inicio_descarga == 'null' || inicio_descarga == ' '
+      descarga.fin_descarga_bauxita = DateTime.strptime(fin_descarga, '%d/%m/%Y %H:%M').to_datetime.to_s(:db) unless fin_descarga.nil? || fin_descarga.empty? || fin_descarga == 'null' || fin_descarga == ' '
+      descarga.desatraque_descarga_bauxita = DateTime.strptime(desatraque, '%d/%m/%Y %H:%M').to_datetime.to_s(:db) unless desatraque.nil? || desatraque.empty? || desatraque == 'null' || desatraque == ' '
       descarga.save
     else
       descarga = self.find(atracada.id)
 
-      # Los campos se actualizaran si y solo si no son nulos.
-      descarga.update_attribute(:atraque_descarga_bauxita, DateTime.strptime(atraque, '%d/%m/%Y %H:%M').to_datetime.to_s(:db)) unless atraque.nil? || atraque == 'null'
-      descarga.update_attribute(:inicio_descarga_bauxita, DateTime.strptime(inicio_descarga, '%d/%m/%Y %H:%M').to_datetime.to_s(:db)) unless inicio_descarga.nil? || inicio_descarga == 'null'
-      descarga.update_attribute(:fin_descarga_bauxita, DateTime.strptime(fin_descarga, '%d/%m/%Y %H:%M').to_datetime.to_s(:db)) unless fin_descarga.nil? || fin_descarga == 'null'
-      descarga.update_attribute(:desatraque_descarga_bauxita, DateTime.strptime(desatraque, '%d/%m/%Y %H:%M').to_datetime.to_s(:db)) unless desatraque.nil? || desatraque == 'null'
+      # Los campos se actualizaran si no son nulos y si no tienen datos ya almacenados en la tabla
+      descarga.update_attribute(:inicio_descarga_bauxita, DateTime.strptime(inicio_descarga, '%d/%m/%Y %H:%M').to_datetime.to_s(:db)) unless inicio_descarga.nil? || inicio_descarga.empty? || inicio_descarga == 'null' || inicio_descarga == ' '
+      descarga.update_attribute(:fin_descarga_bauxita, DateTime.strptime(fin_descarga, '%d/%m/%Y %H:%M').to_datetime.to_s(:db)) unless fin_descarga.nil? || fin_descarga.empty? || fin_descarga == 'null' || fin_descarga == ' '
+      descarga.update_attribute(:desatraque_descarga_bauxita, DateTime.strptime(desatraque, '%d/%m/%Y %H:%M').to_datetime.to_s(:db)) unless desatraque.nil? || desatraque.empty? || desatraque == 'null' || desatraque == ' '
+
       descarga.save
     end
 
-    unless fin_descarga.nil? || fin_descarga == 'null' # Verifico si el BAX o el buque ha sido totalmente descargado
+    unless fin_descarga.nil? ||  fin_descarga.empty? || fin_descarga == 'null' || fin_descarga == ' ' # Verifico si el BAX o el buque ha sido totalmente descargado
       if action == 'gabarra'
         ArriboBauxita.bax_descargado(descarga.arribo_id)
       elsif action == 'buque'
