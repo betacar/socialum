@@ -7,30 +7,18 @@ h1.eventos{background:url("../images/events_24.png") left top no-repeat}
 h1.arribo{background:url("../images/ship_24.png") left top no-repeat}
 
 /* Items e iconos del menú */
-	.overview{background:url("../images/sa_nav_icons_overview.png") left center no-repeat}
-	li.activo .overview{background:url("../images/sa_nav_icons_overview_sel.png") left center no-repeat}
+	#menu li.overview{background:url("../images/sa_nav_icons_overview.png") left center no-repeat}
+	#menu li.overview:hover:not(.activo){background:#dfe5e6 url("../images/sa_nav_icons_overview_hover.png") 5px center no-repeat !important}
+	#menu li.overview.activo{background:#dfe5e6 url("../images/sa_nav_icons_overview_sel.png")  10px center no-repeat}
 	
-	#menu .arribos{background:url("../images/sa_nav_icons_arribos.png") left center no-repeat}
-	#menu li.activo .arribos{background:url("../images/sa_nav_icons_arribo_sel.png") left center no-repeat}
-	
-	#menu .apilado{background:url("../images/sa_nav_icons_apilamiento.png") left center no-repeat}
-	#menu li.activo .apilado{background:url("../images/sa_nav_icons_apilamiento_sel.png") left center no-repeat}
-	
-	#menu .alimentado{background:url("../images/sa_nav_icons_alimentacion.png") left center no-repeat}
-	#menu li.activo .alimentado{background:url("../images/sa_nav_icons_alimentacion_sel.png") left center no-repeat}
-	
-	#menu .almacenado{background:url("../images/sa_nav_icons_almacenamiento.png") left center no-repeat}
-	#menu li.activo .almacenado{background:url("../images/sa_nav_icons_almacenamiento_sel.png") left center no-repeat}
-	
-	#menu .despacho{background:url("../images/sa_nav_icons_despacho.png") left center no-repeat}
-	#menu li.activo .despacho{background:url("../images/sa_nav_icons_despacho_sel.png") left center no-repeat}
-	
-	#menu .novedades{background:url("../images/sa_nav_icons_novedades.png") left center no-repeat}
-	#menu li.activo .novedades{background:url("../images/sa_nav_icons_novedades_sel.png") left center no-repeat}
-	
-	#menu .fallas{background:url("../images/sa_nav_icons_fallas.png") left center no-repeat}
-	#menu li.activo .fallas{background:url("../images/sa_nav_icons_fallas_sel.png") left center no-repeat}
-	
+	#menu li.arribos{background:url("../images/sa_nav_icons_arribos.png") left center no-repeat}
+	#menu li.arribos:hover:not(.activo){background:#dfe5e6 url("../images/sa_nav_icons_arribos_hover.png") 5px center no-repeat !important}
+	#menu li.arribos.activo{background:#dfe5e6 url("../images/sa_nav_icons_arribo_sel.png")  10px center no-repeat}
+		
+	#menu li.novedades{background:url("../images/sa_nav_icons_novedades.png") left center no-repeat}
+	#menu li.novedades:hover:not(.activo){background:#dfe5e6 url("../images/sa_nav_icons_novedades_hover.png") 5px center no-repeat !important}
+	#menu li.novedades.activo{background:#dfe5e6 url("../images/sa_nav_icons_novedades_sel.png")  10px center no-repeat}
+		
 #main.arribo{padding-top:20px;border-top:0 none;-moz-border-radius:0 0 5px 5px;-webkit-border-radius:0 0 5px 5px;border-radius:0 0 5px 5px}
 
 /* Grid de gabarras */

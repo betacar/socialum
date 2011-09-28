@@ -50,16 +50,16 @@
   </header>
   <nav id="menu">
     <ul class="container_24">
-      <li <%= activo('overview') %> title="Reporte overview">
-        <span class="overview"><%= link_to 'Overview', :controller => 'overview' %></span>
+      <li class="overview <%= activo('overview') %>" title="Reporte overview">
+        <%= link_to 'Overview', :controller => 'overview' %>
         <span class="flecha"> </span>
       </li>
-      <li <%= activo('arribos') %> title="Arribos y descargas de materia">
-        <span class="arribos"><%= link_to 'Arribos y descargas', :controller => 'arribos' %></span>
+      <li class="arribos <%= activo('arribos') %>" title="Arribos y descargas de materia">
+        <%= link_to 'Arribos y descargas', :controller => 'arribos' %>
         <span class="flecha"> </span>
       </li>
-      <li title="Resportes de novedades y fallas">
-        <span class="novedades">Novedades</span>
+      <li class="novedades  <%= activo('noovedades') %>" title="Reportes de novedades y fallas">
+        <%= link_to 'Novedades', :controller => 'novedades' %>
         <span class="flecha"> </span>
       </li>
     </ul>

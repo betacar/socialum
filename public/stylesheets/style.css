@@ -300,8 +300,8 @@ header li {
 	}
 	#menu li {
 	  display:inline-block !important;
-	  margin-right:10px;
-	  padding:7px 0;
+	  margin:0 5px;
+	  padding:7px 5px 7px 19px;
 	  cursor:pointer;
 	  position:relative;
 	  float:left;
@@ -314,9 +314,9 @@ header li {
 	  color:#152f40 !important;
 	}
 	#menu li:hover:not(.activo) {
-	  background-color:#dfe5e6 !important;
-	  padding:7px 10px 5px;
-	  margin:0 5px -5px 0;
+	  background:#dfe5e6;
+	  padding:6px 5px 3px 23px;
+	  margin:2px 5px 0;
 	  -moz-border-radius:3px;
 	  -webkit-border-radius:3px;
 	  border-radius:3px;
@@ -343,12 +343,12 @@ header li {
 	}
 	#menu .activo {
 	  margin-top:0;
-	  margin:-3px 10px -4px 0;
-	  padding:7px 10px 9px;
+	  margin:-3px 5px -4px;
+	  padding:7px 10px 9px 29px;
 	  font-size:1.077em;
 	  font-weight:bold;
 	  text-shadow:0 1px 0 #fff;
-	  background-color:#dfe5e6 !important;
+	  background:#dfe5e6;
 	  border:1px solid #a5aeb6 !important;
 	  -moz-border-radius:3px;
 	  -webkit-border-radius:3px;
@@ -359,7 +359,7 @@ header li {
 	  position:relative;
 	}
 	#menu .activo:hover {
-	  background:#dfe5e6 !important;
+	  background:#dfe5e6;
 	  text-decoration:underline;
 	}
 		
@@ -582,6 +582,10 @@ header li {
 	  -webkit-box-shadow:inset 0 1px 3px #ccc;
 	  box-shadow:inset 0 1px 3px #ccc;
 	}
+
+    input[type="text"].hasError, input[type="password"].hasError, input[type="date"].hasError, input[type="time"].hasError, input[type="number"].hasError, input[type="hour"].hasError, textarea.hasError {
+      border:1px solid #ff0000;
+    }
 		
 	input[type="submit"], input[type="reset"], input[type="button"], button {
 	  margin-right:10px;

@@ -61,7 +61,7 @@ module ApplicationHelper
   # Determina si un elemento del menú está activo o no, basado en el nombre del controller
   def activo(controller)
     if params[:controller] == controller
-      'class="activo"'
+      'activo'
     else
       nil
     end
