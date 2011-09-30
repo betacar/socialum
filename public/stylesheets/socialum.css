@@ -32,7 +32,7 @@ h1.arribo{background:url("../images/ship_24.png") left top no-repeat}
 
 #dialogo{position:fixed;height:auto;top:35%;left:35%;margin:0;padding:0}
 
-.leyenda{margin:-20px -20px 20px;padding:10px 1%;background-color:#f2f2f2;border-bottom:1px solid #dfe5e6}
+.leyenda{margin:-20px -20px 20px;padding:10px 1%;border-bottom:1px solid #dfe5e6;background:-webkit-gradient(linear,left top,left bottom,from(#fff),to(#f2f2f2));background:-moz-linear-gradient(top,#fff,#f2f2f2);background:-o-linear-gradient(rgb(255,255,255), rgb(242,242,242));filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff',endColorstr='#f2f2f2')}
 	.leyenda li{margin-right:10px;padding-left:20px}
 	.leyenda li:last-child{margin-right:0}
 	.leyenda li.navegando{background:url("../images/steering_wheel_16.png") left center no-repeat}

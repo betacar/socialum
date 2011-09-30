@@ -78,7 +78,7 @@ $(document).ready(function() {
   });
 
   $('h3.down').click(function() {
-    var url = '/arribos/gabarras/' + $(this).next().data('bax');
+    var url = $(this).data('bax-url');
     $(this).next('ul.gabarras').load(url, function() {
       $('.gabarras li').tipsy({gravity:'nw',fade:true,html:true,opacity:.9});
     });
@@ -86,16 +86,15 @@ $(document).ready(function() {
 
   //
   $('.gabarras li:not(.deshabilitada)').live('click', function() {
-    var bax_id = $(this).parent('.gabarras').data("bax"),
-        gabarra_id = $(this).data("gabarra"),
+    var bax_id = $(this).parent('.gabarras').data("bax-id"),
+        gabarra_id = $(this).data("gabarra-id"),
         bax = bax_id.split("/"),
         gabarra = gabarra_id.split("-"),
         widget_id = bax[0] + '_' + bax[1] + '_' + gabarra[0] + '_' + gabarra[1],
         url_arribo = 'arribos/gabarra/' + bax_id + '/' + gabarra_id,
-        url_descarga = 'descargar/gabarra/' + bax_id + '/' + gabarra_id,
         descarga = {},
-        evento = {};
-    var arribo = $('time.fecha_arribo', '#bax_' + bax[0] + '_' + bax[1]).attr('datetime');
+        evento = {},
+        arribo = $('time.fecha_arribo', '#bax_' + bax[0] + '_' + bax[1]).attr('datetime');
 
     $('#dialogo').append(
       $('<div class="widget_descarga" id="' + widget_id + '"><div class="centro"><img src="/images/loading_32.gif" alt="Cargando" title="Cargando" width="32" height="32" /><p>Cargando, por favor espere...</p></div></div>').load(url_arribo, function() {
@@ -111,7 +110,7 @@ $(document).ready(function() {
         date = new Date(date[0], date[1] - 1, date[2], date[3], date[4], date[5]); // Armo el objeto fecha con los datos de año, mes, día, hora, minutos y segundos
 
         // Control para 'observar' los cambios en los campos de fecha y hora de atraque, inicio de descarga, fin de descarga y desatraque
-        $('input[name="fecha_atraque"], input[name="hora_atraque"], input[name="fecha_inicio_descarga"], input[name="hora_inicio_descarga"], input[name="fecha_fin_descarga"], input[name="hora_fin_descarga"], input[name="fecha_desatraque"], input[name="hora_desatraque"]', this).change(function() {
+        $('input[name^="fecha_"], input[name^="hora_"]', this).change(function() {
           var campo = $(this);
 
           if(campo.is('[name^="fecha_"]')) { // Si el valor del atributo name del campo comienza por fecha, entonces es fecha.
@@ -146,7 +145,8 @@ $(document).ready(function() {
         });
 
         $('input[name="submit_campo"]', this).live('click', function() {
-          var este = $(this); // Selector 
+          var este = $(this), // Selector del boton
+              url = este.parent().parent().attr('action'); // URL de descarga de gabarra
 
           descarga = {
             equipo_id: $('select[name="equipo_id"]', '#' + widget_id).val(),
@@ -161,7 +161,7 @@ $(document).ready(function() {
           este.addClass('hold');
           este.val(status.label.hold);
 
-          $.post(url_descarga, descarga, function(data) {
+          $.post(url, descarga, function(data) {
 
             $('h3, h3+div', '#' + widget_id).fadeIn();
 
@@ -210,48 +210,23 @@ $(document).ready(function() {
             }
 
           }).error(function(error) {
-
-          $(este, '#' + widget_id).val(status.label.send);
-          $(este, '#' + widget_id).removeAttr('disabled');
-          $(este, '#' + widget_id).removeClass('hold');
-
-            switch($(este, '#' + widget_id).data('status')) {
-
-              case status.boton.atraque:
-                $(este, '#' + widget_id).val(status.label.atraque);
-                break;
-              case status.boton.inicio_descarga:
-                $(este, '#' + widget_id).val(status.label.inicio_descarga);
-                break;
-              case status.boton.fin_descarga:
-                $(este, '#' + widget_id).val(status.label.fin_descarga);
-                break;
-              case status.boton.desatraque:
-                $(este, '#' + widget_id).val(status.label.desatraque);
-                break;
-              case status.boton.submit:
-                $(este, '#' + widget_id).val(status.label.submit);
-                break;
-              default:
-                console.log('¡Epa! No debería caer acá. Este es el estatus: ' + $(this).data('status'));
-                break;
-            }
-            
+            $(este, '#' + widget_id).val(status.label.send);
+            $(este, '#' + widget_id).removeAttr('disabled');
+            $(este, '#' + widget_id).removeClass('hold');
+              
             // Imprimimos el error en la ventana de descarga
-            error_dialogo_descarga(error.responseText, widget_id);
-            
+            error_dialogo_descarga(error.responseText, widget_id);            
           });
 
           return false;
         }); // Enviar fechas y horas
 
         $('form.evento input[name="submit_acaecimiento"]', this).live('click', function() {
-          var url_evento = 'descargar/evento/' + $('.historial_eventos', '#' + widget_id).data('descarga-id');
-          console.log($(this));
+          var url = 'descargar/evento/' + $('.historial_eventos', '#' + widget_id).data('descarga-id');
 
-          $('input[name="submit_acaecimiento"}', 'form.evento').attr('disabled', 'disabled');
-          $('input[name="submit_acaecimiento"}', 'form.evento').addClass('hold');
-          $('input[name="submit_acaecimiento"}', 'form.evento').val(status.label.hold);
+          $('input[name="submit_acaecimiento"]', 'form.evento').attr('disabled', 'disabled');
+          $('input[name="submit_acaecimiento"]', 'form.evento').addClass('hold');
+          $('input[name="submit_acaecimiento"]', 'form.evento').val(status.label.hold);
 
           evento = {
             inicio_novedad: $('input[name="fecha_inicio_acaecimiento"]', '#' + widget_id).val() + ' ' + $('input[name="hora_inicio_acaecimiento"]', '#' + widget_id).val(),
@@ -259,15 +234,14 @@ $(document).ready(function() {
             desc_novedad: $('textarea[name="observacion_acaecimiento"]', '#' + widget_id).val()
           };
 
-          $.post(url_evento, evento, function(data) {
-
-            $('input[name="fecha_inicio_acaecimiento"], input[name="hora_inicio_acaecimiento"], input[name="fecha_fin_acaecimiento"], input[name="hora_fin_acaecimiento"], textarea[name="observacion_acaecimiento"]', '#' + widget_id).val('');
-            $('.historial_eventos', '#' + widget_id).append('<p class="margen_b_10">' + data.descipcion + '</p><small><span class="rojo">' + data.inicio + ' - ' + data.fin + '</span>  |  ' + data.login + '</small><hr />');
+          $.post(url, evento, function(data) {
+            $('[name$="_acaecimiento"]', '#' + widget_id).val(''); // Reseteo los valores de los campos.
+            $('.historial_eventos', '#' + widget_id).append('<p class="margen_b_10">' + data.descripcion + '</p><small><span class="rojo">' + data.inicio + ' - ' + data.fin + '</span>  |  ' + data.login + '</small><hr />');
           });
 
           $('input[name="submit_acaecimiento"]', '#' + widget_id).removeAttr('disabled');
           $('input[name="submit_acaecimiento"]', '#' + widget_id).removeClass('hold');
-          $('input[name="submit_acaecimiento"]', '#' + widget_id).val(status.label.submit);
+          $('input[name="submit_acaecimiento"]', '#' + widget_id).val(status.label.send);
 
           return false;
         }); // Enviar novedades
@@ -379,7 +353,6 @@ function validar_campo_fecha(field, previous, string_error, widget_id) {
     if (!$('.error', '#' + widget_id).hasClass('oculto')) $('.error', '#' + widget_id).fadeOut();
 
     if (!$('input.hasError', '#' + widget_id).size()) {
-      console.log('No hay errores');
       $('input[name="submit_campo"]', '#' + widget_id).removeAttr('disabled');
     }
   }
@@ -395,7 +368,6 @@ function validar_campo_hora(field, previous, string_error, widget_id, status) {
     error_dialogo_descarga(string_error, widget_id);
 
     if ($('input.hasError', '#' + widget_id).size()) {
-      console.log('Hay errores');
       $('input[name="submit_campo"]', '#' + widget_id).attr('disabled', 'disabled');
     }
   } else {
@@ -404,7 +376,6 @@ function validar_campo_hora(field, previous, string_error, widget_id, status) {
     if (status) $('input[name="submit_campo"]', '#' + widget_id).data('status', status); // Seteo un nuevo status al boton.
 
     if (!$('input.hasError', '#' + widget_id).size()) {
-      console.log('No hay errores');
       $('input[name="submit_campo"]', '#' + widget_id).removeAttr('disabled');
     }
   }

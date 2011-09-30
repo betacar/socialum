@@ -50,8 +50,8 @@
           <%= reportado(bax.reportado, bax.id) %>
         </div>
       <% end %>
-        <h3 class="down">Gabarras (<%=h bax.cant_gabarras %>)</h3>
-        <ul class="margen_b_30 gabarras" data-bax="<%=h bax.id %>">
+        <h3 class="down" data-bax-url="/arribos/gabarras/<%=h bax.id %>">Gabarras (<%=h bax.cant_gabarras %>)</h3>
+        <ul class="margen_b_30 gabarras"  data-bax-id="<%=h bax.id %>">
           <div class="centro">
             <%= image_tag "loading_32.gif", :alt => "Cargando, por favor espere...", :title => "Cargando, por favor espere..." %>
             <p>Cargando, por favor espere...</p>

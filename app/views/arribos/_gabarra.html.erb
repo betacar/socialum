@@ -39,7 +39,7 @@
         <div class="clearfix"></div>
         <hr />
       </div>
-      <form>
+      <% form_tag("/descargar/gabarra/#{@gabarra.bax_id}/#{@gabarra.gabarra_id}", :method => :post) do %>
         <div class="grid_12 margen_b_10">
           <%= label_tag 'atraque', '<strong>Atraque</strong>' %>
           <%= text_field_tag :fecha_atraque, @gabarra.atraque_fecha, { :disabled => campo_habilitado(gabarra.atraque_fecha), :class => 'margen_b_10', :type => 'date', :size => 7, :placeholder => 'dd/mm/aaaa', :pattern => '(([1-9]|0[1-9]|[12]\d)/([1-9]|0[1-9]|1[012])|30/(0[13-9]|1[012])|31/(0[13578]|1[02]))/(19|20)\d\d', :autofocus => true } %>
@@ -70,7 +70,7 @@
           <%= status_submit(@gabarra.atraque_fecha, @gabarra.inicio_fecha, @gabarra.fin_fecha) %> 
         </div>
         <div class="clearfix"></div>
-      </form>
+      <% end %>
     <% unless @gabarra.atraque_fecha.nil? %>
       <h3 class="pequenio underlined down margen_b_20">Observaciones y acaecimientos</h3>
       <div class="margen_b_20  prefix_1">

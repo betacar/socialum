@@ -31,4 +31,16 @@ class DescargarController < ApplicationController
       end
     end
   end
+
+  # POST /descargar/evento/1
+  def evento
+    respond_to do |format|
+      begin
+        @novedad = DescargaBauxita.novedad(params)
+        format.json { render :json => @novedad }
+      rescue Exceptions::PresenciaValoresExcepcion => errores
+        format.json { render :json => errores.errors, :status => 400 }
+      end
+    end
+  end
 end

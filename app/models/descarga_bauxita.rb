@@ -74,7 +74,7 @@ class DescargaBauxita < ActiveRecord::Base
     if !params[:id].empty?
       begin
         descarga = self.find(params[:id])
-        novedad = Novedad.create(descarga,params[:desc_novedad],params[:inicio_novedad],params[:fin_novedad])
+        novedad = Novedad.create(descarga,params[:desc_novedad], params[:inicio_novedad], params[:fin_novedad])
         #evento = self.data_novedad(novedad.creator_id, novedad.inicio_novedad, novedad.fin_novedad, novedad.desc_novedad)
         evento = novedad.datos
       rescue ActiveRecord::RecordNotFound
