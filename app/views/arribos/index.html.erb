@@ -7,6 +7,15 @@
 <% end %>
 <% main_clases 'arribo' %>
   <article class="bauxita grid_24">
+    <ul class="lista_lineal leyenda derecha">
+      <li><strong>Estado de gabarras:</strong></li>
+      <li class="navegando">Navegando</li>
+      <li class="esperando">En espera para atracar</li>
+      <li class="atracada">Atracada</li>
+      <li class="descargando">Descargando</li>
+      <li class="vacia">Vacía</li>
+      <li class="destracada">Desatracada</li>
+    </ul>
     <% @baxes.each do |bax| %>
     <div class="margen_b_30" id="<%= id(bax.id) %>">
       <h2 class="underlined <%= bax.reportado ? 'up' : 'down' %> margen_b_20">BAX: <%=h bax.id %></h2>

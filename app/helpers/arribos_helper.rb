@@ -41,25 +41,6 @@ module ArribosHelper
     (field - (field % 1)).to_i.to_s + ':' + ((field % 1) * 60).to_i.to_s
   end
 
-  def status_gabarra(img)
-    case img
-      when 'flag_finish.png'
-        'Desatracada'
-      when 'tick.png'
-        'Descargada'
-      when 'arrow_rotate_clockwise.png'
-        'Descargando'
-      when 'anchor.png'
-        'Atracada'
-      when 'clock_red.png'
-        'Esperando para atracar'
-      when 'steering_wheel.png'
-        'Navegando'
-      else
-        'No disponible'
-    end
-  end
-
   def status_submit(atraque, inicio, fin, buque = false)
     boton = Hash.new
 
