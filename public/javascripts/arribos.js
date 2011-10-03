@@ -84,6 +84,10 @@ $(document).ready(function() {
     });
   });
 
+  $('.gabarras li.deshabilitada a').live('click', function() {
+    return false;
+  });
+  
   //
   $('.gabarras li:not(.deshabilitada)').live('click', function() {
     var bax_id = $(this).parent('.gabarras').data("bax-id"),
@@ -91,7 +95,7 @@ $(document).ready(function() {
         bax = bax_id.split("/"),
         gabarra = gabarra_id.split("-"),
         widget_id = bax[0] + '_' + bax[1] + '_' + gabarra[0] + '_' + gabarra[1],
-        url_arribo = 'arribos/gabarra/' + bax_id + '/' + gabarra_id,
+        url_arribo = $(this).find('a').attr('href'),
         descarga = {},
         evento = {},
         arribo = $('time.fecha_arribo', '#bax_' + bax[0] + '_' + bax[1]).attr('datetime');

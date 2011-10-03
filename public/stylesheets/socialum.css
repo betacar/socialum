@@ -30,6 +30,9 @@ h1.arribo{background:url("../images/ship_24.png") left top no-repeat}
 			.gabarras li:active:not(.deshabilitada){text-shadow:0px -1px 0px #fff;box-shadow:inset 0 0 10px #666;background:-webkit-gradient(linear,left top,left bottom,from(#fff),to(#ccc));background:-moz-linear-gradient(top,#fff,#ccc);background:-moz-linear-gradient(rgb(255,255,255), rgb(204,204,204));filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff',endColorstr='#ccc')}
 			.gabarras li img{margin:6px 0 12px;}
 
+			.gabarras a:link,.gabarras a:visited{color:#333;text-decoration:none}
+			.gabarras a:hover,.gabarras a:active{color:#590b19}
+
 #dialogo{position:fixed;height:auto;top:35%;left:35%;margin:0;padding:0}
 
 .leyenda{margin:-20px -20px 20px;padding:10px 1%;border-bottom:1px solid #dfe5e6;background:-webkit-gradient(linear,left top,left bottom,from(#fff),to(#f2f2f2));background:-moz-linear-gradient(top,#fff,#f2f2f2);background:-o-linear-gradient(rgb(255,255,255), rgb(242,242,242));filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff',endColorstr='#f2f2f2')}
