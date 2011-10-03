@@ -92,7 +92,7 @@ ActionController::Routing::Routes.draw do |map|
               :anio_zarpe => /\d{4}/
   
   # Ruta para dialogos de descarga de gabarra de un Bax
-  map.connect 'arribos/:action/:num_zarpe/:anio_zarpe/:gabarra_id', 
+  map.arribos_gabarra 'arribos/:action/:num_zarpe/:anio_zarpe/:gabarra_id', 
               :controller => 'arribos',
               :action => 'gabarra',
               :num_zarpe => /\d{3}/,
