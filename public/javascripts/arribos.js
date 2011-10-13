@@ -14,7 +14,7 @@ $(document).ready(function() {
           reportar: 'Reportar arribo',
           reportado: 'Arribo reportado'
         },
-        img: { // Para imágenes de gabarra
+        img: { // Para imÃ¡genes de gabarra
           en_espera: '/images/clock_red.png',
           atraque: '/images/anchor.png',
           descarga: '/images/arrow_rotate_clockwise.png',
@@ -80,7 +80,7 @@ $(document).ready(function() {
   $('h3.down').click(function() {
     var url = $(this).data('bax-url');
     $(this).next('ul.gabarras').load(url, function() {
-      $('.gabarras li').tipsy({gravity:'nw',fade:true,html:true,opacity:.9});
+      $('.gabarras li').tipsy({gravity:'nw',fade:true,html:true,opacity:0.9});
     });
   });
 
@@ -109,16 +109,16 @@ $(document).ready(function() {
         $('h2', this).parent('div').draggable();
 
         // Transformo la fecha de arribo en un objeto fecha
-        date = patron.exec(arribo); // Separo el string en forma de array, según el patron
+        date = patron.exec(arribo); // Separo el string en forma de array, segÃºn el patron
         date.shift(); // Elimino el primer elemento del array (string de arribo)
-        date = new Date(date[0], date[1] - 1, date[2], date[3], date[4], date[5]); // Armo el objeto fecha con los datos de año, mes, día, hora, minutos y segundos
+        date = new Date(date[0], date[1] - 1, date[2], date[3], date[4], date[5]); // Armo el objeto fecha con los datos de aÃ±o, mes, dia, hora, minutos y segundos
 
         // Control para 'observar' los cambios en los campos de fecha y hora de atraque, inicio de descarga, fin de descarga y desatraque
         $('input[name^="fecha_"], input[name^="hora_"]', this).change(function() {
           var campo = $(this);
 
           if(campo.is('[name^="fecha_"]')) { // Si el valor del atributo name del campo comienza por fecha, entonces es fecha.
-            if (campo.val() == null || !isDate(campo.val(), formato_date)) {
+            if (campo.val() === '' || !isDate(campo.val(), formato_date)) {
               campo.addClass('hasError'); // Imprimimos el error en la ventana de descarga
               error_dialogo_descarga('La fecha no puede ser vacía o no cumple el formato requerido (dd/mm/aaaa).', widget_id);
             } else if (campo.is('[name="fecha_atraque"]')) { // Si es atraque
@@ -158,9 +158,9 @@ $(document).ready(function() {
             inicio_descarga: $('input[name="fecha_inicio_descarga"]', '#' + widget_id).val() + ' ' + $('input[name="hora_inicio_descarga"]', '#' + widget_id).val(),
             fin_descarga: $('input[name="fecha_fin_descarga"]', '#' + widget_id).val() + ' ' + $('input[name="hora_fin_descarga"]', '#' + widget_id).val(),
             desatraque: $('input[name="fecha_desatraque"]', '#' + widget_id).val() + ' ' + $('input[name="hora_desatraque"]', '#' + widget_id).val()
-          }
+          };
           
-          // Deshabilito el boton, para evitar más clicks
+          // Deshabilito el boton, para evitar mÃ¡s clicks
           este.attr('disabled', 'disabled');
           este.addClass('hold');
           este.val(status.label.hold);
@@ -192,7 +192,7 @@ $(document).ready(function() {
                 $('#gabarra_' + widget_id).die('click');
                 break;
               default:
-                console.log('¡Epa! No debería caer acá. Este es el estatus: ' + $(this).data('status'));
+                console.log('¡Epa! No debería caer acá¡. Este es el estatus: ' + $(this).data('status'));
                 break;
             }
 
@@ -240,7 +240,7 @@ $(document).ready(function() {
 
           $.post(url, evento, function(data) {
             $('[name$="_acaecimiento"]', '#' + widget_id).val(''); // Reseteo los valores de los campos.
-            $('.historial_eventos', '#' + widget_id).append('<p class="margen_b_10">' + data.descripcion + '</p><small><span class="rojo">' + data.inicio + ' - ' + data.fin + '</span>  |  ' + data.login + '</small><hr />');
+            $('.historial_eventos', '#' + widget_id).append('<p class="margen_b_10">' + data.descripcion + '</p><small><span class="rojo">' + data.inicio + ' - ' + data.fin + '</span>Â Â |Â Â ' + data.login + '</small><hr />');
           });
 
           $('input[name="submit_acaecimiento"]', '#' + widget_id).removeAttr('disabled');
@@ -257,7 +257,7 @@ $(document).ready(function() {
   });
 
   /* ------------------------------ BUQUES ------------------------------ */
-  // Edición o desactivación de buques
+  // EdiciÃ³n o desactivaciÃ³n de buques
   $('.edit, .destroy').click(function() {
     var boton = $(this);
     buque_id = boton.data('buque-id');
@@ -265,7 +265,7 @@ $(document).ready(function() {
     if ($(this).hasClass('edit')) {
       window.location = '/buques/' + buque_id + '/edit';
     } else {
-      if (confirm('¿Realmente desea cambiar el estado del buque?')) {
+      if (confirm('Â¿Realmente desea cambiar el estado del buque?')) {
           boton.attr('disabled', 'disabled');
           boton.addClass('hold');
           boton.val(status.label.hold);
@@ -289,7 +289,7 @@ $(document).ready(function() {
     return false;
   });
 
-  // Adición de buque
+  // AdiciÃ³n de buque
   $('.add_buque').click(function(){
     window.location = '/buques/new';
   });
