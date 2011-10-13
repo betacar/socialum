@@ -45,22 +45,22 @@ module ArribosHelper
     boton = Hash.new
 
     if !fin.nil?
-      boton = { :texto => 'Enviar desatraque', :status => 'desatraque' }
+      status = 'desatraque'
     else
       if !inicio.nil?
-        boton = { :texto => 'Enviar fin de descarga', :status => 'fin_descarga' }
+        status = 'fin_descarga'
       else
         if !atraque.nil?
-          boton = { :texto => 'Enviar inicio de descarga', :status => 'inicio_descarga' }
+          status = 'inicio_descarga'
         else
-          boton = { :texto => 'Enviar atraque', :status => 'atraque' }
+          status = 'atraque'
         end
       end
     end
     if buque
-      submit_tag 'Enviar', :name => 'submit_campo', :id => nil, :class => 'green', 'data-buque' => @buque.id, 'data-status' => boton[:status]
+      submit_tag 'Enviar', :name => 'submit_campo', :id => nil, :class => 'green', 'data-buque' => @buque.id, 'data-status' => status
     else
-      submit_tag 'Enviar', :name => 'submit_campo', :id => nil, :class => 'green', 'data-bax' => @gabarra.bax_id, 'data-gabarra' => @gabarra.gabarra_id, 'data-status' => boton[:status]
+      submit_tag 'Enviar', :name => 'submit_campo', :id => nil, :class => 'green', 'data-bax' => @gabarra.bax_id, 'data-gabarra' => @gabarra.gabarra_id, 'data-status' => status
     end
   end
 end
