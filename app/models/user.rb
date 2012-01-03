@@ -2,33 +2,34 @@ class User < ActiveRecord::Base
   set_table_name 'usuarios'
   has_one :empleado, :foreign_key => :id
   has_and_belongs_to_many :roles
-  devise :ldap_authenticatable, :rememberable, :trackable, :timeoutable
+  devise :database_authenticatable, :rememberable, :trackable, :timeoutable
   model_stamper
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :login, :ldap_attributes, :password, :remember_me
+  attr_accessible :login, :password, :remember_me
 
-  def ficha
-    operationsAD = OperationsAd.new
-    ficha = operationsAD.Atributo('initials', self.login)
-    #ficha = Devise::LdapAdapter.getAtributo('initials', self.login) # Filtro los datos en AD, a través del login, para obtener el numero de personal
-    @ficha = 30000000 + ficha.to_s.to_i # Sumamos 30 millones a la ficha, segun estandar de numero de personal
-  end
+  # def ficha
+  #   operationsAD = OperationsAd.new
+  #   ficha = operationsAD.Atributo('initials', self.login)
+  #   #ficha = Devise::LdapAdapter.getAtributo('initials', self.login) # Filtro los datos en AD, a través del login, para obtener el numero de personal
+  #   @ficha = 30000000 + ficha.to_s.to_i # Sumamos 30 millones a la ficha, segun estandar de numero de personal
+  # end
 
-  def before_save
-    self.id = self.ficha # Asigno el numero de personal como ID de usuario
-  end
+  # def before_save
+  #   self.id = self.ficha # Asigno el numero de personal como ID de usuario
+  # end
 
-  def datos(id = nil)
-    if id.nil?
-      id = self.ficha
-    end
+  # def datos(id = nil)
+  #   if id.nil?
+  #     id = self.ficha
+  #   end
 
-    empleado = Empleado.find(id)
+  #   empleado = Empleado.find(id)
 
-    # Obtenemos los nombres y apellidos del empleado, los llevamos a minuscula y luego 'titulizamos' el nombre completo
-    nombres = (empleado.nombres + ' ' + empleado.apellidos).titleize
-  end
+  #   # Obtenemos los nombres y apellidos del empleado, los llevamos a minuscula y luego 'titulizamos' el nombre completo
+  #   nombres = (empleado.nombres + ' ' + empleado.apellidos).titleize
+  # end
+  
   def role?(role)
     return !!self.roles.find_by_name(role.to_s)
   end

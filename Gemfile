@@ -1,8 +1,8 @@
 # A sample Gemfile
-source "http://mijao/repogems/"
+source "http://rubygems.org/"
 
 gem "rails", "~> 2.3.5"
-gem "bcrypt-ruby", "~> 2.1.4"
+gem "bcrypt-ruby", "~> 2.1.4", :require => "bcrypt"
 gem "capistrano", "~> 2.6.0"
 gem "warden", "~> 0.10.3"
 gem "devise", "~> 1.0.11"

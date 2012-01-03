@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110907180628) do
+ActiveRecord::Schema.define(:version => 20111016003210) do
 
   create_table "alarmas", :force => true do |t|
     t.string   "nombre_alarma",                   :null => false
@@ -120,6 +120,21 @@ ActiveRecord::Schema.define(:version => 20110907180628) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "activo",          :default => true, :null => false
+  end
+
+  create_table "metas", :force => true do |t|
+    t.integer  "proceso_id"
+    t.string   "proceso_type"
+    t.boolean  "activo",        :default => true,  :null => false
+    t.boolean  "limite",        :default => false, :null => false
+    t.decimal  "valor_meta"
+    t.datetime "fecha_inicio"
+    t.datetime "fecha_fin"
+    t.string   "unidad_medida"
+    t.integer  "creator_id"
+    t.integer  "updater_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "novedades", :force => true do |t|
@@ -298,6 +313,8 @@ ActiveRecord::Schema.define(:version => 20110907180628) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "encrypted_password"
+    t.string   "password_salt"
   end
 
   add_index "usuarios", ["login"], :name => "index_usuarios_on_login", :unique => true

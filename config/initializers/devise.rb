@@ -2,14 +2,14 @@
 # four configuration values can also be set straight in your models.
 Devise.setup do |config|
   # Configure the e-mail address which will be shown in DeviseMailer.
-  config.mailer_sender = 'caupzo@bauxilum.com.ve'
+  config.mailer_sender = 'admin@localhost'
   config.authentication_keys = [ :login ]
-  config.ldap_host = '128.1.33.44'
-  config.ldap_port = 389
-  config.ldap_base_dn = 'dc=bauxilum,dc=com,dc=ve'
-  config.ldap_login_attribute = 'uid'
-  config.ldap_create_user = true
-  config.ldap_domain = 'bauxilum.com.ve'
+  # config.ldap_host = '128.1.33.44'
+  # config.ldap_port = 389
+  # config.ldap_base_dn = 'dc=bauxilum,dc=com,dc=ve'
+  # config.ldap_login_attribute = 'uid'
+  # config.ldap_create_user = true
+  # config.ldap_domain = 'bauxilum.com.ve'
   
   # Configure the content type of DeviseMailer mails (defaults to text/html')
   # config.mailer_content_type = 'text/plain'
@@ -27,7 +27,7 @@ Devise.setup do |config|
   # authentication tools as :clearance_sha1, :authlogic_sha512 (then you should set
   # stretches above to 20 for default behavior) and :restful_authentication_sha1
   # (then you should set stretches to 10, and copy REST_AUTH_SITE_KEY to pepper)
-  # config.encryptor = :sha1
+  #config.encryptor = :bcrypt
 
   # Configure which keys are used when authenticating an user. By default is
   # just :email. You can configure it to use [:username, :subdomain], so for

@@ -1,3 +1,50 @@
+/**
+*
+* Control de acciones de usuario sobre la vista de arribos de bauxita y buques de materiales.
+* ============================================================================================
+* Se recomienda minimizar este documento para asi disminuir su impacto sobre el ancho de banda
+* y consumo de memoria en el browser. 
+*
+* ============================================================================================
+* @project  Socialum
+* @package  text/javascript
+* @file     arribos.js
+* @author   Carlos Betancourt
+* @license  La adeucada para Bauxilum
+* @js-for   IE 7+, Safari 3+, Firefox 4+, Opera 11+, Chrome 12+
+* ============================================================================================
+*
+* Consideraciones generales:
+*   1. Los objetos se identifican por contener un par o más de llaves como valor. 
+*      Ej. 
+*      var objeto = { 
+*            clave: 'valor1', 
+*            clave_2: { 
+*              clave_2_1: 10101, 
+*              clave_2_2: 'valor3' 
+*            },
+*            clave_3: valor_de_funcion('string')
+*          };
+*   2. Las variables que hacen referencia a un selector de nodo en el DOM (selectores jQuery),
+*      tiene como prefijo el símbolo de dólar ($). De esta manera es más sencillo su 
+*      identificación dentro del documento. 
+*      Ej. $gabarra = $('ul.gabarras li');
+*   3. El tabulado del documento es con doble caracter de espacio ('  ').
+*   4. Existen métodos con acciones anidadas, para así minimizar las llamadas al DOM.
+*      Ej. $esteban.attr('disabled', 'disabled')
+*                  .addClass('hold')
+*                  .val(status.label.hold);
+*   5. Múltiples declaraciones de variables se realizan con una sola declaración 'var',
+*      para así disminuir la carga en memoria.
+*      Ej. var bax = $(this).data('bax'),
+*              $esteban = $(this), // Este boton (es para no perder el selector en el $.post =P)
+*              id = '#bax_' + bax.split('/')[0] + '_' + bax.split('/')[1], // Armo el selector del BAX
+*              $estaban_padre = $(this, id),
+*              fecha_arribo = new Date();
+*
+*
+**/
+
 $(document).ready(function() {
   var status = { // Estados de gabarras
         boton: { // Para data-status en el submit
@@ -27,35 +74,39 @@ $(document).ready(function() {
       formato_date = 'd/m/yyyy';
   
   // Control de tabulador de bauxita y buques
-  $('.remolcadores, .importaciones').click(function(){
+  $('li.remolcadores, li.importaciones').click(function(){
+    var $bauxita = $('article.bauxita'),
+        $buques = $('article.buques');
     if ($(this).hasClass('remolcadores')) {
-      if ($('article.bauxita').hasClass('oculto')) {
-        $('article.bauxita').removeClass('oculto');
-        $('article.buques').addClass('oculto');
+      if ($bauxita.hasClass('oculto')) {
+        $bauxita.removeClass('oculto');
+        $buques.addClass('oculto');
       }
     } else if ($(this).hasClass('importaciones')) {
-      if ($('article.buques').hasClass('oculto')) {
-        $('article.bauxita').addClass('oculto');
-        $('article.buques').removeClass('oculto');
+      if ($buques.hasClass('oculto')) {
+        $bauxita.addClass('oculto');
+        $buques.removeClass('oculto');
       }
     }
     return false;
   });
 
   // Control para reportar el arribo de un tren 
-  $('.reportar_arribo_bax').click(function() {
+  $('input.reportar_arribo_bax').click(function() {
     var bax = $(this).data('bax'),
-        esteban = $(this), // Este boton (es para no perder el selector en el $.post =P)
+        $esteban = $(this), // Este boton (es para no perder el selector en el $.post =P)
         id = '#bax_' + bax.split('/')[0] + '_' + bax.split('/')[1], // Armo el selector del BAX
+        $estaban_padre = $(this, id),
         fecha_arribo = new Date();
     
-    esteban.attr('disabled', 'disabled');
-    esteban.addClass('hold');
-    esteban.val(status.label.hold);
+    $esteban.attr('disabled', 'disabled')
+            .addClass('hold')
+            .val(status.label.hold);
         
     $.post('arribos/reportar/' + bax, null, function(){
-      $(esteban, id).removeClass('reportar_arribo');
-      $(esteban, id).attr('value', status.label.reportado);
+
+      $estaban_padre.removeClass('reportar_arribo')
+                    .attr('value', status.label.reportado);
 
       $('small.eta_bax_title', id).text('arribo matanzas (m-201):');
       $('small.eta_bax_title', id).removeClass('eta_bax_title');
@@ -64,15 +115,15 @@ $(document).ready(function() {
       $('time.eta_bax_date', id).addClass('azul fecha_arribo').removeClass('eta_bax_date');
 
       $('ul.gabarras li', id).each(function() {
-        $(this).removeAttr('class');
-        $(this).children('img').attr('src', status.img.en_espera);
+        $(this).removeAttr('class')
+               .children('img').attr('src', status.img.en_espera);
       });
     }).error(function(error) {
-      $(esteban, id).removeAttr('disabled');
-      $(esteban, id).val(status.label.reportar);
+      $($esteban, id).removeAttr('disabled');
+      $($esteban, id).val(status.label.reportar);
     });
 
-    esteban.removeClass('hold');
+    $esteban.removeClass('hold');
 
     return false;
   });
@@ -80,17 +131,17 @@ $(document).ready(function() {
   $('h3.down').click(function() {
     var url = $(this).data('bax-url');
     $(this).next('ul.gabarras').load(url, function() {
-      $('.gabarras li').tipsy({gravity:'nw',fade:true,html:true,opacity:0.9});
+      $('ul.gabarras li').tipsy({gravity:'nw',fade:true,html:true,opacity:0.9});
     });
   });
 
-  $('.gabarras li.deshabilitada a').live('click', function() {
+  $('ul.gabarras li.deshabilitada a').live('click', function() {
     return false;
   });
   
   //
-  $('.gabarras li:not(.deshabilitada)').live('click', function() {
-    var bax_id = $(this).parent('.gabarras').data("bax-id"),
+  $('ul.gabarras li:not(.deshabilitada)').live('click', function() {
+    var bax_id = $(this).parent('ul.gabarras').data("bax-id"),
         gabarra_id = $(this).data("gabarra-id"),
         bax = bax_id.split("/"),
         gabarra = gabarra_id.split("-"),
@@ -257,30 +308,30 @@ $(document).ready(function() {
   });
 
   /* ------------------------------ BUQUES ------------------------------ */
-  // EdiciÃ³n o desactivaciÃ³n de buques
-  $('.edit, .destroy').click(function() {
-    var boton = $(this);
-    buque_id = boton.data('buque-id');
+  // Edición o desactivación de buques
+  $('input.edit, input.destroy').click(function() {
+    var $boton = $(this);
+    buque_id = $boton.data('buque-id');
 
     if ($(this).hasClass('edit')) {
       window.location = '/buques/' + buque_id + '/edit';
     } else {
       if (confirm('Â¿Realmente desea cambiar el estado del buque?')) {
-          boton.attr('disabled', 'disabled');
-          boton.addClass('hold');
-          boton.val(status.label.hold);
-          boton.removeClass('cancel blue');
+          $boton.attr('disabled', 'disabled')
+                .addClass('hold')
+                .val(status.label.hold)
+                .removeClass('cancel blue');
 
         $.get('/buques/destroy/' + buque_id, null, function(data){
           console.log(data);
-          boton.removeAttr('disabled');
-          boton.removeClass('hold');
+          $boton.removeAttr('disabled')
+                .removeClass('hold');
           if (!data.buque.activo){
-            boton.val('Activar buque');
-            boton.addClass('blue');
+            $boton.val('Activar buque')
+                  .addClass('blue');
           } else {
-            boton.val('Desactivar buque');
-            boton.addClass('cancel');
+            $boton.val('Desactivar buque')
+                  .addClass('cancel');
           }
         }, 'json');
       }
@@ -290,24 +341,24 @@ $(document).ready(function() {
   });
 
   // AdiciÃ³n de buque
-  $('.add_buque').click(function(){
+  $('input.add_buque').click(function(){
     window.location = '/buques/new';
   });
 
   // Reporte de arribo de buque
-  $('.reportar_arribo_buque').click(function() {
-    var boton = $(this),
+  $('input.reportar_arribo_buque').click(function() {
+    var $boton = $(this),
         selector_id = $(this).parent().parent().attr('id'),
         buque_id = boton.data('buque-id'),
         id = '#buque_' + boton.data('buque-id'),
         fecha_arribo = new Date();
 
-    boton.attr('disabled', 'disabled');
-    boton.addClass('hold');
-    boton.val(status.label.hold);
+    $boton.attr('disabled', 'disabled')
+         .addClass('hold')
+         .val(status.label.hold);
 
     $.get('/buques/reportar/' + buque_id, null, function(data){
-      boton.fadeOut().remove();
+      $boton.fadeOut().remove();
       $('.descargar_buque', '#' + selector_id).delay(300).fadeIn();
 
       $('small.eta_buque_title', id).text('arribo matanzas (m-201):');
@@ -321,7 +372,7 @@ $(document).ready(function() {
     return false;
   });
 
-  $('.descargar_buque').click(function(){
+  $('input.descargar_buque').click(function(){
     var buque_id = $(this).data('buque-id'),
         widget_id = 'buque_' + $(this).data('buque-id');
     $('#dialogo').append($('<div class="widget_descarga" id="' + widget_id + '"><div class="centro"><img src="/images/loading_32.gif" alt="Cargando" title="Cargando" width="32" height="32" /><p>Cargando, por favor espere...</p></div></div>').load('/arribos/buque/' + buque_id, function(){
@@ -336,8 +387,8 @@ function error_dialogo_descarga(string, widget_id) {
   $('.error', '#' + widget_id).children('p').text(string);
 
   if ($('.error', '#' + widget_id).hasClass('oculto')) {
-    $('.error', '#' + widget_id).fadeIn();
-    $('.error', '#' + widget_id).delay(10000).fadeOut();
+    $('.error', '#' + widget_id).fadeIn()
+                                .delay(10000).fadeOut();
   }
 
   return false;

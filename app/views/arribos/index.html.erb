@@ -43,6 +43,10 @@
         </div>
         <div class="grid_8 omega margen_b_10">
           <small class="tons">Tonelaje descargado:</small>
+          <div id="chart_<%= id(bax.id) %>" data-toneladas="<%=h bax.descargado.to_json %>" class="centro grafica_descarga">
+            <%= image_tag "loading_32.gif", :alt => "Cargando, por favor espere...", :title => "Cargando, por favor espere..." %>
+            <p>Cargando, por favor espere...</p>
+          </div>
         </div>
         <div class="clearfix"></div>
       <% if can? :manage, ArriboBauxita %>
@@ -149,5 +153,5 @@
   </article>
   <div class="clearfix"></div>
 <% content_for :jquery_scripts do %>
-  <%= javascript_include_tag 'libs/jquery.tipsy', 'libs/jquery.ui.min', 'arribos', :cache => true %>
+  <%= javascript_include_tag 'libs/jquery.tipsy', 'libs/jquery.ui.min', 'libs/raphael.min.js', 'arribos', :cache => true %>
 <% end %>

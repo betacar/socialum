@@ -6,7 +6,7 @@ class Bax < ActiveRecord::Base
   belongs_to :Remolcador, :foreign_key => :remolcador_id
   belongs_to :EmpresaTransporte, :foreign_key => :empresa_transporte_id
   has_one :ArriboBauxita
-  attr_accessor :remolcador, :empresa_transportista, :capitan, :reportado, :eta_arribo, :fecha_arribo # Atributos virtuales
+  attr_accessor :remolcador, :empresa_transportista, :capitan, :reportado, :eta_arribo, :fecha_arribo, :descargado # Atributos virtuales
   
   # Obtiene los trenes de gabarras que zarparon de Pijigüaos, 
   def self.trenes
@@ -31,6 +31,10 @@ class Bax < ActiveRecord::Base
       unless bax.ArriboBauxita.nil? 
         baxes[i].reportado = true
         baxes[i].fecha_arribo = bax.ArriboBauxita.fecha_hora_arribo_bauxita
+        
+        baxes[i].descargado = Hash.new
+        baxes[i].descargado[:tonelaje] = bax.carga_transportar
+        baxes[i].descargado[:descargado] = DescargaBauxita.sum(:tonelaje_descarga_bauxita, :conditions => { :arribo_id => bax.ArriboBauxita.id, :arribo_type => ArriboBauxita.class_name } )
       else
         baxes[i].reportado = false
       end

@@ -1,11 +1,8 @@
       <% titulo 'Login' %>
   		<h1 class="hasIcono login">Ingrese con su credencial de red</h1>
-      <% if flash[:error]%>
-      <div class="error">
-        <span> </span>
-        <p><%= flash[:error]%></p>
-      </div>
-      <% end %>
+      <%= content_tag(:div, flash[:error], :class => "error") if flash[:error] %>
+      <%= content_tag(:div, flash[:notice], :class => "info") if flash[:notice] %>
+      <%= content_tag(:div, flash[:alert], :class => "advertencia") if flash[:alert] %>
       <% form_for resource_name, resource, :url => session_path(resource_name) do |f| %>
         <ul>
         	<li>

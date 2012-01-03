@@ -21,7 +21,7 @@ Rails::Initializer.run do |config|
   # config.gem 'aws-s3', :lib => 'aws/s3'
   config.gem 'warden'
   config.gem 'devise'
-  config.gem 'devise_ldap_authenticatable'
+  # config.gem 'devise_ldap_authenticatable'
   config.gem "cancan"
   config.gem 'will_paginate'
   config.gem 'userstamp'

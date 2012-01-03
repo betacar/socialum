@@ -7,6 +7,9 @@
 * Los estilos con propiedades !importamt significan que no pueden ser sobreescritos por otro estilo.
 * Usar y modificar con responsabilidad.
 *
+* Se recomienda minimizar este documento para as´i disminuir el impacto sobre el ancho de banda
+* y consumo de memoria en el browser. CSS Min: http://tools.w3clubs.com/cssmin/
+*
 * ================================================================================================
 * * * * * * * * * * * * * With a great power comes a great responsability. * * * * * * * * * * * *
 * ================================================================================================
@@ -14,7 +17,7 @@
 * @project  Todos
 * @version  0.2.8
 * @package  html5-css
-* @file     fw_grid.css
+* @file     style.css
 * @author   Carlos Betancourt
 * @cssdoc   version 1.0-pre
 * @license  La adeucada para Bauxilum
@@ -22,7 +25,7 @@
 *
 **/
 
-/**
+/************************************************************************************************
 * Estilos por defecto.
 * Se aplcian por defecto a los elementos especificados. 
 *
@@ -106,7 +109,7 @@ dd {
   color:#ccc !important;
 }
 
-/**
+/************************************************************************************************
 * Clases generales.
 *
 * @section  default-classes
@@ -117,7 +120,7 @@ dd {
 h1.hasIcono {
   padding-left:30px;
   background-repeat:no-repeat;
-  background-position:left center;
+  background-position:left top;
 }
 /** Icono de login */
 h1.login {
@@ -208,7 +211,28 @@ h2.underlined:hover {
   display:none
 }
 
-/**
+.ir {
+  display:block;
+  text-indent:-999em;
+  overflow:hidden;
+  background-repeat:no-repeat;
+  text-align:left;
+  direction:ltr;
+}
+.clearfix:before, .clearfix:after {
+  content:"\0020";
+  display:block;
+  height:0;
+  overflow:hidden;
+}
+.clearfix:after {
+  clear:both;
+}
+.clearfix {
+  zoom:1;
+}
+
+/************************************************************************************************
 * Barra superior
 *
 * @section  top_bar
@@ -259,7 +283,7 @@ h2.underlined:hover {
 	  background-image:url("../images/sa_icons_logout.png") !important;
 	}
 
-/**
+/************************************************************************************************
 * Header de página
 *
 * @section  header
@@ -291,7 +315,7 @@ header li {
   display:inline;
 }
 
-/**
+/************************************************************************************************
 * Selectores, propiedades y estilos para la caja de login
 *
 * @section  login
@@ -365,7 +389,7 @@ header li {
 	  display:inline;
 	}
 
-/**
+/************************************************************************************************
 * Selectores, propiedades y estilos para el menu de navegación
 *
 * @section  menu
@@ -492,7 +516,7 @@ header li {
     margin-bottom:5px;
   }
 
-/**
+/************************************************************************************************
 * Selectores, propiedades y estilos para un campo de búsqueda
 *
 * @section  search
@@ -517,7 +541,7 @@ header li {
   font-style:italic;
 }
 
-/**
+/************************************************************************************************
 * Selectores, propiedades y estilos del contenedor principal de información
 *
 * @section  main-wrapper
@@ -634,13 +658,6 @@ header li {
 	div.error span {
 	  background-image:url("../images/sa_alerta_error_close.jpg") !important;
 	}
-
-/**
- * Clase para aplicar estilos a graficas de descargas
- */
-div.grafica_descarga {
-  height: 150px;
-}
 	
   /** 
   * Grupo de opciones en el titulo de la página
@@ -669,7 +686,7 @@ div.grafica_descarga {
 	  background:url("../images/printer_16.png") left center no-repeat !important;
 	}
 			
-  /**
+  /************************************************************************************************
   * Selectores, propiedades y estilos para tab de links
   *
   * @section  tabs
@@ -723,7 +740,7 @@ div.grafica_descarga {
 	  cursor:default;
 	}
 
-/**
+/************************************************************************************************
 * Selectores, propiedades y estilos para formularios.
 * Los elementos de un formularios deberán estar contenidos dentro 
 * de una lista no ordenada. De esta manera se asegura un consistencia
@@ -963,92 +980,105 @@ span.incorrecto {
   span.incorrecto strong {
     color:#cd0a0a;
   }
+  
 
-
-/**
+/************************************************************************************************
 * Selectores, propiedades y estilos para la barra lateral.
 *
 * @section  aside
 *
 */
 
-/**  Estilo para titulos H3  */
+/**  Estilos para formato de titulos H3  */
 aside h3 {
   margin-top:5px;
 }
 
-/**  Estilo para titulos H3 y que sean primer hijo  */
-aside h3:first-child {
-  margin-top:0;
-}
+  /**  Estilos para formato de titulos H3 y que sean primer hijo del elemento padre  */
+  aside h3:first-child {
+    margin-top:0;
+  }
 
-/**  Estilos para clases destacado, con el fin de disminuir el tamaño de la fuente  */
+/**  Estilos para formato de   */
 aside .destacado {
   font-size:1.375em;
 }
 		
-/**
-* Selectores, propiedades y estilos para tablas de datos.
+/************************************************************************************************
+* Selectores, propiedades y estilos para fromato de tablas de datos.
+* Afectan globalmente a las tablas, independientemente de su elemento padre.
 *
 * @section  tables
 *
 */
+
+/**  Formato general de tabla  */
 table {
   margin-bottom:10px;
-  -moz-border-radius:3px;
-  -webkit-border-radius:3px;
-  border-radius:3px;
-  -moz-background-clip:padding;
-  -webkit-background-clip:padding-box;
-  background-clip:padding-box;
-}
-table, table+p {
   font-size:.95em;
 }
-table caption {
-  text-align:left;
-  font-size:1.25em;
-  color:#1a2732;
-  margin-bottom:10px;
-}
-table caption h2 {
-  margin-bottom:0;
-}
-table caption small {
-  font-size:.75em;
-}
-th {
-  background-color:#dfe5e6 !important;
-  text-align:center;
-  padding:5px;
-  border-bottom:1px solid #a5aeb6 !important;
-}
-tr {
-  text-align:center;
-  border-bottom:1px solid #dfe5e6 !important;
-}
-tr:nth-child(odd) {
-  background-color:#f2f2f2 !important;
-}
-tr:hover {
-  background-color:#fbf9ee !important;
-}
-td {
-  padding:3px;
-  vertical-align:middle;
-}
-		
-table input[type="text"], table select, input[type="password"], table textarea, table input[type="checkbox"], table input[input="radio"] {
-  margin-bottom:0;
-  padding:3px;
-}
 
-/**
+  /**  Estilos para formato de titulos de tabla (caption)  */
+  table caption {
+    text-align:left;
+    font-size:1.25em;
+    color:#1a2732;
+    margin-bottom:10px;
+  }
+
+  /**  Estilos para formato de margen inferior de titulos H2 y H3  */
+  table caption h2, table caption h3 {
+    margin-bottom:0;
+  }
+
+  /**  Estilos para formato de tamaño de fuente de elementos small  */
+  table caption small {
+    font-size:.75em;
+  }
+
+  /**  Estilos para formato de cabecera de tabla (TH)  */
+  th {
+    background-color:#dfe5e6 !important;
+    text-align:center;
+    padding:5px !important;
+    border-bottom:1px solid #a5aeb6 !important;
+  }
+
+  /**  Estilos para formato de filas de tabla  */
+  tr {
+    text-align:center;
+    border-bottom:1px solid #dfe5e6 !important;
+  }
+
+    /**  Estilos para formato de filas impares de tabla  */
+    tr:nth-child(odd) {
+      background-color:#f2f2f2 !important;
+    }
+
+    /**  Estilos para formato de filas de tabla con mouse over  */
+    tr:hover {
+      background-color:#fbf9ee !important;
+    }
+
+  /**  Estilos para formato de columnas de tabla  */
+  td {
+    padding:3px;
+    vertical-align:middle;
+  }
+  	
+  /**  Estilos para formato de elementos de formularios (inputs, textarea, select, checkbox, radios, etc.) en tablas  */
+  table input[type="text"], table select, input[type="password"], table textarea, table input[type="checkbox"], table input[input="radio"] {
+    margin-bottom:0;
+    padding:3px;
+  }
+
+/************************************************************************************************
 * Estilos de tooltip tipsy.
 * Se modificó el original para que concordará con los colores de la plantilla.
 *
 * @section  tipsy
-* @see      src/stylesheets/tipsy.css at master from jaz303/tipsy - GitHub, https://github.com/jaz303/tipsy/blob/master/src/stylesheets/tipsy.css
+* @see      src/stylesheets/tipsy.css at master from jaz303/tipsy - GitHub
+*           https://github.com/jaz303/tipsy/blob/master/src/stylesheets/tipsy.css
 *
 */
 .tipsy{
@@ -1119,30 +1149,9 @@ table input[type="text"], table select, input[type="password"], table textarea, 
   border-left:none
 }
 
-
-.ir {
-  display:block;
-  text-indent:-999em;
-  overflow:hidden;
-  background-repeat:no-repeat;
-  text-align:left;
-  direction:ltr;
-}
-.clearfix:before, .clearfix:after {
-  content:"\0020";
-  display:block;
-  height:0;
-  overflow:hidden;
-}
-.clearfix:after {
-  clear:both;
-}
-.clearfix {
-  zoom:1;
-}
-
-/**
-* Selectores, propiedades y estilos para impresión.
+/************************************************************************************************
+* Selectores, propiedades y estilos para impresión del documento.
+* Parte de HTML5 Boilerplate.
 *
 * @section  media-query_print
 *
