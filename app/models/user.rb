@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_one :empleado, :foreign_key => :id
   has_and_belongs_to_many :roles
   devise :database_authenticatable, :rememberable, :trackable, :timeoutable
-  model_stamper
+  #model_stamper
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :login, :password, :remember_me
