@@ -6,7 +6,7 @@ class RemoveEstadoIdFromAllAndAddActivoToAll < ActiveRecord::Migration
     # Elimina la columna estado_id
     remove_column :alarmas, :estado_id
     remove_column :empresas, :estado_id
-    remove_column :equipos, :estado_id
+    #remove_column :equipos, :estado_id
     remove_column :equipos_metas, :estado_id
     remove_column :estatus_gabarras, :estado_id
     remove_column :fallas, :estado_id
