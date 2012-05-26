@@ -1,6 +1,7 @@
 class Gabarra < ActiveRecord::Base
-  set_table_name 'vw_gabarras'
-  
+  self.table_name = 'vw_gabarras'
+  self.primary_key = :id
+
   # Se define como de solo lectura por ser una vista de BD
   protected
     def after_initialize

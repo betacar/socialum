@@ -2,7 +2,7 @@ class Novedad < ActiveRecord::Base
   belongs_to :proceso, :polymorphic => true
   belongs_to :tipo_novedad
   stampable
-  validates_presence_of :desc_novedad, :inicio_novedad, :fin_novedad, :message => 'Los campos no pueden estar vacíos'
+  validates_presence_of :desc_novedad, :inicio_novedad, :fin_novedad, :message => 'Los campos no pueden estar vacios'
   attr_accessor :login, :inicio_evento, :fin_evento
 
   def self.create(proceso, desc_novedad, inicio_novedad, fin_novedad)
@@ -14,7 +14,7 @@ class Novedad < ActiveRecord::Base
       if novedad.save
         novedad
       else
-        raise Exceptions::PresenciaValoresExcepcion.new('Falló al intentar salvar la novedad')
+        raise Exceptions::PresenciaValoresExcepcion.new('Fallo al intentar salvar la novedad')
       end
   end
 

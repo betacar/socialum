@@ -1,36 +1,46 @@
-# A sample Gemfile
-source "http://rubygems.org/"
+source :gemcutter
 
-gem "rails", "~> 2.3.5"
-gem "bcrypt-ruby", "~> 2.1.4", :require => "bcrypt"
-gem "capistrano", "~> 2.6.0"
-gem "warden", "~> 0.10.3"
-gem "devise", "~> 1.0.11"
-gem "devise_ldap_authenticatable", "~> 0.1.6"
-gem "cancan", "~> 1.3.4"
-gem "actionmailer", "~> 2.3.5"
-gem "actionpack", "~> 2.3.5"
-gem "activerecord", "~> 2.3.5"
-gem "activeresource", "~> 2.3.5"
-gem "activesupport", "~> 2.3.5"
-#gem "bundler", "~> 0.9.26"
-gem "columnize",  "~> 0.3.1"
-gem "highline", "~> 1.6.2"
-gem "httpclient", "~> 2.1.1"
-gem "jasperserver-client", "~> 1.0.0"
-gem "linecache", "~> 0.43"
-gem "net-ldap", "~> 0.1.1"
-gem "net-scp", "~> 1.0.4"
-gem "net-sftp", "~> 2.0.5"
-gem "net-ssh", "~> 2.1.4"
-gem "net-ssh-gateway", "~> 1.1.0"
-gem "orm_adapter", "~> 0.0.5"
-gem "pg", "~> 0.9.0"
-gem "rack", "~> 1.0.1"
-gem "rake", "~> 0.8.7"
-gem "ruby-debug", "~> 0.10.3"
-gem "ruby-debug-base", "~> 0.10.3"
-gem "userstamp", "~> 2.0.1"
-gem "rubyforge", "~> 1.0.0"
-gem "will_paginate", "~> 2.3.15"
-gem "xml-simple", "~> 1.0.15"
+gem 'rails', '3.2.3'
+
+# Bundle edge Rails instead:
+# gem 'rails', :git => 'git://github.com/rails/rails.git'
+
+gem 'pg'
+
+
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
+
+  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+  # gem 'therubyracer', :platform => :ruby
+
+  gem 'uglifier', '>= 1.0.3'
+end
+
+gem 'jquery-rails'
+
+# To use ActiveModel has_secure_password
+gem 'bcrypt-ruby', '~> 3.0.0'
+
+# To use Jbuilder templates for JSON
+# gem 'jbuilder'
+
+# Use unicorn as the app server
+gem 'unicorn'
+
+# Deploy with Capistrano
+# gem 'capistrano'
+
+# To use debugger
+# gem 'ruby-debug19', :require => 'ruby-debug'
+
+gem "capistrano"
+gem "warden"
+gem "devise"
+gem "cancan"
+gem "columnize"
+gem "userstamp", :git => 'git://github.com/delynn/userstamp.git'
+gem "dalli" # Memcached

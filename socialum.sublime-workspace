@@ -1,0 +1,881 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"inv",
+				"invalid"
+			],
+			[
+				"Oc",
+				"octokit"
+			],
+			[
+				"do",
+				"do"
+			],
+			[
+				"hei",
+				"height:   (property)"
+			],
+			[
+				"div",
+				"div: <div>"
+			],
+			[
+				"font",
+				"font-size:   (property)"
+			],
+			[
+				"border",
+				"border: border-top-style: style"
+			],
+			[
+				"bac",
+				"background-color:   (property)"
+			],
+			[
+				"back",
+				"background-color:   (property)"
+			],
+			[
+				"background",
+				"background-position:   (property)"
+			],
+			[
+				"no",
+				"no-repeat  (value)"
+			],
+			[
+				"ba",
+				"background-repeat:   (property)"
+			],
+			[
+				"if",
+				"if: if … end"
+			],
+			[
+				"la",
+				"label_tag"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app/models/user.rb",
+			"settings":
+			{
+				"buffer_size": 1225,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "config/locales/es.yml",
+			"settings":
+			{
+				"buffer_size": 5710,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/models/ability.rb",
+			"settings":
+			{
+				"buffer_size": 676,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 396 files for \"load_and_authorize\"\n\n/home/betacar/Code/Ruby/socialum/app/controllers/buques_controller.rb:\n    1  class BuquesController < ApplicationController\n    2    before_filter :authenticate_user! # Autentica cada usuario contra LDAP antes de ejecutar cualquier controller\n    3:   load_and_authorize_resource\n    4    \n    5    # GET /buques/new\n\n/home/betacar/Code/Ruby/socialum/app/controllers/descargar_controller.rb:\n    1  class DescargarController < ApplicationController\n    2    before_filter :authenticate_user! # Autentica cada usuario contra LDAP antes de ejecutar cualquier controller\n    3:   load_and_authorize_resource :class => \"DescargaBauxita\"\n    4  \n    5    # POST /descargar/gabarra/001/2006/ABC-123/\n\n2 matches across 2 files\n",
+			"settings":
+			{
+				"buffer_size": 767,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "app/controllers/overview_controller.rb",
+			"settings":
+			{
+				"buffer_size": 72,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"git ",
+				"Git: Commit"
+			],
+			[
+				"git",
+				"Git: Commit"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 288.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": true,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/betacar/Code/Ruby/socialum/config/locales/devise.es.yml",
+		"/home/betacar/Code/Ruby/socialum/socialum.sublime-project",
+		"/home/betacar/Code/Ruby/socialum/Rakefile",
+		"/home/betacar/Code/Ruby/socialum/socialum.sublime-workspace",
+		"/home/betacar/Code/Ruby/beerthday/app.rb",
+		"/home/betacar/Code/Ruby/socialum/README",
+		"/home/betacar/Code/Ruby/gistr/app.rb",
+		"/home/betacar/Code/Ruby/gistr/Procfile",
+		"/home/betacar/Code/Ruby/beerthday/config.ru",
+		"/home/betacar/Code/Ruby/gistr/config.ru",
+		"/home/betacar/Code/Ruby/socialum/public/stylesheets/style.css",
+		"/home/betacar/Code/Ruby/socialum/app/views/arribos/index.html.erb",
+		"/home/betacar/Code/Ruby/socialum/public/javascripts/arribos.js",
+		"/home/betacar/Code/Ruby/socialum/app/models/novedad.rb",
+		"/home/betacar/Code/Ruby/socialum/app/models/bax.rb",
+		"/home/betacar/Code/PHP/4L/wp-content/themes/4lochas/style.css",
+		"/home/betacar/Code/PHP/4L/wp-content/themes/4lochas/archive.php",
+		"/home/betacar/Code/PHP/4L/wp-content/themes/4lochas/functions.php",
+		"/home/betacar/Code/PHP/4L/wp-content/themes/4lochas/landing_page.html",
+		"/home/betacar/Code/PHP/4L/wp-content/themes/4lochas/category.php",
+		"/home/betacar/Code/PHP/4L/wp-content/themes/4lochas/header.php",
+		"/home/betacar/Code/PHP/4L/wp-content/themes/4lochas/content-single.php",
+		"/home/betacar/Code/PHP/4L/wp-content/themes/4lochas/front-page.php",
+		"/home/betacar/Code/PHP/4L/wp-content/themes/4lochas/tag.php",
+		"/home/betacar/Code/PHP/4L/wp-content/themes/4lochas/single.php",
+		"/home/betacar/Code/PHP/4L/.htaccess",
+		"/home/betacar/Code/PHP/4L/wp-content/themes/4lochas/content.php",
+		"/home/betacar/Code/PHP/4L/wp-content/themes/4lochas/sidebar.php",
+		"/home/betacar/Code/PHP/4L/wp-includes/category.php",
+		"/home/betacar/Code/PHP/4L/wp-content/themes/4lochas/footer.php",
+		"/home/betacar/Code/PHP/4L/wp-content/plugins/facebook-comments-plugin/facebook-comments.php",
+		"/tmp/.fr-dFVZhU/toolbox/content-page.php",
+		"/tmp/.fr-UKsLuw/toolbox/content-single.php",
+		"/home/betacar/Code/PHP/4L/wp-content/themes/4lochas/content-breadcrums.php",
+		"/home/betacar/Code/PHP/4L/wp-content/themes/4lochas/comments.php",
+		"/home/betacar/Code/PHP/4L/wp-content/themes/4lochas/page.php",
+		"/home/betacar/Code/PHP/4L/wp-content/themes/4lochas/content-page.php",
+		"/home/betacar/Code/PHP/4L/wp-content/themes/4lochas/bonus/lasers.php",
+		"/home/betacar/Code/PHP/4L/wp-content/themes/4lochas/index.php",
+		"/home/betacar/Code/PHP/4L/wp-content/themes/4lochas/404.php",
+		"/home/betacar/Code/PHP/4L/wp-content/themes/4lochas/css/style.css",
+		"/home/betacar/Dropbox/TuSport/coming_soon.html",
+		"/home/betacar/Code/Ruby/beerthday/.rvmrc",
+		"/home/betacar/.config/sublime-text-2/Packages/Ruby/Ruby.sublime-build",
+		"/home/betacar/Code/Ruby/beerthday/Gemfile",
+		"/home/betacar/Code/Ruby/bartender/Gemfile",
+		"/home/betacar/.config/sublime-text-2/Packages/User/Package Control.sublime-settings",
+		"/home/betacar/.config/sublime-text-2/Packages/Package Control/Package Control.sublime-settings",
+		"/home/betacar/.config/sublime-text-2/Packages/User/ruby_check.py",
+		"/home/betacar/Code/Ruby/bartender/app.rb",
+		"/home/betacar/Code/Ruby/frienday/app.rb",
+		"/home/betacar/Code/Ruby/frienday/Gemfile",
+		"/home/betacar/Dropbox/Betaweb/Taller HTML y CSS/src/styles.css",
+		"/home/betacar/Dropbox/Betaweb/Taller HTML y CSS/index.html",
+		"/home/betacar/Code/Ruby/socialum/public/stylesheets/socialum.css",
+		"/home/betacar/Code/Ruby/socialum/app/helpers/arribos_helper.rb",
+		"/home/betacar/.config/sublime-text-2/Packages/User/Base File.sublime-settings",
+		"/home/betacar/Code/Ruby/socialum/app/views/arribos/_gabarra.html.erb",
+		"/home/betacar/Code/Ruby/socialum/public/stylesheets/fw_grid.css",
+		"/home/betacar/Code/Ruby/socialum/app/models/descarga_bauxita.rb",
+		"/home/betacar/Code/Ruby/socialum/app/models/arribo_bauxita.rb",
+		"/home/betacar/Code/Ruby/c5/Gemfile",
+		"/home/betacar/Code/Ruby/c5/config/database.yml",
+		"/home/betacar/Code/Ruby/c5/.rvmrc",
+		"/home/betacar/Code/Ruby/socialum/app/models/bax_gabarra.rb",
+		"/home/betacar/Code/Ruby/socialum/app/controllers/arribos_controller.rb",
+		"/home/betacar/Code/Ruby/socialum/app/views/arribos/_gabarras.html.erb",
+		"/home/betacar/Code/Ruby/socialum/app/helpers/application_helper.rb",
+		"/home/betacar/Code/Ruby/socialum/public/javascripts/application.js",
+		"/home/betacar/Code/Ruby/socialum/public/javascripts/plugins.js",
+		"/home/betacar/Code/Ruby/socialum/app/views/layouts/application.html.erb",
+		"/home/betacar/Code/Ruby/socialum/app/views/layouts/login.html.erb",
+		"/home/betacar/Code/Ruby/socialum/app/views/novedades/_new_acaecimiento.html.erb",
+		"/home/betacar/Code/Ruby/socialum/app/controllers/descargar_controller.rb",
+		"/home/betacar/Code/Ruby/socialum/config/routes.rb",
+		"/home/betacar/Code/Ruby/socialum/public/template.html",
+		"/home/betacar/Code/Ruby/socialum/config/database.yml",
+		"/home/betacar/Code/PHP/4L/wp-config.php",
+		"/home/betacar/Code/PHP/4L/wp-content/db.php",
+		"/home/betacar/.rvm/gems/ruby-1.8.7-p72@socialum/gems/rails-2.3.5/lib/rails_generator/generators/components/model/templates/migration.rb",
+		"/home/betacar/.rvm/gems/ruby-1.8.7-p72@socialum/gems/rails-2.3.5/lib/rails_generator/generators/components/model/templates/model.rb",
+		"/home/betacar/.rvm/gems/ruby-1.8.7-p72@socialum/gems/rails-2.3.5/lib/rails_generator/generators/components/model/model_generator.rb",
+		"/home/betacar/.rvm/gems/ruby-1.8.7-p72@socialum/gems/rails-2.3.5/lib/rails_generator/generators/components/migration/migration_generator.rb",
+		"/home/betacar/.rvm/gems/ruby-1.8.7-p72@socialum/gems/rails-2.3.5/lib/rails_generator/generators/components/migration/templates/migration.rb",
+		"/home/betacar/Code/Ruby/socialum/db/migrate/20110926160008_create_metas.rb",
+		"/home/betacar/Code/Ruby/socialum/db/migrate/20110926155856_meta.rb",
+		"/home/betacar/Code/Apps/Ruby/socialum/app/controllers/arribos_controller.rb",
+		"/home/betacar/Code/Apps/Ruby/socialum/public/javascripts/arribos.js",
+		"/home/betacar/Code/Apps/Ruby/socialum/app/views/arribos/index.html.erb",
+		"/home/betacar/Code/Apps/Ruby/socialum/public/javascripts/plugins.js",
+		"/home/betacar/Code/Apps/Ruby/socialum/app/helpers/arribos_helper.rb",
+		"/home/betacar/Code/Apps/Ruby/socialum/public/stylesheets/style.css",
+		"/home/betacar/Code/Apps/Ruby/socialum/app/models/ability.rb",
+		"/home/betacar/Code/Apps/Ruby/socialum/app/models/buque.rb",
+		"/home/betacar/Code/Apps/Ruby/socialum/app/views/arribos/_gabarra.html.erb",
+		"/home/betacar/Code/Apps/Ruby/socialum/public/template.html",
+		"/home/betacar/Code/Apps/Ruby/socialum/app/views/arribos/_gabarras.html.erb",
+		"/home/betacar/.config/sublime-text-2/Packages/User/Distraction Free.sublime-settings",
+		"/home/betacar/.config/sublime-text-2/Packages/User/JavaScript.sublime-settings",
+		"/home/betacar/Code/Apps/Ruby/socialum/app/models/bax_gabarra.rb",
+		"/home/betacar/Code/Apps/Ruby/socialum/app/models/bax.rb",
+		"/home/betacar/Code/Apps/Ruby/socialum/app/models/remolcador.rb",
+		"/home/betacar/Code/Apps/Ruby/socialum/app/models/arribo_bauxita.rb",
+		"/home/betacar/Code/Apps/Ruby/socialum/public/javascripts/application.js",
+		"/home/betacar/Code/Apps/Ruby/socialum/app/views/layouts/application.html.erb",
+		"/home/betacar/Dropbox/Tesis/Code/rsync.log",
+		"/home/betacar/Code/Apps/Ruby/socialum/Gemfile",
+		"/home/betacar/.rvm/gems/ruby-1.8.7-p72@socialum/gems/rails-2.3.5/lib/rails/gem_dependency.rb",
+		"/home/betacar/Code/Apps/Ruby/socialum/app/helpers/application_helper.rb",
+		"/home/betacar/Code/Apps/Ruby/socialum/public/stylesheets/socialum.css",
+		"/home/betacar/Code/Apps/Ruby/socialum/app/models/descarga_bauxita.rb",
+		"/home/betacar/Code/Apps/Ruby/socialum/config/routes.rb",
+		"/home/betacar/Code/Apps/Ruby/socialum/app/views/arribos/_buque.html.erb",
+		"/home/betacar/Code/Apps/Ruby/socialum/app/controllers/buques_controller.rb",
+		"/home/betacar/Code/Apps/Ruby/socialum/app/views/arribos/buques.html.erb",
+		"/home/betacar/Code/Apps/Ruby/socialum/app/views/buques/new.html.erb",
+		"/home/betacar/Code/Apps/Ruby/socialum/app/views/buques/edit.html.erb",
+		"/home/betacar/Code/Apps/Ruby/socialum/app/controllers/descargar_controller.rb",
+		"/home/betacar/Code/Apps/Ruby/socialum/db/migrate/20110820211931_create_buques.rb",
+		"/home/betacar/Code/Apps/Ruby/socialum/public/stylesheets/fw_grid.css",
+		"/home/betacar/Code/Apps/Ruby/socialum/app/views/novedades/_new_acaecimiento.html.erb",
+		"/home/betacar/Code/Apps/Ruby/socialum/db/migrate/20110726184321_create_descarga_otros.rb",
+		"/home/betacar/Code/Apps/Ruby/socialum/config/locales/es.yml",
+		"/home/betacar/Code/Apps/Ruby/socialum/app/controllers/application_controller.rb",
+		"/home/betacar/.config/sublime-text-2/Packages/Default/Base File.sublime-settings",
+		"/home/betacar/Code/Apps/Ruby/socialum/config/database.yml",
+		"/home/betacar/Code/Apps/Ruby/socialum/app/models/descarga_otro.rb",
+		"/home/betacar/.rvm/rubies/ruby-1.8.7-p72/lib/ruby/1.8/date.rb"
+	],
+	"find":
+	{
+		"height": 33.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"/home/betacar/Code/Ruby/socialum/"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"load_and_authorize",
+			"h1",
+			"@oauth",
+			"scope",
+			"\"",
+			".error",
+			"{",
+			" left center no-repeat",
+			";}",
+			"'Enviar'",
+			"this",
+			"'#' + widget_id",
+			"date",
+			"date_field",
+			"formato_date, ",
+			"    ",
+			"$(este)",
+			"$(esteban)",
+			"admin_descargas",
+			"version_requirements",
+			"'input[name=\"submit_campo\"]'",
+			": ",
+			";\n	}",
+			": ",
+			" class=\"destacado\"",
+			", :class => 'margen_b_10'",
+			"descarga",
+			"DescargaOtro",
+			"descarga_otro",
+			"@gabarra",
+			"_descarga_bauxita",
+			"gabarra",
+			"@gabarra",
+			"self.class.name",
+			"params[:action]",
+			"<<<<<<< HEAD",
+			"HEAD",
+			"\"",
+			"x",
+			"baxes[i].gabarras",
+			"tren",
+			"\"",
+			"date",
+			"esFecha",
+			"parseDate",
+			"getDateFromFormat",
+			"formatDate",
+			"compareDates",
+			"isDate",
+			"id",
+			"\"",
+			":buque_",
+			"\"([a-zA-z]|\\_){1,99}\"=>",
+			"(\"\\w{2}\")>([a-zA-z|áÁ|àÁ|äÄ|éÉ|èÈ|ëË|íÍ|ìÌ|ïÏ|óÓ|òÒ|öÖ|úÚ|ùÙ|üÜ|ñ|,|\\s|\\-|\\(|\\)|\\.]{1,100})",
+			"</li>",
+			"<li>",
+			"rubyvis",
+			"^((0[1-9]|[12]\\d)/(0[1-9]|1[012])|30/(0[13-9]|1[012])|31/(0[13578]|1[02]))/(19|20)\\d\\d$",
+			"timestamps",
+			"timestapms",
+			"\"",
+			"<small>Alerta emitida por Socialum - 30/May./2011 | 15:58</small>",
+			"30/05/2011",
+			"descarga_bauxita",
+			"usuario",
+			"usuario_signed_in",
+			"usuario",
+			"\"",
+			"Usuario",
+			"authenticate_usuario",
+			"usuario",
+			"current_usuario",
+			"\"",
+			">\\n\\n",
+			":bd",
+			":db",
+			":bd",
+			"\"",
+			":size => 4",
+			":size => 8"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"session['oauth']",
+			"'",
+			" {",
+			" ",
+			"{\\n",
+			"",
+			"}",
+			"status.label.send",
+			"'#' + widget_id",
+			"this",
+			"",
+			"  ",
+			"",
+			"  ",
+			"este",
+			"esteban",
+			"este",
+			":",
+			"}",
+			":",
+			"",
+			"buque",
+			"@buque",
+			"_buque",
+			"buque",
+			"@buque",
+			"action",
+			"'",
+			":",
+			":$1 => ",
+			"\"$2\">$2",
+			"</div>",
+			"<div class=\"grid_8 margen_b_10\">",
+			"(([1-9]|0[1-9]|[12]\\d)/([1-9]|0[1-9]|1[012])|30/(0[13-9]|1[012])|31/(0[13578]|1[02]))/(19|20)\\d\\d",
+			"'",
+			"<p class=\"pequenio derecha\">Alerta emitida por Socialum - 30/May./2011 | 15:58</p>",
+			"30/May./2011",
+			"descarga",
+			"user_signed_in",
+			"'",
+			"User",
+			"current_user",
+			"user",
+			"current_user",
+			"'",
+			":db",
+			":bd",
+			":db",
+			"'",
+			":size => 3",
+			":size => 7"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app/models/user.rb",
+					"settings":
+					{
+						"buffer_size": 1225,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								212,
+								212
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "config/locales/es.yml",
+					"settings":
+					{
+						"buffer_size": 5710,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5678,
+								5678
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/models/ability.rb",
+					"settings":
+					{
+						"buffer_size": 676,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								676,
+								676
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"settings":
+					{
+						"buffer_size": 767,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										299,
+										317
+									],
+									[
+										624,
+										642
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/controllers/overview_controller.rb",
+					"settings":
+					{
+						"buffer_size": 72,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 24.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"over",
+				"app/controllers/overview_controller.rb"
+			],
+			[
+				"style",
+				"socialum/public/stylesheets/style.css"
+			],
+			[
+				"index.e",
+				"socialum/app/views/arribos/index.html.erb"
+			],
+			[
+				"arri",
+				"socialum/public/javascripts/arribos.js"
+			],
+			[
+				"categ",
+				"4L/wp-includes/category.php"
+			],
+			[
+				"index.php",
+				"4L/wp-content/themes/4lochas/index.php"
+			],
+			[
+				"fun",
+				"4L/wp-content/themes/4lochas/functions.php"
+			],
+			[
+				"foo",
+				"4L/wp-content/themes/4lochas/footer.php"
+			],
+			[
+				"sty",
+				"public/stylesheets/style.css"
+			],
+			[
+				"so",
+				"public/stylesheets/socialum.css"
+			],
+			[
+				"",
+				"app/helpers/arribos_helper.rb"
+			],
+			[
+				"des",
+				"app/models/descarga_bauxita.rb"
+			],
+			[
+				"arr",
+				"public/javascripts/arribos.js"
+			],
+			[
+				"_gaba",
+				"app/views/arribos/_gabarra.html.erb"
+			],
+			[
+				"fw",
+				"public/stylesheets/fw_grid.css"
+			],
+			[
+				"soci",
+				"public/stylesheets/socialum.css"
+			],
+			[
+				"fw_gr",
+				"public/stylesheets/fw_grid.css"
+			],
+			[
+				"descar",
+				"socialum/app/models/descarga_bauxita.rb"
+			],
+			[
+				"applicat",
+				"socialum/app/views/layouts/application.html.erb"
+			],
+			[
+				"log",
+				"socialum/app/views/layouts/login.html.erb"
+			],
+			[
+				"arribo",
+				"socialum/public/javascripts/arribos.js"
+			],
+			[
+				"app",
+				"socialum/public/javascripts/application.js"
+			],
+			[
+				"plug",
+				"socialum/public/javascripts/plugins.js"
+			],
+			[
+				"rou",
+				"socialum/config/routes.rb"
+			],
+			[
+				"rout",
+				"socialum/config/routes.rb"
+			],
+			[
+				"socia",
+				"socialum/public/stylesheets/socialum.css"
+			],
+			[
+				"new_",
+				"socialum/app/views/novedades/_new_acaecimiento.html.erb"
+			],
+			[
+				"nove",
+				"socialum/app/models/novedad.rb"
+			],
+			[
+				"desc",
+				"socialum/app/controllers/descargar_controller.rb"
+			],
+			[
+				"new",
+				"socialum/app/views/novedades/_new_acaecimiento.html.erb"
+			],
+			[
+				"_ga",
+				"socialum/app/views/arribos/_gabarra.html.erb"
+			],
+			[
+				"dta",
+				"socialum/config/database.yml"
+			],
+			[
+				"bax",
+				"socialum/app/models/bax_gabarra.rb"
+			],
+			[
+				"_g",
+				"socialum/app/views/arribos/_gabarra.html.erb"
+			],
+			[
+				"bax_g",
+				"socialum/app/models/bax_gabarra.rb"
+			],
+			[
+				"_gabarr",
+				"socialum/app/views/arribos/_gabarra.html.erb"
+			],
+			[
+				"index.html.e",
+				"socialum/app/views/arribos/index.html.erb"
+			],
+			[
+				"application.e",
+				"socialum/app/views/layouts/application.html.erb"
+			],
+			[
+				"templ",
+				"socialum/public/template.html"
+			],
+			[
+				"rem",
+				"socialum/app/models/remolcador.rb"
+			],
+			[
+				"inde",
+				"socialum/app/views/arribos/index.html.erb"
+			],
+			[
+				"pu",
+				"socialum/public/javascripts/plugins.js"
+			],
+			[
+				"pl",
+				"socialum/public/javascripts/plugins.js"
+			],
+			[
+				"index",
+				"socialum/app/views/arribos/index.html.erb"
+			],
+			[
+				"plu",
+				"socialum/public/javascripts/plugins.js"
+			],
+			[
+				"buqu",
+				"socialum/app/models/buque.rb"
+			],
+			[
+				"appl",
+				"socialum/app/helpers/application_helper.rb"
+			],
+			[
+				"bax_",
+				"socialum/app/models/bax_gabarra.rb"
+			],
+			[
+				"_gab",
+				"socialum/app/views/arribos/_gabarras.html.erb"
+			],
+			[
+				"appli",
+				"socialum/app/helpers/application_helper.rb"
+			],
+			[
+				"abi",
+				"socialum/app/models/ability.rb"
+			],
+			[
+				"applic",
+				"socialum/app/views/layouts/application.html.erb"
+			],
+			[
+				"tem",
+				"socialum/public/template.html"
+			],
+			[
+				"ba",
+				"socialum/app/models/bax.rb"
+			],
+			[
+				"ro",
+				"socialum/config/routes.rb"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 237.0,
+	"status_bar_visible": false
+}

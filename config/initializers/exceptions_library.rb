@@ -1,1 +1,1 @@
-require(File.join(RAILS_ROOT, "lib/excepctions.rb"))
+require(File.join(Rails.root, "lib/excepctions.rb"))

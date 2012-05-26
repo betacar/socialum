@@ -32,7 +32,7 @@ module ApplicationHelper
 
   def normalizar(frase)
     if frase.nil?
-      frase = "Vacío"
+      frase = "Vacio"
     else
       frase.titleize
     end
@@ -69,7 +69,7 @@ module ApplicationHelper
 
   # Devuelve el numero en formato porcentual
   def porcentual(num)
-    number_to_percentage(num, :precision => '1', :separator => ',')
+    number_to_percentage num.to_s.to_f, :precision => '1', :separator => ',' 
   end
 end
 

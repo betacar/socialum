@@ -13,8 +13,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="shortcut icon" href="/favicon.ico" />
 	<link rel="icon" href="/favicon.ico" type="image/x-icon" />
-  <%= stylesheet_link_tag :all, :cache => true %>
-  <%= javascript_include_tag "libs/modernizr-1.7.min.js", :cache => true %>
+  <%= stylesheet_link_tag "fw_grid", "style", "socialum" %>
+  <%= javascript_include_tag "modernizr-1.7.min" %>
 </head>
 <body>
   <div class="container_24" id="dialogo"></div>
@@ -64,7 +64,7 @@
       </li>
     </ul>
   </nav>
-  <%= yield :tabulador, :cache => true %>
+  <%= yield :tabulador %>
   <section id="main" role="main" class="container_24 <%= yield(:main_clases) || nil %>">
   <% if flash[:success]%>
     <div class="exito">
@@ -92,10 +92,10 @@
   <% end %>
     <%= yield %>
   </section>    
-  <%= javascript_include_tag 'libs/jquery.min', 'plugins', 'application', :cache => true %>
-  <%= yield :jquery_scripts, :cache => false %>
+  <%= javascript_include_tag 'jquery.min', 'plugins', 'application' %>
+  <%= yield :jquery_scripts %>
   <!--[if lt IE 7 ]>
-  <script src="javascripts/libs/dd_belatedpng.js"></script>
+  <script src="dd_belatedpng.js"></script>
   <script> DD_belatedPNG.fix('img, .png_bg');</script>
   <![endif]-->
 </body>

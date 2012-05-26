@@ -7,8 +7,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   layout :layout_por_recurso # Segun sea el tipo de recurso (devise o app), cargará un layout particular
   
-  filter_parameter_logging(:password) # Previene que se muestre el valor de las contraseñas en el log de la app
-
   protected
   
   def stored_location_for (resource)
@@ -19,7 +17,7 @@ class ApplicationController < ActionController::Base
   # Devise o a la aplicación para luego asignarle un layout específico
   def layout_por_recurso
     if devise_controller?
-      "login"
+      "devise"
     else
       "application"
     end

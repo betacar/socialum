@@ -7,7 +7,7 @@ class EmpleadoController < ApplicationController
       session[:current_ficha] = params[:id]
     end
     
-    @empleado = Empleado.find(:all, :conditions => ['numero_personal = ?', session[:current_ficha]])
+    @empleado = Empleado.all(:conditions => ['numero_personal = ?', session[:current_ficha]])
     
     if (@empleado != nil)
       return @empleado

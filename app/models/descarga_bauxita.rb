@@ -1,10 +1,11 @@
 class DescargaBauxita < ActiveRecord::Base
-  set_table_name 'descargas_bauxita'
+  self.table_name = 'descargas_bauxita'
+  
   belongs_to :arribo, :polymorphic => true
   belongs_to :equipo
   has_one :BaxGabarra
   has_many :Novedads, :as => :proceso
-  validates_presence_of :atraque_descarga_bauxita, :message => 'La fecha y hora de atraque no pueden ser vacías'
+  validates_presence_of :atraque_descarga_bauxita, :message => 'La fecha y hora de atraque no pueden ser vacias'
   stampable
 
   # Reporta el atraque y descarga de una gabarra o buque
@@ -21,7 +22,7 @@ class DescargaBauxita < ActiveRecord::Base
     elsif action == 'buque'
       proceso = Buque.find(params[:buque_id])
     else
-      raise Exceptions::PresenciaValoresExcepcion.new('La acción ' + action + ' no está definida en el modelo ' + self.name)
+      raise Exceptions::PresenciaValoresExcepcion.new('La accion ' + action + ' no esta definida en el modelo ' + self.name)
     end
 
     atracada = self.find_by_arribo_id_and_gabarra_id(proceso.id, gabarra_id)
@@ -81,7 +82,7 @@ class DescargaBauxita < ActiveRecord::Base
         raise Exceptions::PresenciaValoresExcepcion.new('No existe la descarga')
       end
     else
-      raise Exceptions::PresenciaValoresExcepcion.new('No es posible encontrar la descarga sin el parámetro ID')
+      raise Exceptions::PresenciaValoresExcepcion.new('No es posible encontrar la descarga sin el parametro ID')
     end
   end
 

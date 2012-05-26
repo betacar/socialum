@@ -1,5 +1,6 @@
 class BaxGabarra < ActiveRecord::Base
-  set_table_name 'vw_zarpes_gabarras'
+  self.table_name = 'vw_zarpes_gabarras'
+  self.primary_key = :id
   belongs_to :bax
   has_one :DescargaBauxita
   attr_accessor :analisis, :equipos, :status_img, :descarga_id, :atraque_fecha, :atraque_hora, :inicio_fecha, :inicio_hora, :fin_fecha, :fin_hora, :desatraque_fecha, :desatraque_hora, :equipo_id, :novedades, :arribo # Atributos virtuales para almacenar los analisis de laboratorio y los equipos de descarga
@@ -14,7 +15,7 @@ class BaxGabarra < ActiveRecord::Base
       gabarras.each do |gabarra|
         descarga = DescargaBauxita.find_by_arribo_id_and_gabarra_id(bax.ArriboBauxita.id, gabarra.gabarra_id)
 
-        # Si, el código adyacente es un desastre. Pero funciona.
+        # Si, el codigo adyacente es un desastre. Pero funciona.
         unless descarga.nil? 
           if !descarga.desatraque_descarga_bauxita.nil? # La gabarra ya ha sido desatracada 
             gabarras[i].status_img = 'flag_finish.png'
@@ -24,11 +25,11 @@ class BaxGabarra < ActiveRecord::Base
             gabarras[i].status_img = 'arrow_rotate_clockwise.png'
           elsif !descarga.atraque_descarga_bauxita.nil? # La gabarra ya ha sido atracada 
             gabarras[i].status_img = 'anchor.png'
-          else # La gabarra está a la espera para atracar
+          else # La gabarra esta a la espera para atracar
             gabarras[i].status_img = 'clock_red.png'
           end
         else
-          gabarras[i].status_img = 'clock_red.png' # La gabarra está a la espera para atracar
+          gabarras[i].status_img = 'clock_red.png' # La gabarra esta a la espera para atracar
         end
 
         i = i.next
@@ -37,7 +38,7 @@ class BaxGabarra < ActiveRecord::Base
     else
       i = 0
 
-      gabarras.each do |gabarra| # El BAX aún no ha sido reportado como que arribó a Matanzas
+      gabarras.each do |gabarra| # El BAX aun no ha sido reportado como que arribo a Matanzas
         gabarras[i].status_img = 'steering_wheel.png'
         i = i.next
       end
@@ -52,7 +53,7 @@ class BaxGabarra < ActiveRecord::Base
     gabarra.arribo = ArriboBauxita.find_by_bax_id(params[:num_zarpe] + '/' + params[:anio_zarpe]).fecha_hora_arribo_bauxita
     
     if gabarra.nil?
-      raise Exceptions::PresenciaValoresExcepcion.new('La gabarra ' + params[:gabarra_id] + ' no está asociada al BAX ' + params[:num_zarpe] + '/' + params[:anio_zarpe])
+      raise Exceptions::PresenciaValoresExcepcion.new('La gabarra ' + params[:gabarra_id] + ' no esta asociada al BAX ' + params[:num_zarpe] + '/' + params[:anio_zarpe])
     else
      
       # Formato a tipo de muestra
@@ -60,7 +61,7 @@ class BaxGabarra < ActiveRecord::Base
         when 'M'
           gabarra.muestreo = 'Manual'
         when 'A'
-          gabarra.muestreo = 'Automático'
+          gabarra.muestreo = 'Automatico'
         else
           gabarra.muestreo = 'No disponible'
       end
@@ -77,7 +78,7 @@ class BaxGabarra < ActiveRecord::Base
           gabarra.tipo_carga = 'No disponible'
       end
 
-      # Verifico si el arribo existe y el estatus de la gabarra (navegando, atracada, descargando o vacía)
+      # Verifico si el arribo existe y el estatus de la gabarra (navegando, atracada, descargando o vacia)
       arribo = ArriboBauxita.find_by_bax_id(gabarra.bax_id)
       descarga = DescargaBauxita.find_by_arribo_id_and_gabarra_id(arribo.id, gabarra.gabarra_id)
 
@@ -101,7 +102,7 @@ class BaxGabarra < ActiveRecord::Base
         gabarra.novedades = gabarra.atraque_fecha ? Novedad.find_all_by_proceso_id_and_proceso_type(descarga.id, DescargaBauxita.name) : nil
       end
       
-      # Traigo las grúas de descarga
+      # Traigo las gruas de descarga
       gabarra.equipos = Equipo.find_all_by_tipo_equipo_id(1)
       
       return gabarra

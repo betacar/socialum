@@ -1,124 +1,60 @@
-ActionController::Routing::Routes.draw do |map|
-  map.root :controller => 'overview'
-  
-  map.resources :transportes
+Socialum::Application.routes.draw do
+  root :to => 'overview#index'
+  resources :transportes
+  resources :tipo_transportes
+  resources :subprocesos
+  resources :procesos
+  resources :buques
+  resources :equipos
+  resources :alarmas
+  resources :stock_gabarras
+  resources :estatus_gabarras
+  resources :locacions
+  resources :tipo_materias
+  resources :arribos
+  resources :descargar
+  resources :novedades
 
-  map.resources :tipo_transportes
+  # Devise stuff
+  # match 'users' => '#index', :as => :devise_for
 
-  map.resources :subprocesos
+  # match 'users' => '#index', 
+  #       :as => :devise_for, 
+  #       :path_names => { :sign_in => 'login', :sign_out => 'logout' }
 
-  map.resources :procesos
+  # match '/overview' => 'overview#index', 
+  #       :as => :user_root
 
-  map.resources :buques
+  devise_for :users
 
-  map.resources :equipos
+  # as :user do
+  #   get "login" => "devise/session#new", :as => :new_user_session
+  #   post 'login' => 'devise/sessions#create', :as => :user_session
+  #   delete "logout" => "devise/sessions#destroy", :as => :destroy_user_session
+  # end
 
-  map.resources :alarmas
+  match '/:controller(/:action(/:id))'
 
-  map.resources :stock_gabarras
-
-  map.resources :estatus_gabarras
-
-  map.resources :locacions
-
-  map.resources :tipo_materias
-
-  map.resources :arribos
-
-  map.resources :descargar
-
-  map.resources :novedades
-
-  map.devise_for :users
-
-  map.devise_for :users, :path_names => { :sign_in => 'login', :sign_out => 'logout' }
-  
-  map.user_root '/overview', :controller => 'overview'
-
-  # The priority is based upon order of creation: first created -> highest priority.
-
-  # Sample of regular route:
-  #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
-  # Keep in mind you can assign values other than :controller and :action
-
-  # Sample of named route:
-  #   map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'
-  # This route can be invoked with purchase_url(:id => product.id)
-
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   map.resources :products
-
-  # Sample resource route with options:
-  #   map.resources :products, :member => { :short => :get, :toggle => :post }, :collection => { :sold => :get }
-
-  # Sample resource route with sub-resources:
-  #   map.resources :products, :has_many => [ :comments, :sales ], :has_one => :seller
-  
-  # Sample resource route with more complex sub-resources
-  #   map.resources :products do |products|
-  #     products.resources :comments
-  #     products.resources :sales, :collection => { :recent => :get }
-  #   end
-
-  # Sample resource route within a namespace:
-  #   map.namespace :admin do |admin|
-  #     # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
-  #     admin.resources :products
-  #   end
-
-  # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  # map.root :controller => "welcome"
-
-  # See how all your routes lay out with "rake routes"
-
-  # Install the default routes as the lowest priority.
-  # Note: These default routes make all actions in every controller accessible via GET requests. You should
-  # consider removing or commenting them out if you're using named routes and resources.
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
-
-  # Ruta para reportar arribos de Bax
-  map.connect 'arribos/:action/:num_zarpe/:anio_zarpe',
-              :controller => 'arribos',
-              :action => 'reportar',
-              :num_zarpe => /\d{3}/,
-              :anio_zarpe => /\d{4}/
-
-  # Ruta para cargar en el view las gabarras del BAX
-  map.connect 'arribos/:action/:num_zarpe/:anio_zarpe',
-              :controller => 'arribos',
-              :action => 'gabarras',
-              :num_zarpe => /\d{3}/,
-              :anio_zarpe => /\d{4}/
-  
-  # Ruta para dialogos de descarga de gabarra de un Bax
-  map.arribos_gabarra 'arribos/:action/:num_zarpe/:anio_zarpe/:gabarra_id', 
-              :controller => 'arribos',
-              :action => 'gabarra',
-              :num_zarpe => /\d{3}/,
-              :anio_zarpe => /\d{4}/,
-              :gabarra_id => /(\w{2,5})-(\d{3,4}|\w{4})/
-  
-  # Ruta para subir los valores de descarga de gabarras de un Bax  
-  map.connect 'descargar/:action/:num_zarpe/:anio_zarpe/:gabarra_id', 
-              :controller => 'descargar',
-              :action => 'gabarra',
-              :num_zarpe => /\d{3}/,
-              :anio_zarpe => /\d{4}/,
-              :gabarra_id => /(\w{2,5})-(\d{3,4}|\w{4})/
-  
-  # Ruta para subir los valores de descarga de gabarras de un Bax, con formato
-  map.connect 'descargar/:action/:num_zarpe/:anio_zarpe/:gabarra_id.:format', 
-              :controller => 'descargar',
-              :action => 'gabarra',
-              :num_zarpe => /\d{3}/,
-              :anio_zarpe => /\d{4}/,
-              :gabarra_id => /(\w{2,5})-(\d{3,4}|\w{4})/
-  
-  # Ruta para subir los valores de descarga de un buque
-  map.connect 'descargar/:action/:tipo_materia_id/:buque_id',
-              :controller => 'descargar',
-              :action => 'buque',
-              :tipo_materia_id => /\d{1,}/,
-              :buque_id => /\d{1,}/
+  match 'arribos/:action/:num_zarpe/:anio_zarpe' => 'arribos#reportar', 
+        :num_zarpe => /\d{3}/, 
+        :anio_zarpe => /\d{4}/
+        
+  match 'arribos/:action/:num_zarpe/:anio_zarpe' => 'arribos#gabarras', 
+        :num_zarpe => /\d{3}/, 
+        :anio_zarpe => /\d{4}/
+        
+  match 'arribos/:action/:num_zarpe/:anio_zarpe/:gabarra_id' => 'arribos#gabarra', 
+        :as => :arribos_gabarra, 
+        :gabarra_id => /(\w{2,5})-(\d{3,4}|\w{4})/, 
+        :num_zarpe => /\d{3}/, 
+        :anio_zarpe => /\d{4}/
+        
+  match 'descargar/:action/:num_zarpe/:anio_zarpe/:gabarra_id(.:format)' => 'descargar#gabarra', 
+        :gabarra_id => /(\w{2,5})-(\d{3,4}|\w{4})/, 
+        :num_zarpe => /\d{3}/, 
+        :anio_zarpe => /\d{4}/
+        
+  match 'descargar/:action/:tipo_materia_id/:buque_id' => 'descargar#buque', 
+        :tipo_materia_id => /\d{1,}/, 
+        :buque_id => /\d{1,}/
 end

@@ -1,6 +1,6 @@
 class Bax < ActiveRecord::Base
-  set_table_name 'vw_bax'
-  set_primary_key 'id'
+  self.table_name = :vw_bax
+  self.primary_key = :id
   has_many :BaxGabarras
   has_many :Ensayos, :foreign_key => :bax_id
   belongs_to :Remolcador, :foreign_key => :remolcador_id
@@ -23,7 +23,7 @@ class Bax < ActiveRecord::Base
         when 'ACBL DE VENEZUELA'
           baxes[i].empresa_transportista = 'ACBL de Venezuela'
         when 'TERMINALES MARACAIBO CA'
-          baxes[i].empresa_transportista = 'TM Servicios Marítimos'
+          baxes[i].empresa_transportista = 'TM Servicios Maritimos'
         else 
           baxes[i].empresa_transportista = bax.EmpresaTransporte.nombre_emp.titleize
       end
@@ -34,7 +34,7 @@ class Bax < ActiveRecord::Base
         
         baxes[i].descargado = Hash.new
         baxes[i].descargado[:tonelaje] = bax.carga_transportar
-        baxes[i].descargado[:descargado] = DescargaBauxita.sum(:tonelaje_descarga_bauxita, :conditions => { :arribo_id => bax.ArriboBauxita.id, :arribo_type => ArriboBauxita.class_name } )
+        baxes[i].descargado[:descargado] = DescargaBauxita.sum(:tonelaje_descarga_bauxita, :conditions => { :arribo_id => bax.ArriboBauxita.id, :arribo_type => ArriboBauxita.to_s } )
       else
         baxes[i].reportado = false
       end

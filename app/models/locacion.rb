@@ -1,5 +1,5 @@
 class Locacion < ActiveRecord::Base
-  set_table_name 'locaciones'
+  self.table_name = 'locaciones'
   stampable
   
   # Guarda nuevas locaciones

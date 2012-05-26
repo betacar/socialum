@@ -1,7 +1,7 @@
 <% titulo 'Buques de material: registrar nuevo buque' %>
   <article class="grid_24">
 	<h1>Nuevo buque</h1>
-    <% form_for(@buque) do |f| %>
+    <%= form_for(@buque) do |f| %>
       <%= f.error_messages %>
       <div class="grid_8 margen_b_10 alpha">
         <%= f.label :nombre_buque, '<strong>Nombre del buque:</strong>' %>

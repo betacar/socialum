@@ -224,3 +224,9 @@ es:
 
       full_messages:
         format: '%{attribute} %{message}'
+
+  devise:
+    sessions:
+      user:
+        unauthenticated: 'Necesitas acceder a tu cuenta o registrarte antes de continuar.'
+        invalid: 'Contraseña o Email incorrecto.'

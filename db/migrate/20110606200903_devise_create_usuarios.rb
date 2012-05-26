@@ -6,6 +6,7 @@ class DeviseCreateUsuarios < ActiveRecord::Migration
       t.ldap_authenticatable #, :null => false
       t.rememberable
       t.trackable
+      t.encryptable
 
       t.timestamps
     end

@@ -1,5 +1,6 @@
 class ArriboBauxita < ActiveRecord::Base
-  set_table_name 'arribos_bauxita'
+  self.table_name = 'arribos_bauxita'
+  
   belongs_to :remolcador
   has_many :DescargaBauxitas, :as => :arribo
   has_one :bax
