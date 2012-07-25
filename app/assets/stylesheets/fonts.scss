@@ -1,0 +1,37 @@
+@import "compass/css3";
+
+@function namr($id) {
+  @return "helveticaneueltpro-#{$id}-webfont";
+}
+
+@include  font-face( 'Helvetica',
+          font-files(
+            "#{namr('md')}.woff",
+            "#{namr('md')}.ttf",
+            "#{namr('md')}.otf",
+            "#{namr('md')}.svg" ),
+          "#{namr('md')}.eot",
+          normal,
+          normal);
+
+@include  font-face( 'Helvetica',
+          font-files(
+            "#{namr('bd')}.woff",
+            "#{namr('bd')}.ttf",
+            "#{namr('bd')}.otf",
+            "#{namr('bd')}.svg" ),
+          "#{namr('bd')}.eot",
+          bold,
+          normal);
+
+@include  font-face( 'Helvetica',
+          font-files(
+            "#{namr('it')}.woff",
+            "#{namr('it')}.ttf",
+            "#{namr('it')}.otf",
+            "#{namr('it')}.svg" ),
+          "#{namr('it')}.eot",
+          normal,
+          italic);
+
+@import 'font-awesome';
