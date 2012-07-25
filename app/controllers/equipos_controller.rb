@@ -1,2 +1,0 @@
-class EquiposController < ApplicationController
-end
