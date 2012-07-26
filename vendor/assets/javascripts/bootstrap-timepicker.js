@@ -53,7 +53,7 @@
         constructor: Timepicker
 
         , init: function () {
-            var $trigger = this.$element.parent().hasClass('input-append') ? this.$element.parent().find('.add-on') : this.$element;
+            var $trigger = this.$element;
 
             $trigger.on('click', $.proxy(this.showWidget, this));
             
@@ -275,6 +275,8 @@
         }
 
         , setValues: function(time) {
+            var dTime = new Date();
+
             if (this.showMeridian) {
                 var arr = time.split(' ');
                 var timeArray = arr[0].split(':');
@@ -288,10 +290,10 @@
             this.second = parseInt(timeArray[2], 10);
 
             if (isNaN(this.hour)) {
-                this.hour = 1;
+                this.hour = dTime.getHours();
             } 
             if (isNaN(this.minute)) {
-                this.minute = 0;
+                this.minute = dTime.getMinutes();
             }
 
             if (this.showMeridian) {
