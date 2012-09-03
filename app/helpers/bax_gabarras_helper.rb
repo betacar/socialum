@@ -1,0 +1,2 @@
+module BaxGabarrasHelper
+end

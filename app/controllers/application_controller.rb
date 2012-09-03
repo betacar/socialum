@@ -5,22 +5,11 @@ class ApplicationController < ActionController::Base
   include Userstamp
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
-  layout :layout_por_recurso # Segun sea el tipo de recurso (devise o app), cargará un layout particular
-  
-  protected
-  
-  def stored_location_for (resource)
-    return nil
-  end
-  
-  # Determina si un recurso en particular pertenece a 
-  # Devise o a la aplicación para luego asignarle un layout específico
-  def layout_por_recurso
-    if devise_controller?
-      "devise"
-    else
-      "application"
-    end
-  end
 
+  before_filter :asignar_variables_globales
+
+  protected
+  def asignar_variables_globales
+    @areas ||= Socialum::Application.config.menu['areas']
+  end
 end
