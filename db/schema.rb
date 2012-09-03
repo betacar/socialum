@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120526164004) do
+ActiveRecord::Schema.define(:version => 20120704160318) do
 
   create_table "alarmas", :force => true do |t|
     t.string   "nombre_alarma",                   :null => false
@@ -23,17 +23,14 @@ ActiveRecord::Schema.define(:version => 20120526164004) do
   end
 
   create_table "arribos_bauxita", :force => true do |t|
-    t.boolean  "activo",                                                  :default => true
+    t.boolean  "activo",                    :default => true
     t.string   "bax_id"
-    t.string   "empresa_transporte_id"
-    t.string   "capitan_arribo_bauxita"
-    t.decimal  "tonelaje_arribo_bauxita",   :precision => 8, :scale => 2
     t.datetime "fecha_hora_arribo_bauxita"
     t.integer  "creator_id"
     t.integer  "updater_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "descargado",                                              :default => false
+    t.boolean  "descargado",                :default => false
   end
 
   create_table "buques", :force => true do |t|
