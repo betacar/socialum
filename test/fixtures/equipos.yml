@@ -1,19 +1,15 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  activo: false
-  tipo_equipo: 
-  subproceso: 
-  empresa: 
-  nombre_equipo: MyString
-  usuario_id_created: 1
-  usuario_id_updated: 1
+gms_1:
+  activo: true
+  tipo_equipo_id: 1
+  subproceso_id: 1
+  empresa_id: 2
+  nombre_equipo: GMS-1
 
-two:
-  activo: false
-  tipo_equipo: 
-  subproceso: 
-  empresa: 
-  nombre_equipo: MyString
-  usuario_id_created: 1
-  usuario_id_updated: 1
+gms_2:
+  activo: true
+  tipo_equipo_id: 1
+  subproceso_id: 1
+  empresa_id: 2
+  nombre_equipo: GMS-2
