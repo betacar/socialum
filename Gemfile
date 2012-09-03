@@ -11,13 +11,27 @@ gem 'pg'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+  gem 'sass-rails',   '>= 3.2.3'
+  gem 'coffee-rails', '>= 3.2.1'
+  gem 'bootstrap-sass-rails', '>= 2.0.1.2'
+  gem 'haml', '>= 3.1.4'
+  gem 'compass-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platform => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+end
+
+# Gems used only for development and teste enviroments
+group :development, :test do
+  gem 'cucumber', '~> 1.1.9'
+  gem 'capybara', '~> 1.1.2'
+  gem 'rspec-rails', '~> 2.8.1'
+end
+
+group :production do
+  gem 'thin'
 end
 
 gem 'jquery-rails'
@@ -26,7 +40,7 @@ gem 'jquery-rails'
 gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
-# gem 'jbuilder'
+gem 'jbuilder'
 
 # Use unicorn as the app server
 gem 'unicorn'
@@ -43,4 +57,6 @@ gem "devise"
 gem "cancan"
 gem "columnize"
 gem "userstamp", :git => 'git://github.com/delynn/userstamp.git'
-gem "dalli" # Memcached
+
+gem 'ejs', '~> 1.1.1'
+# gem 'rabl'
