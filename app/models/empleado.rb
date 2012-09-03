@@ -1,15 +1,14 @@
 class Empleado < ActiveRecord::Base
-  self.table_name = 'vw_personal'
-  self.primary_key = :id
+  self.table_name = :vw_personal
   has_one :user
+
+  def nombre_completo
+    "#{self.nombres} #{self.apellidos}".titleize
+  end
     
   # Se define como de solo lectura por ser una vista de BD
   protected
-    def after_initialize
-      readonly!
-    end
-    
-    def before_destroy
-      raise ActiveRecord::ReadOnlyRecord
+    def readonly?
+      true
     end
 end

@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
-  self.table_name = 'usuarios'
+  self.table_name = :usuarios
   has_one :empleado, :foreign_key => :id
+  has_many :novedades
   has_and_belongs_to_many :roles
   devise :database_authenticatable, :rememberable, :trackable, :timeoutable
   model_stamper
@@ -20,14 +21,11 @@ class User < ActiveRecord::Base
   # end
 
   # def datos(id = nil)
-  #   if id.nil?
-  #     id = self.ficha
-  #   end
-
+  #   id = self.ficha if id.nil?
   #   empleado = Empleado.find(id)
 
   #   # Obtenemos los nombres y apellidos del empleado, los llevamos a minuscula y luego 'titulizamos' el nombre completo
-  #   nombres = (empleado.nombres + ' ' + empleado.apellidos).titleize
+  #   (empleado.nombres + ' ' + empleado.apellidos).titleize
   # end
   
   def role?(role)

@@ -1,4 +1,3 @@
-require 'net/ldap'
 class OperationsAd
   @authenticated = false
   
