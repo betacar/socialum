@@ -1,3 +1,5 @@
+#coding: utf-8
+
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
@@ -14,6 +16,18 @@ module Socialum
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+
+    # Nombre de la aplicación
+    config.name = 'Socialum'
+
+    # Descripción de la aplicación
+    config.description = 'Socialización de la información e integración de los procesos productivos del sector aluminio'
+
+    # Nombre de la empresa 
+    config.company = 'CVG Bauxilum'
+
+    # Nombre del autor
+    config.author = '30021061 – Carlos Betancourt Carrero'
 
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
@@ -37,7 +51,7 @@ module Socialum
     config.encoding = "utf-8"
 
     # Configure sensitive parameters which will be filtered from the log file.
-    #config.filter_parameters += [:password]
+    config.filter_parameters += [:password]
 
     # Use SQL instead of Active Record's schema dumper when creating the database.
     # This is necessary if your schema can't be completely dumped by the schema dumper,
@@ -57,5 +71,8 @@ module Socialum
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Carga en el ambiente el archivo constructor del menu
+    config.menu = YAML.load_file(Rails.root.join('config', 'menu.yml'))[Rails.env]
   end
 end
