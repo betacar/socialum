@@ -1,0 +1,162 @@
+<article class="descarga row-fluid" data-bax-id="<%= bax_id %>" data-gabarra-id="<%= gabarra_id %>" id="descarga-<%= bax_id %>-<%= gabarra_id %>">
+  <span class="fa-icon-remove-sign" title="Cerrar ventana de descarga" id="cerrar-descarga-<%= bax_id %>-<%= gabarra_id %>"></span>
+
+  <section class="phi-side">
+    <h5><%= gabarra_id %></h5>
+    <div class="analisis row">
+      <div class="span6">
+        <h6>peso</h6>
+        <p><%= parseFloat(tone_transportada).format(2, '.', ',') %> tons.</p>
+
+        <h6>al<sub>2</sub>o<sub>2</sub></h6>
+        <p><%= al2o3.replace(/\./, ',') %>%</p>
+
+        <h6>s. reactivo</h6>
+        <p><%= sio2r.replace(/\./, ',') %>%</p>
+
+        <h6>muestreo</h6>
+        <p><%= EJS.Helpers.prototype.muestreo(muestreo) %></p>
+      </div>
+
+      <div class="span6 alpha">
+        <h6>humedad</h6>
+        <p><%= humedad.replace(/\./, ',') %>%</p>
+
+        <h6>fe<sub>2</sub>o<sub>3</sub></h6>
+        <p><%= fe2o3.replace(/\./, ',') %>%</p>
+
+        <h6>s. cuarzo</h6>
+        <p><%= sio2q.replace(/\./, ',') %>%</p>
+
+        <h6>procedencia</h6>
+        <p><%= EJS.Helpers.prototype.procedencia(tipo_carga) %></p>
+      </div>
+    </div>
+
+    <!--div class="novedades">
+      <h6>
+        Novedades
+        <span class="badge badge-important">2</span>
+      </h6>
+
+      <div class="novedades-list">
+        <div class="novedad">
+          <p>
+            Now that there is the Tec-9, a crappy spray gun from South Miami.
+            <a>...</a>
+          </p>
+          <span class="meta-data">15/Jun. – 16/Jun.</span>
+        </div>
+
+        <div class="novedad">
+          <p>
+            Now that there is the Tec-9, a crappy spray gun from South Miami.
+            <a>...</a>
+          </p>
+          <span class="meta-data">15/Jun. – 16/Jun.</span>
+        </div>
+      </div>
+
+      <div class="btns-novedades">
+        <button class="btn btn-mini" data-bax-id="<%= bax_id %>" data-gabarra-id="<%= gabarra_id %>" data-type="show-novedades">
+          <i class="fa-icon-folder-open"></i>
+          Leer más
+        </button>
+
+        <button class="btn btn-mini" data-bax-id="<%= bax_id %>" data-gabarra-id="<%= gabarra_id %>" data-type="post-novedad">
+          <i class="fa-icon-file"></i>
+          Reportar
+        </button>
+      </div>
+    </div-->
+  </section>
+
+  <section class="phi-main">
+    <form id="form-<%= bax_id %>-<%= gabarra_id %>" method="<%= has_descarga ? 'PUT' : 'POST' %>">
+
+      <div class="alert hide" id="alerta-<%= bax_id %>-<%= gabarra_id %>">
+        <span></span>
+      </div>
+
+      <input type="hidden" name="descarga[gabarra_id]" value="<%= gabarra_id %>">
+      <input type="hidden" name="descarga[arribo_id]" value="<%= arribo_id %>">
+      <input type="hidden" name="descarga[tonelaje_descarga_bauxita]" value="<%= tone_transportada %>">
+
+      <div class="control-group" id="equipo-id-<%= bax_id %>-<%= gabarra_id %>">
+        <label class="control-label" for="equipo_id">Equipo de descarga</label>
+        <div class="controls">
+          <select id="descarga-equipo-id-<%= bax_id %>-<%= gabarra_id %>" name="descarga[equipo_id]" tabindex="1">
+            <option>Eliga un equipo</option>
+          <% for(i=0; i < equipos.length; i++) { %>          
+            <option value="<%= equipos[i].id %>" <%= has_descarga ? EJS.Helpers.prototype.equipo_descarga(equipos[i], descarga[0]) : '' %>><%= equipos[i].nombre_equipo %></option>
+          <% } %>
+          </select>
+        </div>
+      </div>
+
+      <div class="control-group" id="atraque-<%= bax_id %>-<%= gabarra_id %>">
+        <label class="control-label" for="atraque_descarga_bauxita">Atraque de gabarra</label>
+        <div class="controls">
+          <div class="input-append" data-date="<%= Date.create().format('{dd}/{MM}/{year}') %>">
+            <input class="inline fecha" data-date-format="dd/mm/yyyy" id="fecha-atraque-<%= bax_id %>-<%= gabarra_id %>" placeholder="dd/mm/aaaa" value="" type="datetime" name="descarga[atraque_descarga_bauxita][fecha]" data-bax-gabarra="<%= bax_id %>-<%= gabarra_id %>" tabindex="2">
+            <span class="add-on fa-icon-calendar"></span>
+
+            <input class="inline hora" id="hora-atraque-<%= bax_id %>-<%= gabarra_id %>" type="time" value="" name="descarga[atraque_descarga_bauxita][hora]" placeholder="HH:MM" data-bax-gabarra="<%= bax_id %>-<%= gabarra_id %>" tabindex="3">
+            <span class="add-on fa-icon-time"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="control-group" id="inicio-<%= bax_id %>-<%= gabarra_id %>">
+        <label class="control-label" for="inicio_descarga_bauxita">Inicio de descarga</label>
+        <div class="controls">
+          <div class="input-append" data-date="<%= Date.create().format('{dd}/{MM}/{year}') %>">
+            <input class="inline fecha" data-date-format="dd/mm/yyyy" id="fecha-inicio-<%= bax_id %>-<%= gabarra_id %>" placeholder="dd/mm/aaaa" value="" type="datetime" name="descarga[inicio_descarga_bauxita][fecha]" data-bax-gabarra="<%= bax_id %>-<%= gabarra_id %>" tabindex="4">
+            <span class="add-on fa-icon-calendar"></span>
+
+            <input class="inline hora" id="hora-inicio-<%= bax_id %>-<%= gabarra_id %>" type="time" value="" name="descarga[inicio_descarga_bauxita][hora]" placeholder="HH:MM" data-bax-gabarra="<%= bax_id %>-<%= gabarra_id %>" tabindex="5">
+            <span class="add-on fa-icon-time"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="control-group" id="fin-<%= bax_id %>-<%= gabarra_id %>">
+        <label class="control-label" for="fin_descarga_bauxita">Fin de descarga</label>
+        <div class="controls">
+          <div class="input-append" data-date="<%= Date.create().format('{dd}/{MM}/{year}') %>">
+            <input class="inline fecha" data-date-format="dd/mm/yyyy" id="fecha-fin-<%= bax_id %>-<%= gabarra_id %>" placeholder="dd/mm/aaaa" value="" type="datetime" name="descarga[fin_descarga_bauxita][fecha]" data-bax-gabarra="<%= bax_id %>-<%= gabarra_id %>" tabindex="6">
+            <span class="add-on fa-icon-calendar"></span>
+
+            <input class="inline hora" id="hora-fin-<%= bax_id %>-<%= gabarra_id %>" type="time" value="" name="descarga[fin_descarga_bauxita][hora]" placeholder="HH:MM" data-bax-gabarra="<%= bax_id %>-<%= gabarra_id %>" tabindex="7">
+            <span class="add-on fa-icon-time"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="control-group" id="desatraque-<%= bax_id %>-<%= gabarra_id %>">
+        <label class="control-label" for="desatraque_descarga_bauxita">Desatraque de gabarra</label>
+        <div class="controls">
+          <div class="input-append" data-date="<%= Date.create().format('{dd}/{MM}/{year}') %>">
+            <input class="inline fecha" data-date-format="dd/mm/yyyy" id="fecha-desatraque-<%= bax_id %>-<%= gabarra_id %>" placeholder="dd/mm/aaaa" value="" type="datetime" name="descarga[desatraque_descarga_bauxita][fecha]" data-bax-gabarra="<%= bax_id %>-<%= gabarra_id %>" tabindex="8">
+            <span class="add-on fa-icon-calendar"></span>
+
+            <input class="inline hora" id="hora-desatraque-<%= bax_id %>-<%= gabarra_id %>" type="time" value="" name="descarga[desatraque_descarga_bauxita][hora]" placeholder="HH:MM" data-bax-gabarra="<%= bax_id %>-<%= gabarra_id %>" tabindex="9">
+            <span class="add-on fa-icon-time"></span>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary btn-small" type="submit" data-url="<%= descarga_url %>" id="submit-descarga-<%= bax_id %>-<%= gabarra_id %>" tabindex="10">
+        <i class="fa-icon-ok-circle"></i>
+        Enviar
+      </button>
+
+      <% if (admin) { %>
+        <button id="delete-descarga-<%= bax_id %>-<%= gabarra_id %>" class="btn btn-danger btn-small <%= has_descarga ? '' : 'hide' %>" data-bax-id="<%= bax_id %>" data-gabarra-id="<%= gabarra_id %>" data-url="<%= descarga_url %>" data-type="delete-descarga" data-peso="-<%= tone_transportada %>" tabindex="11">
+          <i class="fa-icon-remove-circle"></i>
+          Eliminar descarga
+        </button>
+      <% } %>
+    </form>
+  </section>
+</article>

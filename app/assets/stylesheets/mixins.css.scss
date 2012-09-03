@@ -1,0 +1,98 @@
+// Functions and mixins
+
+// Generate a list of venders prefixes.
+// Can be used within a @each loop.
+@function prefixr() {
+  @return webkit moz o;
+}
+
+// Convert px to em
+@function pxtoem($target){
+        @return ($target/13)+0em;
+}
+// Convert em to px
+@function emtopx($target){
+        @return ($target*13)+0px;
+}
+
+@mixin link-color($link: $linkColor, $hover: $linkColorHover, $active: $hover, $visited: $link, $decorate_link: false) {
+  a {
+    color: $link;
+
+    &:link {
+      color: $link;
+    }
+
+    &:hover{
+      color: $hover;
+      @if $decorate_link != true {
+        text-decoration:none;
+      }
+    }
+
+    &:active{
+      color: $active;
+    }
+
+    &:visited{
+      color: $visited;
+    }
+  }
+}
+
+@mixin background($reference, $color: false, $position: top left, $repeat: no-repeat) {
+  @if $color != false {
+    background-color: $reference;
+  } @else {
+    background: image_url($reference) $position $repeat;
+  }
+}
+
+@mixin border($color, $sides: '', $border_width: 1px, $border_type: solid) {
+  @if $sides == '' {
+    border: $border_width $border_type $color;
+  } @else if $color == none {
+    @each $side in $sides {
+      border-#{$side}: none;
+    }
+  } @else {
+    @each $side in $sides {
+      border-#{$side}: $border_width $border_type $color;
+    }
+  }
+}
+
+@mixin inline-list($element: 'ul', $style: false, $no_parent: false){
+  @if $no_parent == false {
+    #{$element} {
+      @if $style == false { 
+        list-style: none !important;
+      }
+      margin: 0;
+    }
+  }
+
+  li {
+    display: inline-block;
+    margin:0 10px;
+    cursor:pointer;
+  }
+}
+
+@mixin sprite-background($url, $x_pos: 0, $y_pos: 0, $width: 0, $height: $width, $repeat: '', $no_position: false) {
+  background-image: image_url($url);
+  
+  @if $no_position == false {
+    background-position: $x_pos $y_pos;
+  }
+
+  @if $repeat != '' {
+    background-repeat: $repeat;
+  }
+
+  @include size($height, $width);
+}
+
+@mixin sprite-position($x_pos: 0, $y_pos: 0) {
+  background-position: $x_pos $y_pos;
+}

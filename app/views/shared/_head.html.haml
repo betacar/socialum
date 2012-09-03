@@ -1,0 +1,21 @@
+!!!
+%html{:lang => 'es'}
+  %head
+    %meta{:charset => 'utf-8'}
+    %title= "#{yield(:titulo) || controller.action_name} | #{Socialum::Application.config.name} – #{Socialum::Application.config.company}"
+    %meta{:content => Socialum::Application.config.description, :name => 'description'}
+    %meta{:content => Socialum::Application.config.author, :name => 'author'}
+    = csrf_meta_tags
+
+    = yield(:head)
+
+    / Le styles
+    = stylesheet_link_tag 'application'
+    = yield(:stylesheets)
+
+    / Le HTML5 Shiv, for IE6-8 support of HTML5 elements
+    /[if lt IE 9]
+      = javascript_include_tag 'html5.shiv'
+
+    / Le fav and touch icons
+    = favicon_link_tag

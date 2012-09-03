@@ -1,0 +1,60 @@
+= render '/shared/head'
+
+%body{'data-controller' => "#{controller.controller_name}", 'data-action' => "#{controller.action_name}"}
+  %aside#menu
+    %header
+      = link_to (image_tag 'sa_header_logo_socialum.png', :alt => "#{Socialum::Application.config.name} – #{Socialum::Application.config.description}", :title => "#{Socialum::Application.config.name} – #{Socialum::Application.config.description}", :height => 30, :id => 'logo'), root_path
+
+    %section
+      = render :partial => '/shared/menu', :locals => { :areas => @areas }
+
+    %footer#user
+      - if user_signed_in?
+        .foto-usuario
+          = image_tag "sa_v3_user.jpg", :width => 35, :alt => current_user.empleado.nombre_completo
+
+        .info{:id => "uid-#{current_user.id}"}
+          %span.nombre= current_user.empleado.nombre_completo
+          %span.fa-icon-singout= link_to 'Salir', destroy_user_session_path
+      - else
+        %p
+          %i.fa-icon-singin
+          = link_to 'Login', new_user_session_path
+
+  %section#contenedor.container-fluid
+    %section#wrapper.wide
+      %header
+        %h1= yield(:titulo) || controller.action_name
+        = image_tag 'sa_v3_brands.png', :width => 99, :height => 30, :alt => 'Logo CVG / CVG Bauxilum', :title => 'CVG Bauxilum', :class => 'brands'
+
+      %section#toolbar
+        .btn-group
+          %button#print.btn.btn-mini
+            %i.fa-icon-print
+            Imprimir
+
+          .btn-group
+            %button.btn.dropdown-toggle.btn-mini{'data-toggle' => 'dropdown'}
+              %i.fa-icon-filter
+              Filtrar
+              %span.caret
+
+            %ul#lista-filtro.dropdown-menu
+              = yield(:filtros)
+
+      %section#alerta.alert.hide
+        %a.close{'data-dismiss' => 'alert'} ×
+        %span 
+
+      %section#main
+        = yield
+
+    %section#panel.bax-gabarras.phi-side.hide
+
+    %footer#footer
+      = "#{Socialum::Application.config.company} – "
+      %strong{:title => Socialum::Application.config.description}= "#{Socialum::Application.config.name}."
+      Para soporte técnico, comuniquese al 6394 del
+      = mail_to 'caumatanzas@bauxilum.com.ve', 'CAU Matanzas.', :title => 'Centro de Atención de Usuarios - Op. de Alúmina'
+
+  = render '/shared/foot'

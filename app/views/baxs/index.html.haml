@@ -1,0 +1,66 @@
+- titulo 'Arribos de material'
+- content_for :stylesheets, stylesheet_link_tag(controller.controller_name)
+- content_for :filtros do
+  %li 
+    %a{:href => '#', 'data-reportado' => 'todos'} Todos los BAX
+  %li 
+    %a{:href => '#', 'data-reportado' => 'reportado'} BAX reportados
+  %li 
+    %a{:href => '#', 'data-reportado' => 'no-reportado'} BAX no reportados
+
+- @baxes.each do |bax|
+  %article.bax{ :id => "bax-#{bax.id}", :name => "bax-#{bax.id}", 'data-bax-reportado' => bax.arribo_bauxita ? 'true' : 'false'}
+    %header.row-fluid
+      %h2
+        =h "BAX: #{formato_bax(bax.id)}"
+
+    .bax-data.row-fluid
+      .span4
+        %h6 remolcador
+        %p.data-desc= h bax.remolcador.nombre_rem.titleize
+        %h6 Empresa
+        %p.data-desc= h bax.empresa_maritima.nombre_emp
+        %h6 Capitán
+        %p.data-desc= h bax.nombre_capitan.titleize
+
+      .span4
+        %h6 Zarpe el Jobal
+        %time.data-desc{ :datetime => bax.fecha_hora_zarpe.to_datetime }= l bax.fecha_hora_zarpe.to_datetime, :format => :fecha_hora_mil
+
+        - if bax.arribo_bauxita
+          %h6 Arribo Matanzas (M201)
+          %time.data-desc{ :id => "arribo-bax-#{bax.id}", :datetime => bax.arribo_bauxita.fecha_hora_arribo_bauxita.to_datetime, 'data-eta' => (bax.fecha_hora_zarpe.to_datetime + bax.remolcador.tiempo_mina_planta.to_i.hours).to_s.to_datetime }= l bax.arribo_bauxita.fecha_hora_arribo_bauxita.to_datetime, :format => :fecha_hora_mil
+
+        - else
+          %h6 ETA Matanzas (M201)
+          %time.data-desc{ :id => "eta-arribo-bax-#{bax.id}", :datetime => (bax.fecha_hora_zarpe.to_datetime + bax.remolcador.tiempo_mina_planta.to_i.hours).to_s.to_datetime }= l (bax.fecha_hora_zarpe.to_datetime + bax.remolcador.tiempo_mina_planta.to_i.hours).to_s.to_datetime, :format => :fecha_hora_mil
+
+        %h6 Tonelaje
+        %p.data-desc= h "#{number_with_delimiter(bax.carga_transportar, :precision => 2, :delimiter => ".", :separator => ",")} tons."
+
+      .span4.botones
+        - if bax.arribo_bauxita
+          %button.btn.btn-success.btn-small.disabled{ :id => "bax-arribo-#{bax.id}", :rel => 'tooltip', 'data-original-title' => "#{l bax.arribo_bauxita.fecha_hora_arribo_bauxita.to_datetime, :format => :fecha_hora_mil}", 'data-arribo-bauxita-id' => bax.arribo_bauxita.id, 'data-bax-id' => bax.id, 'data-url' => bax_arribos_bauxitas_path(bax.id) } 
+            %i.fa-icon-ban-circle 
+            Arribo reportado
+
+        - else              
+          %button.btn.btn-primary.btn-small{ :id => "bax-arribo-#{bax.id}", 'data-bax-id' => bax.id, 'data-type' => 'report-arribo', 'data-url' => bax_arribos_bauxitas_path(bax.id) } 
+            %i.fa-icon-bullhorn 
+            Reportar arribo
+
+        - if (can? :manage, ArriboBauxita)
+          %button{:id => "delete-arribo-#{bax.id}", :class => "btn btn-danger btn-small #{bax.arribo_bauxita ? nil : 'hide'}", 'data-url' => "#{bax.arribo_bauxita ? bax_arribo_bauxita_path(bax.id, bax.arribo_bauxita.id) : nil}", 'data-bax-id' => bax.id, 'data-type' => 'delete-arribo'}
+            %i.fa-icon-trash
+            Eliminar arribo
+
+        %button.btn.btn-small{'data-type' => 'view-gabarras', 'data-url' => bax_bax_gabarras_path(bax.id) } 
+          %i.fa-icon-th 
+          = "Ver gabarras (#{bax.cant_gabarras})"
+
+      %div{ :class => "span12 #{bax.arribo_bauxita ? nil : 'hide'}", :id => "bax-progress-bar-#{ bax.id }" }
+        %h6 Progreso de descarga
+        .progress.progress-warning 
+          .bar{ :style => "width:#{bax.arribo_bauxita.descarga_bauxitas.progreso * 100 / bax.carga_transportar unless bax.arribo_bauxita.nil? }%", :id => "bax-descarga-#{ bax.id }", 'data-tonelaje-total' => bax.carga_transportar, 'data-progreso' => bax.arribo_bauxita.nil? ? 0 : bax.arribo_bauxita.descarga_bauxitas.progreso }= h "#{bax.arribo_bauxita ? number_with_delimiter(bax.arribo_bauxita.descarga_bauxitas.progreso, :precision => 2, :delimiter => ".", :separator => ",") : '0,0' } tons."
+
+- content_for :javascripts, javascript_include_tag(controller.controller_name)

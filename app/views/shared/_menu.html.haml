@@ -1,0 +1,9 @@
+- areas.each do |area|
+  %span.area-name= area['nombre']
+
+  %ul.area
+    - area['procesos'].each do |proceso|
+      %li{:class => activo(proceso['controller'])}
+        %a{:href => "/#{proceso['controller']}"}
+          %i{:class => proceso['icono']}
+          = proceso['descripcion']

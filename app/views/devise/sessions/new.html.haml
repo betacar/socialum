@@ -1,0 +1,36 @@
+- titulo 'Login'
+
+%section#login
+  %header.page-header
+    = image_tag 'sa_header_logo_socialum.png', :alt => "#{Socialum::Application.config.name} – #{Socialum::Application.config.description}", :title => "#{Socialum::Application.config.name} – #{Socialum::Application.config.description}", :height => 40, :id => 'logo'
+
+  = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+    %h4 
+      %i.fa-icon-lock
+      Ingrese con su credencial de red
+
+    %fieldset.form-horizontal
+      = content_tag(:div, flash[:error], :class => "alert alert-error") if flash[:error]
+      = content_tag(:div, flash[:notice], :class => "alert alert-info") if flash[:notice]
+      = content_tag(:div, flash[:alert], :class => "alert") if flash[:alert]
+
+      .control-group
+        = f.label :login, 'Usuario:', :class => 'control-label'
+        .controls
+          = f.text_field :login, :placeholder => 'nombre.apellido'
+
+      .control-group
+        = f.label :password, 'Contraseña:', :class => 'control-label'
+        .controls
+          = f.password_field :password, :placeholder => 'contraseña'
+      
+      .control-group
+        .controls
+          = f.label :remember_me, :class => 'checkbox' do
+            = f.check_box :remember_me
+            Recordarme en este equipo
+
+          %small.help-block Si utiliza un equipo compartido, no active esta opción.
+
+      .form-actions
+        = f.submit 'Ingresar', :class => 'btn btn-primary'

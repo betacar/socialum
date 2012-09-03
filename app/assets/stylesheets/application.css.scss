@@ -1,0 +1,590 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+*/
+
+@import "compass";
+
+// Definición y sobreescritura de variables de Bootstrap: Fuentes
+$baseFontFamily: Helvetica, Arial, sans-serif;
+$grayDark: #313131;
+
+// Colores
+$red: #ac0000;
+$rojo-oscuro: #570000;
+$gris: #f4f4f4;
+$plata: #d8d8d8;
+$gris-medio: #e5e5e5;
+$gris-oscuro: #afafaf;
+$azul: #394a59;
+
+// Clases
+.badge { text-transform:uppercase; }
+.phi-main, .phi-side { overflow-y:auto }
+.phi-main { width: 57.447% }
+.phi-side { width: 42.553% }
+.wide { width:100%; }
+.alpha { margin-left:0 }
+.omega { margin-right:0 }
+.hide { display:none; }
+.clearfix:after{
+  visibility:hidden;
+  display:block;
+  font-size:0;
+  content:" ";
+  clear:both;
+  height:0
+}
+.fecha { width:75px; }
+.hora  { width:40px; }
+
+@import 'fonts';
+@import 'twitter/bootstrap';
+@import 'mixins';
+
+html, body {
+  height:100%;
+  overflow-y:hidden;
+}
+
+body { @include background($reference: "sa_v3_descargas_bg.jpg", $repeat: repeat) }
+
+#login {
+  margin:175px auto 0;
+  width: 400px;
+  @include background(white, true);
+  @include border-radius(0 0 5px 5px);
+  @include box-shadow(0 1px 4px rgba(0,0,0,.25));
+
+  .page-header {
+    padding:5px 17px 0;
+    @include border-radius(5px 5px 0 0);
+    @include background($reference: "sa_v3_menu_bg.jpg", $repeat: repeat-x);
+  }
+
+  h4 { 
+    text-align:center;
+    margin-bottom:17px;
+  }
+
+  form { margin:0 }
+
+  .alert { margin:0 17px 18px; }
+
+  .form-actions {
+    margin-bottom:0;
+    @include border-radius(0 0 5px 5px) 
+  }
+
+  small { 
+    font-size: pxtoem(11);
+    padding-right:17px;
+  }
+}
+
+#menu, #contenedor, #main, #gabarras, #footer, #alerta { position:absolute }
+
+#menu {
+  width:189px;
+  color:$white;
+  bottom:5px;
+  top:5px;
+  left:5px;
+  z-index: 1;
+  @include border($red, right);
+  @include background($reference: "sa_v3_menu_bg.jpg", $repeat: repeat-y);
+  @include border-radius(5px);
+  @include link-color($white, $white);
+
+  header {
+    padding:4px 5px 0;
+    margin-bottom:31px;
+    box-shadow: 0 0 5px #400812;
+    @include border($red, bottom);
+    @include background($reference: "sa_header_logo_bg.jpg", $repeat: no-repeat);
+    @include border-radius(5px 5px 0 0);
+  }
+
+  section {
+    margin: 0 5px 20px 5px;
+  }
+
+  .area-name {
+    margin:5px 0 5px 5px;
+    font-size: pxtoem(10);
+    text-transform: uppercase;
+    display:block;
+    @include single-text-shadow($rojo-oscuro, 0, 1px, 0);
+  }
+
+  .area {
+    list-style: none;
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+
+  li {
+    padding:5px 9px;
+    margin-bottom:10px;
+    font-weight:bold;
+    @include border($red, top bottom left right);
+    @include background($reference: $rojo-oscuro, $color: true);
+    @include border-radius(5px);
+
+    &:hover {
+      cursor:hand;
+      cursor:pointer;
+      @include border($rojo-oscuro, top bottom left right);
+      @include background($reference: $red, $color: true);
+    }
+  }
+
+  .activo {
+    margin-right:-13px;
+    position:relative;
+    @include border(none, right);
+    @include border-radius(5px 0 0 5px);
+
+    &:after, &:before {
+      left: 100%;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+    }
+
+    &:after {
+      border-left-color: $rojo-oscuro;
+      border-width: 15px 0 15px 10px;
+      top: 12px;
+      margin-top: -12px;
+    }
+
+    &:hover:after { border-left-color: $red; }
+
+    &:before {
+      border-left-color: $red;
+      border-width: 16px 0 16px 11px;
+      top: 13px;
+      margin-top: -14px;
+    }
+
+    &:hover:before { border-left-color: $rojo-oscuro; }
+  }
+
+  footer {
+    height:34px;
+    padding:5px;
+    position:absolute;
+    bottom:1px;
+    left: 0;
+    right: 0;
+    @include border($red, top);
+    @include single-box-shadow($rojo-oscuro, 0, -1px, 0);
+
+    span {
+      font-size: pxtoem(10);
+    }
+  }
+
+  .foto-usuario, .info { float:left }
+
+  .foto-usuario {
+    margin-right: 5px;
+    overflow: hidden;
+    @include border-radius(3px);
+  }
+
+  .nombre {
+    margin:0;
+    width:139px;
+    font-size: pxtoem(10);
+    line-height:1.05em;
+    font-weight: bold;
+    display: block;
+    @include single-text-shadow($rojo-oscuro, 0, -1px, 0);
+  }
+}
+
+#logo {
+  margin:0 auto;
+  padding-bottom: 5px;
+  display:block;
+}
+
+#contenedor {
+  left:202px;
+  right:5px;
+  top:5px;
+  bottom:5px;
+  padding:0;
+  @include border-radius(5px);
+  @include background($reference: white, $color: true);
+  @include box-shadow(0 0 3px $gris-oscuro);
+
+  .span12 { margin-left:0; }
+}
+
+#alerta { 
+  top:46px;
+  left:0;
+  right:0;
+  margin:0 15px;
+}
+
+#footer {
+  left:-5px;
+  right:-1px;
+  background-color:$gris;
+  bottom:6px;
+  font-size:pxtoem(12);
+  padding: 5px 10px;
+  border:1px solid $plata;
+
+
+  &:before {
+    content:'';
+    border-color:transparent #333 transparent transparent;
+    border-style: solid;
+    border-width:4px 4px 0 0;
+    position:absolute;
+    top:-5px;
+    left:0;
+  }
+}
+
+#wrapper {
+  min-height:100%;
+  position: relative;
+  float:left;
+  @include box-shadow(1px 0 4px $gris-oscuro);
+
+  & > header {
+    padding:0 10px;
+    color:$white;
+    position:relative;
+    @include border($red, bottom);
+    @include background($reference: "sa_v3_menu_bg.jpg", $repeat: repeat-x);
+    @include border-radius(5px 5px 0 0);
+  }
+
+  h1 {
+    font-size: pxtoem(20);
+    line-height: 39px;
+  }
+
+  .progress { 
+    margin-top:5px;
+    margin-right:10px;
+  }
+
+  .brands { 
+    position:absolute;
+    top:5px;
+    right:10px;
+  }
+}
+
+#main, #gabarras { 
+  bottom:36px;
+  overflow:hidden;
+  outline: none !important;
+}
+
+#main { 
+  padding-right:13px;
+  top:90px;
+  right:2px;
+  left:15px;
+  
+  .bax-data { padding:10px }
+
+  .data-desc {
+    font-size: pxtoem(16);
+    font-weight:bold;
+    margin:0 0 9px;
+    display:block;
+  }
+
+  .btn {
+    display:block;
+    margin-bottom:10px;
+  }
+
+  .bax {
+    margin-bottom:12px;
+    clear: both;
+  }
+
+  header { border-bottom:1px solid $plata }
+
+  h2 { 
+    line-height:38px; 
+    float:left;
+  }
+
+  .activa h2 { color:$rojo-oscuro; }
+
+  .fa-icon-chevron-up, .fa-icon-chevron-down { 
+    color:#ccc; 
+    float:right;
+    margin-top:5px;
+  }
+
+  .hide { display:none }
+}
+
+#panel {
+  min-height:100%;
+  float: left;
+  position:relative;
+
+  &>header {
+    position:relative;
+    padding:5px 0;
+    border-bottom:1px solid #ccc;
+    @include background($reference: $gris, $color: true);
+    @include border-radius(0 5px 0 0);
+  }
+
+  .fa-icon-remove { 
+    padding:10px 11px 10px 16px;
+    color:$grayDark;
+    position:absolute;
+    top:0;
+    right:0;
+    cursor:pointer;
+    border-left:1px solid #ccc;
+    @include box-shadow(1px 0 0 white inset);
+    @include border-radius(0 5px 0 0);
+
+    &:hover {
+      color:white;
+      @include background($reference: $red, $color: true);
+    }
+    &:active {
+      color:white;
+      padding:11px 11px 9px 16px;
+      @include background($reference: $rojo-oscuro, $color: true);
+    }
+  }  
+
+  .descarga { 
+    position: relative;
+    background-color: $gris;
+    margin-bottom: 20px;
+    @include box-shadow(0 3px 3px rgba(0,0,0,.4));
+    @include border-radius(5px);
+
+    select { width:200px }
+  }
+
+  h3 { padding-left:20px }
+
+  h4 {
+    margin-bottom:20px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #51626f;
+    font-size: pxtoem(17);
+    color:#51626f;
+  }
+
+  h5 {
+    font-size: pxtoem(18);
+    color:$rojo-oscuro;
+    line-height:1.94em;
+    border-bottom: 1px solid #d4d4d4;
+    padding:0 10px;
+    @include single-text-shadow($white, 0, 1px, 0);
+    @include box-shadow(0 1px 0px $white);
+  }
+
+  article { position:relative }
+
+  .phi-side, .phi-main { float: left }
+
+  .phi-main { 
+    left: 42.553%;
+    background-color: white;
+    box-shadow:-1px 0 0 #d4d4d4;
+  }
+
+  form{ padding:10px 10px 10px 9px; margin-bottom:0; }
+
+  .input-append .add-on {
+    margin-left:-5px;
+    margin-right:7px;
+    font-size: pxtoem(18);
+  }
+
+  .fa-icon-remove-sign {
+    position:absolute;
+    right:-7px;
+    top:-3px;
+    color:$red;
+    cursor:pointer;
+    z-index: 100;
+    font-size: pxtoem(23);
+
+    &:hover {
+      color:$rojo-oscuro;
+    }
+  }
+
+  .control-group:not(:last-child) { 
+    border-bottom: 1px solid #ededed;
+    padding-bottom: 9px;
+  }
+
+  .analisis {
+    margin:10px;
+    border-bottom: 1px solid #d4d4d4;
+    @include box-shadow(0 1px 0px $white);
+
+    p { font-weight:bold }
+  }
+
+  .novedades {
+    margin:0 10px 10px;
+    height:180px;
+    position:relative;
+
+    h6 { margin-bottom:10px; }
+
+    .badge { 
+      font-size: pxtoem(9); 
+      padding:1px 7px;
+    }
+  }
+
+  .novedades-list { height:120px }
+
+  .novedad {
+    padding:0 5px;
+    margin-bottom: 8px;
+
+    * {
+      font-size:pxtoem(10);
+    }
+
+    p {
+      margin-bottom:3px;
+      line-height:14px;
+    }
+  }
+
+  .btns-novedades {
+    display:inline-block;
+    position:absolute;
+    bottom:5px;
+    right:0;
+  }
+}
+
+#gabarras {
+  padding:0 15px 0 20px;
+  top:41px;
+  right:0;
+  left:0;
+
+  .alert { margin-bottom:10px }
+}
+
+#gabarras-list {
+  list-style: none;
+  margin:10px 0 15px;
+  @include inline-list($no_parent: true);
+
+  li {
+    list-style:none;
+    border:1px solid #bfbfbf;
+    padding:4px 6px;
+    margin:0 7px 10px 0;
+    font-size: pxtoem(10);
+    font-weight:bold;
+    text-align:center;
+    @include single-text-shadow(white, 0, 1px, 0);
+    @include size(54px,50px);
+    @include border-radius(5px);
+    @include background-image(linear-gradient(white 20%, #ebebeb));
+    @include box-shadow(0 1px 2px rgba(0,0,0,.2));
+
+    &:hover:not(.deshabilitada) {
+      border-color:#f6d650;
+      color:$rojo-oscuro;
+      @include background-image(linear-gradient(#fef1bd, #fee588 25%, #fefbd3));
+    }
+
+    &:active:not(.deshabilitada) {
+      border-color:#c2a54d;
+      @include background-image(linear-gradient(#ffe575, #ffd86c 25%, #fff6a3));
+      @include box-shadow(0 2px 4px rgba(0,0,0,.4) inset);
+    }
+  }
+
+  .deshabilitada {
+    border-color:white;
+    background-color:$gris-medio;
+    background-image:none;
+    box-shadow:none;
+    cursor:default
+  }
+
+  span {
+    display:block;
+    margin:3px auto;
+    @include size(30px, 32px);
+  }
+
+  .navegando { @include sprite-position() }
+  .esperando { @include sprite-position(-33px) }
+  .atracada { @include sprite-position(-64px) }
+  .descargando { @include sprite-position(-95px) }
+  .descargada { @include sprite-position(-127px) }
+  .desatracada { @include sprite-position(-159px) }
+}
+
+#leyenda li::before, #gabarras-list span {
+  background-image: image_url("sa_v3_estados_gabarras.png");
+  background-repeat: no-repeat;
+}
+
+#leyenda {
+  margin:10px 0 0;
+  font-size: pxtoem(11);
+  text-align:center;
+  @include inline-list($no_parent: true);
+
+  li {
+    margin:0 7px 5px 0;
+
+    &::before {
+      content:'';
+      margin-right:3px;
+      padding:15px 8px;
+    }
+
+    &:last-child { margin-right: 0; }
+  }
+
+  .navegando::before { @include sprite-position($y_pos: -29px); }
+  .esperando::before { @include sprite-position(-16px, -29px); }
+  .atracada::before { @include sprite-position(-33px, -29px); }
+  .descargando::before { @include sprite-position(-48px, -29px); }
+  .descargada::before { @include sprite-position(-64px, -29px); }
+  .desatracada::before { @include sprite-position(-81px, -29px); }
+}
+
+#toolbar {
+  padding:5px 10px;
+  margin: 0 0 10px;
+  @include background($reference: $gris-medio, $color: true);
+}
