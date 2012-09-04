@@ -30,7 +30,7 @@ $azul: #394a59;
 .phi-main, .phi-side { overflow-y:auto }
 .phi-main { width: 57.447% }
 .phi-side { width: 42.553% }
-.wide { width:100%; }
+.wide { width:100% }
 .alpha { margin-left:0 }
 .omega { margin-right:0 }
 .hide { display:none; }
@@ -222,7 +222,7 @@ body { @include background($reference: "sa_v3_descargas_bg.jpg", $repeat: repeat
 
 #contenedor {
   left:202px;
-  right:5px;
+  right:8px;
   top:5px;
   bottom:5px;
   padding:0;
@@ -242,7 +242,7 @@ body { @include background($reference: "sa_v3_descargas_bg.jpg", $repeat: repeat
 
 #footer {
   left:-5px;
-  right:-1px;
+  right:-5px;
   background-color:$gris;
   bottom:6px;
   font-size:pxtoem(12);
@@ -250,14 +250,23 @@ body { @include background($reference: "sa_v3_descargas_bg.jpg", $repeat: repeat
   border:1px solid $plata;
 
 
-  &:before {
+  &:before, &:after {
     content:'';
-    border-color:transparent #333 transparent transparent;
     border-style: solid;
-    border-width:4px 4px 0 0;
     position:absolute;
     top:-5px;
+  }
+
+  &:before {
+    border-color:transparent #333 transparent transparent;
+    border-width:4px 4px 0 0;
     left:0;
+  }
+
+  &:after {
+    border-color:transparent transparent transparent #333;
+    border-width:4px 0 0 4px;
+    right:0;
   }
 }
 
@@ -266,6 +275,7 @@ body { @include background($reference: "sa_v3_descargas_bg.jpg", $repeat: repeat
   position: relative;
   float:left;
   @include box-shadow(1px 0 4px $gris-oscuro);
+  //@include transition(width .05s linear);
 
   & > header {
     padding:0 10px;
@@ -349,14 +359,14 @@ body { @include background($reference: "sa_v3_descargas_bg.jpg", $repeat: repeat
 
   &>header {
     position:relative;
-    padding:5px 0;
+    padding:5px 0 4px;
     border-bottom:1px solid #ccc;
     @include background($reference: $gris, $color: true);
     @include border-radius(0 5px 0 0);
   }
 
   .fa-icon-remove { 
-    padding:10px 11px 10px 16px;
+    padding:10px 11px 9px 16px;
     color:$grayDark;
     position:absolute;
     top:0;
@@ -372,7 +382,7 @@ body { @include background($reference: "sa_v3_descargas_bg.jpg", $repeat: repeat
     }
     &:active {
       color:white;
-      padding:11px 11px 9px 16px;
+      padding:11px 11px 8px 16px;
       @include background($reference: $rojo-oscuro, $color: true);
     }
   }  
