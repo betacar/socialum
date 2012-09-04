@@ -17,9 +17,14 @@
 #= require twitter/bootstrap/dropdown
 $(document).ready ->
 
-  $('#main').niceScroll({autohidemode:false})
+  $('#main').niceScroll()
 
   # Control para clics en elementos del menu
   $('#menu li').on 'click', ->
     href = $(this).find('a').attr 'href'
     window.location = href if href
+
+# Resetea el scrollbar para ajustarse a posición o contenido
+$.fn.resetScroll = ->
+  this.getNiceScroll().remove()
+  this.niceScroll()

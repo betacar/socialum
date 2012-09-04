@@ -183,7 +183,7 @@ ver_gabarras = (data) ->
 
   if panel.hasClass 'hide'
     panel.show 'slow', ->
-      panel.removeClass 'hide' 
+      panel.removeClass('hide').removeAttr 'style'
 
   $('#gabarras').resetScroll()
 
@@ -194,7 +194,7 @@ ver_gabarras = (data) ->
 
   $('#panel .fa-icon-remove').on 'click', ->
     panel.hide 'slow', ->
-      panel.addClass 'hide'
+      panel.addClass('hide').removeAttr 'style'
     
     wrapper_panel(true)
 
@@ -419,11 +419,6 @@ $.fn.reportarArribo = ->
         boton.off 'click'
       , 'json'
 
-# Resetea el scrollbar para ajustarse a posición o contenido
-$.fn.resetScroll = ->
-  this.getNiceScroll().remove()
-  this.niceScroll({autohidemode:false})
-
 $.fn.filtrar = ->
   self = $(this)
 
@@ -443,6 +438,7 @@ $.fn.filtrar = ->
       else
         false
 
+    main.resetScroll()
     main.scrollTop(0)
 
 # Gabarra = (bax_id, gabarra_id) ->
