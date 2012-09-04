@@ -45,7 +45,7 @@
             Arribo reportado
 
         - else              
-          %button.btn.btn-primary.btn-small{ :id => "bax-arribo-#{bax.id}", 'data-bax-id' => bax.id, 'data-type' => 'report-arribo', 'data-url' => bax_arribos_bauxitas_path(bax.id) } 
+          %button.btn.btn-primary.btn-small{ :id => "bax-arribo-#{bax.id}", 'data-bax-id' => bax.id, 'data-type' => 'report-arribo', 'data-url' => bax_arribos_bauxitas_path(bax.id), (can? :create, ArriboBauxita) ? nil : :disabled => :disabled } 
             %i.fa-icon-bullhorn 
             Reportar arribo
 

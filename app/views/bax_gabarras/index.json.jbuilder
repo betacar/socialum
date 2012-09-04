@@ -23,3 +23,5 @@ json.gabarras @bax_gabarras do |json, bax_gabarra|
     end
   end
 end
+
+json.admin (can? :create, DescargaBauxita)

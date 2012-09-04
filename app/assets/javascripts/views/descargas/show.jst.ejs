@@ -86,7 +86,7 @@
         <label class="control-label" for="equipo_id">Equipo de descarga</label>
         <div class="controls">
           <select id="descarga-equipo-id-<%= bax_id %>-<%= gabarra_id %>" name="descarga[equipo_id]" tabindex="1">
-            <option>Eliga un equipo</option>
+            <option value="">Eliga un equipo</option>
           <% for(i=0; i < equipos.length; i++) { %>          
             <option value="<%= equipos[i].id %>" <%= has_descarga ? EJS.Helpers.prototype.equipo_descarga(equipos[i], descarga[0]) : '' %>><%= equipos[i].nombre_equipo %></option>
           <% } %>

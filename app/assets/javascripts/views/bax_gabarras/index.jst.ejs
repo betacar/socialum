@@ -20,7 +20,7 @@
 
     <ul id="gabarras-list" class="gabarras">
       <% for (i = 0; i < cantidad; i++) { %>
-        <li rel="tooltip" id="gabarra-<%= bax_id %>-<%= gabarras[i].gabarra_id %>" data-original-title="<%= gabarras[i].gabarra_id %>" data-type="view-gabarra" data-bax-gabarra-id="<%= bax_id %>-<%= gabarras[i].gabarra_id %>" class="<%= arribo ? '' : 'deshabilitada' %>" data-url="<%= gabarras[i].url %>">
+        <li rel="tooltip" id="gabarra-<%= bax_id %>-<%= gabarras[i].gabarra_id %>" data-original-title="<%= gabarras[i].gabarra_id %>" data-type="view-gabarra" data-bax-gabarra-id="<%= bax_id %>-<%= gabarras[i].gabarra_id %>" class="<%= arribo && admin ? '' : 'deshabilitada' %>" data-url="<%= gabarras[i].url %>">
           <span class="<%= EJS.Helpers.prototype.estatus(arribo, gabarras[i]) %>"></span>
           <%= gabarras[i].gabarra_id %>
         </li>

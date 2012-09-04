@@ -1,4 +1,5 @@
 class Rol < ActiveRecord::Base
   has_and_belongs_to_many :users
-end
 
+  attr_accessible :name 
+end

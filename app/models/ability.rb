@@ -4,14 +4,20 @@ class Ability
   def initialize(user)
     user ||= User.new # guest user
 
-    if user.role? :admin # Puede administrar todo
+    if user.role? :admin
+      # Administrador de la aplicación
       can :manage, :all
-    elsif user.role? :op_descargas # Puede operar los arribos y descargas de BAX y Buques
+    elsif user.role? :sup_descargas
+      # Supervisores de muelle
       can :manage, [ArriboBauxita, DescargaBauxita]
       can :read, User
-    elsif user.role? :usuario_logueado
-      can :read, :all
+    elsif user.role? :op_descargas 
+      # Operadores de descarga
+      can :create, ArriboBauxita
+      can [:create, :update], DescargaBauxita
+      can :read, User
     else
+      # Otro usuario
       can :read, :all
     end
   end
