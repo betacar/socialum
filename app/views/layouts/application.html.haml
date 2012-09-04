@@ -33,14 +33,13 @@
             %i.fa-icon-print
             Imprimir
 
-          .btn-group
-            %button.btn.dropdown-toggle.btn-mini{'data-toggle' => 'dropdown'}
-              %i.fa-icon-filter
-              Filtrar
-              %span.caret
+          %button.btn.dropdown-toggle.btn-mini{'data-toggle' => 'dropdown'}
+            %i.fa-icon-filter
+            Filtrar
+            %span.caret
 
-            %ul#lista-filtro.dropdown-menu
-              = yield(:filtros)
+          %ul#lista-filtro.dropdown-menu
+            = yield(:filtros)
 
       %section#alerta.alert.hide
         %a.close{'data-dismiss' => 'alert'} ×
