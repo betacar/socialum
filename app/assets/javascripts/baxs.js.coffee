@@ -163,13 +163,14 @@ eliminar_arribo = (el) ->
   arribo_boton.prepend('<i class="fa-icon-bullhorn"> </i>')
   arribo_boton.reportarArribo()
 
-  $('#bax-progress-bar-' + bax_id).addClass 'hide'
+  $('#bax-progress-bar-' + bax_id).hide 'slow', ->
+    $(this).addClass('hide').removeAttr 'style'
   progress_bar.css 'width', 0
   progress_bar.text '0,0 tons.'
   progress_bar.attr 'data-progreso', 0
 
-  el.addClass 'hide'
-  el.removeAttr 'data-url'
+  el.hide 'slow', ->
+    el.addClass('hide').removeAttr('style').removeAttr 'data-url'
 
 habilitar_gabarras = (bax_id) ->
   unless $('#gabarras-' + bax_id).length is 0
@@ -180,7 +181,9 @@ ver_gabarras = (data) ->
   # Carga de plantilla e inyección en DOM
   panel.html JST['views/bax_gabarras/index'](data)
 
-  panel.show('slow').removeClass 'hide' if panel.hasClass 'hide'
+  if panel.hasClass 'hide'
+    panel.show 'slow', ->
+      panel.removeClass 'hide' 
 
   $('#gabarras').resetScroll()
 
@@ -192,13 +195,14 @@ ver_gabarras = (data) ->
   $('#panel .fa-icon-remove').on 'click', ->
     panel.hide 'slow', ->
       panel.addClass 'hide'
-      wrapper_panel(true)
+    
+    wrapper_panel(true)
 
 wrapper_panel = (expand) ->
   if expand
-    wrapper.addClass('wide').removeClass('phi-main')
+    wrapper.addClass('wide').removeClass 'phi-main'
   else
-    wrapper.removeClass('wide').addClass('phi-main')
+    wrapper.removeClass('wide').addClass 'phi-main'
 
   main.resetScroll()
 
@@ -343,7 +347,9 @@ progresar = (bax_id, toneladas) ->
       dataType: 'json'
 
     ajax.done ->
-      $('#alerta-bax-' + bax_id).show('slow').removeClass('hide').removeAttr 'style'
+      $('#alerta-bax-' + bax_id).show 'slow', ->
+        $(this).removeClass('hide').removeAttr 'style'
+
       $('#bax-' + bax_id).delay(7000).hide 'slow', ->
         this.remove()
 
