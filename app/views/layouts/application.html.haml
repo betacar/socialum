@@ -15,7 +15,7 @@
 
         .info{:id => "uid-#{current_user.id}"}
           %span.nombre= current_user.empleado.nombre_completo
-          %span.fa-icon-singout= link_to 'Salir', destroy_user_session_path
+          %span.fa-icon-singout= link_to 'Cerrar sesión', destroy_user_session_path
       - else
         %p
           %i.fa-icon-singin
@@ -29,9 +29,9 @@
 
       %section#toolbar
         .btn-group
-          %button#print.btn.btn-mini
-            %i.fa-icon-print
-            Imprimir
+          / %button#print.btn.btn-mini
+          /   %i.fa-icon-print
+          /   Imprimir
 
           %button.btn.dropdown-toggle.btn-mini{'data-toggle' => 'dropdown'}
             %i.fa-icon-filter
