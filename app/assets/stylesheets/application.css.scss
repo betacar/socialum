@@ -54,7 +54,7 @@ html, body {
   overflow-y:hidden;
 }
 
-body { @include background($reference: "sa_v3_descargas_bg.jpg", $repeat: repeat) }
+body { @include background($reference: "sa_body_bg.png", $repeat: repeat) }
 
 #login {
   margin:175px auto 0;
@@ -106,7 +106,7 @@ body { @include background($reference: "sa_v3_descargas_bg.jpg", $repeat: repeat
   header {
     padding:4px 5px 0;
     margin-bottom:31px;
-    box-shadow: 0 0 5px #400812;
+    box-shadow: 0 1px 4px $rojo-oscuro;
     @include border($red, bottom);
     @include background($reference: "sa_header_logo_bg.jpg", $repeat: no-repeat);
     @include border-radius(5px 5px 0 0);
@@ -425,6 +425,7 @@ body { @include background($reference: "sa_v3_descargas_bg.jpg", $repeat: repeat
     left: 42.553%;
     background-color: white;
     box-shadow:-1px 0 0 #d4d4d4;
+    @include border-radius(0 0 5px 0);
   }
 
   form{ padding:10px 10px 10px 9px; margin-bottom:0; }
@@ -444,9 +445,7 @@ body { @include background($reference: "sa_v3_descargas_bg.jpg", $repeat: repeat
     z-index: 100;
     font-size: pxtoem(23);
 
-    &:hover {
-      color:$rojo-oscuro;
-    }
+    &:hover { color:$rojo-oscuro; }
   }
 
   .control-group:not(:last-child) { 
@@ -526,6 +525,7 @@ body { @include background($reference: "sa_v3_descargas_bg.jpg", $repeat: repeat
     @include border-radius(5px);
     @include background-image(linear-gradient(white 20%, #ebebeb));
     @include box-shadow(0 1px 2px rgba(0,0,0,.2));
+    @include transition(background-image 1s ease-in);
 
     &:hover:not(.deshabilitada) {
       border-color:#f6d650;

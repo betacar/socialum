@@ -75,9 +75,9 @@ $(document).ready ->
               descarga = $('#form-' + bax_gabarra)
 
               request = $.ajax
-                url: submit.data('url')
+                url: submit.attr 'data-url'
                 context: descarga
-                type: descarga.attr('method')
+                type: descarga.attr 'method'
                 data: descarga.serialize()
                 dataType: 'json'
               
@@ -231,8 +231,6 @@ descarga = (data) ->
   $('input[type="datetime"], input[type="time"]').change ->
     date_manager($(this))
 
-  false
-
 EJS.Helpers.prototype.estatus = (arribo, gabarra) ->
   if Object.has(gabarra, 'descarga')
     gabarra.descarga = gabarra.descarga[0]
@@ -323,13 +321,19 @@ carga_exitosa = (data, form, boton, bax_id) ->
 progresar = (bax_id, toneladas) ->
   barra = $('#bax-descarga-' + bax_id)
   tonelaje_total = barra.data('tonelaje-total').toNumber()
+  toneladas = toneladas.toNumber()
+  progreso = barra.attr('data-progreso').toNumber()
 
-  if barra.data('progreso').toNumber() == toneladas.toNumber() and toneladas.toNumber() < 0
+  if progreso == toneladas and toneladas < 0
     avance = 0.0
   else
-    avance = barra.data('progreso').toNumber() + toneladas.toNumber()
+    avance = progreso + toneladas
 
-  barra.css 'width', ( avance * 100 / tonelaje_total ) + '%'
+  if avance <= 0
+    barra.css 'width', '0%'
+  else
+    barra.css 'width', ( avance * 100 / tonelaje_total ) + '%'
+
   barra.attr 'data-progreso', avance
   barra.text avance.format(2, '.', ',') + ' tons.'
 
@@ -347,11 +351,10 @@ progresar = (bax_id, toneladas) ->
       dataType: 'json'
 
     ajax.done ->
-      $('#alerta-bax-' + bax_id).show 'slow', ->
-        $(this).removeClass('hide').removeAttr 'style'
+      emitir_alerta('El BAX ' + bax_id.replace(/-/, '/') + ' ha sido descargado.', 'info')
 
       $('#bax-' + bax_id).delay(7000).hide 'slow', ->
-        this.remove()
+        $(this).remove()
 
 date_manager = (el) ->
   id = el.attr('id')
@@ -428,13 +431,13 @@ $.fn.filtrar = ->
 
     switch self.data('reportado')
       when 'reportado'
-        $('#main article[data-bax-reportado="false"]').hide()
-        $('#main article[data-bax-reportado="true"]').show()
+        $('#main article[data-bax-reportado="false"]').hide 'slow'
+        $('#main article[data-bax-reportado="true"]').show 'slow'
       when 'no-reportado'
-        $('#main article[data-bax-reportado="true"]').hide()
-        $('#main article[data-bax-reportado="false"]').show()
+        $('#main article[data-bax-reportado="true"]').hide 'slow'
+        $('#main article[data-bax-reportado="false"]').show 'slow'
       when 'todos'
-        $('#main article').show()
+        $('#main article[style="display: none;"]').show 'slow'
       else
         false
 
