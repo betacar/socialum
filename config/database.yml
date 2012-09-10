@@ -46,7 +46,8 @@ test:
   password: logico
   host: localhost
   port: 5432
-  schema_search_path: socialum
+  # schema_search_path: socialum
+
 
 production:
   adapter: postgresql
