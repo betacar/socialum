@@ -1,13 +1,9 @@
+# Renderiza el tren de gabarras de un embarque:
+# BAX.id, canidad de gabarras, si posee arribo, datos de descarga, entre otros
 json.bax_id @bax_gabarras.first.bax_id
 json.cantidad @bax_gabarras.size
 
 json.arribo @bax_gabarras.first.arribo_bauxita.present?
-
-if @bax_gabarras.first.arribo_bauxita.present? && @bax_gabarras.first.arribo_bauxita.descarga_bauxitas.present?
-  json.descargas @bax_gabarras.first.arribo_bauxita.descarga_bauxitas.size
-else
-  json.descargas 0
-end
 
 json.gabarras @bax_gabarras do |json, bax_gabarra|
   json.(bax_gabarra, :gabarra_id)
