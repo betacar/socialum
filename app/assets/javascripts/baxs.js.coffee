@@ -109,7 +109,7 @@ $(document).ready ->
                   
                   $('#gabarra-' + bax_gabarra).children('span').removeClass().addClass 'esperando'
 
-                  progresar(destroy.data('bax-id'), destroy.data('peso'))
+                  progresar(destroy.data('bax-id'), destroy.data('peso')) if $('#fecha-desatraque-' + bax_gabarra).val() != '' or $('#hora-desatraque-' + bax_gabarra).val() != ''
 
                   $('#descarga-' + bax_gabarra).hide 'slow', ->
                     $(this).remove()
