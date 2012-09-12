@@ -68,6 +68,15 @@ $(document).ready ->
           $.getJSON gabarra.data('url'), (data) ->
             descarga data
             bax_gabarra = data.bax_id + '-' + data.gabarra_id
+            submit = $('#submit-descarga-' + bax_gabarra)
+
+            submit.attr 'disabled', 'disabled' if $('#descarga-equipo-id-' + bax_gabarra).val() is ''
+            
+            $('#descarga-equipo-id-' + bax_gabarra).change ->
+              if $(this).val() is ''
+                submit.attr 'disabled', 'disabled'
+              else
+                submit.removeAttr 'disabled'
 
             $('#submit-descarga-' + bax_gabarra).on 'click', (e) ->
               e.preventDefault()
