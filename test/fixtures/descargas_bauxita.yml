@@ -3,7 +3,7 @@
 one:
   arribo_id: 23
   arribo_type: ArriboBauxita
-  gabarra_id: 
+  gabarra_id: REM-504
   tonelaje_descarga_bauxita: 9.99
   atraque_descarga_bauxita: 2011-07-26 14:07:55
   inicio_descarga_bauxita: 2011-07-26 14:07:55
@@ -13,14 +13,13 @@ one:
   updater_id: 30021061
 
 two:
-  arribo_id: 23
+  arribo_id: 27
   arribo_type: ArriboBauxita
-  equipo_id: 1
-  cod_gabarra_descarga_bauxita: MyString
+  gabarra_id: ACBL-303
   tonelaje_descarga_bauxita: 9.99
   atraque_descarga_bauxita: 2011-07-26 14:07:55
   inicio_descarga_bauxita: 2011-07-26 14:07:55
   fin_descarga_bauxita: 2011-07-26 14:07:55
   desatraque_descarga_bauxita: 2011-07-26 14:07:55
-  usuario_id_created: 30021061
-  usuario_id_updated: 30021061
+  creator_id: 30021061
+  updater_id: 30021061
