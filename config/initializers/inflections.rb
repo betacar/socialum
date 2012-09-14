@@ -19,6 +19,9 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.plural /([aeiou])([A-Z]|_|$)/, '\1s\2'
   inflect.irregular 'user', 'users'
   inflect.irregular 'tipo_novedad', 'tipo_novedades'
+  inflect.irregular 'descarga_bauxita', 'descarga_bauxita'
+  inflect.irregular 'arribo_bauxita', 'arribo_bauxita'
+  inflect.irregular 'tipos_equipo', 'tipo_equipo'
 
   # inflect.plural /([aeiou])([A-Z]|_|$)/, '\1s\2'
   # inflect.plural /([rlnd])([A-Z]|_|$)/, '\1es\2'
