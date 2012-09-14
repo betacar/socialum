@@ -53,20 +53,6 @@ ActiveRecord::Schema.define(:version => 20120704160318) do
     t.integer  "updater_id"
   end
 
-  create_table "novedades", :force => true do |t|
-    t.boolean  "activo",          :default => true, :null => false
-    t.integer  "proceso_id"
-    t.string   "proceso_type"
-    t.integer  "tipo_novedad_id"
-    t.datetime "inicio_novedad"
-    t.datetime "fin_novedad"
-    t.text     "desc_novedad"
-    t.integer  "creator_id"
-    t.integer  "updater_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "roles", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -76,15 +62,6 @@ ActiveRecord::Schema.define(:version => 20120704160318) do
   create_table "roles_users", :id => false, :force => true do |t|
     t.integer "rol_id"
     t.integer "user_id"
-  end
-
-  create_table "tipo_novedades", :force => true do |t|
-    t.boolean  "activo"
-    t.string   "desc_tipo_novedad"
-    t.integer  "creator_id"
-    t.integer  "updater_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "tipos_equipos", :force => true do |t|

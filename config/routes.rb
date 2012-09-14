@@ -2,9 +2,6 @@ Socialum::Application.routes.draw do
   # Raiz de la app
   root :to => 'baxs#index'
 
-  # Recursos catalogo
-  resources :novedades
-
   # Recursos anidados: arribos y descargas
   resources :baxs, :only => [:index, :show] do
     resources :bax_gabarras, :only => [:index]
@@ -13,9 +10,7 @@ Socialum::Application.routes.draw do
       :as => :bax_gabarra
 
     resources :arribos_bauxitas, :except => [:new, :edit] do
-      resources :descargas, :except => [:new, :edit] do
-        resources :novedades
-      end
+      resources :descargas, :except => [:new, :edit]
     end
   end
 

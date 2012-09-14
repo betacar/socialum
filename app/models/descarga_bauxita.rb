@@ -7,7 +7,6 @@ class DescargaBauxita < ActiveRecord::Base
   belongs_to :gabarra, :foreign_key => :gabarra_id
   belongs_to :bax, :foreign_key => :bax_id
   belongs_to :bax_gabarra, :foreign_key => :gabarra_id
-  has_many :novedades, :as => :proceso, :dependent => :destroy
   
   before_validation :format_params
 
