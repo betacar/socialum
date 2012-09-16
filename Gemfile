@@ -25,9 +25,6 @@ end
 
 # Gems used only for development and teste enviroments
 group :development, :test do
-  gem 'cucumber', '~> 1.1.9'
-  gem 'capybara', '~> 1.1.2'
-  gem 'rspec-rails', '~> 2.8.1'
 end
 
 group :production do
@@ -57,6 +54,9 @@ gem "devise"
 gem "cancan"
 gem "columnize"
 gem "userstamp", :git => 'git://github.com/delynn/userstamp.git'
+
+# Validacion de fechas
+gem 'date_validator', '~> 0.6.3'
 
 gem 'ejs', '~> 1.1.1'
 # gem 'rabl'
