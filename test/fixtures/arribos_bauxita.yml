@@ -1,0 +1,25 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  activo: true
+  bax_id: 001-2012
+  fecha_hora_arribo_bauxita: 2011-07-26 14:01:08
+  creator_id: 30021061
+  updater_id: 30021061
+  descargado: false
+
+two:
+  activo: true
+  bax_id: 002-2012
+  fecha_hora_arribo_bauxita: 2011-07-26 14:01:08
+  creator_id: 30021061
+  updater_id: 30021061
+  descargado: true
+
+three:
+  activo: true
+  bax_id: 003-2012
+  fecha_hora_arribo_bauxita: 2011-07-26 14:01:08
+  creator_id: 30021061
+  updater_id: 30021061
+  descargado: true
