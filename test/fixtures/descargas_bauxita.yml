@@ -2,13 +2,13 @@
 
 <% i = 0 
   i.upto 21 do |i| 
-  gabarra_id = "#{rand(32**3).to_s(32)}-#{Random.rand(999)}"
+  gabarra_id = "#{Random.rand(32**3).to_s(32).upcase}-#{Random.rand(2000)}"
 %>
 <%= gabarra_id %>:
   arribo: arribo_bauxita
   arribo_type: 'ArriboBauxita'
   gabarra_id: <%= gabarra_id %>
-  tonelaje_descarga_bauxita: <%= Random.rand * (2000 - 1000) + 1000 %>
+  tonelaje_descarga_bauxita: <%= Random.rand * (2205.0 - 917.0) + 917.0 %>
   atraque_descarga_bauxita: 2011-07-26 14:07:55
   inicio_descarga_bauxita: 2011-07-26 14:10:55
   fin_descarga_bauxita: 2011-07-26 14:11:55
