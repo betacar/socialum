@@ -16,5 +16,5 @@ class ArriboBauxita < ActiveRecord::Base
             :format => { :with => /\d{3}-\d{4}/, 
                          :message => 'El BAX debe cumplir el formato establecido.' }
   validates :fecha_hora_arribo_bauxita, 
-            :date => { :after => Proc.new { Time.now } }
+            :date => { :before_or_equal_to => Proc.new { Time.now } }
 end
