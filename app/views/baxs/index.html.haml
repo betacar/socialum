@@ -29,11 +29,11 @@
 
         - if bax.arribo_bauxita
           %h6 Arribo Matanzas (M201)
-          %time.data-desc{ :id => "arribo-bax-#{bax.id}", :datetime => bax.arribo_bauxita.fecha_hora_arribo_bauxita.to_datetime, 'data-eta' => (bax.fecha_hora_zarpe.to_datetime + bax.remolcador.tiempo_mina_planta.to_i.hours).to_s.to_datetime }= l bax.arribo_bauxita.fecha_hora_arribo_bauxita.to_datetime, :format => :fecha_hora_mil
+          %time.data-desc{ :id => "arribo-bax-#{bax.id}", :datetime => bax.arribo_bauxita.fecha_hora_arribo_bauxita.to_datetime, 'data-eta' => eta(bax) }= l bax.arribo_bauxita.fecha_hora_arribo_bauxita.to_datetime, :format => :fecha_hora_mil
 
         - else
           %h6 ETA Matanzas (M201)
-          %time.data-desc{ :id => "eta-arribo-bax-#{bax.id}", :datetime => (bax.fecha_hora_zarpe.to_datetime + bax.remolcador.tiempo_mina_planta.to_i.hours).to_s.to_datetime }= l (bax.fecha_hora_zarpe.to_datetime + bax.remolcador.tiempo_mina_planta.to_i.hours).to_s.to_datetime, :format => :fecha_hora_mil
+          %time.data-desc{ :id => "eta-arribo-bax-#{bax.id}", :datetime => eta(bax), 'data-eta' => eta(bax) }= l (bax.fecha_hora_zarpe.to_datetime + bax.remolcador.tiempo_mina_planta.to_i.hours).to_s.to_datetime, :format => :fecha_hora_mil
 
         %h6 Tonelaje
         %p.data-desc= h "#{number_with_delimiter(bax.carga_transportar, :precision => 2, :delimiter => ".", :separator => ",")} tons."

@@ -36,7 +36,6 @@ $(document).ready ->
   # Control de boton para eliminar arribos
   $('#main').on 'click', '[data-type="delete-arribo"]:not(.hide)', ->
     boton = $(this)
-    console.log boton.attr 'data-url' 
 
     if confirm('¿Realmente desea suprimir el arribo del BAX ' + boton.data('bax-id').replace(/-/, '/') + '?')
       destroy = $.ajax 
@@ -134,7 +133,6 @@ cambiar_boton_arribo = (el,data) ->
   el.tooltip placement: 'bottom'
 
   eta.attr('datetime', fecha_arribo).text fecha_arribo_f
-  eta.attr 'data-eta', eta.attr 'datetime'
   eta.prev('h6').text 'Arribo Matanzas (M201)'
   eta.attr 'id', 'arribo-bax-' + data.bax_id
 
@@ -155,7 +153,7 @@ eliminar_arribo = (el) ->
   progress_bar = $('#bax-descarga-' + bax_id)
   arribo_time = $('#arribo-bax-' + bax_id)
   arribo_boton = $('#bax-arribo-' + bax_id)
-  eta = arribo_time.data 'eta'
+  eta = arribo_time.attr 'data-eta'
 
   eta_f = Date.create(eta).format '{dd}/{mon}./{year} ~ {HH}:{mm}'
   
