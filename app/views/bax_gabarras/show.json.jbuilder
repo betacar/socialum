@@ -23,10 +23,6 @@ if @bax_gabarra.arribo_bauxita.present? && @bax_gabarra.arribo_bauxita.descarga_
                             :inicio_descarga_bauxita,
                             :fin_descarga_bauxita,
                             :desatraque_descarga_bauxita
-
-    json.extract! descarga.novedades do |json, novedad|
-      json.extract! novedad, :id, :inicio_novedad, :fin_novedad, :desc_novedad, :creator_id
-    end
   end
 else
   json.has_descarga false
