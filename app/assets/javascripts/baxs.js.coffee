@@ -70,10 +70,10 @@ $(document).ready ->
             bax_gabarra = data.bax_id + '-' + data.gabarra_id
             submit = $('#submit-descarga-' + bax_gabarra)
 
-            submit.attr 'disabled', 'disabled' if $('#descarga-equipo-id-' + bax_gabarra).val() is ''
+            submit.attr 'disabled', 'disabled' if $('#descarga-equipo-id-' + bax_gabarra + ', #fecha-atraque-' + bax_gabarra + ', #hora-atraque-' + bax_gabarra).val() is ''
             
-            $('#descarga-equipo-id-' + bax_gabarra).change ->
-              if $(this).val() is ''
+            $('#descarga-equipo-id-' + bax_gabarra + ', #fecha-atraque-' + bax_gabarra + ', #hora-atraque-' + bax_gabarra).change ->
+              if $('#descarga-equipo-id-' + bax_gabarra).val() is '' or $('#fecha-atraque-' + bax_gabarra).val() is '' or $('#hora-atraque-' + bax_gabarra).val() is ''
                 submit.attr 'disabled', 'disabled'
               else
                 submit.removeAttr 'disabled'
@@ -335,13 +335,16 @@ progresar = (bax_id, toneladas) ->
 
   if progreso == toneladas and toneladas < 0
     avance = 0.0
+    porcentaje = 0
   else
     avance = progreso + toneladas
+    porcentaje = ( avance * 100 / tonelaje_total ).format(2) + '%'
 
   if avance <= 0
     barra.css 'width', '0%'
   else
-    barra.css 'width', ( avance * 100 / tonelaje_total ) + '%'
+    barra.css 'width', porcentaje
+    barra.attr 'data-original-title', porcentaje
 
   barra.attr 'data-progreso', avance
   barra.text avance.format(2, '.', ',') + ' tons.'
