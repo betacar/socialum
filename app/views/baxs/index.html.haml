@@ -60,7 +60,7 @@
 
       %div{ :class => "span12 #{bax.arribo_bauxita ? nil : 'hide'}", :id => "bax-progress-bar-#{ bax.id }" }
         %h6 Progreso de descarga
-        .progress.progress-warning 
-          .bar{ :style => "width:#{bax.arribo_bauxita.descarga_bauxitas.progreso * 100 / bax.carga_transportar unless bax.arribo_bauxita.nil? }%", :id => "bax-descarga-#{ bax.id }", 'data-tonelaje-total' => bax.carga_transportar, 'data-progreso' => bax.arribo_bauxita.nil? ? 0 : bax.arribo_bauxita.descarga_bauxitas.progreso }= h "#{bax.arribo_bauxita ? number_with_delimiter(bax.arribo_bauxita.descarga_bauxitas.progreso, :precision => 2, :delimiter => ".", :separator => ",") : '0,0' } tons."
+        .progress.progress-striped.active
+          .bar{ :style => "width:#{ bax.arribo_bauxita ? avance(bax) : '0' }", :id => "bax-descarga-#{ bax.id }", 'data-tonelaje-total' => bax.carga_transportar, 'data-progreso' => bax.arribo_bauxita.nil? ? 0 : bax.arribo_bauxita.descarga_bauxitas.progreso, :rel => 'tooltip', 'data-original-title' => "#{ bax.arribo_bauxita ? avance(bax) : '0%' }" }= h "#{bax.arribo_bauxita ? number_with_delimiter(bax.arribo_bauxita.descarga_bauxitas.progreso, :precision => 2, :delimiter => ".", :separator => ",") : '0,0' } tons."
 
 - content_for :javascripts, javascript_include_tag(controller.controller_name)
