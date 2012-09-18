@@ -3,7 +3,7 @@ class Empleado < ActiveRecord::Base
   has_one :user
 
   def nombre_completo
-    "#{self.nombres} #{self.apellidos}".titleize
+    [self.nombres, self.apellidos].join(' ').titleize
   end
     
   # Se define como de solo lectura por ser una vista de BD
