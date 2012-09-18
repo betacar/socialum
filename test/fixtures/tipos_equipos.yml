@@ -1,13 +1,16 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  activo: true
+grua:
   nombre_tipo_equipo: Grua
-  creator_id: 1
-  updater_id: 1
+  creator_id: 30021061
+  updater_id: 30021061
 
-two:
-  activo: true
+camion:
   nombre_tipo_equipo: Camion
-  creator_id: 1
-  updater_id: 1
+  creator_id: 30021061
+  updater_id: 30021061
+
+cinta:
+  nombre_tipo_equipo: Cinta transportadora
+  creator_id: 30021061
+  updater_id: 30021061

@@ -1,15 +1,12 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-gms_1:
-  activo: true
-  tipo_equipo_id: 1
-  nombre_equipo: GMS-1
+<% i = 0 
+  i.upto 6 do |i| 
+  nombre = "#{Random.rand(32**3).to_s(32).upcase}-#{Random.rand(9)}"
+%>
+<%= nombre %>:
+  tipo_equipo: tipo_equipo
+  nombre_equipo: <%= nombre %>
   creator_id: 30021061
   updater_id: 30021061
-
-gms_2:
-  activo: true
-  tipo_equipo_id: 1
-  nombre_equipo: GMS-2
-  creator_id: 30021061
-  updater_id: 30021061
+<% end %>

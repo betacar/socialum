@@ -1,7 +1,10 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  name: MyString
+admin:
+  name: Administrador
 
-two:
-  name: MyString
+sup_descargas:
+  name: Sup. de Descargas
+
+op_descargas:
+  name: Op. de Descargas
