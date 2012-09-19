@@ -55,6 +55,4 @@ class ArriboBauxitaTest < ActiveSupport::TestCase
     arribado.toggle(:descargado)
     assert arribado.descargado, 'El atributo descargado es verdadero'
   end
-
-  # TODO: Al eliminar un arribo, se deben eliminar sus descargas
 end
