@@ -8,6 +8,7 @@
   arribo: arribo_bauxita
   arribo_type: 'ArriboBauxita'
   gabarra_id: <%= gabarra_id %>
+  equipo: equipo
   tonelaje_descarga_bauxita: <%= Random.rand * (2205.0 - 917.0) + 917.0 %>
   atraque_descarga_bauxita: 2011-07-26 14:07:55
   inicio_descarga_bauxita: 2011-07-26 14:10:55
