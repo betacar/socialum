@@ -168,12 +168,4 @@ class DescargaBauxitaTest < ActiveSupport::TestCase
 
     assert_equal d.inicio_descarga_bauxita.to_s, '2011-07-26 14:10:00 -0430', 'No actualizo en attributo'
   end
-
-  # El metodo gabarra debe retorna la data de descarga de una gabarra
-  test 'should return a gabarra unload' do
-    g = DescargaBauxita.last
-    descarga = DescargaBauxita.find_by_arribo_id(g.arribo_id).gabarra(g.gabarra_id)
-
-    assert_equal g, descarga, 'Restorna un objeto diferente'
-  end
 end
