@@ -5,7 +5,7 @@
   nombre = "#{Random.rand(32**3).to_s(32).upcase}-#{Random.rand(9)}"
 %>
 <%= nombre %>:
-  tipo_equipo: tipo_equipo
+  tipo_equipo_id: <%= TiposEquipo.first.id %>
   nombre_equipo: <%= nombre %>
   creator_id: 30021061
   updater_id: 30021061

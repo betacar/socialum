@@ -21,7 +21,7 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'tipo_novedad', 'tipo_novedades'
   inflect.irregular 'descarga_bauxita', 'descarga_bauxita'
   inflect.irregular 'arribo_bauxita', 'arribo_bauxita'
-  inflect.irregular 'tipos_equipo', 'tipo_equipo'
+  inflect.irregular 'tipos_equipo', 'tipos_equipos'
 
   # inflect.plural /([aeiou])([A-Z]|_|$)/, '\1s\2'
   # inflect.plural /([rlnd])([A-Z]|_|$)/, '\1es\2'
