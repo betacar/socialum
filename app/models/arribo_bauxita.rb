@@ -17,6 +17,6 @@ class ArriboBauxita < ActiveRecord::Base
   validates :fecha_hora_arribo_bauxita, 
             :date => { :before_or_equal_to => Proc.new { Time.now } }
 
-  # validates_associated :bax
-  # validates_associated :bax_gabarra
+  validates_associated :bax
+  validates_associated :bax_gabarra
 end

@@ -35,9 +35,9 @@ class DescargaBauxita < ActiveRecord::Base
                        { :with => /\d{3,}(\.\d+)?/, 
                          :message => 'El tonelaje de la gabarra debe ser numerico' }
 
-  # validates_associated :arribo
-  # validates_associated :equipo
-  # validates_associated :gabarra
+  validates_associated :arribo
+  validates_associated :equipo
+  validates_associated :gabarra
 
   default_scope order(:atraque_descarga_bauxita, :gabarra_id)
 
