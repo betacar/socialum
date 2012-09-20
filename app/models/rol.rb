@@ -4,4 +4,6 @@ class Rol < ActiveRecord::Base
   attr_accessible :name
 
   validates_associated :users
+
+  validates_presence_of :name, :message => 'Debe indicar el nombre del rol'
 end
