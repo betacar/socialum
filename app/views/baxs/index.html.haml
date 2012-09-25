@@ -2,11 +2,11 @@
 - content_for :stylesheets, stylesheet_link_tag(controller.controller_name)
 - content_for :filtros do
   %li 
-    %a{:href => '#', 'data-reportado' => 'todos'} Todos los BAX
+    %a{:href => '#', :data => {:reportado => 'todos'}} Todos los BAX
   %li 
-    %a{:href => '#', 'data-reportado' => 'reportado'} BAX reportados
+    %a{:href => '#', :data => {:reportado => 'reportado'}} BAX reportados
   %li 
-    %a{:href => '#', 'data-reportado' => 'no-reportado'} BAX no reportados
+    %a{:href => '#', :data => {:reportado => 'no-reportado'}} BAX no reportados
 
 - @baxes.each do |bax|
   %article.bax{ :id => "bax-#{bax.id}", :name => "bax-#{bax.id}", 'data-bax-reportado' => bax.arribo_bauxita ? 'true' : 'false'}
@@ -40,17 +40,17 @@
 
       .span4.botones
         - if bax.arribo_bauxita
-          %button.btn.btn-success.btn-small.disabled{ :id => "bax-arribo-#{bax.id}", :rel => 'tooltip', 'data-original-title' => "#{l bax.arribo_bauxita.fecha_hora_arribo_bauxita.to_datetime, :format => :fecha_hora_mil}", 'data-arribo-bauxita-id' => bax.arribo_bauxita.id, 'data-bax-id' => bax.id, 'data-url' => bax_arribos_bauxitas_path(bax.id) } 
+          %button.btn.btn-success.btn-small.disabled{ :id => "bax-arribo-#{bax.id}", :rel => 'tooltip', :data => {'original-title' => "#{l bax.arribo_bauxita.fecha_hora_arribo_bauxita.to_datetime, :format => :fecha_hora_mil}", 'arribo-bauxita-id' => bax.arribo_bauxita.id, 'bax-id' => bax.id, :url => bax_arribos_bauxitas_path(bax.id)} } 
             %i.fa-icon-ban-circle 
             Arribo reportado
 
         - else              
-          %button.btn.btn-primary.btn-small{ :id => "bax-arribo-#{bax.id}", 'data-bax-id' => bax.id, 'data-type' => 'report-arribo', 'data-url' => bax_arribos_bauxitas_path(bax.id), (can? :create, ArriboBauxita) ? nil : :disabled => :disabled } 
+          %button.btn.btn-primary.btn-small{ :id => "bax-arribo-#{bax.id}", 'data-bax-id' => bax.id, :data => {:type => 'report-arribo', :url => bax_arribos_bauxitas_path(bax.id), (can? :create, ArriboBauxita) ? nil : :disabled => :disabled} } 
             %i.fa-icon-bullhorn 
             Reportar arribo
 
         - if (can? :manage, ArriboBauxita)
-          %button{:id => "delete-arribo-#{bax.id}", :class => "btn btn-danger btn-small #{bax.arribo_bauxita ? nil : 'hide'}", 'data-url' => "#{bax.arribo_bauxita ? bax_arribo_bauxita_path(bax.id, bax.arribo_bauxita.id) : nil}", 'data-bax-id' => bax.id, 'data-type' => 'delete-arribo'}
+          %button{:id => "delete-arribo-#{bax.id}", :class => "btn btn-danger btn-small #{bax.arribo_bauxita ? nil : 'hide'}", :data => {:url => "#{bax.arribo_bauxita ? bax_arribo_bauxita_path(bax.id, bax.arribo_bauxita.id) : nil}", 'bax-id' => bax.id, :type => 'delete-arribo'} }
             %i.fa-icon-trash
             Eliminar arribo
 
@@ -61,6 +61,6 @@
       %div{ :class => "span12 #{bax.arribo_bauxita ? nil : 'hide'}", :id => "bax-progress-bar-#{ bax.id }" }
         %h6 Progreso de descarga
         .progress.progress-striped.active
-          .bar{ :style => "width:#{ bax.arribo_bauxita ? avance(bax) : '0' }", :id => "bax-descarga-#{ bax.id }", 'data-tonelaje-total' => bax.carga_transportar, 'data-progreso' => bax.arribo_bauxita.nil? ? 0 : bax.arribo_bauxita.descarga_bauxitas.progreso, :rel => 'tooltip', 'data-original-title' => "#{ bax.arribo_bauxita ? avance(bax) : '0%' }" }= h "#{bax.arribo_bauxita ? number_with_delimiter(bax.arribo_bauxita.descarga_bauxitas.progreso, :precision => 2, :delimiter => ".", :separator => ",") : '0,0' } tons."
+          .bar{ :style => "width:#{ bax.arribo_bauxita ? avance(bax) : '0' }", :id => "bax-descarga-#{ bax.id }", :rel => 'tooltip', :data => {'tonelaje-total' => bax.carga_transportar, :progreso => bax.arribo_bauxita.nil? ? 0 : bax.arribo_bauxita.descarga_bauxitas.progreso, 'original-title' => "#{ bax.arribo_bauxita ? avance(bax) : '0%' }"} }= h "#{bax.arribo_bauxita ? number_with_delimiter(bax.arribo_bauxita.descarga_bauxitas.progreso, :precision => 2, :delimiter => ".", :separator => ",") : '0,0' } tons."
 
 - content_for :javascripts, javascript_include_tag(controller.controller_name)

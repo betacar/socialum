@@ -1,6 +1,6 @@
 = render '/shared/head'
 
-%body{'data-controller' => "#{controller.controller_name}", 'data-action' => "#{controller.action_name}"}
+%body{:data => {:controller => "#{controller_name}", :action => "#{action_name}"}}
   %aside#menu
     %header
       = link_to (image_tag 'sa_header_logo_socialum.png', :alt => "#{Socialum::Application.config.name} – #{Socialum::Application.config.description}", :title => "#{Socialum::Application.config.name} – #{Socialum::Application.config.description}", :height => 30, :id => 'logo'), root_path
