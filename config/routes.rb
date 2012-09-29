@@ -1,4 +1,6 @@
 Socialum::Application.routes.draw do
+  resources :overview, :only => [:index]
+
   # Raiz de la app
   root :to => 'baxs#index'
 
