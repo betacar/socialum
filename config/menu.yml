@@ -1,0 +1,42 @@
+defaults: &DEFAULTS
+  areas:
+    - nombre: Manejo de materiales
+      procesos:
+        # - descripcion: Overview
+        #   icono: fa-icon-bar-chart
+        #   controller: overview
+
+        - descripcion: Arribos y descargas
+          icono: fa-icon-circle-arrow-down
+          controller: baxs
+
+        # - descripcion: Novedades
+        #   icono: fa-icon-book
+        #   controller: novedades
+
+    # - nombre: Lado rojo
+    #   procesos:
+    #     - descripcion: 
+    #       icono: 
+    #       controller: 
+
+    # - nombre: Lado blanco
+    #   procesos:
+    #     - descripcion: 
+    #       icono:
+    #       controller: 
+
+    # - nombre: Despacho de producto
+    #   procesos:
+    #     - descripcion: 
+    #       icono: 
+    #       controller: 
+
+development:
+  <<: *DEFAULTS
+
+test:
+  <<: *DEFAULTS
+
+production:
+  <<: *DEFAULTS
