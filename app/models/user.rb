@@ -20,14 +20,6 @@ class User < ActiveRecord::Base
   # def before_save
   #   self.id = self.ficha # Asigno el numero de personal como ID de usuario
   # end
-
-  # def datos(id = nil)
-  #   id = self.ficha if id.nil?
-  #   empleado = Empleado.find(id)
-
-  #   # Obtenemos los nombres y apellidos del empleado, los llevamos a minuscula y luego 'titulizamos' el nombre completo
-  #   (empleado.nombres + ' ' + empleado.apellidos).titleize
-  # end
   
   def role?(role)
     return !!self.roles.find_by_name(role.to_s)
