@@ -328,6 +328,8 @@ body { @include background($reference: "sa_body_bg.png", $repeat: repeat) }
     display:block;
     margin-bottom:10px;
   }
+  
+  .btn.disabled, .btn[disabled] { cursor: not-allowed }
 
   .bax {
     margin-bottom:12px;
