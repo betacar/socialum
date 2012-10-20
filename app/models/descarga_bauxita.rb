@@ -39,14 +39,61 @@ class DescargaBauxita < ActiveRecord::Base
   validates_associated :equipo
   validates_associated :gabarra
 
-  default_scope order(:atraque_descarga_bauxita, :gabarra_id)
+  #default_scope order(:atraque_descarga_bauxita, :gabarra_id)
 
-  def self.progreso
-    calculate(:sum, :tonelaje_descarga_bauxita, :conditions => ['desatraque_descarga_bauxita IS NOT NULL'])
-  end
+  class << self
+    def progreso
+      calculate(:sum, 
+                :tonelaje_descarga_bauxita, 
+                :conditions => ['desatraque_descarga_bauxita IS NOT NULL'])
+    end
 
-  def self.gabarra(gabarra_id)
-    where('gabarra_id = ?', gabarra_id).limit 1
+    def gabarra(gabarra_id)
+      where('gabarra_id = ?', gabarra_id).limit 1
+    end
+
+    def mes
+      hoy = Date.today
+      descargas = []
+
+      data ||= select('DATE(fin_descarga_bauxita) AS fin_descarga_bauxita, 
+                  SUM(tonelaje_descarga_bauxita) AS tonelaje_descarga_bauxita')
+                .group(1)
+                .where('(fin_descarga_bauxita IS NOT NULL AND arribo_type = ?) 
+                  AND (fin_descarga_bauxita >= ? AND fin_descarga_bauxita <= ?)',
+                  'ArriboBauxita',
+                  hoy.beginning_of_month, 
+                  hoy)
+                .order(:fin_descarga_bauxita)
+
+      data.each do |d|
+        descargas << {:fin_descarga_bauxita => d.fin_descarga_bauxita.to_date + 1.day, :tonelaje_descarga_bauxita => d.tonelaje_descarga_bauxita.to_f}
+      end
+
+
+      descargas
+    end
+
+    def temporada
+      hoy = Date.today
+      descargas = []
+
+      data ||= select('DATE(fin_descarga_bauxita) AS fin_descarga_bauxita, 
+                  SUM(tonelaje_descarga_bauxita) AS tonelaje_descarga_bauxita')
+                .group(1)
+                .where('(fin_descarga_bauxita IS NOT NULL AND arribo_type = ?) 
+                  AND (fin_descarga_bauxita >= ? AND fin_descarga_bauxita <= ?)',
+                  'ArriboBauxita',
+                  Date.civil(hoy.year, 1, 1), 
+                  hoy)
+                .order(:fin_descarga_bauxita)
+
+      data.each do |d|
+        descargas << {:fin_descarga_bauxita => d.fin_descarga_bauxita.to_date + 1.day, :tonelaje_descarga_bauxita => d.tonelaje_descarga_bauxita.to_f}
+      end
+
+      descargas
+    end
   end
 
   private

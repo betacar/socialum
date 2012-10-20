@@ -21,12 +21,12 @@
 #  Modificado por Carlos Betancourt C. <carbetacar@gmail.com>
 #  Web: betacar.net
 
-String.prototype.isDate = (format = 'd/M/yyyy') ->
+String::isDate = (format = 'd/M/yyyy') ->
   date = this.getDateFromFormat(format)
   return false  if date is 0
   true
 
-String.prototype.getDateFromFormat = (format = 'd/M/yyyy') ->
+String::getDateFromFormat = (format = 'd/M/yyyy') ->
   val = this + ""
   format = format + ""
   i_val = 0

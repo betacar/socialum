@@ -1,0 +1,12 @@
+- titulo 'Overview'
+
+.row-fluid
+  .span6
+    %h3= "Descargas de bauxita: #{Date.today.to_s(:mes_anio)}"
+    #descargas-mes{ :data => { :json => @descargas_mes.to_json } }
+
+  .span6
+    %h3= "Descargas de bauxita: Temp. #{Date.today.year}"
+    #descargas-temporada{ :data => { :json => @descargas_temporada.to_json } }
+
+- content_for :javascripts, javascript_include_tag(controller_name)

@@ -25,6 +25,7 @@ end
 
 # Gems used only for development and teste enviroments
 group :development, :test do
+  gem 'railroady'
 end
 
 group :production do

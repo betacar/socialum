@@ -2,9 +2,9 @@ defaults: &DEFAULTS
   areas:
     - nombre: Manejo de materiales
       procesos:
-        # - descripcion: Overview
-        #   icono: fa-icon-bar-chart
-        #   controller: overview
+        - descripcion: Overview
+          icono: fa-icon-bar-chart
+          controller: overview
 
         - descripcion: Arribos y descargas
           icono: fa-icon-circle-arrow-down
