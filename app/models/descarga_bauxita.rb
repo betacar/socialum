@@ -41,13 +41,13 @@ class DescargaBauxita < ActiveRecord::Base
 
   default_scope order(:atraque_descarga_bauxita, :gabarra_id)
 
+  
+  scope :gabarra, lambda {|gabarra_id| where('gabarra_id = ?', gabarra_id).limit 1}
+
   def self.progreso
     calculate(:sum, :tonelaje_descarga_bauxita, :conditions => ['desatraque_descarga_bauxita IS NOT NULL'])
   end
 
-  def self.gabarra(gabarra_id)
-    where('gabarra_id = ?', gabarra_id).limit 1
-  end
 
   private
     def format_params
