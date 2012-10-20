@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   self.table_name = :usuarios
   has_one :empleado, :foreign_key => :id
   has_and_belongs_to_many :roles
-  devise :database_authenticatable, :rememberable, :trackable, :timeoutable
+  devise :database_authenticatable, :rememberable, :trackable, :timeoutable, :id
   model_stamper
 
   validates_associated :empleado
