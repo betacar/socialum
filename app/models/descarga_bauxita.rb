@@ -104,7 +104,9 @@ class DescargaBauxita < ActiveRecord::Base
 
         # Parametros de fecha y hora de operaciones de descarga
         %w(atraque_descarga_bauxita inicio_descarga_bauxita fin_descarga_bauxita desatraque_descarga_bauxita).each do |m|
-          self.send("#{m}=", Time.zone.parse("#{self.send(m)[:fecha]} #{self.send(m)[:hora]}")) unless "#{self.send(m)[:fecha]} #{self.send(m)[:hora]}".nil?
+          if self.send(m).class.eql?(ActiveSupport::HashWithIndifferentAccess)
+            self.send("#{m}=", Time.zone.parse("#{self.send(m)[:fecha]} #{self.send(m)[:hora]}")) unless "#{self.send(m)[:fecha]} #{self.send(m)[:hora]}".nil?
+          end
         end
       end
     end
